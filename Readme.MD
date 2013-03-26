@@ -1,4 +1,4 @@
-## VTEX Commerce Suite - Integration Samples
+##vcs.integration.samples##
+=======================
 
-Este projeto irá concentrar snippets de código, exemplos de integração e os cenários de erros mais comuns ao integrar com a plataforma VTEX.
-
+Exemplos de integraÃ§Ã£o de sistemas de terceiros (ERP's entre outros ) com a plataforma a VTEX
