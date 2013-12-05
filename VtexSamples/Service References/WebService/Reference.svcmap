@@ -26,11 +26,10 @@
     <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="c74d4aa2-58b2-43b4-a744-cff0ab9e8347" SourceId="1" SourceUrl="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd6" />
     <MetadataFile FileName="Service.disco" MetadataType="Disco" ID="34ef8167-88a7-42e2-8c6b-43e3142a921a" SourceId="1" SourceUrl="http://webservice-basedev.vtexlocal.com.br/Service.svc?disco" />
     <MetadataFile FileName="Service2.xsd" MetadataType="Schema" ID="b656a04d-1214-4ef9-9daf-1c405c288969" SourceId="1" SourceUrl="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd1" />
-    <MetadataFile FileName="Service3.xsd" MetadataType="Schema" ID="85c6c9fd-8ac7-4cfb-a7e9-1d0b759b5cc7" SourceId="1" SourceUrl="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd7" />
-    <MetadataFile FileName="Service4.xsd" MetadataType="Schema" ID="ab2aacfb-5387-43f7-bf06-90e1a975adba" SourceId="1" SourceUrl="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd2" />
-    <MetadataFile FileName="Service5.xsd" MetadataType="Schema" ID="45b91fb3-cd6d-426f-8d0b-3429d4512002" SourceId="1" SourceUrl="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd3" />
-    <MetadataFile FileName="Service6.xsd" MetadataType="Schema" ID="453fe9a7-eaf6-4bc1-8512-b49d616e1918" SourceId="1" SourceUrl="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd4" />
     <MetadataFile FileName="Service7.xsd" MetadataType="Schema" ID="2f34ef09-447c-4b38-9e6c-bb0ce3a2c63d" SourceId="1" SourceUrl="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd5" />
+    <MetadataFile FileName="Service4.xsd" MetadataType="Schema" ID="ab2aacfb-5387-43f7-bf06-90e1a975adba" SourceId="1" SourceUrl="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd2" />
+    <MetadataFile FileName="Service6.xsd" MetadataType="Schema" ID="453fe9a7-eaf6-4bc1-8512-b49d616e1918" SourceId="1" SourceUrl="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd4" />
+    <MetadataFile FileName="Service5.xsd" MetadataType="Schema" ID="45b91fb3-cd6d-426f-8d0b-3429d4512002" SourceId="1" SourceUrl="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd3" />
     <MetadataFile FileName="Service.wsdl" MetadataType="Wsdl" ID="40cd651b-04dd-402f-8f8d-7bdd25189a30" SourceId="1" SourceUrl="http://webservice-basedev.vtexlocal.com.br/Service.svc?wsdl" />
   </Metadata>
   <Extensions>

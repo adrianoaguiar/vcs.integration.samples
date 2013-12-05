@@ -71,9 +71,6 @@
     <None Include="Service References\WebService\Service2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\WebService\Service3.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\WebService\Service4.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -131,6 +128,9 @@
     <None Include="Service References\WebService\VtexSamples.WebService.FreightDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\WebService\VtexSamples.WebService.FreightStockKeepingUnitDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\WebService\VtexSamples.WebService.FreightValueDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -170,6 +170,9 @@
     <None Include="Service References\WebService\VtexSamples.WebService.OrderDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\WebService\VtexSamples.WebService.OrderInteractionDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\WebService\VtexSamples.WebService.OrderStatusDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -180,9 +183,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\WebService\VtexSamples.WebService.ServiceDTO.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\WebService\VtexSamples.WebService.ServiceGiftListAndMembersV2.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\WebService\VtexSamples.WebService.ServiceInsertUpdateResponse.datasource">

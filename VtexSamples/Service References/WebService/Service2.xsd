@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:import schemaLocation="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:import schemaLocation="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:import schemaLocation="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
   <xs:simpleType name="ErrorType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="CATEGORIA">
@@ -141,6 +141,110 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="ErrorType" nillable="true" type="tns:ErrorType" />
+  <xs:complexType name="StockKeepingUnitComplementDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ComplementType" type="tns:StockKeepingUnitComplementDTO.ComplementTypeEnum" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StockKeepingUnitComplements" nillable="true" type="q1:ArrayOfint" />
+      <xs:element minOccurs="0" name="StockKeepingUnitId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StockKeepingUnitComplementDTO" nillable="true" type="tns:StockKeepingUnitComplementDTO" />
+  <xs:simpleType name="StockKeepingUnitComplementDTO.ComplementTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Accessory">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Sugestion">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Similarly">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="StockKeepingUnitComplementDTO.ComplementTypeEnum" nillable="true" type="tns:StockKeepingUnitComplementDTO.ComplementTypeEnum" />
+  <xs:complexType name="ArrayOfProductFieldNameDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductFieldNameDTO" nillable="true" type="tns:ProductFieldNameDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProductFieldNameDTO" nillable="true" type="tns:ArrayOfProductFieldNameDTO" />
+  <xs:complexType name="ProductFieldNameDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="fieldName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="fieldValues" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element minOccurs="0" name="productid" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProductFieldNameDTO" nillable="true" type="tns:ProductFieldNameDTO" />
+  <xs:complexType name="ArrayOfProductFieldIdDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductFieldIdDTO" nillable="true" type="tns:ProductFieldIdDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProductFieldIdDTO" nillable="true" type="tns:ArrayOfProductFieldIdDTO" />
+  <xs:complexType name="ProductFieldIdDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="fieldId" type="xs:int" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="fieldValues" nillable="true" type="q3:ArrayOfstring" />
+      <xs:element minOccurs="0" name="productid" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProductFieldIdDTO" nillable="true" type="tns:ProductFieldIdDTO" />
+  <xs:complexType name="ArrayOfStockKeepingUnitFieldNameDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StockKeepingUnitFieldNameDTO" nillable="true" type="tns:StockKeepingUnitFieldNameDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStockKeepingUnitFieldNameDTO" nillable="true" type="tns:ArrayOfStockKeepingUnitFieldNameDTO" />
+  <xs:complexType name="StockKeepingUnitFieldNameDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="fieldName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="fieldValues" nillable="true" type="q4:ArrayOfstring" />
+      <xs:element minOccurs="0" name="idSku" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StockKeepingUnitFieldNameDTO" nillable="true" type="tns:StockKeepingUnitFieldNameDTO" />
+  <xs:complexType name="ArrayOfStockKeepingUnitFieldIdDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StockKeepingUnitFieldIdDTO" nillable="true" type="tns:StockKeepingUnitFieldIdDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStockKeepingUnitFieldIdDTO" nillable="true" type="tns:ArrayOfStockKeepingUnitFieldIdDTO" />
+  <xs:complexType name="StockKeepingUnitFieldIdDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="fieldId" type="xs:int" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="fieldValues" nillable="true" type="q5:ArrayOfstring" />
+      <xs:element minOccurs="0" name="idSku" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StockKeepingUnitFieldIdDTO" nillable="true" type="tns:StockKeepingUnitFieldIdDTO" />
+  <xs:complexType name="ArrayOfStoreDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StoreDTO" nillable="true" type="tns:StoreDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStoreDTO" nillable="true" type="tns:ArrayOfStoreDTO" />
+  <xs:complexType name="StoreDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StoreDTO" nillable="true" type="tns:StoreDTO" />
   <xs:complexType name="GiftCardDTO">
     <xs:sequence>
       <xs:element minOccurs="0" name="EmissionDate" nillable="true" type="xs:dateTime" />
@@ -199,6 +303,7 @@
       <xs:element minOccurs="0" name="FileId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="GiftCardId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="GiftListId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="GiftListMembers" nillable="true" type="tns:ArrayOfGiftListMemberDTO" />
       <xs:element minOccurs="0" name="GiftListTypeId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="Gifted" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
@@ -232,6 +337,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="GiftListMemberDTO" nillable="true" type="tns:GiftListMemberDTO" />
+  <xs:complexType name="ArrayOfGiftListDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GiftListDTO" nillable="true" type="tns:GiftListDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGiftListDTO" nillable="true" type="tns:ArrayOfGiftListDTO" />
   <xs:complexType name="GiftListTypeDTO">
     <xs:sequence>
       <xs:element minOccurs="0" name="GiftListTypeId" nillable="true" type="xs:int" />
@@ -257,12 +368,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="GiftListTypeDTO" nillable="true" type="tns:GiftListTypeDTO" />
-  <xs:complexType name="ArrayOfGiftListDTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="GiftListDTO" nillable="true" type="tns:GiftListDTO" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfGiftListDTO" nillable="true" type="tns:ArrayOfGiftListDTO" />
   <xs:complexType name="GiftListStockKeepingUnitDTO">
     <xs:sequence>
       <xs:element minOccurs="0" name="DateCreated" nillable="true" type="xs:dateTime" />
@@ -289,6 +394,19 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfGiftListStockKeepingUnitDTO" nillable="true" type="tns:ArrayOfGiftListStockKeepingUnitDTO" />
+  <xs:complexType name="ArrayOfStockKeepingUnitQuantityDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StockKeepingUnitQuantityDTO" nillable="true" type="tns:StockKeepingUnitQuantityDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStockKeepingUnitQuantityDTO" nillable="true" type="tns:ArrayOfStockKeepingUnitQuantityDTO" />
+  <xs:complexType name="StockKeepingUnitQuantityDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+      <xs:element minOccurs="0" name="StockKeepingUnitId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StockKeepingUnitQuantityDTO" nillable="true" type="tns:StockKeepingUnitQuantityDTO" />
   <xs:complexType name="ArrayOfEmailQueueDTO">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="EmailQueueDTO" nillable="true" type="tns:EmailQueueDTO" />
@@ -355,7 +473,7 @@
       <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="ListInactiveProducts" nillable="true" type="xs:boolean" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProductIdCollection" nillable="true" type="q1:ArrayOfint" />
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProductIdCollection" nillable="true" type="q6:ArrayOfint" />
       <xs:element minOccurs="0" name="Searchable" nillable="true" type="xs:boolean" />
       <xs:element minOccurs="0" name="ToDate" type="xs:dateTime" />
     </xs:sequence>
@@ -600,6 +718,36 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="PackageTrackingDTO" nillable="true" type="tns:PackageTrackingDTO" />
+  <xs:complexType name="OrderInvoiceDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Courier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmbeddedInvoice" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InvoiceNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InvoiceUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InvoiceValue" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IssuanceDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OrderId" type="xs:int" />
+      <xs:element minOccurs="0" name="OrderIdV3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StockKeepingUnits" nillable="true" type="tns:ArrayOfOrderInvoiceStockKeepingUnitDTO" />
+      <xs:element minOccurs="0" name="TrackingNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TrackingUrl" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrderInvoiceDTO" nillable="true" type="tns:OrderInvoiceDTO" />
+  <xs:complexType name="ArrayOfOrderInvoiceStockKeepingUnitDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderInvoiceStockKeepingUnitDTO" nillable="true" type="tns:OrderInvoiceStockKeepingUnitDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrderInvoiceStockKeepingUnitDTO" nillable="true" type="tns:ArrayOfOrderInvoiceStockKeepingUnitDTO" />
+  <xs:complexType name="OrderInvoiceStockKeepingUnitDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Price" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Quantity" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="StockKeepingUnitId" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrderInvoiceStockKeepingUnitDTO" nillable="true" type="tns:OrderInvoiceStockKeepingUnitDTO" />
   <xs:complexType name="WareHouseIStockableDTO">
     <xs:sequence>
       <xs:element minOccurs="0" name="AvailableQuantity" nillable="true" type="xs:int" />
@@ -607,9 +755,17 @@
       <xs:element minOccurs="0" name="StockKeepingUnitId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="TotalQuantity" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="WareHouseId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="WareHouseIdV3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WareHouseName" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="WareHouseIStockableDTO" nillable="true" type="tns:WareHouseIStockableDTO" />
+  <xs:complexType name="ArrayOfWareHouseIStockableDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WareHouseIStockableDTO" nillable="true" type="tns:WareHouseIStockableDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWareHouseIStockableDTO" nillable="true" type="tns:ArrayOfWareHouseIStockableDTO" />
   <xs:complexType name="NewsletterDTO">
     <xs:sequence>
       <xs:element minOccurs="0" name="Data" nillable="true" type="xs:dateTime" />
@@ -643,6 +799,7 @@
       <xs:element minOccurs="0" name="Length" nillable="true" type="xs:decimal" />
       <xs:element minOccurs="0" name="ListPrice" nillable="true" type="xs:decimal" />
       <xs:element minOccurs="0" name="ManufacturerCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MeasurementUnit" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ModalId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Price" nillable="true" type="xs:decimal" />
@@ -655,6 +812,7 @@
       <xs:element minOccurs="0" name="RefId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="RewardValue" nillable="true" type="xs:decimal" />
       <xs:element minOccurs="0" name="StockKeepingUnitEans" nillable="true" type="tns:ArrayOfStockKeepingUnitEanDTO" />
+      <xs:element minOccurs="0" name="UnitMultiplier" nillable="true" type="xs:decimal" />
       <xs:element minOccurs="0" name="WeightKg" nillable="true" type="xs:decimal" />
       <xs:element minOccurs="0" name="Width" nillable="true" type="xs:decimal" />
     </xs:sequence>
@@ -691,7 +849,7 @@
       <xs:element minOccurs="0" name="IsVisible" nillable="true" type="xs:boolean" />
       <xs:element minOccurs="0" name="KeyWords" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="LinkId" nillable="true" type="xs:string" />
-      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListStoreId" nillable="true" type="q2:ArrayOfint" />
+      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListStoreId" nillable="true" type="q7:ArrayOfint" />
       <xs:element minOccurs="0" name="LomadeeCampaignCode" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="MetaTagDescription" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
@@ -736,21 +894,26 @@
       <xs:element minOccurs="0" name="CategoryIdDefault" type="xs:int" />
       <xs:element minOccurs="0" name="CheckoutVersion" type="xs:int" />
       <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DisableUtmCampaignOnMultiStore" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EspecificationSkuOnUniqueProduct" type="xs:boolean" />
       <xs:element minOccurs="0" name="IVDecryptKey" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="IgnoreBrandForExistingProducts" type="xs:boolean" />
       <xs:element minOccurs="0" name="IgnoreCategoryForExistingProducts" type="xs:boolean" />
       <xs:element minOccurs="0" name="IgnoreNameForExistingProductsAndSkus" type="xs:boolean" />
       <xs:element minOccurs="0" name="IntegrateDescription" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IntegrateDiscountOnItem" type="xs:boolean" />
       <xs:element minOccurs="0" name="IntegrateEAN" type="xs:boolean" />
       <xs:element minOccurs="0" name="IntegrateEspecification" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IntegrateGiftListOnOrder" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IntegrateKitComponentOnOrder" type="xs:boolean" />
       <xs:element minOccurs="0" name="IntegratePrice" type="xs:boolean" />
       <xs:element minOccurs="0" name="IntegrateTelemarketing" type="xs:boolean" />
       <xs:element minOccurs="0" name="IntegrationWarehouse" nillable="true" type="tns:ArrayOfIntegrationWarehouseDTO" />
       <xs:element minOccurs="0" name="LogSuccess" type="xs:boolean" />
       <xs:element minOccurs="0" name="LogXml" type="xs:boolean" />
       <xs:element minOccurs="0" name="OrderStatus" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PaymentIdWithoutTaxes" nillable="true" type="xs:string" />
+      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PaymentIdWithoutTaxes" nillable="true" type="q8:ArrayOfint" />
       <xs:element minOccurs="0" name="VtexDecryptKey" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -775,14 +938,15 @@
       <xs:element minOccurs="0" name="IdGroupClientCandidate" type="xs:int" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
-      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="listCpf" nillable="true" type="q3:ArrayOfstring" />
-      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="listEmail" nillable="true" type="q4:ArrayOfstring" />
+      <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="listCpf" nillable="true" type="q9:ArrayOfstring" />
+      <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="listEmail" nillable="true" type="q10:ArrayOfstring" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ClientCandidateDTO" nillable="true" type="tns:ClientCandidateDTO" />
   <xs:complexType name="OrderDTO">
     <xs:sequence>
       <xs:element minOccurs="0" name="Address" nillable="true" type="tns:AddressOrderDTO" />
+      <xs:element minOccurs="0" name="AffiliateId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Campaign" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Client" nillable="true" type="tns:ClientDTO" />
       <xs:element minOccurs="0" name="ClientIP" nillable="true" type="xs:string" />
@@ -790,18 +954,21 @@
       <xs:element minOccurs="0" name="Coupon" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="GiftListStockKeepingUnits" nillable="true" type="tns:ArrayOfGiftListStockKeepingUnitDTO" />
       <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IdV3" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IsGiftList" type="xs:boolean" />
       <xs:element minOccurs="0" name="IsMultiStore" type="xs:boolean" />
       <xs:element minOccurs="0" name="Keywords" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ListOrderDiscount" nillable="true" type="tns:ArrayOfOrderDiscountDTO" />
       <xs:element minOccurs="0" name="Media" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="OrderDeliveries" nillable="true" type="tns:ArrayOfOrderDeliveryDTO" />
+      <xs:element minOccurs="0" name="OrderInvoices" nillable="true" type="tns:ArrayOfOrderInvoiceDTO" />
       <xs:element minOccurs="0" name="OrderPayments" nillable="true" type="tns:ArrayOfOrderPaymentDTO" />
       <xs:element minOccurs="0" name="PurchaseDate" nillable="true" type="xs:dateTime" />
-      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="PurchaseDateUtc" nillable="true" type="q5:DateTimeOffset" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="PurchaseDateUtc" nillable="true" type="q11:DateTimeOffset" />
       <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="StoreId" type="xs:int" />
       <xs:element minOccurs="0" name="StoreName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tax" nillable="true" type="xs:decimal" />
       <xs:element minOccurs="0" name="TelemarketingId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="TelemarketingLogin" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TelemarketingObservation" nillable="true" type="xs:string" />
@@ -823,6 +990,7 @@
       <xs:element minOccurs="0" name="More" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Neighborhood" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Number" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="NumberV3" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="OfficePhone" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ReceiverName" nillable="true" type="xs:string" />
@@ -876,6 +1044,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="DiscountId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="OrderId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="SkuId" nillable="true" type="xs:int" />
     </xs:sequence>
@@ -896,6 +1065,8 @@
       <xs:element minOccurs="0" name="DeliveryDate" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="DistributionCenter" nillable="true" type="tns:DistributionCenterDTO" />
       <xs:element minOccurs="0" name="FreightId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="FreightIdV3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreightName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FreightTypeId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="InvoiceNumber" nillable="true" type="xs:string" />
@@ -935,11 +1106,15 @@
       <xs:element minOccurs="0" name="CostOff" nillable="true" type="xs:decimal" />
       <xs:element minOccurs="0" name="CupomValue" nillable="true" type="xs:decimal" />
       <xs:element minOccurs="0" name="CupomValueOff" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Discounts" nillable="true" type="tns:ArrayOfOrderItemDiscountDTO" />
       <xs:element minOccurs="0" name="GiftDiscountId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IsGift" nillable="true" type="xs:boolean" />
       <xs:element minOccurs="0" name="IsKit" nillable="true" type="xs:boolean" />
       <xs:element minOccurs="0" name="IsStockImpact" nillable="true" type="xs:boolean" />
       <xs:element minOccurs="0" name="ItemId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ListPrice" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MeasurementUnit" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="OrderDeliveryId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="OrderItemServices" nillable="true" type="tns:ArrayOfOrderItemServiceDTO" />
       <xs:element minOccurs="0" name="ParentOrderItemId" nillable="true" type="xs:int" />
@@ -949,9 +1124,25 @@
       <xs:element minOccurs="0" name="ShippingCost" nillable="true" type="xs:decimal" />
       <xs:element minOccurs="0" name="ShippingCostOff" nillable="true" type="xs:decimal" />
       <xs:element minOccurs="0" name="StockLikelyId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="StockLikelyIdV3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnitMultiplier" nillable="true" type="xs:decimal" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="OrderItemDTO" nillable="true" type="tns:OrderItemDTO" />
+  <xs:complexType name="ArrayOfOrderItemDiscountDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderItemDiscountDTO" nillable="true" type="tns:OrderItemDiscountDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrderItemDiscountDTO" nillable="true" type="tns:ArrayOfOrderItemDiscountDTO" />
+  <xs:complexType name="OrderItemDiscountDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiscountName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsPercentual" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrderItemDiscountDTO" nillable="true" type="tns:OrderItemDiscountDTO" />
   <xs:complexType name="ArrayOfOrderItemServiceDTO">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderItemServiceDTO" nillable="true" type="tns:OrderItemServiceDTO" />
@@ -1018,6 +1209,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="OrderStatusDTO" nillable="true" type="tns:OrderStatusDTO" />
+  <xs:complexType name="ArrayOfOrderInvoiceDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderInvoiceDTO" nillable="true" type="tns:OrderInvoiceDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrderInvoiceDTO" nillable="true" type="tns:ArrayOfOrderInvoiceDTO" />
   <xs:complexType name="ArrayOfOrderPaymentDTO">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderPaymentDTO" nillable="true" type="tns:OrderPaymentDTO" />
@@ -1047,11 +1244,13 @@
       <xs:element minOccurs="0" name="IsValid" nillable="true" type="xs:boolean" />
       <xs:element minOccurs="0" name="Neighborhood" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Number" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="NumberV3" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="OrderId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="OrderPaymentStatusId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="PaymentAuthorizationId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PaymentId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="PaymentTransactionId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaymentUniqueSerialNumber" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Plots" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="ReferencePoint" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
@@ -1067,6 +1266,31 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfOrderDTO" nillable="true" type="tns:ArrayOfOrderDTO" />
+  <xs:complexType name="ArrayOfOrderInteractionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderInteractionDTO" nillable="true" type="tns:OrderInteractionDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrderInteractionDTO" nillable="true" type="tns:ArrayOfOrderInteractionDTO" />
+  <xs:complexType name="OrderInteractionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="OrderId" type="xs:int" />
+      <xs:element minOccurs="0" name="StatusId" type="tns:OrderInteractionDTO.StatusIdEnum" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrderInteractionDTO" nillable="true" type="tns:OrderInteractionDTO" />
+  <xs:simpleType name="OrderInteractionDTO.StatusIdEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Pending" />
+      <xs:enumeration value="InProgress" />
+      <xs:enumeration value="Completed" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OrderInteractionDTO.StatusIdEnum" nillable="true" type="tns:OrderInteractionDTO.StatusIdEnum" />
   <xs:complexType name="ArrayOfOrderStatusDTO">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderStatusDTO" nillable="true" type="tns:OrderStatusDTO" />
@@ -1122,6 +1346,8 @@
   <xs:element name="ArrayOfClientDTO" nillable="true" type="tns:ArrayOfClientDTO" />
   <xs:complexType name="AddressDTO">
     <xs:sequence>
+      <xs:element minOccurs="0" name="AddressGUID" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="AddressNameV3" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="AddressType" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
@@ -1132,6 +1358,7 @@
       <xs:element minOccurs="0" name="ReferencePoint" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserGUID" nillable="true" type="ser:guid" />
       <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -1155,6 +1382,52 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="FreightValueDTO" nillable="true" type="tns:FreightValueDTO" />
+  <xs:complexType name="ArrayOfFreightStockKeepingUnitContextDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FreightStockKeepingUnitContextDTO" nillable="true" type="tns:FreightStockKeepingUnitContextDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFreightStockKeepingUnitContextDTO" nillable="true" type="tns:ArrayOfFreightStockKeepingUnitContextDTO" />
+  <xs:complexType name="FreightStockKeepingUnitContextDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+      <xs:element minOccurs="0" name="StockKeepingUnitId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FreightStockKeepingUnitContextDTO" nillable="true" type="tns:FreightStockKeepingUnitContextDTO" />
+  <xs:complexType name="ArrayOfFreightStockKeepingUnitDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FreightStockKeepingUnitDTO" nillable="true" type="tns:FreightStockKeepingUnitDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFreightStockKeepingUnitDTO" nillable="true" type="tns:ArrayOfFreightStockKeepingUnitDTO" />
+  <xs:complexType name="FreightStockKeepingUnitDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DeliveryTime" type="xs:int" />
+      <xs:element minOccurs="0" name="FreightAdditionalInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreightPrice" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FreightScheduledDateOptions" nillable="true" type="tns:ArrayOfFreightScheduledDateOptionDTO" />
+      <xs:element minOccurs="0" name="FreightType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreightTypeId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+      <xs:element minOccurs="0" name="StockKeepingUnitId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FreightStockKeepingUnitDTO" nillable="true" type="tns:FreightStockKeepingUnitDTO" />
+  <xs:complexType name="ArrayOfFreightScheduledDateOptionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FreightScheduledDateOptionDTO" nillable="true" type="tns:FreightScheduledDateOptionDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFreightScheduledDateOptionDTO" nillable="true" type="tns:ArrayOfFreightScheduledDateOptionDTO" />
+  <xs:complexType name="FreightScheduledDateOptionDTO">
+    <xs:sequence>
+      <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AvailablePeriods" nillable="true" type="q12:ArrayOfstring" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FreightScheduledDateOptionDTO" nillable="true" type="tns:FreightScheduledDateOptionDTO" />
   <xs:complexType name="ZipCodeDTO">
     <xs:sequence>
       <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
@@ -1249,10 +1522,12 @@
   <xs:element name="ArrayOfStockKeepingUnitServiceDTO" nillable="true" type="tns:ArrayOfStockKeepingUnitServiceDTO" />
   <xs:complexType name="BrandDTO">
     <xs:sequence>
+      <xs:element minOccurs="0" name="AdWordsRemarketingCode" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
       <xs:element minOccurs="0" name="Keywords" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LomadeeCampaignCode" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
     </xs:sequence>
@@ -1260,11 +1535,13 @@
   <xs:element name="BrandDTO" nillable="true" type="tns:BrandDTO" />
   <xs:complexType name="CategoryDTO">
     <xs:sequence>
+      <xs:element minOccurs="0" name="AdWordsRemarketingCode" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FatherCategoryId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
       <xs:element minOccurs="0" name="Keywords" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LomadeeCampaignCode" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
     </xs:sequence>
@@ -1319,108 +1596,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="FieldDTO" nillable="true" type="tns:FieldDTO" />
-  <xs:complexType name="StockKeepingUnitComplementDTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="ComplementType" type="tns:StockKeepingUnitComplementDTO.ComplementTypeEnum" />
-      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StockKeepingUnitComplements" nillable="true" type="q6:ArrayOfint" />
-      <xs:element minOccurs="0" name="StockKeepingUnitId" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="StockKeepingUnitComplementDTO" nillable="true" type="tns:StockKeepingUnitComplementDTO" />
-  <xs:simpleType name="StockKeepingUnitComplementDTO.ComplementTypeEnum">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Accessory">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Sugestion">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Similarly">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="StockKeepingUnitComplementDTO.ComplementTypeEnum" nillable="true" type="tns:StockKeepingUnitComplementDTO.ComplementTypeEnum" />
-  <xs:complexType name="ArrayOfProductFieldNameDTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductFieldNameDTO" nillable="true" type="tns:ProductFieldNameDTO" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfProductFieldNameDTO" nillable="true" type="tns:ArrayOfProductFieldNameDTO" />
-  <xs:complexType name="ProductFieldNameDTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="fieldName" nillable="true" type="xs:string" />
-      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="fieldValues" nillable="true" type="q7:ArrayOfstring" />
-      <xs:element minOccurs="0" name="productid" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ProductFieldNameDTO" nillable="true" type="tns:ProductFieldNameDTO" />
-  <xs:complexType name="ArrayOfProductFieldIdDTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductFieldIdDTO" nillable="true" type="tns:ProductFieldIdDTO" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfProductFieldIdDTO" nillable="true" type="tns:ArrayOfProductFieldIdDTO" />
-  <xs:complexType name="ProductFieldIdDTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="fieldId" type="xs:int" />
-      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="fieldValues" nillable="true" type="q8:ArrayOfstring" />
-      <xs:element minOccurs="0" name="productid" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ProductFieldIdDTO" nillable="true" type="tns:ProductFieldIdDTO" />
-  <xs:complexType name="ArrayOfStockKeepingUnitFieldNameDTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="StockKeepingUnitFieldNameDTO" nillable="true" type="tns:StockKeepingUnitFieldNameDTO" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfStockKeepingUnitFieldNameDTO" nillable="true" type="tns:ArrayOfStockKeepingUnitFieldNameDTO" />
-  <xs:complexType name="StockKeepingUnitFieldNameDTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="fieldName" nillable="true" type="xs:string" />
-      <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="fieldValues" nillable="true" type="q9:ArrayOfstring" />
-      <xs:element minOccurs="0" name="idSku" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="StockKeepingUnitFieldNameDTO" nillable="true" type="tns:StockKeepingUnitFieldNameDTO" />
-  <xs:complexType name="ArrayOfStockKeepingUnitFieldIdDTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="StockKeepingUnitFieldIdDTO" nillable="true" type="tns:StockKeepingUnitFieldIdDTO" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfStockKeepingUnitFieldIdDTO" nillable="true" type="tns:ArrayOfStockKeepingUnitFieldIdDTO" />
-  <xs:complexType name="StockKeepingUnitFieldIdDTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="fieldId" type="xs:int" />
-      <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="fieldValues" nillable="true" type="q10:ArrayOfstring" />
-      <xs:element minOccurs="0" name="idSku" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="StockKeepingUnitFieldIdDTO" nillable="true" type="tns:StockKeepingUnitFieldIdDTO" />
-  <xs:complexType name="ArrayOfStoreDTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="StoreDTO" nillable="true" type="tns:StoreDTO" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfStoreDTO" nillable="true" type="tns:ArrayOfStoreDTO" />
-  <xs:complexType name="StoreDTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="StoreDTO" nillable="true" type="tns:StoreDTO" />
 </xs:schema>

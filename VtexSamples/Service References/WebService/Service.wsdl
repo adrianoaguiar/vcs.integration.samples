@@ -5,13 +5,96 @@
       <xsd:import schemaLocation="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd2" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" />
-      <xsd:import schemaLocation="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService" />
-      <xsd:import schemaLocation="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System" />
-      <xsd:import schemaLocation="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Vtex.Commerce.Checkout2" />
-      <xsd:import schemaLocation="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Vtex.Commerce.OrderManagement" />
+      <xsd:import schemaLocation="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Vtex.Commerce.Checkout2" />
+      <xsd:import schemaLocation="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Vtex.Commerce.OrderManagement" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IService_StockKeepingUnitComplementInsertUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:StockKeepingUnitComplementInsertUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IService_StockKeepingUnitComplementInsertUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StockKeepingUnitComplementInsertUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProductEspecificationInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProductEspecificationInsert" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProductEspecificationInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProductEspecificationInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProductEspecificationInsertByList_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProductEspecificationInsertByList" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProductEspecificationInsertByList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProductEspecificationInsertByListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProductEspecificationInsertByFieldId_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProductEspecificationInsertByFieldId" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProductEspecificationInsertByFieldId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProductEspecificationInsertByFieldIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProductEspecificationInsertByListFieldIds_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProductEspecificationInsertByListFieldIds" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProductEspecificationInsertByListFieldIds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProductEspecificationInsertByListFieldIdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProductEspecificationTextInsertByFieldId_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProductEspecificationTextInsertByFieldId" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProductEspecificationTextInsertByFieldId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProductEspecificationTextInsertByFieldIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_StockKeepingUnitEspecificationInsertByList_InputMessage">
+    <wsdl:part name="parameters" element="tns:StockKeepingUnitEspecificationInsertByList" />
+  </wsdl:message>
+  <wsdl:message name="IService_StockKeepingUnitEspecificationInsertByList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StockKeepingUnitEspecificationInsertByListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_StockKeepingUnitEspecificationInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:StockKeepingUnitEspecificationInsert" />
+  </wsdl:message>
+  <wsdl:message name="IService_StockKeepingUnitEspecificationInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StockKeepingUnitEspecificationInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProductSupplierGetCNPJ_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProductSupplierGetCNPJ" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProductSupplierGetCNPJ_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProductSupplierGetCNPJResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProductSetSimilarCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProductSetSimilarCategory" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProductSetSimilarCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProductSetSimilarCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_StockKeepingUnitEspecificationInsertByListFieldId_InputMessage">
+    <wsdl:part name="parameters" element="tns:StockKeepingUnitEspecificationInsertByListFieldId" />
+  </wsdl:message>
+  <wsdl:message name="IService_StockKeepingUnitEspecificationInsertByListFieldId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StockKeepingUnitEspecificationInsertByListFieldIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_StoreList_InputMessage">
+    <wsdl:part name="parameters" element="tns:StoreList" />
+  </wsdl:message>
+  <wsdl:message name="IService_StoreList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StoreListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_StoreGet_InputMessage">
+    <wsdl:part name="parameters" element="tns:StoreGet" />
+  </wsdl:message>
+  <wsdl:message name="IService_StoreGet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StoreGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_StockKeepingUnitEspecificationInsertByFieldId_InputMessage">
+    <wsdl:part name="parameters" element="tns:StockKeepingUnitEspecificationInsertByFieldId" />
+  </wsdl:message>
+  <wsdl:message name="IService_StockKeepingUnitEspecificationInsertByFieldId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StockKeepingUnitEspecificationInsertByFieldIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_GiftCardInsertUpdate_InputMessage">
     <wsdl:part name="parameters" element="tns:GiftCardInsertUpdate" />
   </wsdl:message>
@@ -36,17 +119,17 @@
   <wsdl:message name="IService_GiftListGet_OutputMessage">
     <wsdl:part name="parameters" element="tns:GiftListGetResponse" />
   </wsdl:message>
-  <wsdl:message name="IService_GiftListV2Get_InputMessage">
-    <wsdl:part name="parameters" element="tns:GiftListV2Get" />
+  <wsdl:message name="IService_GiftListGetByClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:GiftListGetByClient" />
   </wsdl:message>
-  <wsdl:message name="IService_GiftListV2Get_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GiftListV2GetResponse" />
+  <wsdl:message name="IService_GiftListGetByClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GiftListGetByClientResponse" />
   </wsdl:message>
-  <wsdl:message name="IService_GiftListV2GetType_InputMessage">
-    <wsdl:part name="parameters" element="tns:GiftListV2GetType" />
+  <wsdl:message name="IService_GiftListGetType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GiftListGetType" />
   </wsdl:message>
-  <wsdl:message name="IService_GiftListV2GetType_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GiftListV2GetTypeResponse" />
+  <wsdl:message name="IService_GiftListGetType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GiftListGetTypeResponse" />
   </wsdl:message>
   <wsdl:message name="IService_GiftListGetByCreatedDate_InputMessage">
     <wsdl:part name="parameters" element="tns:GiftListGetByCreatedDate" />
@@ -54,17 +137,29 @@
   <wsdl:message name="IService_GiftListGetByCreatedDate_OutputMessage">
     <wsdl:part name="parameters" element="tns:GiftListGetByCreatedDateResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_GiftListGetAllFromCreatedDateAndId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GiftListGetAllFromCreatedDateAndId" />
+  </wsdl:message>
+  <wsdl:message name="IService_GiftListGetAllFromCreatedDateAndId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GiftListGetAllFromCreatedDateAndIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GiftListGetAllBetweenEventDateIntervalAndId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GiftListGetAllBetweenEventDateIntervalAndId" />
+  </wsdl:message>
+  <wsdl:message name="IService_GiftListGetAllBetweenEventDateIntervalAndId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GiftListGetAllBetweenEventDateIntervalAndIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_GiftListGetByModifiedDate_InputMessage">
     <wsdl:part name="parameters" element="tns:GiftListGetByModifiedDate" />
   </wsdl:message>
   <wsdl:message name="IService_GiftListGetByModifiedDate_OutputMessage">
     <wsdl:part name="parameters" element="tns:GiftListGetByModifiedDateResponse" />
   </wsdl:message>
-  <wsdl:message name="IService_GiftListV2GetByType_InputMessage">
-    <wsdl:part name="parameters" element="tns:GiftListV2GetByType" />
+  <wsdl:message name="IService_GiftListGetAllFromModifiedDateAndId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GiftListGetAllFromModifiedDateAndId" />
   </wsdl:message>
-  <wsdl:message name="IService_GiftListV2GetByType_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GiftListV2GetByTypeResponse" />
+  <wsdl:message name="IService_GiftListGetAllFromModifiedDateAndId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GiftListGetAllFromModifiedDateAndIdResponse" />
   </wsdl:message>
   <wsdl:message name="IService_GiftListGetByGifted_InputMessage">
     <wsdl:part name="parameters" element="tns:GiftListGetByGifted" />
@@ -72,17 +167,11 @@
   <wsdl:message name="IService_GiftListGetByGifted_OutputMessage">
     <wsdl:part name="parameters" element="tns:GiftListGetByGiftedResponse" />
   </wsdl:message>
-  <wsdl:message name="IService_GiftListV2GetByClient_InputMessage">
-    <wsdl:part name="parameters" element="tns:GiftListV2GetByClient" />
+  <wsdl:message name="IService_GiftListInsertUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GiftListInsertUpdate" />
   </wsdl:message>
-  <wsdl:message name="IService_GiftListV2GetByClient_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GiftListV2GetByClientResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService_GiftListV2Search_InputMessage">
-    <wsdl:part name="parameters" element="tns:GiftListV2Search" />
-  </wsdl:message>
-  <wsdl:message name="IService_GiftListV2Search_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GiftListV2SearchResponse" />
+  <wsdl:message name="IService_GiftListInsertUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GiftListInsertUpdateResponse" />
   </wsdl:message>
   <wsdl:message name="IService_GiftListV2Filters_InputMessage">
     <wsdl:part name="parameters" element="tns:GiftListV2Filters" />
@@ -90,35 +179,29 @@
   <wsdl:message name="IService_GiftListV2Filters_OutputMessage">
     <wsdl:part name="parameters" element="tns:GiftListV2FiltersResponse" />
   </wsdl:message>
-  <wsdl:message name="IService_GiftListInsertUpdate_InputMessage">
-    <wsdl:part name="parameters" element="tns:GiftListInsertUpdate" />
+  <wsdl:message name="IService_GiftListSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GiftListSearch" />
   </wsdl:message>
-  <wsdl:message name="IService_GiftListInsertUpdate_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GiftListInsertUpdateResponse" />
+  <wsdl:message name="IService_GiftListSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GiftListSearchResponse" />
   </wsdl:message>
-  <wsdl:message name="IService_GiftListV2MemberInsertUpdate_InputMessage">
-    <wsdl:part name="parameters" element="tns:GiftListV2MemberInsertUpdate" />
+  <wsdl:message name="IService_GiftListMemberInsertUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GiftListMemberInsertUpdate" />
   </wsdl:message>
-  <wsdl:message name="IService_GiftListV2MemberInsertUpdate_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GiftListV2MemberInsertUpdateResponse" />
+  <wsdl:message name="IService_GiftListMemberInsertUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GiftListMemberInsertUpdateResponse" />
   </wsdl:message>
-  <wsdl:message name="IService_GiftListV2InsertUpdate_InputMessage">
-    <wsdl:part name="parameters" element="tns:GiftListV2InsertUpdate" />
+  <wsdl:message name="IService_GiftListMemberDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:GiftListMemberDelete" />
   </wsdl:message>
-  <wsdl:message name="IService_GiftListV2InsertUpdate_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GiftListV2InsertUpdateResponse" />
+  <wsdl:message name="IService_GiftListMemberDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GiftListMemberDeleteResponse" />
   </wsdl:message>
   <wsdl:message name="IService_GiftListSkuInsert_InputMessage">
     <wsdl:part name="parameters" element="tns:GiftListSkuInsert" />
   </wsdl:message>
   <wsdl:message name="IService_GiftListSkuInsert_OutputMessage">
     <wsdl:part name="parameters" element="tns:GiftListSkuInsertResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService_GiftListV2SkuInsert_InputMessage">
-    <wsdl:part name="parameters" element="tns:GiftListV2SkuInsert" />
-  </wsdl:message>
-  <wsdl:message name="IService_GiftListV2SkuInsert_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GiftListV2SkuInsertResponse" />
   </wsdl:message>
   <wsdl:message name="IService_GiftListSkuGet_InputMessage">
     <wsdl:part name="parameters" element="tns:GiftListSkuGet" />
@@ -132,11 +215,11 @@
   <wsdl:message name="IService_GiftListSkuSetPurchased_OutputMessage">
     <wsdl:part name="parameters" element="tns:GiftListSkuSetPurchasedResponse" />
   </wsdl:message>
-  <wsdl:message name="IService_GiftListDeleteListSku_InputMessage">
-    <wsdl:part name="parameters" element="tns:GiftListDeleteListSku" />
+  <wsdl:message name="IService_GiftListSkuDeleteByList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GiftListSkuDeleteByList" />
   </wsdl:message>
-  <wsdl:message name="IService_GiftListDeleteListSku_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GiftListDeleteListSkuResponse" />
+  <wsdl:message name="IService_GiftListSkuDeleteByList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GiftListSkuDeleteByListResponse" />
   </wsdl:message>
   <wsdl:message name="IService_GiftListSkuDelete_InputMessage">
     <wsdl:part name="parameters" element="tns:GiftListSkuDelete" />
@@ -161,6 +244,12 @@
   </wsdl:message>
   <wsdl:message name="IService_EmailQueueNotSendedByType_OutputMessage">
     <wsdl:part name="parameters" element="tns:EmailQueueNotSendedByTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_EmailQueueGetAllBetweenTimeIntervalAndEmailTypeId_InputMessage">
+    <wsdl:part name="parameters" element="tns:EmailQueueGetAllBetweenTimeIntervalAndEmailTypeId" />
+  </wsdl:message>
+  <wsdl:message name="IService_EmailQueueGetAllBetweenTimeIntervalAndEmailTypeId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EmailQueueGetAllBetweenTimeIntervalAndEmailTypeIdResponse" />
   </wsdl:message>
   <wsdl:message name="IService_EmailQueueConfirmSending_InputMessage">
     <wsdl:part name="parameters" element="tns:EmailQueueConfirmSending" />
@@ -234,17 +323,35 @@
   <wsdl:message name="IService_ShippingNotificationInsertUpdateParameters_OutputMessage">
     <wsdl:part name="parameters" element="tns:ShippingNotificationInsertUpdateParametersResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_UpdateNotifyShipping_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateNotifyShipping" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateNotifyShipping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateNotifyShippingResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_WareHouseIStockableUpdate_InputMessage">
     <wsdl:part name="parameters" element="tns:WareHouseIStockableUpdate" />
   </wsdl:message>
   <wsdl:message name="IService_WareHouseIStockableUpdate_OutputMessage">
     <wsdl:part name="parameters" element="tns:WareHouseIStockableUpdateResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_WareHouseIStockableUpdateV3_InputMessage">
+    <wsdl:part name="parameters" element="tns:WareHouseIStockableUpdateV3" />
+  </wsdl:message>
+  <wsdl:message name="IService_WareHouseIStockableUpdateV3_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WareHouseIStockableUpdateV3Response" />
+  </wsdl:message>
   <wsdl:message name="IService_WareHouseIStockableGetByStockKeepingUnit_InputMessage">
     <wsdl:part name="parameters" element="tns:WareHouseIStockableGetByStockKeepingUnit" />
   </wsdl:message>
   <wsdl:message name="IService_WareHouseIStockableGetByStockKeepingUnit_OutputMessage">
     <wsdl:part name="parameters" element="tns:WareHouseIStockableGetByStockKeepingUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_WareHouseIStockableGetByStockKeepingUnitV3_InputMessage">
+    <wsdl:part name="parameters" element="tns:WareHouseIStockableGetByStockKeepingUnitV3" />
+  </wsdl:message>
+  <wsdl:message name="IService_WareHouseIStockableGetByStockKeepingUnitV3_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WareHouseIStockableGetByStockKeepingUnitV3Response" />
   </wsdl:message>
   <wsdl:message name="IService_NewsletterGet_InputMessage">
     <wsdl:part name="parameters" element="tns:NewsletterGet" />
@@ -323,6 +430,12 @@
   </wsdl:message>
   <wsdl:message name="IService_ProductGetByRefId_OutputMessage">
     <wsdl:part name="parameters" element="tns:ProductGetByRefIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProductGetSimilarCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProductGetSimilarCategory" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProductGetSimilarCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProductGetSimilarCategoryResponse" />
   </wsdl:message>
   <wsdl:message name="IService_ProductGetAllFromUpdatedDateAndId_InputMessage">
     <wsdl:part name="parameters" element="tns:ProductGetAllFromUpdatedDateAndId" />
@@ -426,6 +539,30 @@
   <wsdl:message name="IService_OrderGet_OutputMessage">
     <wsdl:part name="parameters" element="tns:OrderGetResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_OrderGetV3_InputMessage">
+    <wsdl:part name="parameters" element="tns:OrderGetV3" />
+  </wsdl:message>
+  <wsdl:message name="IService_OrderGetV3_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OrderGetV3Response" />
+  </wsdl:message>
+  <wsdl:message name="IService_OrderGetByClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:OrderGetByClient" />
+  </wsdl:message>
+  <wsdl:message name="IService_OrderGetByClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OrderGetByClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_OrderGetByClientCpf_InputMessage">
+    <wsdl:part name="parameters" element="tns:OrderGetByClientCpf" />
+  </wsdl:message>
+  <wsdl:message name="IService_OrderGetByClientCpf_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OrderGetByClientCpfResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_OrderGetByClientEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:OrderGetByClientEmail" />
+  </wsdl:message>
+  <wsdl:message name="IService_OrderGetByClientEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OrderGetByClientEmailResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_OrderGetByDeliveryId_InputMessage">
     <wsdl:part name="parameters" element="tns:OrderGetByDeliveryId" />
   </wsdl:message>
@@ -474,6 +611,12 @@
   <wsdl:message name="IService_OrderGetNext50FromId_OutputMessage">
     <wsdl:part name="parameters" element="tns:OrderGetNext50FromIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_OrderGetNext50FromIdV3_InputMessage">
+    <wsdl:part name="parameters" element="tns:OrderGetNext50FromIdV3" />
+  </wsdl:message>
+  <wsdl:message name="IService_OrderGetNext50FromIdV3_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OrderGetNext50FromIdV3Response" />
+  </wsdl:message>
   <wsdl:message name="IService_OrderGetNext50FromIdAndDate_InputMessage">
     <wsdl:part name="parameters" element="tns:OrderGetNext50FromIdAndDate" />
   </wsdl:message>
@@ -485,6 +628,12 @@
   </wsdl:message>
   <wsdl:message name="IService_OrderGetNext50FromIdAndDateStatusChanged_OutputMessage">
     <wsdl:part name="parameters" element="tns:OrderGetNext50FromIdAndDateStatusChangedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_OrderGetInteractions_InputMessage">
+    <wsdl:part name="parameters" element="tns:OrderGetInteractions" />
+  </wsdl:message>
+  <wsdl:message name="IService_OrderGetInteractions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OrderGetInteractionsResponse" />
   </wsdl:message>
   <wsdl:message name="IService_OrderGetNewV2_InputMessage">
     <wsdl:part name="parameters" element="tns:OrderGetNewV2" />
@@ -576,6 +725,12 @@
   <wsdl:message name="IService_OrderDeliveryInsertUpdate_OutputMessage">
     <wsdl:part name="parameters" element="tns:OrderDeliveryInsertUpdateResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_OrderDeliveryInvoiceNumberInsertUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:OrderDeliveryInvoiceNumberInsertUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IService_OrderDeliveryInvoiceNumberInsertUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OrderDeliveryInvoiceNumberInsertUpdateResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_OrderChangeStatusById_InputMessage">
     <wsdl:part name="parameters" element="tns:OrderChangeStatusById" />
   </wsdl:message>
@@ -600,6 +755,12 @@
   <wsdl:message name="IService_ClientGet_OutputMessage">
     <wsdl:part name="parameters" element="tns:ClientGetResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_ClientGetV3_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClientGetV3" />
+  </wsdl:message>
+  <wsdl:message name="IService_ClientGetV3_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClientGetV3Response" />
+  </wsdl:message>
   <wsdl:message name="IService_ClientGetByCPF_InputMessage">
     <wsdl:part name="parameters" element="tns:ClientGetByCPF" />
   </wsdl:message>
@@ -611,6 +772,12 @@
   </wsdl:message>
   <wsdl:message name="IService_ClientGetByEmail_OutputMessage">
     <wsdl:part name="parameters" element="tns:ClientGetByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ClientGetByEmailV3_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClientGetByEmailV3" />
+  </wsdl:message>
+  <wsdl:message name="IService_ClientGetByEmailV3_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClientGetByEmailV3Response" />
   </wsdl:message>
   <wsdl:message name="IService_ClientGetByGuid_InputMessage">
     <wsdl:part name="parameters" element="tns:ClientGetByGuid" />
@@ -684,6 +851,12 @@
   <wsdl:message name="IService_FreightCalculate_OutputMessage">
     <wsdl:part name="parameters" element="tns:FreightCalculateResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_FreightCalculateV3_InputMessage">
+    <wsdl:part name="parameters" element="tns:FreightCalculateV3" />
+  </wsdl:message>
+  <wsdl:message name="IService_FreightCalculateV3_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FreightCalculateV3Response" />
+  </wsdl:message>
   <wsdl:message name="IService_ZipCodeGet_InputMessage">
     <wsdl:part name="parameters" element="tns:ZipCodeGet" />
   </wsdl:message>
@@ -737,6 +910,12 @@
   </wsdl:message>
   <wsdl:message name="IService_AddressGetByClientId_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddressGetByClientIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddressGetByClientIdV3_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddressGetByClientIdV3" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddressGetByClientIdV3_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddressGetByClientIdV3Response" />
   </wsdl:message>
   <wsdl:message name="IService_AddressInsertByClientId_InputMessage">
     <wsdl:part name="parameters" element="tns:AddressInsertByClientId" />
@@ -918,91 +1097,63 @@
   <wsdl:message name="IService_ProductEspecificationListByProductId_OutputMessage">
     <wsdl:part name="parameters" element="tns:ProductEspecificationListByProductIdResponse" />
   </wsdl:message>
-  <wsdl:message name="IService_StockKeepingUnitComplementInsertUpdate_InputMessage">
-    <wsdl:part name="parameters" element="tns:StockKeepingUnitComplementInsertUpdate" />
-  </wsdl:message>
-  <wsdl:message name="IService_StockKeepingUnitComplementInsertUpdate_OutputMessage">
-    <wsdl:part name="parameters" element="tns:StockKeepingUnitComplementInsertUpdateResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService_ProductEspecificationInsert_InputMessage">
-    <wsdl:part name="parameters" element="tns:ProductEspecificationInsert" />
-  </wsdl:message>
-  <wsdl:message name="IService_ProductEspecificationInsert_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ProductEspecificationInsertResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService_ProductEspecificationInsertByList_InputMessage">
-    <wsdl:part name="parameters" element="tns:ProductEspecificationInsertByList" />
-  </wsdl:message>
-  <wsdl:message name="IService_ProductEspecificationInsertByList_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ProductEspecificationInsertByListResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService_ProductEspecificationInsertByFieldId_InputMessage">
-    <wsdl:part name="parameters" element="tns:ProductEspecificationInsertByFieldId" />
-  </wsdl:message>
-  <wsdl:message name="IService_ProductEspecificationInsertByFieldId_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ProductEspecificationInsertByFieldIdResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService_ProductEspecificationInsertByListFieldIds_InputMessage">
-    <wsdl:part name="parameters" element="tns:ProductEspecificationInsertByListFieldIds" />
-  </wsdl:message>
-  <wsdl:message name="IService_ProductEspecificationInsertByListFieldIds_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ProductEspecificationInsertByListFieldIdsResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService_ProductEspecificationTextInsertByFieldId_InputMessage">
-    <wsdl:part name="parameters" element="tns:ProductEspecificationTextInsertByFieldId" />
-  </wsdl:message>
-  <wsdl:message name="IService_ProductEspecificationTextInsertByFieldId_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ProductEspecificationTextInsertByFieldIdResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService_StockKeepingUnitEspecificationInsertByList_InputMessage">
-    <wsdl:part name="parameters" element="tns:StockKeepingUnitEspecificationInsertByList" />
-  </wsdl:message>
-  <wsdl:message name="IService_StockKeepingUnitEspecificationInsertByList_OutputMessage">
-    <wsdl:part name="parameters" element="tns:StockKeepingUnitEspecificationInsertByListResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService_StockKeepingUnitEspecificationInsert_InputMessage">
-    <wsdl:part name="parameters" element="tns:StockKeepingUnitEspecificationInsert" />
-  </wsdl:message>
-  <wsdl:message name="IService_StockKeepingUnitEspecificationInsert_OutputMessage">
-    <wsdl:part name="parameters" element="tns:StockKeepingUnitEspecificationInsertResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService_ProductSupplierGetCNPJ_InputMessage">
-    <wsdl:part name="parameters" element="tns:ProductSupplierGetCNPJ" />
-  </wsdl:message>
-  <wsdl:message name="IService_ProductSupplierGetCNPJ_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ProductSupplierGetCNPJResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService_ProductSetSimilarCategory_InputMessage">
-    <wsdl:part name="parameters" element="tns:ProductSetSimilarCategory" />
-  </wsdl:message>
-  <wsdl:message name="IService_ProductSetSimilarCategory_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ProductSetSimilarCategoryResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService_StockKeepingUnitEspecificationInsertByListFieldId_InputMessage">
-    <wsdl:part name="parameters" element="tns:StockKeepingUnitEspecificationInsertByListFieldId" />
-  </wsdl:message>
-  <wsdl:message name="IService_StockKeepingUnitEspecificationInsertByListFieldId_OutputMessage">
-    <wsdl:part name="parameters" element="tns:StockKeepingUnitEspecificationInsertByListFieldIdResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService_StoreList_InputMessage">
-    <wsdl:part name="parameters" element="tns:StoreList" />
-  </wsdl:message>
-  <wsdl:message name="IService_StoreList_OutputMessage">
-    <wsdl:part name="parameters" element="tns:StoreListResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService_StoreGet_InputMessage">
-    <wsdl:part name="parameters" element="tns:StoreGet" />
-  </wsdl:message>
-  <wsdl:message name="IService_StoreGet_OutputMessage">
-    <wsdl:part name="parameters" element="tns:StoreGetResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService_StockKeepingUnitEspecificationInsertByFieldId_InputMessage">
-    <wsdl:part name="parameters" element="tns:StockKeepingUnitEspecificationInsertByFieldId" />
-  </wsdl:message>
-  <wsdl:message name="IService_StockKeepingUnitEspecificationInsertByFieldId_OutputMessage">
-    <wsdl:part name="parameters" element="tns:StockKeepingUnitEspecificationInsertByFieldIdResponse" />
-  </wsdl:message>
   <wsdl:portType name="IService">
+    <wsdl:operation name="StockKeepingUnitComplementInsertUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/StockKeepingUnitComplementInsertUpdate" message="tns:IService_StockKeepingUnitComplementInsertUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/StockKeepingUnitComplementInsertUpdateResponse" message="tns:IService_StockKeepingUnitComplementInsertUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProductEspecificationInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ProductEspecificationInsert" message="tns:IService_ProductEspecificationInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ProductEspecificationInsertResponse" message="tns:IService_ProductEspecificationInsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProductEspecificationInsertByList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ProductEspecificationInsertByList" message="tns:IService_ProductEspecificationInsertByList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ProductEspecificationInsertByListResponse" message="tns:IService_ProductEspecificationInsertByList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProductEspecificationInsertByFieldId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ProductEspecificationInsertByFieldId" message="tns:IService_ProductEspecificationInsertByFieldId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ProductEspecificationInsertByFieldIdResponse" message="tns:IService_ProductEspecificationInsertByFieldId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProductEspecificationInsertByListFieldIds">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ProductEspecificationInsertByListFieldIds" message="tns:IService_ProductEspecificationInsertByListFieldIds_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ProductEspecificationInsertByListFieldIdsResponse" message="tns:IService_ProductEspecificationInsertByListFieldIds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProductEspecificationTextInsertByFieldId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ProductEspecificationTextInsertByFieldId" message="tns:IService_ProductEspecificationTextInsertByFieldId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ProductEspecificationTextInsertByFieldIdResponse" message="tns:IService_ProductEspecificationTextInsertByFieldId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StockKeepingUnitEspecificationInsertByList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/StockKeepingUnitEspecificationInsertByList" message="tns:IService_StockKeepingUnitEspecificationInsertByList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/StockKeepingUnitEspecificationInsertByListResponse" message="tns:IService_StockKeepingUnitEspecificationInsertByList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StockKeepingUnitEspecificationInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/StockKeepingUnitEspecificationInsert" message="tns:IService_StockKeepingUnitEspecificationInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/StockKeepingUnitEspecificationInsertResponse" message="tns:IService_StockKeepingUnitEspecificationInsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProductSupplierGetCNPJ">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ProductSupplierGetCNPJ" message="tns:IService_ProductSupplierGetCNPJ_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ProductSupplierGetCNPJResponse" message="tns:IService_ProductSupplierGetCNPJ_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProductSetSimilarCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ProductSetSimilarCategory" message="tns:IService_ProductSetSimilarCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ProductSetSimilarCategoryResponse" message="tns:IService_ProductSetSimilarCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StockKeepingUnitEspecificationInsertByListFieldId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/StockKeepingUnitEspecificationInsertByListFieldId" message="tns:IService_StockKeepingUnitEspecificationInsertByListFieldId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/StockKeepingUnitEspecificationInsertByListFieldIdResponse" message="tns:IService_StockKeepingUnitEspecificationInsertByListFieldId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StoreList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/StoreList" message="tns:IService_StoreList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/StoreListResponse" message="tns:IService_StoreList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StoreGet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/StoreGet" message="tns:IService_StoreGet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/StoreGetResponse" message="tns:IService_StoreGet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StockKeepingUnitEspecificationInsertByFieldId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/StockKeepingUnitEspecificationInsertByFieldId" message="tns:IService_StockKeepingUnitEspecificationInsertByFieldId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/StockKeepingUnitEspecificationInsertByFieldIdResponse" message="tns:IService_StockKeepingUnitEspecificationInsertByFieldId_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GiftCardInsertUpdate">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftCardInsertUpdate" message="tns:IService_GiftCardInsertUpdate_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftCardInsertUpdateResponse" message="tns:IService_GiftCardInsertUpdate_OutputMessage" />
@@ -1019,61 +1170,61 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListGet" message="tns:IService_GiftListGet_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListGetResponse" message="tns:IService_GiftListGet_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GiftListV2Get">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListV2Get" message="tns:IService_GiftListV2Get_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListV2GetResponse" message="tns:IService_GiftListV2Get_OutputMessage" />
+    <wsdl:operation name="GiftListGetByClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListGetByClient" message="tns:IService_GiftListGetByClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListGetByClientResponse" message="tns:IService_GiftListGetByClient_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GiftListV2GetType">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListV2GetType" message="tns:IService_GiftListV2GetType_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListV2GetTypeResponse" message="tns:IService_GiftListV2GetType_OutputMessage" />
+    <wsdl:operation name="GiftListGetType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListGetType" message="tns:IService_GiftListGetType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListGetTypeResponse" message="tns:IService_GiftListGetType_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GiftListGetByCreatedDate">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListGetByCreatedDate" message="tns:IService_GiftListGetByCreatedDate_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListGetByCreatedDateResponse" message="tns:IService_GiftListGetByCreatedDate_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GiftListGetAllFromCreatedDateAndId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListGetAllFromCreatedDateAndId" message="tns:IService_GiftListGetAllFromCreatedDateAndId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListGetAllFromCreatedDateAndIdResponse" message="tns:IService_GiftListGetAllFromCreatedDateAndId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GiftListGetAllBetweenEventDateIntervalAndId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListGetAllBetweenEventDateIntervalAndId" message="tns:IService_GiftListGetAllBetweenEventDateIntervalAndId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListGetAllBetweenEventDateIntervalAndIdResponse" message="tns:IService_GiftListGetAllBetweenEventDateIntervalAndId_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GiftListGetByModifiedDate">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListGetByModifiedDate" message="tns:IService_GiftListGetByModifiedDate_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListGetByModifiedDateResponse" message="tns:IService_GiftListGetByModifiedDate_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GiftListV2GetByType">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListV2GetByType" message="tns:IService_GiftListV2GetByType_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListV2GetByTypeResponse" message="tns:IService_GiftListV2GetByType_OutputMessage" />
+    <wsdl:operation name="GiftListGetAllFromModifiedDateAndId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListGetAllFromModifiedDateAndId" message="tns:IService_GiftListGetAllFromModifiedDateAndId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListGetAllFromModifiedDateAndIdResponse" message="tns:IService_GiftListGetAllFromModifiedDateAndId_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GiftListGetByGifted">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListGetByGifted" message="tns:IService_GiftListGetByGifted_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListGetByGiftedResponse" message="tns:IService_GiftListGetByGifted_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GiftListV2GetByClient">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListV2GetByClient" message="tns:IService_GiftListV2GetByClient_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListV2GetByClientResponse" message="tns:IService_GiftListV2GetByClient_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GiftListV2Search">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListV2Search" message="tns:IService_GiftListV2Search_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListV2SearchResponse" message="tns:IService_GiftListV2Search_OutputMessage" />
+    <wsdl:operation name="GiftListInsertUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListInsertUpdate" message="tns:IService_GiftListInsertUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListInsertUpdateResponse" message="tns:IService_GiftListInsertUpdate_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GiftListV2Filters">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListV2Filters" message="tns:IService_GiftListV2Filters_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListV2FiltersResponse" message="tns:IService_GiftListV2Filters_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GiftListInsertUpdate">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListInsertUpdate" message="tns:IService_GiftListInsertUpdate_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListInsertUpdateResponse" message="tns:IService_GiftListInsertUpdate_OutputMessage" />
+    <wsdl:operation name="GiftListSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListSearch" message="tns:IService_GiftListSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListSearchResponse" message="tns:IService_GiftListSearch_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GiftListV2MemberInsertUpdate">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListV2MemberInsertUpdate" message="tns:IService_GiftListV2MemberInsertUpdate_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListV2MemberInsertUpdateResponse" message="tns:IService_GiftListV2MemberInsertUpdate_OutputMessage" />
+    <wsdl:operation name="GiftListMemberInsertUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListMemberInsertUpdate" message="tns:IService_GiftListMemberInsertUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListMemberInsertUpdateResponse" message="tns:IService_GiftListMemberInsertUpdate_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GiftListV2InsertUpdate">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListV2InsertUpdate" message="tns:IService_GiftListV2InsertUpdate_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListV2InsertUpdateResponse" message="tns:IService_GiftListV2InsertUpdate_OutputMessage" />
+    <wsdl:operation name="GiftListMemberDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListMemberDelete" message="tns:IService_GiftListMemberDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListMemberDeleteResponse" message="tns:IService_GiftListMemberDelete_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GiftListSkuInsert">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListSkuInsert" message="tns:IService_GiftListSkuInsert_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListSkuInsertResponse" message="tns:IService_GiftListSkuInsert_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GiftListV2SkuInsert">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListV2SkuInsert" message="tns:IService_GiftListV2SkuInsert_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListV2SkuInsertResponse" message="tns:IService_GiftListV2SkuInsert_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GiftListSkuGet">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListSkuGet" message="tns:IService_GiftListSkuGet_InputMessage" />
@@ -1083,9 +1234,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListSkuSetPurchased" message="tns:IService_GiftListSkuSetPurchased_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListSkuSetPurchasedResponse" message="tns:IService_GiftListSkuSetPurchased_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GiftListDeleteListSku">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListDeleteListSku" message="tns:IService_GiftListDeleteListSku_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListDeleteListSkuResponse" message="tns:IService_GiftListDeleteListSku_OutputMessage" />
+    <wsdl:operation name="GiftListSkuDeleteByList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListSkuDeleteByList" message="tns:IService_GiftListSkuDeleteByList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GiftListSkuDeleteByListResponse" message="tns:IService_GiftListSkuDeleteByList_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GiftListSkuDelete">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GiftListSkuDelete" message="tns:IService_GiftListSkuDelete_InputMessage" />
@@ -1102,6 +1253,10 @@
     <wsdl:operation name="EmailQueueNotSendedByType">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/EmailQueueNotSendedByType" message="tns:IService_EmailQueueNotSendedByType_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/EmailQueueNotSendedByTypeResponse" message="tns:IService_EmailQueueNotSendedByType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmailQueueGetAllBetweenTimeIntervalAndEmailTypeId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/EmailQueueGetAllBetweenTimeIntervalAndEmailTypeId" message="tns:IService_EmailQueueGetAllBetweenTimeIntervalAndEmailTypeId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/EmailQueueGetAllBetweenTimeIntervalAndEmailTypeIdResponse" message="tns:IService_EmailQueueGetAllBetweenTimeIntervalAndEmailTypeId_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="EmailQueueConfirmSending">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/EmailQueueConfirmSending" message="tns:IService_EmailQueueConfirmSending_InputMessage" />
@@ -1151,13 +1306,25 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/ShippingNotificationInsertUpdateParameters" message="tns:IService_ShippingNotificationInsertUpdateParameters_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/ShippingNotificationInsertUpdateParametersResponse" message="tns:IService_ShippingNotificationInsertUpdateParameters_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateNotifyShipping">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateNotifyShipping" message="tns:IService_UpdateNotifyShipping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateNotifyShippingResponse" message="tns:IService_UpdateNotifyShipping_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="WareHouseIStockableUpdate">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/WareHouseIStockableUpdate" message="tns:IService_WareHouseIStockableUpdate_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/WareHouseIStockableUpdateResponse" message="tns:IService_WareHouseIStockableUpdate_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="WareHouseIStockableUpdateV3">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/WareHouseIStockableUpdateV3" message="tns:IService_WareHouseIStockableUpdateV3_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/WareHouseIStockableUpdateV3Response" message="tns:IService_WareHouseIStockableUpdateV3_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="WareHouseIStockableGetByStockKeepingUnit">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/WareHouseIStockableGetByStockKeepingUnit" message="tns:IService_WareHouseIStockableGetByStockKeepingUnit_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/WareHouseIStockableGetByStockKeepingUnitResponse" message="tns:IService_WareHouseIStockableGetByStockKeepingUnit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WareHouseIStockableGetByStockKeepingUnitV3">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/WareHouseIStockableGetByStockKeepingUnitV3" message="tns:IService_WareHouseIStockableGetByStockKeepingUnitV3_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/WareHouseIStockableGetByStockKeepingUnitV3Response" message="tns:IService_WareHouseIStockableGetByStockKeepingUnitV3_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="NewsletterGet">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/NewsletterGet" message="tns:IService_NewsletterGet_InputMessage" />
@@ -1210,6 +1377,10 @@
     <wsdl:operation name="ProductGetByRefId">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/ProductGetByRefId" message="tns:IService_ProductGetByRefId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/ProductGetByRefIdResponse" message="tns:IService_ProductGetByRefId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProductGetSimilarCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ProductGetSimilarCategory" message="tns:IService_ProductGetSimilarCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ProductGetSimilarCategoryResponse" message="tns:IService_ProductGetSimilarCategory_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ProductGetAllFromUpdatedDateAndId">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/ProductGetAllFromUpdatedDateAndId" message="tns:IService_ProductGetAllFromUpdatedDateAndId_InputMessage" />
@@ -1279,6 +1450,22 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/OrderGet" message="tns:IService_OrderGet_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/OrderGetResponse" message="tns:IService_OrderGet_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="OrderGetV3">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/OrderGetV3" message="tns:IService_OrderGetV3_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/OrderGetV3Response" message="tns:IService_OrderGetV3_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OrderGetByClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/OrderGetByClient" message="tns:IService_OrderGetByClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/OrderGetByClientResponse" message="tns:IService_OrderGetByClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OrderGetByClientCpf">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/OrderGetByClientCpf" message="tns:IService_OrderGetByClientCpf_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/OrderGetByClientCpfResponse" message="tns:IService_OrderGetByClientCpf_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OrderGetByClientEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/OrderGetByClientEmail" message="tns:IService_OrderGetByClientEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/OrderGetByClientEmailResponse" message="tns:IService_OrderGetByClientEmail_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="OrderGetByDeliveryId">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/OrderGetByDeliveryId" message="tns:IService_OrderGetByDeliveryId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/OrderGetByDeliveryIdResponse" message="tns:IService_OrderGetByDeliveryId_OutputMessage" />
@@ -1311,6 +1498,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/OrderGetNext50FromId" message="tns:IService_OrderGetNext50FromId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/OrderGetNext50FromIdResponse" message="tns:IService_OrderGetNext50FromId_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="OrderGetNext50FromIdV3">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/OrderGetNext50FromIdV3" message="tns:IService_OrderGetNext50FromIdV3_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/OrderGetNext50FromIdV3Response" message="tns:IService_OrderGetNext50FromIdV3_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="OrderGetNext50FromIdAndDate">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/OrderGetNext50FromIdAndDate" message="tns:IService_OrderGetNext50FromIdAndDate_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/OrderGetNext50FromIdAndDateResponse" message="tns:IService_OrderGetNext50FromIdAndDate_OutputMessage" />
@@ -1318,6 +1509,10 @@
     <wsdl:operation name="OrderGetNext50FromIdAndDateStatusChanged">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/OrderGetNext50FromIdAndDateStatusChanged" message="tns:IService_OrderGetNext50FromIdAndDateStatusChanged_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/OrderGetNext50FromIdAndDateStatusChangedResponse" message="tns:IService_OrderGetNext50FromIdAndDateStatusChanged_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OrderGetInteractions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/OrderGetInteractions" message="tns:IService_OrderGetInteractions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/OrderGetInteractionsResponse" message="tns:IService_OrderGetInteractions_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="OrderGetNewV2">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/OrderGetNewV2" message="tns:IService_OrderGetNewV2_InputMessage" />
@@ -1379,6 +1574,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/OrderDeliveryInsertUpdate" message="tns:IService_OrderDeliveryInsertUpdate_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/OrderDeliveryInsertUpdateResponse" message="tns:IService_OrderDeliveryInsertUpdate_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="OrderDeliveryInvoiceNumberInsertUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/OrderDeliveryInvoiceNumberInsertUpdate" message="tns:IService_OrderDeliveryInvoiceNumberInsertUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/OrderDeliveryInvoiceNumberInsertUpdateResponse" message="tns:IService_OrderDeliveryInvoiceNumberInsertUpdate_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="OrderChangeStatusById">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/OrderChangeStatusById" message="tns:IService_OrderChangeStatusById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/OrderChangeStatusByIdResponse" message="tns:IService_OrderChangeStatusById_OutputMessage" />
@@ -1395,6 +1594,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/ClientGet" message="tns:IService_ClientGet_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/ClientGetResponse" message="tns:IService_ClientGet_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ClientGetV3">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ClientGetV3" message="tns:IService_ClientGetV3_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ClientGetV3Response" message="tns:IService_ClientGetV3_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ClientGetByCPF">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/ClientGetByCPF" message="tns:IService_ClientGetByCPF_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/ClientGetByCPFResponse" message="tns:IService_ClientGetByCPF_OutputMessage" />
@@ -1402,6 +1605,10 @@
     <wsdl:operation name="ClientGetByEmail">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/ClientGetByEmail" message="tns:IService_ClientGetByEmail_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/ClientGetByEmailResponse" message="tns:IService_ClientGetByEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClientGetByEmailV3">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ClientGetByEmailV3" message="tns:IService_ClientGetByEmailV3_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ClientGetByEmailV3Response" message="tns:IService_ClientGetByEmailV3_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ClientGetByGuid">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/ClientGetByGuid" message="tns:IService_ClientGetByGuid_InputMessage" />
@@ -1451,6 +1658,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/FreightCalculate" message="tns:IService_FreightCalculate_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/FreightCalculateResponse" message="tns:IService_FreightCalculate_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="FreightCalculateV3">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/FreightCalculateV3" message="tns:IService_FreightCalculateV3_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/FreightCalculateV3Response" message="tns:IService_FreightCalculateV3_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ZipCodeGet">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/ZipCodeGet" message="tns:IService_ZipCodeGet_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/ZipCodeGetResponse" message="tns:IService_ZipCodeGet_OutputMessage" />
@@ -1486,6 +1697,10 @@
     <wsdl:operation name="AddressGetByClientId">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/AddressGetByClientId" message="tns:IService_AddressGetByClientId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/AddressGetByClientIdResponse" message="tns:IService_AddressGetByClientId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddressGetByClientIdV3">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddressGetByClientIdV3" message="tns:IService_AddressGetByClientIdV3_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddressGetByClientIdV3Response" message="tns:IService_AddressGetByClientIdV3_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddressInsertByClientId">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/AddressInsertByClientId" message="tns:IService_AddressInsertByClientId_InputMessage" />
@@ -1607,65 +1822,135 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/ProductEspecificationListByProductId" message="tns:IService_ProductEspecificationListByProductId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/ProductEspecificationListByProductIdResponse" message="tns:IService_ProductEspecificationListByProductId_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="StockKeepingUnitComplementInsertUpdate">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/StockKeepingUnitComplementInsertUpdate" message="tns:IService_StockKeepingUnitComplementInsertUpdate_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/StockKeepingUnitComplementInsertUpdateResponse" message="tns:IService_StockKeepingUnitComplementInsertUpdate_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ProductEspecificationInsert">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/ProductEspecificationInsert" message="tns:IService_ProductEspecificationInsert_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/ProductEspecificationInsertResponse" message="tns:IService_ProductEspecificationInsert_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ProductEspecificationInsertByList">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/ProductEspecificationInsertByList" message="tns:IService_ProductEspecificationInsertByList_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/ProductEspecificationInsertByListResponse" message="tns:IService_ProductEspecificationInsertByList_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ProductEspecificationInsertByFieldId">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/ProductEspecificationInsertByFieldId" message="tns:IService_ProductEspecificationInsertByFieldId_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/ProductEspecificationInsertByFieldIdResponse" message="tns:IService_ProductEspecificationInsertByFieldId_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ProductEspecificationInsertByListFieldIds">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/ProductEspecificationInsertByListFieldIds" message="tns:IService_ProductEspecificationInsertByListFieldIds_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/ProductEspecificationInsertByListFieldIdsResponse" message="tns:IService_ProductEspecificationInsertByListFieldIds_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ProductEspecificationTextInsertByFieldId">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/ProductEspecificationTextInsertByFieldId" message="tns:IService_ProductEspecificationTextInsertByFieldId_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/ProductEspecificationTextInsertByFieldIdResponse" message="tns:IService_ProductEspecificationTextInsertByFieldId_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="StockKeepingUnitEspecificationInsertByList">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/StockKeepingUnitEspecificationInsertByList" message="tns:IService_StockKeepingUnitEspecificationInsertByList_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/StockKeepingUnitEspecificationInsertByListResponse" message="tns:IService_StockKeepingUnitEspecificationInsertByList_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="StockKeepingUnitEspecificationInsert">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/StockKeepingUnitEspecificationInsert" message="tns:IService_StockKeepingUnitEspecificationInsert_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/StockKeepingUnitEspecificationInsertResponse" message="tns:IService_StockKeepingUnitEspecificationInsert_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ProductSupplierGetCNPJ">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/ProductSupplierGetCNPJ" message="tns:IService_ProductSupplierGetCNPJ_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/ProductSupplierGetCNPJResponse" message="tns:IService_ProductSupplierGetCNPJ_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ProductSetSimilarCategory">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/ProductSetSimilarCategory" message="tns:IService_ProductSetSimilarCategory_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/ProductSetSimilarCategoryResponse" message="tns:IService_ProductSetSimilarCategory_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="StockKeepingUnitEspecificationInsertByListFieldId">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/StockKeepingUnitEspecificationInsertByListFieldId" message="tns:IService_StockKeepingUnitEspecificationInsertByListFieldId_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/StockKeepingUnitEspecificationInsertByListFieldIdResponse" message="tns:IService_StockKeepingUnitEspecificationInsertByListFieldId_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="StoreList">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/StoreList" message="tns:IService_StoreList_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/StoreListResponse" message="tns:IService_StoreList_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="StoreGet">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/StoreGet" message="tns:IService_StoreGet_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/StoreGetResponse" message="tns:IService_StoreGet_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="StockKeepingUnitEspecificationInsertByFieldId">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/StockKeepingUnitEspecificationInsertByFieldId" message="tns:IService_StockKeepingUnitEspecificationInsertByFieldId_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/StockKeepingUnitEspecificationInsertByFieldIdResponse" message="tns:IService_StockKeepingUnitEspecificationInsertByFieldId_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="StockKeepingUnitComplementInsertUpdate">
+      <soap:operation soapAction="http://tempuri.org/IService/StockKeepingUnitComplementInsertUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductEspecificationInsert">
+      <soap:operation soapAction="http://tempuri.org/IService/ProductEspecificationInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductEspecificationInsertByList">
+      <soap:operation soapAction="http://tempuri.org/IService/ProductEspecificationInsertByList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductEspecificationInsertByFieldId">
+      <soap:operation soapAction="http://tempuri.org/IService/ProductEspecificationInsertByFieldId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductEspecificationInsertByListFieldIds">
+      <soap:operation soapAction="http://tempuri.org/IService/ProductEspecificationInsertByListFieldIds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductEspecificationTextInsertByFieldId">
+      <soap:operation soapAction="http://tempuri.org/IService/ProductEspecificationTextInsertByFieldId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StockKeepingUnitEspecificationInsertByList">
+      <soap:operation soapAction="http://tempuri.org/IService/StockKeepingUnitEspecificationInsertByList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StockKeepingUnitEspecificationInsert">
+      <soap:operation soapAction="http://tempuri.org/IService/StockKeepingUnitEspecificationInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductSupplierGetCNPJ">
+      <soap:operation soapAction="http://tempuri.org/IService/ProductSupplierGetCNPJ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductSetSimilarCategory">
+      <soap:operation soapAction="http://tempuri.org/IService/ProductSetSimilarCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StockKeepingUnitEspecificationInsertByListFieldId">
+      <soap:operation soapAction="http://tempuri.org/IService/StockKeepingUnitEspecificationInsertByListFieldId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StoreList">
+      <soap:operation soapAction="http://tempuri.org/IService/StoreList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StoreGet">
+      <soap:operation soapAction="http://tempuri.org/IService/StoreGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StockKeepingUnitEspecificationInsertByFieldId">
+      <soap:operation soapAction="http://tempuri.org/IService/StockKeepingUnitEspecificationInsertByFieldId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GiftCardInsertUpdate">
       <soap:operation soapAction="http://tempuri.org/IService/GiftCardInsertUpdate" style="document" />
       <wsdl:input>
@@ -1702,8 +1987,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GiftListV2Get">
-      <soap:operation soapAction="http://tempuri.org/IService/GiftListV2Get" style="document" />
+    <wsdl:operation name="GiftListGetByClient">
+      <soap:operation soapAction="http://tempuri.org/IService/GiftListGetByClient" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1711,8 +1996,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GiftListV2GetType">
-      <soap:operation soapAction="http://tempuri.org/IService/GiftListV2GetType" style="document" />
+    <wsdl:operation name="GiftListGetType">
+      <soap:operation soapAction="http://tempuri.org/IService/GiftListGetType" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1729,6 +2014,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GiftListGetAllFromCreatedDateAndId">
+      <soap:operation soapAction="http://tempuri.org/IService/GiftListGetAllFromCreatedDateAndId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GiftListGetAllBetweenEventDateIntervalAndId">
+      <soap:operation soapAction="http://tempuri.org/IService/GiftListGetAllBetweenEventDateIntervalAndId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GiftListGetByModifiedDate">
       <soap:operation soapAction="http://tempuri.org/IService/GiftListGetByModifiedDate" style="document" />
       <wsdl:input>
@@ -1738,8 +2041,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GiftListV2GetByType">
-      <soap:operation soapAction="http://tempuri.org/IService/GiftListV2GetByType" style="document" />
+    <wsdl:operation name="GiftListGetAllFromModifiedDateAndId">
+      <soap:operation soapAction="http://tempuri.org/IService/GiftListGetAllFromModifiedDateAndId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1756,17 +2059,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GiftListV2GetByClient">
-      <soap:operation soapAction="http://tempuri.org/IService/GiftListV2GetByClient" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GiftListV2Search">
-      <soap:operation soapAction="http://tempuri.org/IService/GiftListV2Search" style="document" />
+    <wsdl:operation name="GiftListInsertUpdate">
+      <soap:operation soapAction="http://tempuri.org/IService/GiftListInsertUpdate" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1783,8 +2077,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GiftListInsertUpdate">
-      <soap:operation soapAction="http://tempuri.org/IService/GiftListInsertUpdate" style="document" />
+    <wsdl:operation name="GiftListSearch">
+      <soap:operation soapAction="http://tempuri.org/IService/GiftListSearch" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1792,8 +2086,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GiftListV2MemberInsertUpdate">
-      <soap:operation soapAction="http://tempuri.org/IService/GiftListV2MemberInsertUpdate" style="document" />
+    <wsdl:operation name="GiftListMemberInsertUpdate">
+      <soap:operation soapAction="http://tempuri.org/IService/GiftListMemberInsertUpdate" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1801,8 +2095,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GiftListV2InsertUpdate">
-      <soap:operation soapAction="http://tempuri.org/IService/GiftListV2InsertUpdate" style="document" />
+    <wsdl:operation name="GiftListMemberDelete">
+      <soap:operation soapAction="http://tempuri.org/IService/GiftListMemberDelete" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1812,15 +2106,6 @@
     </wsdl:operation>
     <wsdl:operation name="GiftListSkuInsert">
       <soap:operation soapAction="http://tempuri.org/IService/GiftListSkuInsert" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GiftListV2SkuInsert">
-      <soap:operation soapAction="http://tempuri.org/IService/GiftListV2SkuInsert" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1846,8 +2131,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GiftListDeleteListSku">
-      <soap:operation soapAction="http://tempuri.org/IService/GiftListDeleteListSku" style="document" />
+    <wsdl:operation name="GiftListSkuDeleteByList">
+      <soap:operation soapAction="http://tempuri.org/IService/GiftListSkuDeleteByList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1884,6 +2169,15 @@
     </wsdl:operation>
     <wsdl:operation name="EmailQueueNotSendedByType">
       <soap:operation soapAction="http://tempuri.org/IService/EmailQueueNotSendedByType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailQueueGetAllBetweenTimeIntervalAndEmailTypeId">
+      <soap:operation soapAction="http://tempuri.org/IService/EmailQueueGetAllBetweenTimeIntervalAndEmailTypeId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1999,6 +2293,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateNotifyShipping">
+      <soap:operation soapAction="http://tempuri.org/IService/UpdateNotifyShipping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="WareHouseIStockableUpdate">
       <soap:operation soapAction="http://tempuri.org/IService/WareHouseIStockableUpdate" style="document" />
       <wsdl:input>
@@ -2008,8 +2311,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="WareHouseIStockableUpdateV3">
+      <soap:operation soapAction="http://tempuri.org/IService/WareHouseIStockableUpdateV3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="WareHouseIStockableGetByStockKeepingUnit">
       <soap:operation soapAction="http://tempuri.org/IService/WareHouseIStockableGetByStockKeepingUnit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WareHouseIStockableGetByStockKeepingUnitV3">
+      <soap:operation soapAction="http://tempuri.org/IService/WareHouseIStockableGetByStockKeepingUnitV3" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2127,6 +2448,15 @@
     </wsdl:operation>
     <wsdl:operation name="ProductGetByRefId">
       <soap:operation soapAction="http://tempuri.org/IService/ProductGetByRefId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductGetSimilarCategory">
+      <soap:operation soapAction="http://tempuri.org/IService/ProductGetSimilarCategory" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2287,6 +2617,42 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="OrderGetV3">
+      <soap:operation soapAction="http://tempuri.org/IService/OrderGetV3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderGetByClient">
+      <soap:operation soapAction="http://tempuri.org/IService/OrderGetByClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderGetByClientCpf">
+      <soap:operation soapAction="http://tempuri.org/IService/OrderGetByClientCpf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderGetByClientEmail">
+      <soap:operation soapAction="http://tempuri.org/IService/OrderGetByClientEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="OrderGetByDeliveryId">
       <soap:operation soapAction="http://tempuri.org/IService/OrderGetByDeliveryId" style="document" />
       <wsdl:input>
@@ -2359,6 +2725,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="OrderGetNext50FromIdV3">
+      <soap:operation soapAction="http://tempuri.org/IService/OrderGetNext50FromIdV3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="OrderGetNext50FromIdAndDate">
       <soap:operation soapAction="http://tempuri.org/IService/OrderGetNext50FromIdAndDate" style="document" />
       <wsdl:input>
@@ -2370,6 +2745,15 @@
     </wsdl:operation>
     <wsdl:operation name="OrderGetNext50FromIdAndDateStatusChanged">
       <soap:operation soapAction="http://tempuri.org/IService/OrderGetNext50FromIdAndDateStatusChanged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderGetInteractions">
+      <soap:operation soapAction="http://tempuri.org/IService/OrderGetInteractions" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2512,6 +2896,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="OrderDeliveryInvoiceNumberInsertUpdate">
+      <soap:operation soapAction="http://tempuri.org/IService/OrderDeliveryInvoiceNumberInsertUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="OrderChangeStatusById">
       <soap:operation soapAction="http://tempuri.org/IService/OrderChangeStatusById" style="document" />
       <wsdl:input>
@@ -2548,6 +2941,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ClientGetV3">
+      <soap:operation soapAction="http://tempuri.org/IService/ClientGetV3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ClientGetByCPF">
       <soap:operation soapAction="http://tempuri.org/IService/ClientGetByCPF" style="document" />
       <wsdl:input>
@@ -2559,6 +2961,15 @@
     </wsdl:operation>
     <wsdl:operation name="ClientGetByEmail">
       <soap:operation soapAction="http://tempuri.org/IService/ClientGetByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClientGetByEmailV3">
+      <soap:operation soapAction="http://tempuri.org/IService/ClientGetByEmailV3" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2674,6 +3085,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="FreightCalculateV3">
+      <soap:operation soapAction="http://tempuri.org/IService/FreightCalculateV3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ZipCodeGet">
       <soap:operation soapAction="http://tempuri.org/IService/ZipCodeGet" style="document" />
       <wsdl:input>
@@ -2748,6 +3168,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddressGetByClientId">
       <soap:operation soapAction="http://tempuri.org/IService/AddressGetByClientId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddressGetByClientIdV3">
+      <soap:operation soapAction="http://tempuri.org/IService/AddressGetByClientIdV3" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -3018,132 +3447,6 @@
     </wsdl:operation>
     <wsdl:operation name="ProductEspecificationListByProductId">
       <soap:operation soapAction="http://tempuri.org/IService/ProductEspecificationListByProductId" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="StockKeepingUnitComplementInsertUpdate">
-      <soap:operation soapAction="http://tempuri.org/IService/StockKeepingUnitComplementInsertUpdate" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ProductEspecificationInsert">
-      <soap:operation soapAction="http://tempuri.org/IService/ProductEspecificationInsert" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ProductEspecificationInsertByList">
-      <soap:operation soapAction="http://tempuri.org/IService/ProductEspecificationInsertByList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ProductEspecificationInsertByFieldId">
-      <soap:operation soapAction="http://tempuri.org/IService/ProductEspecificationInsertByFieldId" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ProductEspecificationInsertByListFieldIds">
-      <soap:operation soapAction="http://tempuri.org/IService/ProductEspecificationInsertByListFieldIds" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ProductEspecificationTextInsertByFieldId">
-      <soap:operation soapAction="http://tempuri.org/IService/ProductEspecificationTextInsertByFieldId" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="StockKeepingUnitEspecificationInsertByList">
-      <soap:operation soapAction="http://tempuri.org/IService/StockKeepingUnitEspecificationInsertByList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="StockKeepingUnitEspecificationInsert">
-      <soap:operation soapAction="http://tempuri.org/IService/StockKeepingUnitEspecificationInsert" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ProductSupplierGetCNPJ">
-      <soap:operation soapAction="http://tempuri.org/IService/ProductSupplierGetCNPJ" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ProductSetSimilarCategory">
-      <soap:operation soapAction="http://tempuri.org/IService/ProductSetSimilarCategory" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="StockKeepingUnitEspecificationInsertByListFieldId">
-      <soap:operation soapAction="http://tempuri.org/IService/StockKeepingUnitEspecificationInsertByListFieldId" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="StoreList">
-      <soap:operation soapAction="http://tempuri.org/IService/StoreList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="StoreGet">
-      <soap:operation soapAction="http://tempuri.org/IService/StoreGet" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="StockKeepingUnitEspecificationInsertByFieldId">
-      <soap:operation soapAction="http://tempuri.org/IService/StockKeepingUnitEspecificationInsertByFieldId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

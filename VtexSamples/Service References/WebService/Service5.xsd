@@ -1,41 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" />
-  <xs:import schemaLocation="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:complexType name="Service.GiftListAndMembersV2">
+<xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfint">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="int" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfint" nillable="true" type="tns:ArrayOfint" />
+  <xs:complexType name="ArrayOfstring">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+  <xs:complexType name="ArrayOfKeyValueOfstringstring">
     <xs:annotation>
       <xs:appinfo>
-        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="GiftList" nillable="true" type="q1:GiftListDTO" />
-      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="GiftListMembers" nillable="true" type="q2:ArrayOfGiftListMemberDTO" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfstringstring">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" nillable="true" type="xs:string" />
+            <xs:element name="Value" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Service.GiftListAndMembersV2" nillable="true" type="tns:Service.GiftListAndMembersV2" />
-  <xs:complexType name="ArrayOfService.GiftListAndMembersV2">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Service.GiftListAndMembersV2" type="tns:Service.GiftListAndMembersV2" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfService.GiftListAndMembersV2" nillable="true" type="tns:ArrayOfService.GiftListAndMembersV2" />
-  <xs:complexType name="ArrayOfService.SkuIDQtd">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Service.SkuIDQtd" type="tns:Service.SkuIDQtd" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfService.SkuIDQtd" nillable="true" type="tns:ArrayOfService.SkuIDQtd" />
-  <xs:complexType name="Service.SkuIDQtd">
-    <xs:annotation>
-      <xs:appinfo>
-        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element minOccurs="0" name="IdSku" type="xs:int" />
-      <xs:element minOccurs="0" name="Quantidade" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Service.SkuIDQtd" nillable="true" type="tns:Service.SkuIDQtd" />
+  <xs:element name="ArrayOfKeyValueOfstringstring" nillable="true" type="tns:ArrayOfKeyValueOfstringstring" />
 </xs:schema>
