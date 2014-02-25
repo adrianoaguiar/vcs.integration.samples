@@ -141,6 +141,27 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="ErrorType" nillable="true" type="tns:ErrorType" />
+  <xs:complexType name="ArrayOfFieldDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FieldDTO" nillable="true" type="tns:FieldDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFieldDTO" nillable="true" type="tns:ArrayOfFieldDTO" />
+  <xs:complexType name="FieldDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CategoryId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FieldId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="FieldTypeId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="FieldTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FieldValueId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsRequired" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsStockKeepingUnit" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FieldDTO" nillable="true" type="tns:FieldDTO" />
   <xs:complexType name="StockKeepingUnitComplementDTO">
     <xs:sequence>
       <xs:element minOccurs="0" name="ComplementType" type="tns:StockKeepingUnitComplementDTO.ComplementTypeEnum" />
@@ -310,6 +331,8 @@
       <xs:element minOccurs="0" name="IsPublic" nillable="true" type="xs:boolean" />
       <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProfileSystemUserAddressName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProfileSystemUserId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="UrlFolder" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Version" nillable="true" type="xs:int" />
     </xs:sequence>
@@ -334,6 +357,7 @@
       <xs:element minOccurs="0" name="Text2" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IsAdmin" nillable="true" type="xs:boolean" />
       <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ProfileSystemUserId" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="GiftListMemberDTO" nillable="true" type="tns:GiftListMemberDTO" />
@@ -376,7 +400,9 @@
       <xs:element minOccurs="0" name="GiftListId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="GiftListSkuId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="InsertedByClientId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="InsertedByProfileSystemUserId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ItemValue" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="OmsOrderId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="OrderId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="OrderMessage" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="OrderMessageFrom" nillable="true" type="xs:string" />
@@ -384,6 +410,7 @@
       <xs:element minOccurs="0" name="OrderResponseMessage" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SkuId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="WishedByClientId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="WishedByProfileSystemUserId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="_IsOrderFinished" nillable="true" type="xs:boolean" />
     </xs:sequence>
   </xs:complexType>
@@ -1575,25 +1602,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfImageDTO" nillable="true" type="tns:ArrayOfImageDTO" />
-  <xs:complexType name="ArrayOfFieldDTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="FieldDTO" nillable="true" type="tns:FieldDTO" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfFieldDTO" nillable="true" type="tns:ArrayOfFieldDTO" />
-  <xs:complexType name="FieldDTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CategoryId" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FieldId" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="FieldTypeId" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="FieldTypeName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FieldValueId" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
-      <xs:element minOccurs="0" name="IsRequired" nillable="true" type="xs:boolean" />
-      <xs:element minOccurs="0" name="IsStockKeepingUnit" nillable="true" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="FieldDTO" nillable="true" type="tns:FieldDTO" />
 </xs:schema>
