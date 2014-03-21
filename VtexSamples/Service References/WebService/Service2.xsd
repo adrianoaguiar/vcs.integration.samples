@@ -1382,6 +1382,7 @@
       <xs:element minOccurs="0" name="More" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Neighborhood" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Number" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RecipientName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ReferencePoint" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />

@@ -12662,6 +12662,9 @@ namespace VtexSamples.WebService {
         private System.Nullable<int> NumberField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RecipientNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ReferencePointField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -12799,6 +12802,19 @@ namespace VtexSamples.WebService {
                 if ((this.NumberField.Equals(value) != true)) {
                     this.NumberField = value;
                     this.RaisePropertyChanged("Number");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RecipientName {
+            get {
+                return this.RecipientNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RecipientNameField, value) != true)) {
+                    this.RecipientNameField = value;
+                    this.RaisePropertyChanged("RecipientName");
                 }
             }
         }
