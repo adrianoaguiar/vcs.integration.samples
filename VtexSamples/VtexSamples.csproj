@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.104.4.0\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -43,13 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AcessoWebService.cs" />
-    <Compile Include="Categoria.cs" />
-    <Compile Include="Estoque.cs" />
-    <Compile Include="GiftCard.cs" />
-    <Compile Include="Marca.cs" />
-    <Compile Include="Pedido.cs" />
-    <Compile Include="Produto.cs" />
+    <Compile Include="REST\AcessoRest.cs" />
+    <Compile Include="REST\InventoryREST.cs" />
+    <Compile Include="REST\PedidoREST.cs" />
+    <Compile Include="SOAP\AcessoWebService.cs" />
+    <Compile Include="SOAP\Categoria.cs" />
+    <Compile Include="SOAP\Estoque.cs" />
+    <Compile Include="SOAP\GiftCard.cs" />
+    <Compile Include="SOAP\Marca.cs" />
+    <Compile Include="SOAP\Pedido.cs" />
+    <Compile Include="SOAP\Produto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\WebService\Reference.cs">
@@ -57,10 +63,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Sku.cs" />
+    <Compile Include="SOAP\Sku.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="Service References\WebService\Service.wsdl" />
     <None Include="Service References\WebService\Service.xsd">
       <SubType>Designer</SubType>
@@ -240,6 +247,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

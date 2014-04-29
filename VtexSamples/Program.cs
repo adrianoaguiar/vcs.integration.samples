@@ -1,4 +1,5 @@
 ﻿using System;
+using VtexSamples.REST;
 
 namespace VtexSamples
 {
@@ -6,6 +7,20 @@ namespace VtexSamples
     {
         static void Main(string[] args)
         {
+
+            #region REST
+
+            // Pedidos
+            PedidoREST objPedidoRest = new PedidoREST();
+            objPedidoRest.SearchByStatus();
+            objPedidoRest.StartHandling();
+
+            // Estoque
+            InventoryREST objInventory = new InventoryREST();
+            objInventory.UpdateInventory();
+
+            #endregion
+
             Categoria objCategoria = new Categoria();
             objCategoria.IntegraCategoria();
 
