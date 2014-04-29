@@ -11,6 +11,18 @@
       <xsd:import schemaLocation="http://webservice-basedev.vtexlocal.com.br/Service.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Vtex.Commerce.OrderManagement" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IService_StockKeepingUnitEspecificationListBySkuId_InputMessage">
+    <wsdl:part name="parameters" element="tns:StockKeepingUnitEspecificationListBySkuId" />
+  </wsdl:message>
+  <wsdl:message name="IService_StockKeepingUnitEspecificationListBySkuId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StockKeepingUnitEspecificationListBySkuIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProductEspecificationListByProductId_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProductEspecificationListByProductId" />
+  </wsdl:message>
+  <wsdl:message name="IService_ProductEspecificationListByProductId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProductEspecificationListByProductIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_StockKeepingUnitComplementInsertUpdate_InputMessage">
     <wsdl:part name="parameters" element="tns:StockKeepingUnitComplementInsertUpdate" />
   </wsdl:message>
@@ -833,6 +845,12 @@
   <wsdl:message name="IService_ClientInsertUpdate_OutputMessage">
     <wsdl:part name="parameters" element="tns:ClientInsertUpdateResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_ClientInsertUpdateV3_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClientInsertUpdateV3" />
+  </wsdl:message>
+  <wsdl:message name="IService_ClientInsertUpdateV3_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClientInsertUpdateV3Response" />
+  </wsdl:message>
   <wsdl:message name="IService_DistributionCenterGet_InputMessage">
     <wsdl:part name="parameters" element="tns:DistributionCenterGet" />
   </wsdl:message>
@@ -922,6 +940,12 @@
   </wsdl:message>
   <wsdl:message name="IService_AddressInsertByClientId_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddressInsertByClientIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddressInsertUpdateV3_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddressInsertUpdateV3" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddressInsertUpdateV3_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddressInsertUpdateV3Response" />
   </wsdl:message>
   <wsdl:message name="IService_AddressInsertByCpfCnpj_InputMessage">
     <wsdl:part name="parameters" element="tns:AddressInsertByCpfCnpj" />
@@ -1085,19 +1109,15 @@
   <wsdl:message name="IService_StockKeepingUnitImageRemoveByName_OutputMessage">
     <wsdl:part name="parameters" element="tns:StockKeepingUnitImageRemoveByNameResponse" />
   </wsdl:message>
-  <wsdl:message name="IService_StockKeepingUnitEspecificationListBySkuId_InputMessage">
-    <wsdl:part name="parameters" element="tns:StockKeepingUnitEspecificationListBySkuId" />
-  </wsdl:message>
-  <wsdl:message name="IService_StockKeepingUnitEspecificationListBySkuId_OutputMessage">
-    <wsdl:part name="parameters" element="tns:StockKeepingUnitEspecificationListBySkuIdResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService_ProductEspecificationListByProductId_InputMessage">
-    <wsdl:part name="parameters" element="tns:ProductEspecificationListByProductId" />
-  </wsdl:message>
-  <wsdl:message name="IService_ProductEspecificationListByProductId_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ProductEspecificationListByProductIdResponse" />
-  </wsdl:message>
   <wsdl:portType name="IService">
+    <wsdl:operation name="StockKeepingUnitEspecificationListBySkuId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/StockKeepingUnitEspecificationListBySkuId" message="tns:IService_StockKeepingUnitEspecificationListBySkuId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/StockKeepingUnitEspecificationListBySkuIdResponse" message="tns:IService_StockKeepingUnitEspecificationListBySkuId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProductEspecificationListByProductId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ProductEspecificationListByProductId" message="tns:IService_ProductEspecificationListByProductId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ProductEspecificationListByProductIdResponse" message="tns:IService_ProductEspecificationListByProductId_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="StockKeepingUnitComplementInsertUpdate">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/StockKeepingUnitComplementInsertUpdate" message="tns:IService_StockKeepingUnitComplementInsertUpdate_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/StockKeepingUnitComplementInsertUpdateResponse" message="tns:IService_StockKeepingUnitComplementInsertUpdate_OutputMessage" />
@@ -1646,6 +1666,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/ClientInsertUpdate" message="tns:IService_ClientInsertUpdate_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/ClientInsertUpdateResponse" message="tns:IService_ClientInsertUpdate_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ClientInsertUpdateV3">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ClientInsertUpdateV3" message="tns:IService_ClientInsertUpdateV3_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ClientInsertUpdateV3Response" message="tns:IService_ClientInsertUpdateV3_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="DistributionCenterGet">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/DistributionCenterGet" message="tns:IService_DistributionCenterGet_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/DistributionCenterGetResponse" message="tns:IService_DistributionCenterGet_OutputMessage" />
@@ -1705,6 +1729,10 @@
     <wsdl:operation name="AddressInsertByClientId">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/AddressInsertByClientId" message="tns:IService_AddressInsertByClientId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/AddressInsertByClientIdResponse" message="tns:IService_AddressInsertByClientId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddressInsertUpdateV3">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddressInsertUpdateV3" message="tns:IService_AddressInsertUpdateV3_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddressInsertUpdateV3Response" message="tns:IService_AddressInsertUpdateV3_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddressInsertByCpfCnpj">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/AddressInsertByCpfCnpj" message="tns:IService_AddressInsertByCpfCnpj_InputMessage" />
@@ -1814,17 +1842,27 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/StockKeepingUnitImageRemoveByName" message="tns:IService_StockKeepingUnitImageRemoveByName_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/StockKeepingUnitImageRemoveByNameResponse" message="tns:IService_StockKeepingUnitImageRemoveByName_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="StockKeepingUnitEspecificationListBySkuId">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/StockKeepingUnitEspecificationListBySkuId" message="tns:IService_StockKeepingUnitEspecificationListBySkuId_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/StockKeepingUnitEspecificationListBySkuIdResponse" message="tns:IService_StockKeepingUnitEspecificationListBySkuId_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ProductEspecificationListByProductId">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/ProductEspecificationListByProductId" message="tns:IService_ProductEspecificationListByProductId_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/ProductEspecificationListByProductIdResponse" message="tns:IService_ProductEspecificationListByProductId_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="StockKeepingUnitEspecificationListBySkuId">
+      <soap:operation soapAction="http://tempuri.org/IService/StockKeepingUnitEspecificationListBySkuId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductEspecificationListByProductId">
+      <soap:operation soapAction="http://tempuri.org/IService/ProductEspecificationListByProductId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="StockKeepingUnitComplementInsertUpdate">
       <soap:operation soapAction="http://tempuri.org/IService/StockKeepingUnitComplementInsertUpdate" style="document" />
       <wsdl:input>
@@ -3058,6 +3096,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ClientInsertUpdateV3">
+      <soap:operation soapAction="http://tempuri.org/IService/ClientInsertUpdateV3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="DistributionCenterGet">
       <soap:operation soapAction="http://tempuri.org/IService/DistributionCenterGet" style="document" />
       <wsdl:input>
@@ -3186,6 +3233,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddressInsertByClientId">
       <soap:operation soapAction="http://tempuri.org/IService/AddressInsertByClientId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddressInsertUpdateV3">
+      <soap:operation soapAction="http://tempuri.org/IService/AddressInsertUpdateV3" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -3429,24 +3485,6 @@
     </wsdl:operation>
     <wsdl:operation name="StockKeepingUnitImageRemoveByName">
       <soap:operation soapAction="http://tempuri.org/IService/StockKeepingUnitImageRemoveByName" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="StockKeepingUnitEspecificationListBySkuId">
-      <soap:operation soapAction="http://tempuri.org/IService/StockKeepingUnitEspecificationListBySkuId" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ProductEspecificationListByProductId">
-      <soap:operation soapAction="http://tempuri.org/IService/ProductEspecificationListByProductId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
