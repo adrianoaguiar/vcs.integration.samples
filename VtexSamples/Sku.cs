@@ -13,7 +13,7 @@ namespace VtexSamples
         {
             try
             {
-
+                // teste
                 Console.WriteLine("Início do exemplo de integração de Pedido");
 
                 int idSku = 101;
