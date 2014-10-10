@@ -2,6 +2,10 @@
 
 Este documento tem por objetivo auxiliar o integrador na integração pedidos entre ERP euma loja hospedada na versão smartcheckout da VTEX. Ler os pedidos na VTEX, inserir os pedidos no ERP, e receber as informações de nota fiscal e tracking e ou Cancelamento de pedido.
 
+*Exemplo do Fluxo:*
+
+![alt text](pedido-tracking-vtex-erp.PNG "Title") 
+
 ##1 - Pedidos##
 Obter a lista de pedidos na VTEX e inserir os pedidos no ERP, atualizando a VTEX que o pedido já está no ERP.
 
@@ -9,10 +13,12 @@ Obter a lista de pedidos na VTEX e inserir os pedidos no ERP, atualizando a VTEX
 
 Através da API do OMS pegar a lista de pedidos pagos paginados:
 
-endpoint: **nomedaloja/api/oms/pvt/orders?f_status=ready-for-handling&per_page=30**  
+endpoint: **https://[nomedaloja]/api/oms/pvt/orders?f\_status=ready-for-handling&per\_page=30**  
 verb: **GET**  
 Content-Type: **application/json**  
-Accept: **application/json**
+Accept: **application/json**  
+Parametro: **f\_status** //define o status em que se deseja obter os pedido [ready-for-handling]   
+Parâmetro: **per\_page** //define o numero de pedidos que virá na lista  
 
 
 *Exemplo do Response:*  
@@ -88,7 +94,7 @@ Esse exemplo retorna uma lista com o resumo de cada pedido (2 pedidos), onde par
 
 ###1.2 - Obter um Pedido na API do OMS###
 
-endpoint: **nomedaloja/api/oms/pvt/orders/{orderId}**  
+endpoint: **https://[nomedaloja]/api/oms/pvt/orders/[orderId]**  
 verb: **GET**  
 Content-Type: **application/json**  
 Accept: **application/json**
@@ -99,7 +105,7 @@ Accept: **application/json**
 	    "orderId": "v1233363wlmr-02", //id do pedido
 	    "sequence": "1233365", //id numerico do pedido
 	    "marketplaceOrderId": "", //se foi um pedido originado no em marketplace, terá o id do pedido no marketplace
-	    "marketplaceServicesEndpoint": "", //se foi um pedido originado no em marketplace, o end point do marketplace para informação de Tracking e NF
+	    "marketplaceServicesEndpoint": "", //end point do marketplace para informação de Tracking e NF
 	    "sellerOrderId": "00-v1233363wlmr-02", //id do pedido no seller
 	    "origin": "Marketplace", origin do pedido: Marketplace(própria loja) | Fulfillment(pedido que veio por canal de vendas
 	    "affiliateId": "", //id do affiliado que fez pedido.
@@ -389,25 +395,180 @@ Accept: **application/json**
 
 
 
-###1.2.1 - Obter Informações Complementares de Pedido###
-Caso necessário obter informações complemtares do pedido com endereço de cobrança por exemplo, deve acessa a API REST de **Payments** passando o *TID ("transactionId": "33CD3CC4D11A4FA49A2C9EE20D771F98") do gateway VTEX.Segue exemplo de chamada a API REST para pegar um pagamento.
+###1.2.1 - Obtendo Informações de Pagamento de Pedido###
+Caso necessário obter informações sobre informações de pagamento de um pedido (como endereço de cobrança por exemplo), deve se acessar a API REST de **Payments** passando o *TID ("paymentData.transactions.transactionId": "33CD3CC4D11A4FA49A2C9EE20D771F98") do gateway VTEX. No retorno, além de um resumo da transação, poderá obter se as URLs de acesso aos detalhes transação. Segue exemplo de chamada a API REST para pegar as informações de pagamento de um pedido.
 
 
-endpoint: **nomedaloja/api/oms/pvt/orders/{orderId}**  
+endpoint: **https://[urldaloja].vtexpayments.com.br/api/pvt/transactions/[transactionId]**  
 verb: **GET**  
 Content-Type: **application/json**  
 Accept: **application/json**
 
-###1.3 - Pedido Está no ERP - Preparando Entrega###
+*Exemplo do Response:*
+
+	{
+	    "id": "[transactionId]",
+	    "transactionId": "[transactionId]",
+	    "referenceKey": "1233365", //sequence do pedido
+	    "interactions": {
+	        "href": "/api/pvt/transactions/[transactionId]/interactions" //url para consultar interações
+	    },
+	    "settlements": {
+	        "href": "/api/pvt/transactions/[transactionId]/settlements" //url para consultar capturas
+	    },
+	    "payments": {
+	        "href": "/api/pvt/transactions/[transactionId]/payments" //url para consultar pagamento
+	    },
+	    "refunds": {
+	        "href": "/api/pvt/transactions/[transactionId]/refunds" //url para consultar reeembolsos
+	    },
+	    "timeoutStatus": 1,
+	    "totalRefunds": 0,
+	    "status": "Finished",
+	    "value": 47368,
+	    "receiverUri": null,
+	    "startDate": "2014-09-28T09:58:19",
+	    "authorizationToken": "F64624BCEA8940D3BE09D8D7E20FECWS",
+	    "authorizationDate": "2014-09-28T09:58:27",
+	    "commitmentToken": "986A3EBAE0224D8792DF896B9B4ED491",
+	    "commitmentDate": "2014-09-30T12:48:31",
+	    "refundingToken": null,
+	    "refundingDate": null,
+	    "cancelationToken": null,
+	    "cancelationDate": null,
+	    "fields": [
+	        {
+	            "name": "channel",
+	            "value": "COSMETICOS"
+	        },
+	        {
+	            "name": "parentMerchant",
+	            "value": "2c13dfe4-22b6-4b0e-9a66-c0f2c3cb7c9t"
+	        },
+	        {
+	            "name": "ip",
+	            "value": "187.11.77.002"
+	        },
+	        {
+	            "name": "cart",
+	            "value": "{\"items\":[{\"id\":\"6601\",\"name\":\"Ck One Eau de Toilette Calvin Klein - Perfume Unissex 200ml\",\"value\":22440,\"quantity\":1,\"priceTags\":[{\"name\":\"discount@price-669#baaefcdb-887e-4c92-81c5-11d1deb17b83\",\"value\":\"-44,88\"},{\"name\":\"discount@shipping-1#38025ead-9eb3-4735-a2af-17aaa7138d92\",\"value\":\"1\"}],\"shippingDiscount\":0,\"discount\":-4488},{\"id\":\"7098\",\"name\":\"Cool Water Eau de Toilette Davidoff - Perfume Masculino 125ml\",\"value\":19600,\"quantity\":1,\"priceTags\":[{\"name\":\"discount@price-669#baaefcdb-887e-4c92-81c5-11d1deb17b83\",\"value\":\"-39,2\"},{\"name\":\"discount@shipping-1#38025ead-9eb3-4735-a2af-17aaa7138d92\",\"value\":\"1\"}],\"shippingDiscount\":0,\"discount\":-3920},{\"id\":\"6320\",\"name\":\"Animale For Men Eau de Toilette Animale - Perfume Masculino 100ml\",\"value\":17170,\"quantity\":1,\"priceTags\":[{\"name\":\"discount@price-669#baaefcdb-887e-4c92-81c5-11d1deb17b83\",\"value\":\"-34,34\"},{\"name\":\"discount@shipping-1#38025ead-9eb3-4735-a2af-17aaa7138d92\",\"value\":\"1\"}],\"shippingDiscount\":0,\"discount\":-3434}],\"freight\":0,\"shippingdate\":null,\"shippingestimated\":\"5bd\",\"orderUrl\":\"http://www.epocacosmeticos.com.br/admin/checkout/#/orders?q=v1089278epcc\",\"tax\":0}"
+	        },
+	        {
+	            "name": "clientProfileData",
+	            "value": "{\"email\":\"jonasalves@hotmail.com\",\"firstName\":\"JONAS\",\"lastName\":\"ALVES\",\"document\":\"29159555837\",\"phone\":\"+551120123496\",\"corporateName\":null,\"tradeName\":null,\"corporateDocument\":null,\"stateInscription\":null,\"postalCode\":\"03205000\",\"address\":{\"receiverName\":\"JONAS ALVES\",\"postalCode\":\"03205000\",\"city\":\"São Paulo\",\"state\":\"SP\",\"country\":\"BRA\",\"street\":\"Rua Doutor Luís Carlos\",\"number\":\"4130\",\"neighborhood\":\"Vila Aricanduva\",\"complement\":\"apt 34\",\"reference\":null},\"gender\":null,\"birthDate\":null,\"corporatePhone\":null,\"isCorporate\":false,\"documentType\":null}"
+	        },
+	        {
+	            "name": "shippingData",
+	            "value": "{\"receiverName\":\"JONAS ALVES\",\"postalCode\":\"03205000\",\"city\":\"São Paulo\",\"state\":\"SP\",\"country\":\"BRA\",\"street\":\"Rua Doutor Luís Carlos\",\"number\":\"4350\",\"neighborhood\":\"Vila Aricanduva\",\"complement\":\"apt 34\",\"reference\":null}"
+	        },
+	        {
+	            "name": "waitingApproval",
+	            "value": "true"
+	        }
+	    ],
+	    "ipAddress": "187.11.77.002",
+	    "antifraudTid": null,
+	    "channel": "COSMETICOS",
+	    "urn": null,
+	    "softDescriptor": null
+	}
+
+###1.2.3 - Pedido Está no ERP - Preparando Entrega###
+Uma vez tendo os dados de pedidos obtidas na API do OMS da VTEX, guarda se o pedido
+no respectivo ERP e informa se a VTEX que o pedido está sendo tratado pelo processos de preparar entrega. Exemplo da chamada ao OMS avisando que o pedido está em preparo de entrega:
+
+endpoint: **https://[nomedaloja]/api/oms/pvt/orders/[orderid]/start-handling**  
+verb: **POST**  
+Content-Type: **application/json**  
+Accept: **application/json**
+
 
 ##2 - Nota Fiscal ##
+Uma vez o pedido no ERP e o status do pedido na loja VTEX como preparando entrega, vem a parte da Nota Fiscal. 
+Após receber o pedido, o ERP emite a Nota Fiscal do Pedido e informa a loja VTEX sobre a mesma. O envio de notas fiscais pode ser parcial, obrigando assim ao informador informar além dos valores da nota fiscal, os items ele está mandando na nota fiscal parcial. Exemplo do POST feito no OMS da VTEX para informar uma Nota Fiscal.
+
+endpoint: **https://[nomedaloja]/api/oms/pub/orders/[orderId]/invoice**  
+verb: **POST**  
+Content-Type: **application/json**  
+Accept: **application/json**  
+
+*Exemplo do Request:*  
+
+	{
+	    "type": "Output", //hard code
+	    "invoiceNumber": "NFe-00001", //numero da nota fiscal
+	    "courier": "", //quando é nota fiscal, dados de tracking vem vazio
+	    "trackingNumber": "", //quando é nota fiscal, dados de tracking vem vazio
+	    "trackingUrl": "",//quando é nota fiscal, dados de tracking vem vazio
+	    "items": [ //itens da nota
+	      {
+	        "id": "345117",
+	        "quantity": 1,
+	        "price": 9003
+	      }
+	    ],
+	    "issuanceDate": "2013-11-21T00:00:00", //data da nota
+	    "invoiceValue": 9508 //valor da nota
+	  }
+
+*Exemplo do Response:*
+
+	{
+	    "date": "2014-02-07T15:22:56.7612218-02:00", //data do recibo
+	    "orderId": "123543123",
+	    "receipt": "38e0e47da2934847b489216d208cfd91" //protocolo gerado, pode ser nulo
+  	}
 
 ##3 - Tracking##
+Uma vez informado a Nota Fiscal, vem a parte de ratreamento da Entrega. 
+O ERP ou a transportadora podem enviar informações de como e onde anda o pedido através da API do OMS VTEX 
+Exemplo do POST feito no OMS da VTEX para informar Tracking de um pedido.
+
+endpoint: **https://[nomedaloja]/api/oms/pub/orders/[orderId]/invoice**  
+verb: **POST**  
+Content-Type: **application/json**  
+Accept: **application/json**  
+Parametro: **an=shopfacilfastshop** // an é o nome do gateway da loja que ta enviando o pagamento
+
+
+*Exemplo do Request:*  
+
+	{
+	    "type": "Output",
+	    "invoiceNumber": "NFe-00001",
+	    "courier": "Correios", //transportadora
+	    "trackingNumber": "SR000987654321", /tracking number
+	    "trackingUrl": "http://traking.correios.com.br/sedex/SR000987654321", url de tracking
+	    "items": [
+	      {
+	        "id": "345117",
+	        "quantity": 1,
+	        "price": 9003
+	      }
+	    ],
+	    "issuanceDate": "2013-11-21T00:00:00",
+	    "invoiceValue": 9508
+	  }
+
+*Exemplo do Response:*
+
+	{
+	    "date": "2014-02-07T15:22:56.7612218-02:00", //data do recibo
+	    "orderId": "123543123",
+	    "receipt": "38e0e47da2934847b489216d208cfd91" //protocolo gerado, pode ser nulo
+  	}
+
+**A Nota Fiscal e o Tracking podem ser enviados na mesma chamada, basta prenncher todos os dados do POST.
 
 ##4 - Cancelamento ##
+O pedido desceu pro ERP, mas por alguma motivo foi cancelado. O ERP invoca uma solicitação de cancelamento
+para a API do OMS da loja VTEX. Caso o pedido ainda esteja num estado em que se possa cancelar, o mesmo será cancelado.
+Exemplo de request feito no OMS da VTEX para solicitar o cancelamento de um pedido.
+
+endpoint: **https://[nomedaloja]/api/oms/pvt/orders/[orderid]/cancel**  
+verb: **GET**  
 
 ##5 - Considerações ##
-
 
 ####5.1 Pooling (loop de atualização executado de tempos em tempos) ####
 O envio ou consumo de dados num processo de integração deve ser executado somente quando necessário, ou seja, o dado só deve ser enviado do ERP para a plataforma VTEX quando ele realmente for alterado. **NÂO** se deve fazer uma integração que varre entidades inteiras do ERP e atualiza todos os dados na plataforma VTEX de tempos  em tempos, ou vice e versa. Além de consumir e processar dados desnecessáriamente, isso não funcionaria para lojas com mais de 5 mil Skus no catálogo.
@@ -423,9 +584,15 @@ Nesta ferramente pode se testar, armazenar histórico, salvar coleções de requ
 
 É de suma importancia que o integrador tenha o conhecimento de ferramentas desse tipo, ou outras parecidas, antes de inciar um processo de integração usando APIs REST VTEX.
 
+####5.3 Header nas Chamadas a API REST####
+Toda chamada as API REST devem conter no Headear as seguintes Keys:  
+X-VTEX-API-AppToken:**[Value]**  
+X-VTEX-API-AppKey:**[Value]**  
+Content-Type: **application/json**      
+Accept: **application/json**   
 
 
-####5.3 Versão:Beta 1.0####
+####5.4 Versão:Beta 1.0####
 Essa versão de documentação suporta a integração na versão da plataforma VTEX smartcheckout. Ela foi escrita para auxiliar um integração e a idéia e que através dela, não  restem nenhuma dúvida de como se integrar com a VTEX. Se recebeu essa documentação e ainda restaram dúvidas, por favor, detalhe as suas dúvidas abaixo no comentário, para chegarmos a um documento rico e funcional.
 
 

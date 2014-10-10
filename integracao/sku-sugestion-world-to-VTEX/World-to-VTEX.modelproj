@@ -29,6 +29,13 @@
       <SubType>Content</SubType>
       <DependentUpon>fechamento-fluxo-canal-nao-vtex.sequencediagram</DependentUpon>
     </Content>
+    <Content Include="order-vtex-erp.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="order-vtex-erp.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>order-vtex-erp.sequencediagram</DependentUpon>
+    </Content>
     <Content Include="pedido-canal-nao-vtex.sequencediagram">
       <SubType>Content</SubType>
     </Content>
