@@ -209,7 +209,7 @@ O MarketplaceServicesEndpoint serve para a loja VTEX informar ao canal de vendas
 
 ###3.1 - Exemplos de Request Para Informar Nota Fiscal###  - Endpoint da Canal de Vendas###
 
-endpoint: **https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice**  
+endpoint: **https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice**  
 verb: **POST**  
 Content-Type: **application/json**  
 Accept: **application/json**  
@@ -244,7 +244,7 @@ Accept: **application/json**
 
 ###3.1 - Exemplos de Request Para Informar Tracking - Endpoint da Canal de Vendas###
 
-endpoint: **https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice**  
+endpoint: **https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice**  
 verb: **POST**  
 Content-Type: **application/json**  
 Accept: **application/json**  
@@ -284,14 +284,56 @@ Uma solicitação de cancelamento pode ser enviada para o Canal de Vendas não V
  
 ###3.1.1 - Exemplos de Request de Cancelamento - Endpoint da Canal de Vendas###
 
-endpoint: **https://marketplaceServicesEndpoint/pvt/orders/[orderid]/cancel**  
+endpoint: **https://marketplaceServicesEndpoint/pvt/orders/[marketplaceorderId]/cancel**  
 verb: **GET**  
 
 **A Nota Fiscal e o Tracking podem ser enviados na mesma chamada, basta prenncher todos os dados do POST.
 
+##4 Registrar Mudanças##
 
-##4 Versão:Beta 1.1##
+Com esse recurso permite se registrar mudanças no pedido. Mudanças podem ser descontos, cancelamento ou troca de itens.
+
+endpoint: **https://urldaloja/api/oms/pvt/orders/[orderId]/changes**  
+verb: **POST**  
+Content-Type: **application/json**  
+Accept: **application/json**  
+
+
+*Exemplo do Request:*  
+
+	{
+	    "reason": "Promocao dado por telefone",
+	    "discountValue": 1000, //caso queira dar um desconto
+	    "itemsRemoved": [ //items a remover
+	      {
+	        "id": "234794",
+	        "quantity": 2,
+	        "price": 600
+	      }
+	    ],
+	    "itemsAdded": [ /items a adicionar
+	      {
+	        "id": "234788",
+	        "quantity": 1,
+	        "price": 200
+	      }
+	    ]
+	}
+
+*Exemplo do Response:*
+
+	{
+	    "date": "2014-02-07T17:28:56.3071208Z",
+	    "orderId": "409050869826-01",
+	    "receipt": "e141c288-831c-4e23-90d9-4fadf7b2cf15"
+	}
+
+
+##5 Versão:Beta 1.2##
 Essa versão de documentação suporta a integração na versão da plataforma VTEX smartcheckout. Ela foi escrita para auxiliar um integração e a idéia e que através dela, não  restem nenhuma dúvida de como se integrar com a VTEX. Se recebeu essa documentação e ainda restaram dúvidas, por favor, detalhe as suas dúvidas abaixo no comentário, para chegarmos a um documento rico e funcional.
+
+O que mudou na troca de versões:  
+1.1 para 1.2 foi incluido a parte de Registrar Mudança
 
 
 autor: Jonas Bolognim

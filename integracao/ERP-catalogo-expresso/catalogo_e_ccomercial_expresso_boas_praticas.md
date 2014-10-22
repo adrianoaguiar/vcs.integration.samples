@@ -162,7 +162,7 @@ Cadastrar SKU na loja: webservice.StockKeepingUnitInsertUpdate(StockKeepingUnitD
    	<soapenv:Body>
       <tem:StockKeepingUnitInsertUpdate>
          <tem:stockKeepingUnitVO>
-            <vtex:CommercialConditionId>?</vtex:CommercialConditionId>
+            <vtex:CommercialConditionId>1</vtex:CommercialConditionId>
             <vtex:CubicWeight>100</vtex:CubicWeight>
             <vtex:DateUpdated>2014-01-01</vtex:DateUpdated>
             <vtex:EstimatedDateArrival>2014-01-01</vtex:EstimatedDateArrival>
@@ -210,7 +210,7 @@ Se no momento sa inserção da SKU não foi enviado um preço válido para a SKU
 
 O primeiro passo a ser tomado para acessar as APIs da VTEX é solicitar os token de acesso (X-VTEX-API-AppToken e X-VTEX-API-AppKey) ao administrador da loja. Após isso fazer um POST como segue o exemplo:
 
-endpoint: **nomedaloja/api/pricing/pvt/price-sheet**  
+endpoint: **https://urldaloja/api/pricing/pvt/price-sheet**  
 verb: **POST**  
 Content-Type: **application/json**  
 Accept: **application/json**
@@ -276,7 +276,8 @@ Accept: **application/json**
 	  	},
 	  	{
 	    	"wareHouseId": "2",
-	    	"itemId": "45"
+	    	"itemId": "45",
+			"quantity": 5
 	  	}
 	]
 
@@ -287,7 +288,7 @@ _http://lab.vtex.com/docs/logistics/api/latest/carrier/index.html_
 ##3 - Considerações ##
 
 ####3.1 - Uso do webservice ####
-O webservice VTEX deve ser usado o mínimo possível para os processo de integração, hoje com excessão do **Catalog**, que está com sua API REST em desenvolvimento, todos os outros módulos da VTEX possúem APIs REST bem definidas e de alta performance. É altemante recomendado que se use as APIs REST nos módulos que não seja o **Catalog**
+O webservice VTEX deve ser usado o mínimo possível para os processo de integração, hoje com excessão do **Catalogo**, que está com sua API REST em desenvolvimento, todos os outros módulos da VTEX possúem APIs REST bem definidas e de alta performance. É altamente recomendado que se use as APIs REST nos módulos que não seja o **Catalog**
 
 ####3.2 APIs REST (formato JSON) ####
 

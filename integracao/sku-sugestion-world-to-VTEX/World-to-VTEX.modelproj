@@ -43,8 +43,15 @@
       <SubType>Content</SubType>
       <DependentUpon>pedido-canal-nao-vtex.sequencediagram</DependentUpon>
     </Content>
-    <Content Include="pedido-fechamento.sequencediagram">
+    <Content Include="pedido-fechamento-cpgto.sequencediagram">
       <SubType>Content</SubType>
+    </Content>
+    <Content Include="pedido-fechamento-seller-nao-vtex.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="pedido-fechamento-seller-nao-vtex.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>pedido-fechamento-seller-nao-vtex.sequencediagram</DependentUpon>
     </Content>
     <Content Include="pedido-pagamento-integraçao.sequencediagram">
       <SubType>Content</SubType>
@@ -69,7 +76,7 @@
     </Content>
     <Content Include="sku-sugestion.sequencediagram.layout">
       <SubType>Content</SubType>
-      <DependentUpon>pedido-fechamento.sequencediagram</DependentUpon>
+      <DependentUpon>pedido-fechamento-cpgto.sequencediagram</DependentUpon>
     </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="ModelDefinition\sku-sugestion-world-to-VTEX.uml">
