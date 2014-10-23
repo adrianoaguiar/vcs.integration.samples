@@ -1,6 +1,6 @@
 # Enviar Pedido e Informar Pagamento
 
-Este documento tem por objetivo auxiliar o marketplace não VTEX a receber um pedido, receber o respectivo pagamento do pedido, e comunicar a atualização de status de pagamento.
+Este documento tem por objetivo auxiliar o Seller não VTEX a receber um pedido, receber o respectivo pagamento do pedido, e comunicar a atualização de status de pagamento.
 
 
 *Exemplo do fuxo de chamadas de descida de pedido, pagamento e atualização de status de pagamento:*  
@@ -8,7 +8,7 @@ Este documento tem por objetivo auxiliar o marketplace não VTEX a receber um pe
 ![alt text](pedido-pagamento-fluxo.png "Title") 
 
 ##1 - Enviar Pedido##
-Quando o pedido é fechado no ambiente VTEX, um POST é feito no marketplace não VTEX, para que este possa receber a ordem de pedido.  
+Quando o pedido é fechado no ambiente VTEX, um POST é feito no Seller não VTEX, para que este possa receber a ordem de pedido.  
  
 ###1.1 - Exemplos de Request de Descida de Pedido - Endpoint do Seller###
 

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sequenceDesignerDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.5, 8.5" name="ERP-catalogo-completo">
+  <SequenceDesignerModelMoniker Id="cbdc4310-9d06-465f-8c77-ed17e784e90a" />
+  <nestedChildShapes>
+    <lifelineShape Id="92c378cd-1abd-4d56-a67f-68a8336551b6" absoluteBounds="13.70625, 1, 0.15, 7" visible="true" visualStyleMode="Custom">
+      <lifelineMoniker Id="10bf95b3-0a80-4682-8377-3fb8dc30500b" LastKnownName="VTEX" />
+      <relativeChildShapes>
+        <lifelineHoverShape Id="9a1c691c-a6bf-4bff-8d55-50e8206c0d7f" absoluteBounds="13.70625, 1, 0, 7">
+          <lifelineMoniker Id="10bf95b3-0a80-4682-8377-3fb8dc30500b" LastKnownName="VTEX" />
+        </lifelineHoverShape>
+        <umlLifelineHeadShape Id="ba3f0af2-8d96-42a5-8a8a-8688cc89db1b" absoluteBounds="13.28125, 0.6, 1, 0.4" customColor="DarkOrange" visualStyleMode="Custom">
+          <lifelineMoniker Id="10bf95b3-0a80-4682-8377-3fb8dc30500b" LastKnownName="VTEX" />
+          <relativeChildShapes />
+        </umlLifelineHeadShape>
+      </relativeChildShapes>
+    </lifelineShape>
+    <commentShape Id="8773bcbc-888f-4d07-89dc-53256ae165e2" absoluteBounds="4.125, 5.125, 0.625, 0.625" customColor="Lime">
+      <commentMoniker Id="29d18b96-d87d-4aad-94fa-647e0c88103c" />
+      <relativeChildShapes />
+    </commentShape>
+    <commentShape Id="d43094bd-b036-4fe8-89f7-e80c91dc59c5" absoluteBounds="4.125, 6.25, 0.625, 0.625" customColor="Lime">
+      <commentMoniker Id="1b39761c-df39-434f-b1b5-e3fe6aae0451" />
+      <relativeChildShapes />
+    </commentShape>
+    <commentShape Id="39a6dc32-374d-4968-a585-25ed25605469" absoluteBounds="4.125, 7.25, 0.625, 0.875" customColor="Lime">
+      <commentMoniker Id="8061e7bb-2c78-4559-9959-9ee3b07271bf" />
+      <relativeChildShapes />
+    </commentShape>
+    <commentShape Id="b863a156-ae08-45d1-bdd9-8e22ffc6096c" absoluteBounds="4.125, 1.5, 0.625, 0.75" customColor="Lime">
+      <commentMoniker Id="c0d1a591-fa9f-4bc4-8ff2-8edc86f3a284" />
+      <relativeChildShapes />
+    </commentShape>
+    <commentShape Id="6f13a19a-9138-4d51-8b6a-0e32a5dde7d2" absoluteBounds="4.125, 3, 0.625, 0.5" customColor="Lime">
+      <commentMoniker Id="55b701a9-0b52-45e1-b047-abc4786e17be" />
+      <relativeChildShapes />
+    </commentShape>
+    <commentShape Id="98bba094-cf70-439b-95fe-aca6adf885c6" absoluteBounds="4.125, 4, 0.625, 0.5" customColor="Lime">
+      <commentMoniker Id="7735b18b-0134-40c7-98ab-d76ced63a918" />
+      <relativeChildShapes />
+    </commentShape>
+    <lifelineShape Id="beab2712-a1c3-4f6a-a97d-d306e20053c8" absoluteBounds="4.8375, 1, 0.15, 7" visible="true" visualStyleMode="Custom">
+      <lifelineMoniker Id="d2161b5d-2997-470e-a473-f1696170a50a" LastKnownName="ERP" />
+      <relativeChildShapes>
+        <umlLifelineHeadShape Id="214c0b60-fdc1-4afb-ac61-5b6da061f9e1" absoluteBounds="4.4125000000000005, 0.6, 1, 0.4" customColor="DodgerBlue" visualStyleMode="Custom">
+          <lifelineMoniker Id="d2161b5d-2997-470e-a473-f1696170a50a" LastKnownName="ERP" />
+          <relativeChildShapes />
+        </umlLifelineHeadShape>
+        <lifelineHoverShape Id="af64cf18-4b69-488c-aec6-140268692b66" absoluteBounds="4.8375, 1, 0, 7">
+          <lifelineMoniker Id="d2161b5d-2997-470e-a473-f1696170a50a" LastKnownName="ERP" />
+        </lifelineHoverShape>
+      </relativeChildShapes>
+    </lifelineShape>
+  </nestedChildShapes>
+</sequenceDesignerDiagram>

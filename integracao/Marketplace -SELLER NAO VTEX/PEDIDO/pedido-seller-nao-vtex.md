@@ -1,16 +1,16 @@
-# Enviar Pedido e Informar Pagamento
+# Enviar Pedido e Autorizar Despacho
 
-Este documento tem por objetivo auxiliar o marketplace não VTEX a receber um pedido, receber o respectivo pagamento do pedido, e comunicar a atualização de status de pagamento.
+Este documento tem por objetivo auxiliar o Seller não VTEX a receber um pedido, e receber a autorização para despachar o pedido
 
 
-*Exemplo do fuxo de chamadas de descida de pedido, pagamento e atualização de status de pagamento:*  
+*Exemplo do fuxo de chamadas de descida, autorização para despachar e cancelamento de pedido:*  
 
-![alt text](pedido-pagamento-fluxo.png "Title") 
+![alt text](pedido-seller-nao-vtex.png "Title") 
 
 ##1 - Enviar Pedido##
-Quando o pedido é fechado no ambiente VTEX, um POST é feito no marketplace não VTEX, para que este possa receber a ordem de pedido.  
+Quando o pedido é fechado no ambiente VTEX, um POST é feito no Seller não VTEX, para que este possa receber a ordem de pedido.  
  
-###1.1 - Exemplos de Request de Descida de Pedido - Endpoint do Seller###
+###Exemplos de Request de Descida de Pedido - Endpoint do Seller###
 
 endpoint: **https://sellerendpoint/pvt/orders?sc=[idcanal]**  
 verb: **POST**  
@@ -92,9 +92,7 @@ Parametro: **sc=5** // sc serve para destacar o canal por onde o pedido entrou
 		    },
 		    "openTextField": null,
 		    "marketingData": null,
-		    "paymentData":{
-				"merchantName":"shopfacilfastshop" //gateway de redirect na vtex.
-			}
+		    "paymentData":null
 		  }
 		]
 
@@ -164,10 +162,7 @@ Parametro: **sc=5** // sc serve para destacar o canal por onde o pedido entrou
 		        }
 		      ]
 		    },
-		   "paymentData":{
-				"merchantName":"shopfacilfastshop", //devover o parametro recebido no request
-				"merchantPaymentReferenceId":"123543123" //inteiro id do pagamento, número que será enviado junto com o pagamento para conciliação.
-			}
+		   "paymentData":null
 		  }
 		]
 
@@ -181,72 +176,8 @@ Parametro: **sc=5** // sc serve para destacar o canal por onde o pedido entrou
 		}
 	}
 
-##2 - Enviar Pagamento##
-Quando o pagamento do pedido é concluído no ambiente VTEX, um POST é feito no marketplace não VTEX, para que este possa receber os dados referente ao pagamento do respectivo pedido.  
- 
-###2.1 - Exemplos de Request de Descida de Pagamento - Endpoint do Seller###
 
-endpoint: **https://sellerendpoint/pvt/payment?an=shopfacilfastshop**  
-verb: **POST**  
-Content-Type: **application/json**  
-Accept: **application/json**  
-Parametro: **an=shopfacilfastshop** // an é o nome do gateway da loja que ta enviando o pagamento
-
-
-*Exemplo do Request:*  
-
-	{
-		"referenceId": "123543123", //merchantPaymentReferenceId retornado no request do place order
-		"transactionId": "D3AA1FC8372E430E8236649DB5EBD08E",
-		"paymentData": {
-			"id": "F5C1A4E20D3B4E07B7E871F5B5BC9F91",
-			"paymentSystem": 2,os ids dos tipos de pagamento, 
-			"cardNumber": "4444333322221111",
-			"cardHolder": "JONAS ALVES DE OLIVEIRA",
-			"expiryMonth": 11,
-			"expiryYear": 16,
-			"value": 11080,
-			"installments": 3,
-			"cvv2": "123",
-			"billingAddress": {
-				"addressType": "residential",
-				"street": "Rua Cinco De Julho",
-				"number": "176",
-				"complement": "801",
-				"postalCode": "22051-030",
-				"city": "Rio De Janeiro",
-				"state": "RJ",
-				"country": "BRA",
-				"neighborhood": ""
-			}
-		},
-		"clientData": {
-			"firstName": "JONAS",
-			"lastName": "ALVES DE OLIVEIRA",
-			"document": "08081268731",
-			"corporateName": "",
-			"tradeName": "",
-			"corporateDocument": "",
-			"isCorporate": "false"
-		},
-		"shippingValue": 3691, 
-		"callbackUrl": ""https://nomedaloja.vtexpayments.com.br/api/pvt/callback/vtxstd/transactions/D3AA1FC8372E430E8236649DB5EBD08E/payments/F5C1A4E20D3B4E07B7E871F5B5BC9F91/return" //**url para falar de volta com o gateway de pagamento do marketplace
-	}
-
-*Exemplo do Response e do POST Feito na CallbackUrl de Pagamento :*
-
-
-	{
-	  	"paymentId" : "F5C1A4E20D3B4E07B7E871F5B5BC9F91",   // string, not null, Payment identifier sent on authorization request
-		"status" : "",    // string, not null, [approved | denied | undefined]
-	  	"authorizationId": "", //id da autorização quando aprovado
-	  	"bankIssueInvoiceUrl":"urldoboleto" //url do boleto bancario
-	}
-
-**O response de pagamento pode ser respondido como "undefined" enquanto o Seller não tem a informação sobre o pagamento. Em caso de marketplace e seller aceitarem boleto, quando recebido um post de pagamento com o paymentSystem igual a boleto, o seller deve gerar o boleto e responder imediatamente com a url de boleto preenchida.
-	    
-
-##2.2 - Enviar Autorização Para Despachar##
+##2 - Enviar Autorização Para Despachar##
 Quando o pagamento do pedido é concluído no Seller (pagamento válido), um POST deverá ser feito na "callbackUrl" do pagamento, informando sucesso do pagamento ("status":"approved"), nesse momento a loja VTEX envia autorização para despachar o respectivo pedido no Seller.  
  
 *Exemplos de Request de Autorização - Endpoint da Seller*
@@ -276,7 +207,7 @@ Parametro: **sc=5** // sc é o canal de vendas cadastrado no marketplace, serve 
 ##3 Invocando Marketplace Services Endpoint Actions##
 O MarketplaceServicesEndpoint serve para receber informações do seller referentes a nota fiscal e tracking de pedido. É permitido o envio de notas fiscais parciais, obrigando assim ao informador informar além dos valores da nota fiscal,os items ele está mandando na nota fiscal parcial. O pedido na VTEX só andará pra o status FATURADO quando o valor total de todas as notas fiscais de um pedido forem enviadas.
 
-###3.1 - Exemplos de Request Para Informar Nota Fiscal - Endpoint VTEX###
+###Exemplos de Request Para Informar Nota Fiscal - Endpoint VTEX###
 
 endpoint: **https://marketplaceServicesEndpoint/pub/orders/{orderId}/invoice**  
 verb: **POST**  
@@ -351,7 +282,7 @@ Accept: **application/json**
 **A Nota Fiscal e o Tracking podem ser enviados na mesma chamada, basta prenncher todos os dados do POST.
 
 
-###3.3 - Enviar Solicitação de Cancelamento###
+###4 - Enviar Solicitação de Cancelamento###
 Uma solicitação de cancelamento pode ser enviada, caso o pedido se encontre em um estado que se possa cancelar, o pedido será cancelado. 
  
 *Exemplos de Request de Cancelamento - Endpoint VTEX*
@@ -359,7 +290,7 @@ Uma solicitação de cancelamento pode ser enviada, caso o pedido se encontre em
 endpoint: **https://marketplaceServicesEndpoint/pvt/orders/[orderid]/cancel**  
 verb: **GET**
 
-##4 Versão:Beta 1.1##
+##5 Versão:Beta 1.1##
 Essa versão de documentação suporta a integração na versão da plataforma VTEX smartcheckout. Ela foi escrita para auxiliar um integração e a idéia e que através dela, não  restem nenhuma dúvida de como se integrar com a VTEX. Se recebeu essa documentação e ainda restaram dúvidas, por favor, detalhe as suas dúvidas abaixo no comentário, para chegarmos a um documento rico e funcional.
 
 

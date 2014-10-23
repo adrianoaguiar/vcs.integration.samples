@@ -10,6 +10,7 @@ Para o ERP integrar se ao catálogo da loja na VTEX, deverá usar o webservice d
 
 Futuramente além do serviço SOAP (webservice) estaremos também oferecendo integração de catálogo por APIs REST (JSON) bem definidas e de alta performance.
 
+
 ###1.1 - Organização dos Produtos Dentro da Loja###
 
 Geralmente, os produtos são organizados dentro da loja em estruturas mercadológicas formadas por:
@@ -46,6 +47,8 @@ No modelo de cadastro de Produtos e SKUs da VTEX, um SKU sempre será filha de u
 ###1.3 - Integração de Produtos e SKUs###
 
 Após definida as variações e a estrutura mecadológica da loja, o próximo passo é enviar os produtos e as SKUs do ERP para a loja VTEX.
+
+![alt text](ERP-catalogo-expresso.PNG "Fluxo Básico")
 
 Cadastrar produto na loja: webservice.ProductInsertUpdate(ProductDTO).
 
@@ -316,7 +319,7 @@ Está ferramente é muito importante no processo de integração, pois ela permi
 **Postman - REST Client** (_chrome://extensions/_)
 Nesta ferramente pode se testar, armazenar histórico, salvar coleções de requests do acesso de todas as APIs dos modulos VTEX  (OMS, Logistics, Pricing, GCS, etc).  
 
-![alt text](postman.png "Title")
+![alt text](postman.png "POSTMAN")
 
 É de suma importancia que o integrador tenha o conhecimento de ferramentas desse tipo, ou outras parecidas, antes de inciar um processo de integração usando webservice SOAP ou APIs REST VTEX.
 

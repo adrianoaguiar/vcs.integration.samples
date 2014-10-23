@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="cbdc4310-9d06-465f-8c77-ed17e784e90a" name="ERP-catalogo-completo" linkedPackageId="54356086-8605-43af-ba72-ee51dcf4b740" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="1dd6be37-9ed1-4bca-8890-e02c0950b40b">
+      <profileInstance Id="e564bc9b-c91b-4b49-829a-a9236c38ab04" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="13fe5168-a127-422d-8093-b4c243ce5f17">
+      <profileInstance Id="5fc0f368-446e-48a7-9d61-2f81dd966199" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <interaction Id="dafa04a6-a330-47c6-b14a-fab2f67e572e" name="ERP-catalogo-completo" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
+        <ownedCommentsInternal>
+          <comment Id="29d18b96-d87d-4aad-94fa-647e0c88103c">
+            <elementDefinition Id="fe3f7f7a-c709-4862-a22d-8cad3bbee274" />
+            <body>ERP envia Nota Fiscal</body>
+          </comment>
+          <comment Id="1b39761c-df39-434f-b1b5-e3fe6aae0451">
+            <elementDefinition Id="8845bc31-f0a5-43fa-83e0-6a5e1a75f027" />
+            <body>ERP envia Tracking</body>
+          </comment>
+          <comment Id="8061e7bb-2c78-4559-9959-9ee3b07271bf">
+            <elementDefinition Id="fce30db6-1a82-4548-bb21-eb854c37ba24" />
+            <body>ERP solicita cancelamento de pedido</body>
+          </comment>
+          <comment Id="c0d1a591-fa9f-4bc4-8ff2-8edc86f3a284">
+            <elementDefinition Id="d0a9e208-e278-489f-98e1-09c76a09533f" />
+            <body>ERP busc a lista de resumo de pedidos</body>
+          </comment>
+          <comment Id="55b701a9-0b52-45e1-b047-abc4786e17be">
+            <elementDefinition Id="170f07b0-d7fd-4bdb-9f9d-d7597aa7edec" />
+            <body>ERP busc a o pedido</body>
+          </comment>
+          <comment Id="7735b18b-0134-40c7-98ab-d76ced63a918">
+            <elementDefinition Id="228f24f1-195e-43d7-a99e-4dfe849dea0e" />
+            <body>ERP atualiza pedido</body>
+          </comment>
+        </ownedCommentsInternal>
+        <elementDefinition Id="eca2f3c8-fbe6-4ab2-951a-36f8c58b285f" />
+        <lifelines>
+          <lifeline Id="d2161b5d-2997-470e-a473-f1696170a50a" name="ERP" isActor="false" lifelineDisplayName="ERP">
+            <elementDefinition Id="f7ab2c06-e33d-4b22-bf75-1ebe8b6e4091" />
+          </lifeline>
+          <lifeline Id="10bf95b3-0a80-4682-8377-3fb8dc30500b" name="VTEX" isActor="false" lifelineDisplayName="VTEX">
+            <elementDefinition Id="98c98a3b-3fe2-4c6a-a613-daae2c8b1dc3" />
+          </lifeline>
+        </lifelines>
+      </interaction>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="54356086-8605-43af-ba72-ee51dcf4b740" name="sku-sugestion-world-to-VTEX">
+    <elementDefinition Id="01221255-5130-480f-a1e4-c19f43b5a389" />
+  </package>
+</SequenceDesignerModel>

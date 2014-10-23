@@ -1,13 +1,13 @@
-# Simulação de Carrinho e Consulta Parcelamento
+# Simulação de Carrinho
 
-Este documento tem por objetivo auxiliar o integrador na simulação de carrinho entre o marketplace VTEX  com uma loja não VTEX. Simular um pedido e consultar as formas de parcelamento.
+Este documento tem por objetivo auxiliar o integrador na simulação de carrinho entre o marketplace VTEX  com uma loja não VTEX. Simular um pedido no ambiente do seller.
 
 ##1 - No Carrinho e no Pagamento##
 Quando um produto é inserido no carrinho no marketplace VTEX, ou faz se alguma edição no carrinho, uma consulta de simulaçao de carrinho é feita no Seller para checar a validade das condiçoes comerciais(preço, estoque, frete e SLAs de entrega).  
 
 *Exemplo do fuxo de chamadas no carrinho:*  
 
-![alt text](fechamento-fluxo.png "Title")  
+![alt text](fechamento-fluxo-seller-nao-vtex.png "Title")  
 
 ###1.1 - Exemplos de Request de Simulação de Carrinho - Endpoint do Seller###
 
@@ -49,8 +49,7 @@ Parametro: **sc=5** // sc é o id do canal de vendas
                 "listPrice": 7490,                                     // Os dois dígitos menos significativos são os centavos //obrigatório, int
                 "quantity": 1,                                         //obrigatório, int
                 "seller": "1",                                         // Id do seller cadastrado na loja // obrigatório, string,
-            	"merchantName": "shopfacilfastshop",				   //**devolver o parametro an, so deve ser preenchido quando o pagamento for processado no seller.
-                "priceValidUntil": "2014-03-01T22:58:28.143"           //data, pode ser nulo
+                "priceValidUntil": "2014-03-01T22:58:28.143",           //data, pode ser nulo
                 "offerings":[                                           //Array opcional, porém não pode ser nulo: enviar array vazio ou não enviar a propriedade
                     {
                         "type":"Garantia",                               //obrigatório, string
@@ -72,8 +71,7 @@ Parametro: **sc=5** // sc é o id do canal de vendas
                 "price": 890,                                          // Os dois dígitos menos significativos são os centavos
                 "listPrice": 990,                                      // Os dois dígitos menos significativos são os centavos
                 "quantity": 5,
-                "seller": "1",
-				"merchantName": "shopfacilfastshop",	
+                "seller": "1",	
                 "priceValidUntil": null
             }
         ],
@@ -126,198 +124,8 @@ Parametro: **sc=5** // sc é o id do canal de vendas
         "postalCode":"22251-030"                                   //string, nulo se não enviado    
     }
 
-**somente mandar esse campo quando o pagamento for processado no Seller.
 
-###1.2 - Exemplos de Request de Consulta de Opções de Parcelamento - Endpoint do Seller###
-
-endpoint: **https://sellerendpoint/installments/options?an=[nomedaloja]**  
-verb: **POST**  
-Content-Type: **application/json**  
-Accept: **application/json**  
-Parametro: **an=nomedaloja**
-
-*Exemplo do Request:*  
-
-	{
-	  "PaymentSystemsIds":[1,2], //ids das formas de pagamento
-	  "SubtotalAsInt":27280, //total que deseja parcelar
-	  "Items":[
-	    {
-	      	"PriceAsInt":24800, //preço do SKU
-	     	"Quantity":1, //quantidade do SKU
-	     	"Id":1940388, //id do SKU
-	     	"SellerId":"seller1",
-	    	"SalesChannel":2 //id do canal de vendas criado para o seller
-	    }
-	  ],
-	  "postalCode":"22051030" //CEP
-	}
-
-*Exemplo do Response:*
-
-	[
-	    {
-	        "paymentSystem": 2,
-	        "name": "",
-	        "value": 27280,
-	        "installments": [
-	            {
-	                "count": 1,
-	                "value": 27280,
-	                "interestRate": 0,
-	                "hasInterestRate": false
-	            },
-	            {
-	                "count": 2,
-	                "value": 13640,
-	                "interestRate": 0,
-	                "hasInterestRate": false
-	            },
-	            {
-	                "count": 3,
-	                "value": 9093,
-	                "interestRate": 0,
-	                "hasInterestRate": false
-	            },
-	            {
-	                "count": 4,
-	                "value": 6820,
-	                "interestRate": 0,
-	                "hasInterestRate": false
-	            },
-	            {
-	                "count": 5,
-	                "value": 5456,
-	                "interestRate": 0,
-	                "hasInterestRate": false
-	            },
-	            {
-	                "count": 6,
-	                "value": 4547,
-	                "interestRate": 0,
-	                "hasInterestRate": false
-	            },
-	            {
-	                "count": 7,
-	                "value": 3897,
-	                "interestRate": 0,
-	                "hasInterestRate": false
-	            },
-	            {
-	                "count": 8,
-	                "value": 3410,
-	                "interestRate": 0,
-	                "hasInterestRate": false
-	            },
-	            {
-	                "count": 9,
-	                "value": 3031,
-	                "interestRate": 0,
-	                "hasInterestRate": false
-	            },
-	            {
-	                "count": 10,
-	                "value": 2728,
-	                "interestRate": 0,
-	                "hasInterestRate": false
-	            },
-	            {
-	                "count": 11,
-	                "value": 2630,
-	                "interestRate": 99,
-	                "hasInterestRate": true
-	            },
-	            {
-	                "count": 12,
-	                "value": 2422,
-	                "interestRate": 99,
-	                "hasInterestRate": true
-	            }
-	        ]
-	    },
-	    {
-	        "paymentSystem": 1,
-	        "name": "",
-	        "value": 27280,
-	        "installments": [
-	            {
-	                "count": 1,
-	                "value": 27280,
-	                "interestRate": 0,
-	                "hasInterestRate": false
-	            },
-	            {
-	                "count": 2,
-	                "value": 13640,
-	                "interestRate": 0,
-	                "hasInterestRate": false
-	            },
-	            {
-	                "count": 3,
-	                "value": 9093,
-	                "interestRate": 0,
-	                "hasInterestRate": false
-	            },
-	            {
-	                "count": 4,
-	                "value": 6820,
-	                "interestRate": 0,
-	                "hasInterestRate": false
-	            },
-	            {
-	                "count": 5,
-	                "value": 5456,
-	                "interestRate": 0,
-	                "hasInterestRate": false
-	            },
-	            {
-	                "count": 6,
-	                "value": 4547,
-	                "interestRate": 0,
-	                "hasInterestRate": false
-	            },
-	            {
-	                "count": 7,
-	                "value": 3897,
-	                "interestRate": 0,
-	                "hasInterestRate": false
-	            },
-	            {
-	                "count": 8,
-	                "value": 3410,
-	                "interestRate": 0,
-	                "hasInterestRate": false
-	            },
-	            {
-	                "count": 9,
-	                "value": 3031,
-	                "interestRate": 0,
-	                "hasInterestRate": false
-	            },
-	            {
-	                "count": 10,
-	                "value": 2728,
-	                "interestRate": 0,
-	                "hasInterestRate": false
-	            },
-	            {
-	                "count": 11,
-	                "value": 2630,
-	                "interestRate": 99,
-	                "hasInterestRate": true
-	            },
-	            {
-	                "count": 12,
-	                "value": 2422,
-	                "interestRate": 99,
-	                "hasInterestRate": true
-	            }
-	        ]
-	    }
-	]
-
-
-##2 Versão:Beta 1.1##
+##1 Versão:Beta 1.1##
 Essa versão de documentação suporta a integração na versão da plataforma VTEX smartcheckout. Ela foi escrita para auxiliar um integração e a idéia e que através dela, não  restem nenhuma dúvida de como se integrar com a VTEX. Se recebeu essa documentação e ainda restaram dúvidas, por favor, detalhe as suas dúvidas abaixo no comentário, para chegarmos a um documento rico e funcional.
 
 

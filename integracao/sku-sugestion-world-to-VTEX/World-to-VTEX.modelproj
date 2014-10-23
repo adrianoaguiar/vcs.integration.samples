@@ -22,6 +22,13 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
   <ItemGroup>
+    <Content Include="ERP-catalogo-completo.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ERP-catalogo-completo.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>ERP-catalogo-completo.sequencediagram</DependentUpon>
+    </Content>
     <Content Include="fechamento-fluxo-canal-nao-vtex.sequencediagram">
       <SubType>Content</SubType>
     </Content>
@@ -53,12 +60,19 @@
       <SubType>Content</SubType>
       <DependentUpon>pedido-fechamento-seller-nao-vtex.sequencediagram</DependentUpon>
     </Content>
-    <Content Include="pedido-pagamento-integraçao.sequencediagram">
+    <Content Include="pedido-pagamento-seller-nao-vtex.sequencediagram">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="pedido-pagamento-integraçao.sequencediagram.layout">
+    <Content Include="pedido-pagamento-seller-nao-vtex.sequencediagram.layout">
       <SubType>Content</SubType>
-      <DependentUpon>pedido-pagamento-integraçao.sequencediagram</DependentUpon>
+      <DependentUpon>pedido-pagamento-seller-nao-vtex.sequencediagram</DependentUpon>
+    </Content>
+    <Content Include="pedido-seller-nao-vtex.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="pedido-seller-nao-vtex.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>pedido-seller-nao-vtex.sequencediagram</DependentUpon>
     </Content>
     <Content Include="sku-canal-nao-vtex.sequencediagram">
       <SubType>Content</SubType>
