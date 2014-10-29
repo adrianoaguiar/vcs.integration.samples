@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-<title>fechamento-fluxo</title>
+<title>sku-sugestion-seller-nao-vtex</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style type="text/css">
 /* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
@@ -289,22 +289,104 @@ img {
   max-width: 100%
 }
 </style>
-
+<base href='file:\\\C:\git2\vcs.integration.samples\integracao\Marketplace -SELLER NAO VTEX\SKU\'/>
 </head>
 <body>
-<h1>Simulação de Carrinho e Consulta Parcelamento</h1>
-<p>Este documento tem por objetivo auxiliar o integrador na simulação de carrinho entre o marketplace VTEX  com uma loja não VTEX. Simular um pedido e consultar as formas de parcelamento.</p>
-<h2>1 - No Carrinho e no Pagamento</h2>
-<p>Quando um produto é inserido no carrinho no marketplace VTEX, ou faz se alguma edição no carrinho, uma consulta de simulaçao de carrinho é feita no Seller para checar a validade das condiçoes comerciais(preço, estoque, frete e SLAs de entrega).  </p>
-<p><em>Exemplo do fuxo de chamadas no carrinho:</em>  </p>
-<p><img src="fechamento-fluxo.png" alt="alt text" title="Title" />  </p>
-<h3>1.1 - Exemplos de Request de Simulação de Carrinho - Endpoint do Seller</h3>
-<p>endpoint: <strong>https://sellerendpoint/pvt/orderForms/simulation?sc=[idcanal]</strong><br />
+<h1>Inserção de Sugestão de SKU e Atualização de Condição Comercial de SKU</h1>
+<p>Este documento tem por objetivo auxiliar na integração e atualização de condição comercial (preço, estoque, frete, SLAs de entrega) de um SKU entre um Seller não VTEX  para uma loja hospedada na versão smartcheckout da VTEX.</p>
+<p><em>Fluxo de Sugestão de SKU:</em></p>
+<p><img src="sku-sugestion-seller-nao-vtex.png" alt="alt text" title="Fluxo de descida de pedido" /></p>
+<h2>1 - Inserção de Sugestão de SKU - Fluxo</h2>
+<p>Toda vez que houver uma inserção ou alteração na condição comercial de um SKU (preço, estoque, frete e SLAs de entrega) no Seller, se o Seller comercializa essa SKU no marketplace VTEX, o Seller deve enviar uma notificação de mudança de SKU para a VTEX, caso a VTEX retorne em seu serviço o response status 404, significa que a SKU <strong>não existe na VTEX</strong>, então o Seller deve enviar a sugestão de inserção de SKU para a loja da VTEX.</p>
+<h3>1.1 - Exemplos de Request de Notificação de Mudança - Endpoint da VTEX</h3>
+<p>endpoint: <strong>http://productnotification.vtexcommerce.com.br/api/notification/[nomeloja]/[idseller]</strong><br />
+verb: <strong>POST</strong><br />
+Content-Type: <strong>application/json</strong><br />
+Accept: <strong>application/json</strong></p>
+<p><em>Exemplo do Request:</em>  
+</p>
+<pre><code>{ 
+    &quot;IdSku&quot; : &quot;1634&quot;, //id da sku no seller
+    &quot;An&quot; : &quot;seller1&quot;, //id do seller
+    &quot;IdAffiliate&quot;:&quot;&quot; // id do afilado, pode ser nulo
+}
+</code></pre>
+
+<h3>1.2 - Exemplos de Request de Inserção de Sugestão de SKU - Endpoint da VTEX</h3>
+<p>endpoint: <strong>https://[url-da-loja]/api/catalog_system/pvt/sku/SuggestionInsertUpdatev2</strong><br />
+verb: <strong>POST</strong><br />
+Content-Type: <strong>application/json</strong><br />
+Accept: <strong>application/json</strong></p>
+<p><em>Exemplo do Request:</em>  
+</p>
+<pre><code>{
+    &quot;Id&quot;: null, 
+    &quot;CategoryId&quot;: 4424,     //obrigatório, int - id da categoria direta do produto
+    &quot;ProductId&quot;: null,      
+    &quot;ProductName&quot;: &quot;Teste de envio de sugestão&quot;,    //obrigatório, string
+    &quot;ProductDescription&quot;: &quot;Uma descrição&quot;,      //string, descrição do produto
+    &quot;BrandId&quot;: 1,               //obrigatório, int - id da marca/fabricante
+    &quot;BrandName&quot;: null,      //string, nome da marca
+    &quot;SkuId&quot;: null,      //obrigatório quando for associação de SKU
+    &quot;SkuName&quot;: &quot;TESTE NOVO 2013-08-09&quot;, //obrigatório string 
+    &quot;SellerId&quot;: &quot;nvp&quot;,  //obrigatório, int - sigla do seller
+    &quot;ListPrice&quot;: 0.0,   //obrigatório, decimal - preço de lista
+    &quot;Price&quot;: 0.0,   //obrigatório, decimal - preço final
+    &quot;Height&quot;: 4.0,  //obrigatório, decimal - altura, na ausência informar 1.0
+    &quot;Width&quot;: 11.0,  //obrigatório, decimal - largura, na ausência informar 1.0
+    &quot;Length&quot;: 6.0,  //obrigatório, decimal - comprimento, na ausência informar 1.0
+    &quot;WeightKg&quot;: 60.0,       //obrigatório, decimal - peso, na ausência informar 1.0
+    &quot;ModalId&quot;: 1,   //num sei
+    &quot;RefId&quot;: &quot;0x123&quot;,   // obrigatório na ausencia do EAN, string - código de referencia
+    &quot;EAN&quot;: [&quot;ean&quot;], // obrigatório na ausencia do RefId, string
+    &quot;SellerStockKeepingUnitId&quot;: &quot;123456790&quot;,    //obrigatório, string - id da SKU do seller
+    &quot;IsKit&quot;: false,     //obrigatório, boleana- quando true indica que é ama SKU kit
+    &quot;Images&quot;: [ //array de imagens
+        {
+            &quot;ImageUrl&quot;: &quot;http://nome-da-loja/arquivos/ids/157676/7898481301708_1000_1000.jpg&quot;,
+            &quot;ImageName&quot;: &quot;7898481301708_1000_1000&quot;,
+            &quot;FileId&quot;: null
+        }
+    ],
+    &quot;SkuSpecifications&quot;: [  // array de especificações de SKU
+       {
+          &quot;FieldId&quot;:1234,
+          &quot;FieldName&quot;:&quot;Tamanho&quot;,
+          &quot;FieldValueIds&quot;:[[1],[2]],
+          &quot;FieldValues&quot;:[[&quot;P&quot;],[&quot;M&quot;]]
+       }
+    ],
+    &quot;ProductSpecifications&quot;: [[     // array de especificações de produto
+       {
+          &quot;FieldId&quot;:345,
+          &quot;FieldName&quot;:&quot;NameField&quot;,
+          &quot;FieldValueIds&quot;:[[1],[2]],
+          &quot;FieldValues&quot;:[[&quot;V&quot;],[&quot;T&quot;]]
+       }
+    ],
+    &quot;SkuSupplementaryFields&quot;: [     // array de campos suplementares de SKU
+       {
+          &quot;FieldId&quot;:896,
+          &quot;FieldName&quot;:&quot;NameField&quot;,
+          &quot;FieldValueIds&quot;:[[1],[2]],
+          &quot;FieldValues&quot;:[[&quot;S1&quot;],[&quot;S2&quot;]]
+       }
+    ],
+  &quot;CategoryFullPath&quot;:&quot;/12/123/345/&quot; //string, caminho completo da árvore de categorias.
+</code></pre>
+
+<p>}</p>
+<h2>2 - Atualização de Condição Comercial de SKU - Fluxo</h2>
+<p>Toda vez que houver uma alteração na condição comercial de um SKU (preço, estoque, frete e SLAs de entrega, o Seller não VTEX deve enviar uma notificação de mudança de SKU para a VTEX, caso a VTEX retorne em seu serviço o response status 200 ou 204, significa que a SKU <strong>existe</strong> na VTEX, então a VTEX vai no Seller consultar as novas condições comerciais oferecidas pelo Seller.</p>
+<h3>2.1 - Exemplos de Request de Busca de Condições Comerciais - Endpoint do Seller</h3>
+<p>endpoint: <strong>https://sellerendpoint/pvt/orderForms/simulation?sc=[idcanal]&amp;an=[nomedaloja]</strong><br />
 verb: <strong>POST</strong><br />
 Content-Type: <strong>application/json</strong><br />
 Accept: <strong>application/json</strong><br />
-Parametro: <strong>sc=5</strong> // sc é o id do canal de vendas</p>
-<p><em>Exemplo do Request:</em>  </p>
+Parametro: <strong>an</strong> // parametro a ser retornado items.merchantName<br />
+Parametro: <strong>sc=5</strong> // sc é o canal de vendas cadastrado no marketplace, serve para destacar o canal que esta pedindo a simulação</p>
+<p><em>Exemplo do Request:</em>  
+</p>
 <pre><code>{
     &quot;postalCode&quot;:&quot;22251-030&quot;,            //obrigatório se country estiver preenchido, string
     &quot;country&quot;:&quot;BRA&quot;,                     //obrigatório se postalCode estiver preenchido, string      
@@ -329,10 +411,10 @@ Parametro: <strong>sc=5</strong> // sc é o id do canal de vendas</p>
         {
             &quot;id&quot;: &quot;287611&quot;,                                        //obrigatório, string
             &quot;requestIndex&quot;: 0,                                     //obrigatório, int - representa a posição desse item no array original (request)
-            &quot;price&quot;: 7390,                                         // Os dois dígitos menos significativos são os centavos //obrigatório, int
-            &quot;listPrice&quot;: 7490,                                     // Os dois dígitos menos significativos são os centavos //obrigatório, int
+            &quot;price&quot;: 7390,                                         //Os dois dígitos menos significativos são os centavos //obrigatório, int
+            &quot;listPrice&quot;: 7490,                                     //Os dois dígitos menos significativos são os centavos //obrigatório, int
             &quot;quantity&quot;: 1,                                         //obrigatório, int
-            &quot;seller&quot;: &quot;1&quot;,                                         // Id do seller cadastrado na loja // obrigatório, string,
+            &quot;seller&quot;: &quot;1&quot;,                                         //Id do seller cadastrado na loja // obrigatório, string,
             &quot;merchantName&quot;: &quot;shopfacilfastshop&quot;,                   //**devolver o parametro an, so deve ser preenchido quando o pagamento for processado no seller.
             &quot;priceValidUntil&quot;: &quot;2014-03-01T22:58:28.143&quot;           //data, pode ser nulo
             &quot;offerings&quot;:[                                           //Array opcional, porém não pode ser nulo: enviar array vazio ou não enviar a propriedade
@@ -357,7 +439,7 @@ Parametro: <strong>sc=5</strong> // sc é o id do canal de vendas</p>
             &quot;listPrice&quot;: 990,                                      // Os dois dígitos menos significativos são os centavos
             &quot;quantity&quot;: 5,
             &quot;seller&quot;: &quot;1&quot;,
-            &quot;merchantName&quot;: &quot;nomedaloja&quot;,   
+            &quot;merchantName&quot;: &quot;shopfacilfastshop&quot;,    
             &quot;priceValidUntil&quot;: null
         }
     ],
@@ -412,195 +494,30 @@ Parametro: <strong>sc=5</strong> // sc é o id do canal de vendas</p>
 </code></pre>
 
 <p>**somente mandar esse campo quando o pagamento for processado no Seller.</p>
-<h3>1.2 - Exemplos de Request de Consulta de Opções de Parcelamento - Endpoint do Seller</h3>
-<p>endpoint: <strong>https://sellerendpoint/installments/options?an=[nomedaloja]</strong><br />
-verb: <strong>POST</strong><br />
-Content-Type: <strong>application/json</strong><br />
-Accept: <strong>application/json</strong><br />
-Parametro: <strong>an=nomedaloja</strong></p>
-<p><em>Exemplo do Request:</em>  </p>
-<pre><code>{
-  &quot;PaymentSystemsIds&quot;:[1,2], //ids das formas de pagamento
-  &quot;SubtotalAsInt&quot;:27280, //total que deseja parcelar
-  &quot;Items&quot;:[
-    {
-        &quot;PriceAsInt&quot;:24800, //preço do SKU
-        &quot;Quantity&quot;:1, //quantidade do SKU
-        &quot;Id&quot;:1940388, //id do SKU
-        &quot;SellerId&quot;:&quot;seller1&quot;,
-        &quot;SalesChannel&quot;:2 //id do canal de vendas criado para o seller
-    }
-  ],
-  &quot;postalCode&quot;:&quot;22051030&quot; //CEP
-}
-</code></pre>
-
-<p><em>Exemplo do Response:</em></p>
-<pre><code>[
-    {
-        &quot;paymentSystem&quot;: 2,
-        &quot;name&quot;: &quot;&quot;,
-        &quot;value&quot;: 27280,
-        &quot;installments&quot;: [
-            {
-                &quot;count&quot;: 1,
-                &quot;value&quot;: 27280,
-                &quot;interestRate&quot;: 0,
-                &quot;hasInterestRate&quot;: false
-            },
-            {
-                &quot;count&quot;: 2,
-                &quot;value&quot;: 13640,
-                &quot;interestRate&quot;: 0,
-                &quot;hasInterestRate&quot;: false
-            },
-            {
-                &quot;count&quot;: 3,
-                &quot;value&quot;: 9093,
-                &quot;interestRate&quot;: 0,
-                &quot;hasInterestRate&quot;: false
-            },
-            {
-                &quot;count&quot;: 4,
-                &quot;value&quot;: 6820,
-                &quot;interestRate&quot;: 0,
-                &quot;hasInterestRate&quot;: false
-            },
-            {
-                &quot;count&quot;: 5,
-                &quot;value&quot;: 5456,
-                &quot;interestRate&quot;: 0,
-                &quot;hasInterestRate&quot;: false
-            },
-            {
-                &quot;count&quot;: 6,
-                &quot;value&quot;: 4547,
-                &quot;interestRate&quot;: 0,
-                &quot;hasInterestRate&quot;: false
-            },
-            {
-                &quot;count&quot;: 7,
-                &quot;value&quot;: 3897,
-                &quot;interestRate&quot;: 0,
-                &quot;hasInterestRate&quot;: false
-            },
-            {
-                &quot;count&quot;: 8,
-                &quot;value&quot;: 3410,
-                &quot;interestRate&quot;: 0,
-                &quot;hasInterestRate&quot;: false
-            },
-            {
-                &quot;count&quot;: 9,
-                &quot;value&quot;: 3031,
-                &quot;interestRate&quot;: 0,
-                &quot;hasInterestRate&quot;: false
-            },
-            {
-                &quot;count&quot;: 10,
-                &quot;value&quot;: 2728,
-                &quot;interestRate&quot;: 0,
-                &quot;hasInterestRate&quot;: false
-            },
-            {
-                &quot;count&quot;: 11,
-                &quot;value&quot;: 2630,
-                &quot;interestRate&quot;: 99,
-                &quot;hasInterestRate&quot;: true
-            },
-            {
-                &quot;count&quot;: 12,
-                &quot;value&quot;: 2422,
-                &quot;interestRate&quot;: 99,
-                &quot;hasInterestRate&quot;: true
-            }
-        ]
-    },
-    {
-        &quot;paymentSystem&quot;: 1,
-        &quot;name&quot;: &quot;&quot;,
-        &quot;value&quot;: 27280,
-        &quot;installments&quot;: [
-            {
-                &quot;count&quot;: 1,
-                &quot;value&quot;: 27280,
-                &quot;interestRate&quot;: 0,
-                &quot;hasInterestRate&quot;: false
-            },
-            {
-                &quot;count&quot;: 2,
-                &quot;value&quot;: 13640,
-                &quot;interestRate&quot;: 0,
-                &quot;hasInterestRate&quot;: false
-            },
-            {
-                &quot;count&quot;: 3,
-                &quot;value&quot;: 9093,
-                &quot;interestRate&quot;: 0,
-                &quot;hasInterestRate&quot;: false
-            },
-            {
-                &quot;count&quot;: 4,
-                &quot;value&quot;: 6820,
-                &quot;interestRate&quot;: 0,
-                &quot;hasInterestRate&quot;: false
-            },
-            {
-                &quot;count&quot;: 5,
-                &quot;value&quot;: 5456,
-                &quot;interestRate&quot;: 0,
-                &quot;hasInterestRate&quot;: false
-            },
-            {
-                &quot;count&quot;: 6,
-                &quot;value&quot;: 4547,
-                &quot;interestRate&quot;: 0,
-                &quot;hasInterestRate&quot;: false
-            },
-            {
-                &quot;count&quot;: 7,
-                &quot;value&quot;: 3897,
-                &quot;interestRate&quot;: 0,
-                &quot;hasInterestRate&quot;: false
-            },
-            {
-                &quot;count&quot;: 8,
-                &quot;value&quot;: 3410,
-                &quot;interestRate&quot;: 0,
-                &quot;hasInterestRate&quot;: false
-            },
-            {
-                &quot;count&quot;: 9,
-                &quot;value&quot;: 3031,
-                &quot;interestRate&quot;: 0,
-                &quot;hasInterestRate&quot;: false
-            },
-            {
-                &quot;count&quot;: 10,
-                &quot;value&quot;: 2728,
-                &quot;interestRate&quot;: 0,
-                &quot;hasInterestRate&quot;: false
-            },
-            {
-                &quot;count&quot;: 11,
-                &quot;value&quot;: 2630,
-                &quot;interestRate&quot;: 99,
-                &quot;hasInterestRate&quot;: true
-            },
-            {
-                &quot;count&quot;: 12,
-                &quot;value&quot;: 2422,
-                &quot;interestRate&quot;: 99,
-                &quot;hasInterestRate&quot;: true
-            }
-        ]
-    }
-]
-</code></pre>
-
-<h2>2 Versão:Beta 1.1</h2>
+<h2>3 - Considerações</h2>
+<h4>3.1 Header nas Chamadas a API REST da VTEX</h4>
+<p>Todas chamadas as API REST devem conter no Headear as seguintes Keys:<br />
+X-VTEX-API-AppToken:<strong>[Value]</strong><br />
+X-VTEX-API-AppKey:<strong>[Value]</strong><br />
+Content-Type: <strong>application/json</strong>    <br />
+Accept: <strong>application/json</strong>  
+</p>
+<p>*O integrador deverá solitar junto ao contato VTEX a sua chave e token para uso exclusivo na integração,
+assim como solicitar a criação do Seller dentro da loja VTEX.  
+</p>
+<h4>3.2 Ferramentas de apoio ao integrador</h4>
+<p>Ferramentas são de extrema importância para qualquer integrador:</p>
+<p><strong>Postman - REST Client</strong> (<em>chrome://extensions/</em>)
+Nesta ferramente pode se testar, armazenar histórico, salvar coleções de requests do acesso de todas as APIs dos modulos VTEX  (OMS, Logistics, Pricing, GCS, etc).  
+</p>
+<p><img src="postman.png" alt="alt text" title="POSTMAN picture" /></p>
+<p>É de suma importancia que o integrador tenha o conhecimento de ferramentas desse tipo, ou outras parecidas, antes de inciar um processo de integração usando APIs REST VTEX.</p>
+<h4>3.3 - Glossário</h4>
+<p>Seller - Responsável por fazer a entrega do pedido.<br />
+SKU - Define uma variação de um produto.</p>
+<h4>3.4 Versão:Beta 1.1</h4>
 <p>Essa versão de documentação suporta a integração na versão da plataforma VTEX smartcheckout. Ela foi escrita para auxiliar um integração e a idéia e que através dela, não  restem nenhuma dúvida de como se integrar com a VTEX. Se recebeu essa documentação e ainda restaram dúvidas, por favor, detalhe as suas dúvidas abaixo no comentário, para chegarmos a um documento rico e funcional.</p>
-<p>autor: Jonas Bolognim</p>
+<p>Autor: <em>Jonas Bolognim</em></p>
 
 </body>
 </html>

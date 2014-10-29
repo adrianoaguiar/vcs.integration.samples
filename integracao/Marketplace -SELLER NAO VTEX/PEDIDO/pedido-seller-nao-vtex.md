@@ -5,7 +5,7 @@ Este documento tem por objetivo auxiliar o Seller não VTEX a receber um pedido,
 
 *Exemplo do fuxo de chamadas de descida, autorização para despachar e cancelamento de pedido:*  
 
-![alt text](pedido-seller-nao-vtex.png "Title") 
+![alt text](pedido-seller-nao-vtex.png "Fluxo de pedido") 
 
 ##1 - Enviar Pedido##
 Quando o pedido é fechado no ambiente VTEX, um POST é feito no Seller não VTEX, para que este possa receber a ordem de pedido.  
@@ -289,6 +289,18 @@ Uma solicitação de cancelamento pode ser enviada, caso o pedido se encontre em
 
 endpoint: **https://marketplaceServicesEndpoint/pvt/orders/[orderid]/cancel**  
 verb: **GET**
+
+##5 - Considerações##
+
+####3.1 Header nas Chamadas a API REST da VTEX####
+Todas chamadas as API REST devem conter no Headear as seguintes Keys:  
+X-VTEX-API-AppToken:**[Value]**  
+X-VTEX-API-AppKey:**[Value]**  
+Content-Type: **application/json**      
+Accept: **application/json**  
+
+*O integrador deverá solitar junto ao contato VTEX a sua chave e token para uso exclusivo na integração,
+assim como solicitar a criação do Seller dentro da loja VTEX. 
 
 ##5 Versão:Beta 1.1##
 Essa versão de documentação suporta a integração na versão da plataforma VTEX smartcheckout. Ela foi escrita para auxiliar um integração e a idéia e que através dela, não  restem nenhuma dúvida de como se integrar com a VTEX. Se recebeu essa documentação e ainda restaram dúvidas, por favor, detalhe as suas dúvidas abaixo no comentário, para chegarmos a um documento rico e funcional.

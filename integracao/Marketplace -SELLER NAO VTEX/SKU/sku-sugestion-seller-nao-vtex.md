@@ -4,7 +4,7 @@ Este documento tem por objetivo auxiliar na integração e atualização de cond
 
 *Fluxo de Sugestão de SKU:*
 
-![alt text](sku-sugestion-seller-nao-vtex.png "Title")
+![alt text](sku-sugestion-seller-nao-vtex.png "Fluxo de descida de pedido")
 
 ##1 - Inserção de Sugestão de SKU - Fluxo##
 Toda vez que houver uma inserção ou alteração na condição comercial de um SKU (preço, estoque, frete e SLAs de entrega) no Seller, se o Seller comercializa essa SKU no marketplace VTEX, o Seller deve enviar uma notificação de mudança de SKU para a VTEX, caso a VTEX retorne em seu serviço o response status 404, significa que a SKU **não existe na VTEX**, então o Seller deve enviar a sugestão de inserção de SKU para a loja da VTEX.
@@ -100,12 +100,12 @@ Toda vez que houver uma alteração na condição comercial de um SKU (preço, e
 
 ###2.1 - Exemplos de Request de Busca de Condições Comerciais - Endpoint do Seller###
 
-endpoint: **https://sellerendpoint/pvt/orderForms/simulation?sc=5&an=shopfacilfastshop**  
+endpoint: **https://sellerendpoint/pvt/orderForms/simulation?sc=[idcanal]&an=[nomedaloja]**  
 verb: **POST**  
 Content-Type: **application/json**  
 Accept: **application/json**  
-Parametro: **an=shopfacilfastshop** // parametro a ser retornado items.merchantName  
-Parametro: **sc=5** // sc é o canal de vendas cadastrado no marketplace, serve para destacar o canal que sta pedido a simulação
+Parametro: **an** // parametro a ser retornado items.merchantName  
+Parametro: **sc=5** // sc é o canal de vendas cadastrado no marketplace, serve para destacar o canal que esta pedindo a simulação
 
 *Exemplo do Request:*  
 
@@ -220,12 +220,15 @@ Parametro: **sc=5** // sc é o canal de vendas cadastrado no marketplace, serve 
 
 ##3 - Considerações##
 
-####3.1 Header nas Chamadas a API REST####
+####3.1 Header nas Chamadas a API REST da VTEX####
 Todas chamadas as API REST devem conter no Headear as seguintes Keys:  
 X-VTEX-API-AppToken:**[Value]**  
 X-VTEX-API-AppKey:**[Value]**  
 Content-Type: **application/json**      
-Accept: **application/json**   
+Accept: **application/json**  
+
+*O integrador deverá solitar junto ao contato VTEX a sua chave e token para uso exclusivo na integração,
+assim como solicitar a criação do Seller dentro da loja VTEX.  
 
 ####3.2 Ferramentas de apoio ao integrador ####
 Ferramentas são de extrema importância para qualquer integrador:
@@ -233,7 +236,7 @@ Ferramentas são de extrema importância para qualquer integrador:
 **Postman - REST Client** (_chrome://extensions/_)
 Nesta ferramente pode se testar, armazenar histórico, salvar coleções de requests do acesso de todas as APIs dos modulos VTEX  (OMS, Logistics, Pricing, GCS, etc).  
 
-![alt text](postman.png "Title")
+![alt text](postman.png "POSTMAN picture")
 
 É de suma importancia que o integrador tenha o conhecimento de ferramentas desse tipo, ou outras parecidas, antes de inciar um processo de integração usando APIs REST VTEX.
 

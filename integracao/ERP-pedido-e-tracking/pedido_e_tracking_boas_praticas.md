@@ -394,7 +394,6 @@ Accept: **application/json**
 	}
 
 
-
 ###1.2.1 - Obtendo Informações de Pagamento de Pedido###
 Caso necessário obter informações sobre informações de pagamento de um pedido (como endereço de cobrança por exemplo), deve se acessar a API REST de **Payments** passando o *TID ("paymentData.transactions.transactionId": "33CD3CC4D11A4FA49A2C9EE20D771F98") do gateway VTEX. No retorno, além de um resumo da transação, poderá obter se as URLs de acesso aos detalhes transação. Segue exemplo de chamada a API REST para pegar as informações de pagamento de um pedido.
 

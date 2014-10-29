@@ -20,8 +20,256 @@ Geralmente, os produtos são organizados dentro da loja em estruturas mercadoló
 
 *Exemplo:*  
 *Departamento/Categoria/SubCategoria/Produto*  
-*Ferramentas/Eletricas/Furradeiras/Super Drill*  
+*Ferramentas/Eletricas/Furradeiras/Super Drill*
 
+
+###Departamento###
+
+	<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
+	   <soapenv:Header/>
+	   <soapenv:Body>
+	      <tem:CategoryInsertUpdate>
+	         <tem:category>
+	            <vtex:Description>Departamento de Artesanato</vtex:Description>
+	            <vtex:IsActive>true</vtex:IsActive>
+	            <vtex:Keywords>Departamento Keywords</vtex:Keywords>
+	            <vtex:Name>Departamento Artesanato</vtex:Name>
+	            <vtex:Title>Departamento Artesanato</vtex:Title>
+	         </tem:category>
+	      </tem:CategoryInsertUpdate>
+	   </soapenv:Body>
+	</soapenv:Envelope>
+
+retorno
+	
+	<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+	   <s:Body>
+	      <CategoryInsertUpdateResponse xmlns="http://tempuri.org/">
+	         <CategoryInsertUpdateResult xmlns:a="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	            <a:AdWordsRemarketingCode i:nil="true"/>
+	            <a:Description>Departamento de Artesanato</a:Description>
+	            <a:FatherCategoryId i:nil="true"/>
+	            <a:Id>1000018</a:Id>
+	            <a:IsActive>true</a:IsActive>
+	            <a:Keywords>Departamento Keywords</a:Keywords>
+	            <a:LomadeeCampaignCode i:nil="true"/>
+	            <a:Name>Departamento Artesanato</a:Name>
+	            <a:Title>Departamento Artesanato</a:Title>
+	         </CategoryInsertUpdateResult>
+	      </CategoryInsertUpdateResponse>
+	   </s:Body>
+	</s:Envelope>
+
+
+
+###Categoria###
+
+	<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
+	   <soapenv:Header/>
+	   <soapenv:Body>
+	      <tem:CategoryInsertUpdate>
+	         <tem:category>
+	            <vtex:Description>Artesanato de Barro</vtex:Description>
+	            <vtex:FatherCategoryId>1000018</vtex:FatherCategoryId>
+	            <vtex:IsActive>true</vtex:IsActive>
+	            <vtex:Keywords>Barro</vtex:Keywords>
+	            <vtex:Name>Artesanato de Barro</vtex:Name>
+	            <vtex:Title>Artesanato de Barro</vtex:Title>
+	         </tem:category>
+	      </tem:CategoryInsertUpdate>
+	   </soapenv:Body>
+	</soapenv:Envelope>
+
+resposta:
+
+	<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+	   <s:Body>
+	      <CategoryInsertUpdateResponse xmlns="http://tempuri.org/">
+	         <CategoryInsertUpdateResult xmlns:a="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	            <a:AdWordsRemarketingCode i:nil="true"/>
+	            <a:Description>Artesanato de Barro</a:Description>
+	            <a:FatherCategoryId>1000018</a:FatherCategoryId>
+	            <a:Id>1000019</a:Id>
+	            <a:IsActive>true</a:IsActive>
+	            <a:Keywords>Barro</a:Keywords>
+	            <a:LomadeeCampaignCode i:nil="true"/>
+	            <a:Name>Artesanato de Barro</a:Name>
+	            <a:Title>Artesanato de Barro</a:Title>
+	         </CategoryInsertUpdateResult>
+	      </CategoryInsertUpdateResponse>
+	   </s:Body>
+	</s:Envelope>
+
+
+###Sub Categoria###
+
+	<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
+	   <soapenv:Header/>
+	   <soapenv:Body>
+	      <tem:CategoryInsertUpdate>
+	         <tem:category>
+	            <vtex:Description>Barro Vermelho</vtex:Description>
+	            <vtex:FatherCategoryId>1000019</vtex:FatherCategoryId>
+	            <vtex:IsActive>true</vtex:IsActive>
+	            <vtex:Keywords>Barro Vermelho</vtex:Keywords>
+	            <vtex:Name>Artesanato de Barro Vermelho</vtex:Name>
+	            <vtex:Title>Artesanato de Barro Vermelho</vtex:Title>
+	         </tem:category>
+	      </tem:CategoryInsertUpdate>
+	   </soapenv:Body>
+	</soapenv:Envelope>
+
+resposta:
+
+	<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+	   <s:Body>
+	      <CategoryInsertUpdateResponse xmlns="http://tempuri.org/">
+	         <CategoryInsertUpdateResult xmlns:a="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	            <a:AdWordsRemarketingCode i:nil="true"/>
+	            <a:Description>Barro Vermelho</a:Description>
+	            <a:FatherCategoryId>1000019</a:FatherCategoryId>
+	            <a:Id>1000020</a:Id>
+	            <a:IsActive>true</a:IsActive>
+	            <a:Keywords>Barro Vermelho</a:Keywords>
+	            <a:LomadeeCampaignCode i:nil="true"/>
+	            <a:Name>Artesanato de Barro Vermelho</a:Name>
+	            <a:Title>Artesanato de Barro Vermelho</a:Title>
+	         </CategoryInsertUpdateResult>
+	      </CategoryInsertUpdateResponse>
+	   </s:Body>
+	</s:Envelope>
+
+###Marca###
+	<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
+	   <soapenv:Header/>
+	   <soapenv:Body>
+	      <tem:BrandInsertUpdate>
+	         <tem:brand>
+	            <vtex:Description>Marca DuBom</vtex:Description>
+	            <vtex:IsActive>true</vtex:IsActive>
+	            <vtex:Keywords>DuBom Keywords</vtex:Keywords>
+	            <vtex:Name>DuBom</vtex:Name>
+	            <vtex:Title>DuBom</vtex:Title>
+	         </tem:brand>
+	      </tem:BrandInsertUpdate>
+	   </soapenv:Body>
+	</soapenv:Envelope>
+
+response:
+
+	<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+	   <s:Body>
+	      <BrandInsertUpdateResponse xmlns="http://tempuri.org/">
+	         <BrandInsertUpdateResult xmlns:a="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	            <a:AdWordsRemarketingCode i:nil="true"/>
+	            <a:Description>Marca DuBom</a:Description>
+	            <a:Id>2000011</a:Id>
+	            <a:IsActive>true</a:IsActive>
+	            <a:Keywords>DuBom Keywords</a:Keywords>
+	            <a:LomadeeCampaignCode i:nil="true"/>
+	            <a:Name>DuBom</a:Name>
+	            <a:Title>DuBom</a:Title>
+	         </BrandInsertUpdateResult>
+	      </BrandInsertUpdateResponse>
+	   </s:Body>
+	</s:Envelope
+
+
+###Produto###
+
+	<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+	   <soapenv:Header/>
+	   <soapenv:Body>
+	      <tem:ProductInsertUpdate>
+	         <tem:productVO>
+	            <vtex:BrandId>2000011</vtex:BrandId>
+	            <vtex:CategoryId>1000020</vtex:CategoryId>
+	            <vtex:DepartmentId>1000018</vtex:DepartmentId>
+	            <vtex:Description>Vaso de barro vermelho, feito a mão com barro do mar vermelho</vtex:Description>
+	            <vtex:DescriptionShort>Vaso de barro vermelho artesanal</vtex:DescriptionShort>
+	            <vtex:IsActive>true</vtex:IsActive>
+	            <vtex:IsVisible>true</vtex:IsVisible>
+	            <vtex:KeyWords> Barro, vaso, vermelho</vtex:KeyWords>
+	            <vtex:LinkId>vaso_barro_vermelho</vtex:LinkId>
+	            <vtex:ListStoreId>
+	               <arr:int>1</arr:int>
+		       <arr:int>2</arr:int>
+	            </vtex:ListStoreId>
+	            <vtex:MetaTagDescription>Vaso de barro vermelho, feito a mão com barro do mar vermelho</vtex:MetaTagDescription>
+	            <vtex:Name>Vaso Artesanal de Barro Vermelho</vtex:Name>
+	             <vtex:RefId>1234567890</vtex:RefId>
+	            <vtex:Title>Vaso Artesanal de Barro Vermelho</vtex:Title>
+	         </tem:productVO>
+	      </tem:ProductInsertUpdate>
+	   </soapenv:Body>
+	</soapenv:Envelope>
+
+resposta:
+
+	<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+	   <s:Body>
+	      <ProductInsertUpdateResponse xmlns="http://tempuri.org/">
+	         <ProductInsertUpdateResult xmlns:a="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	            <a:AdWordsRemarketingCode i:nil="true"/>
+	            <a:BrandId>2000011</a:BrandId>
+	            <a:CategoryId>1000020</a:CategoryId>
+	            <a:DepartmentId>1000018</a:DepartmentId>
+	            <a:Description>Vaso de barro vermelho, feito a mão com barro do mar vermelho</a:Description>
+	            <a:DescriptionShort>Vaso de barro vermelho artesanal</a:DescriptionShort>
+	            <a:Id>31018369</a:Id>
+	            <a:IsActive>false</a:IsActive>
+	            <a:IsVisible>true</a:IsVisible>
+	            <a:KeyWords>Barro, vaso, vermelho</a:KeyWords>
+	            <a:LinkId>vaso_barro_vermelho</a:LinkId>
+	            <a:ListStoreId xmlns:b="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+	               <b:int>1</b:int>
+	               <b:int>2</b:int>
+	            </a:ListStoreId>
+	            <a:LomadeeCampaignCode i:nil="true"/>
+	            <a:MetaTagDescription>Vaso de barro vermelho, feito a mão com barro do mar vermelho</a:MetaTagDescription>
+	            <a:Name>Vaso Artesanal de Barro Vermelho</a:Name>
+	            <a:RefId>1234567890</a:RefId>
+	            <a:ReleaseDate i:nil="true"/>
+	            <a:ShowWithoutStock>true</a:ShowWithoutStock>
+	            <a:SupplierId i:nil="true"/>
+	            <a:TaxCode i:nil="true"/>
+	            <a:Title>Vaso Artesanal de Barro Vermelho</a:Title>
+	         </ProductInsertUpdateResult>
+	      </ProductInsertUpdateResponse>
+	   </s:Body>
+	</s:Envelope>
+
+
+###Fields###
+
+###Field###
+
+http://sandboxintegracao.vtexcommercebeta.com.br/api/catalog_system/pvt/specification/fieldInsertUpdate
+
+		{
+		  "Name": "Material",
+		  "CategoryId": 1000018, //se nulo vale pra todas as categorias e departamento
+		  "FieldId": null,
+		  "IsActive": true,
+		  "IsRequired": false,
+		  "FieldTypeId": 7, // 1|2|4|5|6|7|8|9
+		  "FieldTypeName": "CheckBox", // Texto|Texto Grande|Número|Combo|Radio|CheckBox|Texto Indexado|Texto Grande Indexado
+		  "FieldValueId": null,
+		  "Description": null,
+		  "IsStockKeepingUnit": false,
+		  "IsFilter": true,
+		  "IsOnProductDetails": true,
+		  "Position": 3,
+		  "IsWizard": false,
+		  "IsTopMenuLinkActive": true,
+		  "IsSideMenuLinkActive": true,
+		  "DefaultValue": null,
+		  "FieldGroupId": 3
+		}
+
+
+
+###SKUs###
 
 O cadastro da estrutura mercadologica deve ser feito diretamente no admin da própria loja (_http://sualoja.com.br/admin/Site/Categories.aspx_), e para atender a integração vinda do ERP, é criado um departamento padrão para produtos que vem do ERP, ou seja, todos os produtos caem no admin da loja nesse departamento padrão, e depois no momento do enriquecimento é colocado na categoria desejada.
 

@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-<title>pedido-pagamento-fluxo</title>
+<title>pedido-seller-nao-vtex</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style type="text/css">
 /* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
@@ -292,19 +292,22 @@ img {
 
 </head>
 <body>
-<h1>Enviar Pedido e Informar Pagamento</h1>
-<p>Este documento tem por objetivo auxiliar o marketplace não VTEX a receber um pedido, receber o respectivo pagamento do pedido, e comunicar a atualização de status de pagamento.</p>
-<p><em>Exemplo do fuxo de chamadas de descida de pedido, pagamento e atualização de status de pagamento:</em>  </p>
-<p><img src="pedido-pagamento-fluxo.png" alt="alt text" title="Title" /> </p>
+<h1>Enviar Pedido e Autorizar Despacho</h1>
+<p>Este documento tem por objetivo auxiliar o Seller não VTEX a receber um pedido, e receber a autorização para despachar o pedido</p>
+<p><em>Exemplo do fuxo de chamadas de descida, autorização para despachar e cancelamento de pedido:</em>  
+</p>
+<p><img src="pedido-seller-nao-vtex.png" alt="alt text" title="Fluxo de pedido" /> </p>
 <h2>1 - Enviar Pedido</h2>
-<p>Quando o pedido é fechado no ambiente VTEX, um POST é feito no marketplace não VTEX, para que este possa receber a ordem de pedido.  </p>
-<h3>1.1 - Exemplos de Request de Descida de Pedido - Endpoint do Seller</h3>
+<p>Quando o pedido é fechado no ambiente VTEX, um POST é feito no Seller não VTEX, para que este possa receber a ordem de pedido.  
+</p>
+<h3>Exemplos de Request de Descida de Pedido - Endpoint do Seller</h3>
 <p>endpoint: <strong>https://sellerendpoint/pvt/orders?sc=[idcanal]</strong><br />
 verb: <strong>POST</strong><br />
 Content-Type: <strong>application/json</strong><br />
 Accept: <strong>application/json</strong><br />
 Parametro: <strong>sc=5</strong> // sc serve para destacar o canal por onde o pedido entrou</p>
-<p><em>Exemplo do Request:</em>  </p>
+<p><em>Exemplo do Request:</em>  
+</p>
 <pre><code>[
       {
         &quot;marketplaceOrderId&quot;: &quot;959311095&quot;,
@@ -376,9 +379,7 @@ Parametro: <strong>sc=5</strong> // sc serve para destacar o canal por onde o pe
         },
         &quot;openTextField&quot;: null,
         &quot;marketingData&quot;: null,
-        &quot;paymentData&quot;:{
-            &quot;merchantName&quot;:&quot;shopfacilfastshop&quot; //gateway de redirect na vtex.
-        }
+        &quot;paymentData&quot;:null
       }
     ]
 </code></pre>
@@ -448,10 +449,7 @@ Parametro: <strong>sc=5</strong> // sc serve para destacar o canal por onde o pe
             }
           ]
         },
-       &quot;paymentData&quot;:{
-            &quot;merchantName&quot;:&quot;shopfacilfastshop&quot;, //devover o parametro recebido no request
-            &quot;merchantPaymentReferenceId&quot;:&quot;123543123&quot; //inteiro id do pagamento, número que será enviado junto com o pagamento para conciliação.
-        }
+       &quot;paymentData&quot;:null
       }
     ]
 </code></pre>
@@ -466,73 +464,18 @@ Parametro: <strong>sc=5</strong> // sc serve para destacar o canal por onde o pe
 }
 </code></pre>
 
-<h2>2 - Enviar Pagamento</h2>
-<p>Quando o pagamento do pedido é concluído no ambiente VTEX, um POST é feito no marketplace não VTEX, para que este possa receber os dados referente ao pagamento do respectivo pedido.  </p>
-<h3>2.1 - Exemplos de Request de Descida de Pagamento - Endpoint do Seller</h3>
-<p>endpoint: <strong>https://sellerendpoint/pvt/payment?an=shopfacilfastshop</strong><br />
-verb: <strong>POST</strong><br />
-Content-Type: <strong>application/json</strong><br />
-Accept: <strong>application/json</strong><br />
-Parametro: <strong>an=shopfacilfastshop</strong> // an é o nome do gateway da loja que ta enviando o pagamento</p>
-<p><em>Exemplo do Request:</em>  </p>
-<pre><code>{
-    &quot;referenceId&quot;: &quot;123543123&quot;, //merchantPaymentReferenceId retornado no request do place order
-    &quot;transactionId&quot;: &quot;D3AA1FC8372E430E8236649DB5EBD08E&quot;,
-    &quot;paymentData&quot;: {
-        &quot;id&quot;: &quot;F5C1A4E20D3B4E07B7E871F5B5BC9F91&quot;,
-        &quot;paymentSystem&quot;: 2,os ids dos tipos de pagamento, 
-        &quot;cardNumber&quot;: &quot;4444333322221111&quot;,
-        &quot;cardHolder&quot;: &quot;JONAS ALVES DE OLIVEIRA&quot;,
-        &quot;expiryMonth&quot;: 11,
-        &quot;expiryYear&quot;: 16,
-        &quot;value&quot;: 11080,
-        &quot;installments&quot;: 3,
-        &quot;cvv2&quot;: &quot;123&quot;,
-        &quot;billingAddress&quot;: {
-            &quot;addressType&quot;: &quot;residential&quot;,
-            &quot;street&quot;: &quot;Rua Cinco De Julho&quot;,
-            &quot;number&quot;: &quot;176&quot;,
-            &quot;complement&quot;: &quot;801&quot;,
-            &quot;postalCode&quot;: &quot;22051-030&quot;,
-            &quot;city&quot;: &quot;Rio De Janeiro&quot;,
-            &quot;state&quot;: &quot;RJ&quot;,
-            &quot;country&quot;: &quot;BRA&quot;,
-            &quot;neighborhood&quot;: &quot;&quot;
-        }
-    },
-    &quot;clientData&quot;: {
-        &quot;firstName&quot;: &quot;JONAS&quot;,
-        &quot;lastName&quot;: &quot;ALVES DE OLIVEIRA&quot;,
-        &quot;document&quot;: &quot;08081268731&quot;,
-        &quot;corporateName&quot;: &quot;&quot;,
-        &quot;tradeName&quot;: &quot;&quot;,
-        &quot;corporateDocument&quot;: &quot;&quot;,
-        &quot;isCorporate&quot;: &quot;false&quot;
-    },
-    &quot;shippingValue&quot;: 3691, 
-    &quot;callbackUrl&quot;: &quot;&quot;https://nomedaloja.vtexpayments.com.br/api/pvt/callback/vtxstd/transactions/D3AA1FC8372E430E8236649DB5EBD08E/payments/F5C1A4E20D3B4E07B7E871F5B5BC9F91/return&quot; //**url para falar de volta com o gateway de pagamento do marketplace
-}
-</code></pre>
-
-<p><em>Exemplo do Response e do POST Feito na CallbackUrl de Pagamento :</em></p>
-<pre><code>{
-    &quot;paymentId&quot; : &quot;F5C1A4E20D3B4E07B7E871F5B5BC9F91&quot;,   // string, not null, Payment identifier sent on authorization request
-    &quot;status&quot; : &quot;&quot;,    // string, not null, [approved | denied | undefined]
-    &quot;authorizationId&quot;: &quot;&quot;, //id da autorização quando aprovado
-    &quot;bankIssueInvoiceUrl&quot;:&quot;urldoboleto&quot; //url do boleto bancario
-}
-</code></pre>
-
-<p>**O response de pagamento pode ser respondido como &quot;undefined&quot; enquanto o Seller não tem a informação sobre o pagamento. Em caso de marketplace e seller aceitarem boleto, quando recebido um post de pagamento com o paymentSystem igual a boleto, o seller deve gerar o boleto e responder imediatamente com a url de boleto preenchida.</p>
-<h2>2.2 - Enviar Autoriação Para Despachar</h2>
-<p>Quando o pagamento do pedido é concluído no Seller (pagamento válido), um POST deverá ser feito na &quot;callbackUrl&quot; do pagamento, informando sucesso do pagamento (&quot;status&quot;:&quot;approved&quot;), nesse momento a loja VTEX envia autorização para despachar o respectivo pedido no Seller.  </p>
+<h2>2 - Enviar Autorização Para Despachar</h2>
+<p>Quando o pagamento do pedido é concluído no Seller (pagamento válido), um POST deverá ser feito na &quot;callbackUrl&quot; do pagamento, informando sucesso do pagamento (&quot;status&quot;:&quot;approved&quot;), nesse momento a loja VTEX envia autorização para despachar o respectivo pedido no Seller.  
+</p>
 <p><em>Exemplos de Request de Autorização - Endpoint da Seller</em></p>
 <p>endpoint: <strong>https://sellerendpoint/pvt/orders/[orderid]/fulfill?sc=[idcanal]</strong><br />
 verb: <strong>POST</strong><br />
 Content-Type: <strong>application/json</strong><br />
 Accept: <strong>application/json</strong><br />
-Parametro: <strong>sc=5</strong> // sc é o canal de vendas cadastrado no marketplace, serve para destacar o canal por onde o pedido entrou.  </p>
-<p><em>Exemplo do Request:</em>  </p>
+Parametro: <strong>sc=5</strong> // sc é o canal de vendas cadastrado no marketplace, serve para destacar o canal por onde o pedido entrou.  
+</p>
+<p><em>Exemplo do Request:</em>  
+</p>
 <pre><code>{
     &quot;marketplaceOrderId&quot;: &quot;959311095&quot; //id do pedido originado no canal de vendas
 }
@@ -549,13 +492,14 @@ Parametro: <strong>sc=5</strong> // sc é o canal de vendas cadastrado no market
 
 <h2>3 Invocando Marketplace Services Endpoint Actions</h2>
 <p>O MarketplaceServicesEndpoint serve para receber informações do seller referentes a nota fiscal e tracking de pedido. É permitido o envio de notas fiscais parciais, obrigando assim ao informador informar além dos valores da nota fiscal,os items ele está mandando na nota fiscal parcial. O pedido na VTEX só andará pra o status FATURADO quando o valor total de todas as notas fiscais de um pedido forem enviadas.</p>
-<h3>3.1 - Exemplos de Request Para Informar Nota Fiscal - Endpoint VTEX</h3>
+<h3>Exemplos de Request Para Informar Nota Fiscal - Endpoint VTEX</h3>
 <p>endpoint: <strong>https://marketplaceServicesEndpoint/pub/orders/{orderId}/invoice</strong><br />
 verb: <strong>POST</strong><br />
 Content-Type: <strong>application/json</strong><br />
 Accept: <strong>application/json</strong><br />
 Parametro: <strong>an=shopfacilfastshop</strong> // an é o nome do gateway da loja que ta enviando o pagamento</p>
-<p><em>Exemplo do Request:</em>  </p>
+<p><em>Exemplo do Request:</em>  
+</p>
 <pre><code>{
     &quot;type&quot;: &quot;Output&quot;, //hard code
     &quot;invoiceNumber&quot;: &quot;NFe-00001&quot;, //numero da nota fiscal
@@ -586,8 +530,10 @@ Parametro: <strong>an=shopfacilfastshop</strong> // an é o nome do gateway da l
 <p>endpoint: <strong>https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice</strong><br />
 verb: <strong>POST</strong><br />
 Content-Type: <strong>application/json</strong><br />
-Accept: <strong>application/json</strong>  </p>
-<p><em>Exemplo do Request:</em>  </p>
+Accept: <strong>application/json</strong>  
+</p>
+<p><em>Exemplo do Request:</em>  
+</p>
 <pre><code>{
     &quot;type&quot;: &quot;Output&quot;,
     &quot;invoiceNumber&quot;: &quot;NFe-00001&quot;,
@@ -615,12 +561,22 @@ Accept: <strong>application/json</strong>  </p>
 </code></pre>
 
 <p>**A Nota Fiscal e o Tracking podem ser enviados na mesma chamada, basta prenncher todos os dados do POST.</p>
-<h3>3.3 - Enviar Solicitação de Cancelamento</h3>
+<h3>4 - Enviar Solicitação de Cancelamento</h3>
 <p>Uma solicitação de cancelamento pode ser enviada, caso o pedido se encontre em um estado que se possa cancelar, o pedido será cancelado. </p>
 <p><em>Exemplos de Request de Cancelamento - Endpoint VTEX</em></p>
 <p>endpoint: <strong>https://marketplaceServicesEndpoint/pvt/orders/[orderid]/cancel</strong><br />
 verb: <strong>GET</strong></p>
-<h2>4 Versão:Beta 1.1</h2>
+<h2>5 - Considerações</h2>
+<h4>3.1 Header nas Chamadas a API REST da VTEX</h4>
+<p>Todas chamadas as API REST devem conter no Headear as seguintes Keys:<br />
+X-VTEX-API-AppToken:<strong>[Value]</strong><br />
+X-VTEX-API-AppKey:<strong>[Value]</strong><br />
+Content-Type: <strong>application/json</strong>    <br />
+Accept: <strong>application/json</strong>  
+</p>
+<p>*O integrador deverá solitar junto ao contato VTEX a sua chave e token para uso exclusivo na integração,
+assim como solicitar a criação do Seller dentro da loja VTEX. </p>
+<h2>5 Versão:Beta 1.1</h2>
 <p>Essa versão de documentação suporta a integração na versão da plataforma VTEX smartcheckout. Ela foi escrita para auxiliar um integração e a idéia e que através dela, não  restem nenhuma dúvida de como se integrar com a VTEX. Se recebeu essa documentação e ainda restaram dúvidas, por favor, detalhe as suas dúvidas abaixo no comentário, para chegarmos a um documento rico e funcional.</p>
 <p>autor: Jonas Bolognim</p>
 
