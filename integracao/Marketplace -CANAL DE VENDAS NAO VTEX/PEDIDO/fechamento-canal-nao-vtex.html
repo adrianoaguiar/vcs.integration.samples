@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <title>fechamento-canal-nao-vtex</title>
@@ -297,13 +297,14 @@ img {
 <h2>1 - No Carrinho e no Pagamento</h2>
 <p>Quando um produto é inserido no carrinho no canal de vendas não VTEX, ou faz se alguma edição no carrinho, uma consulta de simulaçao de carrinho é feita na loja VTEX para checar a validade das condiçoes comerciais(preço, estoque, frete e SLAs de entrega). Quando o cliente vai para o pagamento também pode validar o carrinho.</p>
 <p><em>Exemplo do fuxo de chamadas no carrinho e pagamento:</em>  </p>
-<p><img src="fechamento-canal-nao-vtex.PNG" alt="alt text" title="Title" />  </p>
+<p><img src="fechamento-canal-nao-vtex.PNG" alt="alt text" title="Fechamento do pedido no marketplace" />  </p>
 <h3>1.1 - Exemplos de Request de Simulação de Carrinho - Endpoint loja VTEX</h3>
-<p>endpoint: <strong>https://lojavtexendpoint/pvt/orderForms/simulation?sc=[idcanal]</strong><br />
+<p>endpoint: <strong>https://lojavtexendpoint/pvt/orderForms/simulation?sc=[idcanal]&amp;affiliateId=[iddoafilaido]</strong><br />
 verb: <strong>POST</strong><br />
 Content-Type: <strong>application/json</strong><br />
 Accept: <strong>application/json</strong><br />
-Parametro: <strong>sc=5</strong> // sc é o canal de vendas</p>
+Parametro: <strong>sc=5</strong> // sc é o canal de vendas<br />
+Parametro: <strong>affiliateId=MGZ</strong> // affiliateId é o id do afialiado cadastrado na loja VTEX</p>
 <p><em>Exemplo do Request:</em>  </p>
 <pre><code>{
     &quot;postalCode&quot;:&quot;22251-030&quot;,            //obrigatório se country estiver preenchido, string

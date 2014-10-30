@@ -295,16 +295,20 @@ img {
 <h1>Simulação de Carrinho</h1>
 <p>Este documento tem por objetivo auxiliar o integrador na simulação de carrinho entre o marketplace VTEX  com uma loja não VTEX. Simular um pedido no ambiente do seller.</p>
 <h2>1 - No Carrinho e no Pagamento</h2>
-<p>Quando um produto é inserido no carrinho no marketplace VTEX, ou faz se alguma edição no carrinho, uma consulta de simulaçao de carrinho é feita no Seller para checar a validade das condiçoes comerciais(preço, estoque, frete e SLAs de entrega).  </p>
-<p><em>Exemplo do fuxo de chamadas no carrinho:</em>  </p>
-<p><img src="fechamento-fluxo-seller-nao-vtex.png" alt="alt text" title="Title" />  </p>
+<p>Quando um produto é inserido no carrinho no marketplace VTEX, ou faz se alguma edição no carrinho, uma consulta de simulaçao de carrinho é feita no Seller para checar a validade das condiçoes comerciais(preço, estoque, frete e SLAs de entrega).  
+</p>
+<p><em>Exemplo do fuxo de chamadas no carrinho:</em>  
+</p>
+<p><img src="fechamento-fluxo-seller-nao-vtex.png" alt="alt text" title="Title" />  
+</p>
 <h3>1.1 - Exemplos de Request de Simulação de Carrinho - Endpoint do Seller</h3>
 <p>endpoint: <strong>https://sellerendpoint/pvt/orderForms/simulation?sc=[idcanal]</strong><br />
 verb: <strong>POST</strong><br />
 Content-Type: <strong>application/json</strong><br />
 Accept: <strong>application/json</strong><br />
 Parametro: <strong>sc=5</strong> // sc é o id do canal de vendas</p>
-<p><em>Exemplo do Request:</em>  </p>
+<p><em>Exemplo do Request:</em>  
+</p>
 <pre><code>{
     &quot;postalCode&quot;:&quot;22251-030&quot;,            //obrigatório se country estiver preenchido, string
     &quot;country&quot;:&quot;BRA&quot;,                     //obrigatório se postalCode estiver preenchido, string      

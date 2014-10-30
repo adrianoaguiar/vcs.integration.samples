@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <title>pedido-canal-nao-vtex</title>
@@ -295,17 +295,21 @@ img {
 <h1>Enviar Pedido e Autorizar Despacho</h1>
 <p>Este documento tem por objetivo auxiliar um canal de vendas não VTEX a enviar um pedido, e enviar autorização para despacho (proceder com o fulfillment do pedido).</p>
 <p>Caso se queira uma condição comercial diferenciada para o canal de vendas não VTEX, na loja VTEX deverá ser criado um novo canal de vendas, podendo assim criar promoções diferenciadas (desconto, frete, etc) somente para o canal desejado. Caso não tenha condição comercial diferenciada, deve se usar o canal de vendas da loja principal (sc=1).</p>
-<p><em>Exemplo do fuxo de chamadas de descida de pedido, e autorização para despachar:</em>  </p>
+<p><em>Exemplo do fuxo de chamadas de descida de pedido, e autorização para despachar:</em>  
+</p>
 <p><img src="pedido-canal-nao-vtex.png" alt="alt text" title="Title" /> </p>
 <h2>1 - Enviar Pedido</h2>
-<p>Quando o pedido é fechado em um canal de vendas não VTEX, um POST deve ser feito na loja VTEX, para que essa possa receber a ordem de pedido.  </p>
+<p>Quando o pedido é fechado em um canal de vendas não VTEX, um POST deve ser feito na loja VTEX, para que essa possa receber a ordem de pedido.  
+</p>
 <h3>1.1 - Exemplos de Request de Envio de Pedido - Endpoint Loja Vtex</h3>
-<p>endpoint: <strong>https://lojavtexendpoint/pvt/orders?sc=[idcanal]</strong><br />
+<p>endpoint: <strong>https://lojavtexendpoint/pvt/orders?sc=[idcanal]&amp;affiliateId=[idafiliado]</strong><br />
 verb: <strong>POST</strong><br />
 Content-Type: <strong>application/json</strong><br />
 Accept: <strong>application/json</strong><br />
-Parametro: <strong>sc=5</strong> // sc é o canal de vendas cadastrado na VTEX.</p>
-<p><em>Exemplo do Request:</em>  </p>
+Parametro: <strong>sc=5</strong> // sc é o canal de vendas cadastrado na VTEX.<br />
+Parametro: <strong>affiliateId=MGZ</strong> // affiliateId é o id do afiliado cadastrado n loja VTEX</p>
+<p><em>Exemplo do Request:</em>  
+</p>
 <pre><code>[
       {
         &quot;marketplaceOrderId&quot;: &quot;959311095&quot;,
@@ -377,9 +381,7 @@ Parametro: <strong>sc=5</strong> // sc é o canal de vendas cadastrado na VTEX.<
         },
         &quot;openTextField&quot;: null,
         &quot;marketingData&quot;: null,
-        &quot;paymentData&quot;:{
-            &quot;merchantName&quot;:&quot;shopfacilfastshop&quot; //gateway de redirect na vtex.
-        }
+        &quot;paymentData&quot;:null
       }
     ]
 </code></pre>
@@ -449,10 +451,7 @@ Parametro: <strong>sc=5</strong> // sc é o canal de vendas cadastrado na VTEX.<
             }
           ]
         },
-       &quot;paymentData&quot;:{
-            &quot;merchantName&quot;:&quot;shopfacilfastshop&quot;, //devover o parametro recebido no request
-            &quot;merchantPaymentReferenceId&quot;:&quot;123543123&quot; //inteiro id do pagamento.
-        }
+       &quot;paymentData&quot;:null
       }
     ]
 </code></pre>
@@ -468,14 +467,16 @@ Parametro: <strong>sc=5</strong> // sc é o canal de vendas cadastrado na VTEX.<
 </code></pre>
 
 <h2>2 - Enviar Autoriação Para Despachar</h2>
-<p>Quando o pagamento do pedido é concluído no canal de vendas não VTEX, um POST deverá ser feito na loja VTEX, para que o pedido possa prosseguir com a separação e entrega.  </p>
+<p>Quando o pagamento do pedido é concluído no canal de vendas não VTEX, um POST deverá ser feito na loja VTEX, para que o pedido possa prosseguir com a separação e entrega.  
+</p>
 <h3>2.1 - Exemplos de Request de Autorização - Endpoint da VTEX</h3>
 <p>endpoint: <strong>https://lojavtexendpoint/pvt/orders/[orderid]/fulfill?sc=[idcanal]</strong><br />
 verb: <strong>POST</strong><br />
 Content-Type: <strong>application/json</strong><br />
 Accept: <strong>application/json</strong><br />
 Parametro: <strong>sc=5</strong> // sc é o canal de vendas cadastrado na VTEX.</p>
-<p><em>Exemplo do Request:</em>  </p>
+<p><em>Exemplo do Request:</em>  
+</p>
 <pre><code>{
     &quot;marketplaceOrderId&quot;: &quot;959311095&quot; //id do pedido originado no canal de vendas
 }
@@ -490,19 +491,16 @@ Parametro: <strong>sc=5</strong> // sc é o canal de vendas cadastrado na VTEX.<
 }
 </code></pre>
 
-<h2>3 - Enviar Solicitação de Cancelamento</h2>
-<p>Uma solicitação de cancelamento pode ser enviado, caso o pedido se encontre em um estado que se possa cancelar, o pedido será cancelado. </p>
-<h3>3.1 - Exemplos de Request de Cancelamento - Endpoint da VTEX</h3>
-<p>endpoint: <strong>https://lojavtexendpoint/pvt/orders/[orderid]/cancel</strong><br />
-verb: <strong>GET</strong>  </p>
 <h2>3 implementando Marketplace Services Endpoint Actions</h2>
 <p>O MarketplaceServicesEndpoint serve para a loja VTEX informar ao canal de vendas a nota fiscal e tracking de pedido. O envio de notas fiscais pode ser parcial, obrigando assim ao informador informar além dos valores da nota fiscal, os items ele está mandando na nota fiscal parcial.</p>
-<h3>3.1 - Exemplos de Request Para Informar Nota Fiscal###  - Endpoint da Canal de Vendas</h3>
-<p>endpoint: <strong>https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice</strong><br />
+<h3>3.1 - Exemplos de Request Para Informar Nota Fiscal - Endpoint do Canal de Vendas</h3>
+<p>endpoint: <strong>https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice</strong><br />
 verb: <strong>POST</strong><br />
 Content-Type: <strong>application/json</strong><br />
-Accept: <strong>application/json</strong>  </p>
-<p><em>Exemplo do Request:</em>  </p>
+Accept: <strong>application/json</strong>  
+</p>
+<p><em>Exemplo do Request:</em>  
+</p>
 <pre><code>{
     &quot;type&quot;: &quot;Output&quot;, //hard code
     &quot;invoiceNumber&quot;: &quot;NFe-00001&quot;, //numero da nota fiscal
@@ -529,13 +527,14 @@ Accept: <strong>application/json</strong>  </p>
 }
 </code></pre>
 
-<h3>3.1 - Exemplos de Request Para Informar Tracking - Endpoint da Canal de Vendas</h3>
-<p>endpoint: <strong>https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice</strong><br />
+<h3>3.1 - Exemplos de Request Para Informar Tracking - Endpoint do Canal de Vendas</h3>
+<p>endpoint: <strong>https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice</strong><br />
 verb: <strong>POST</strong><br />
 Content-Type: <strong>application/json</strong><br />
-Accept: <strong>application/json</strong><br />
-Parametro: <strong>an=shopfacilfastshop</strong> // an é o nome do gateway da loja que ta enviando o pagamento</p>
-<p><em>Exemplo do Request:</em>  </p>
+Accept: <strong>application/json</strong>  
+</p>
+<p><em>Exemplo do Request:</em>  
+</p>
 <pre><code>{
     &quot;type&quot;: &quot;Output&quot;,
     &quot;invoiceNumber&quot;: &quot;NFe-00001&quot;,
@@ -562,10 +561,56 @@ Parametro: <strong>an=shopfacilfastshop</strong> // an é o nome do gateway da l
 }
 </code></pre>
 
+<h3>3.1 - Enviar Solicitação de Cancelamento</h3>
+<p>Uma solicitação de cancelamento pode ser enviada para o Canal de Vendas não VTEX.</p>
+<h3>3.1.1 - Exemplos de Request de Cancelamento - Endpoint do Canal de Vendas</h3>
+<p>endpoint: <strong>https://marketplaceServicesEndpoint/pvt/orders/[marketplaceorderId]/cancel</strong><br />
+verb: <strong>GET</strong>  
+</p>
 <p>**A Nota Fiscal e o Tracking podem ser enviados na mesma chamada, basta prenncher todos os dados do POST.</p>
-<h2>4 Versão:Beta 1.1</h2>
+<h2>4 Registrar Mudanças</h2>
+<p>Com esse recurso permite se registrar mudanças no pedido. Mudanças podem ser descontos, cancelamento ou troca de itens. *As mudanças só poderão ser comunicadas, antes do envio da Nota Fiscal.</p>
+<p>endpoint: <strong>https://urldaloja/api/oms/pvt/orders/[orderId]/changes</strong><br />
+verb: <strong>POST</strong><br />
+Content-Type: <strong>application/json</strong><br />
+Accept: <strong>application/json</strong>  
+</p>
+<p><em>Exemplo do Request:</em>  
+</p>
+<pre><code>{
+    &quot;reason&quot;: &quot;Promocao dado por telefone&quot;,
+    &quot;discountValue&quot;: 1000, //caso queira dar um desconto
+    &quot;itemsRemoved&quot;: [ //items a remover
+      {
+        &quot;id&quot;: &quot;234794&quot;,
+        &quot;quantity&quot;: 2,
+        &quot;price&quot;: 600
+      }
+    ],
+    &quot;itemsAdded&quot;: [ /items a adicionar
+      {
+        &quot;id&quot;: &quot;234788&quot;,
+        &quot;quantity&quot;: 1,
+        &quot;price&quot;: 200
+      }
+    ]
+}
+</code></pre>
+
+<p><em>Exemplo do Response:</em></p>
+<pre><code>{
+    &quot;date&quot;: &quot;2014-02-07T17:28:56.3071208Z&quot;,
+    &quot;orderId&quot;: &quot;409050869826-01&quot;,
+    &quot;receipt&quot;: &quot;e141c288-831c-4e23-90d9-4fadf7b2cf15&quot;
+}
+</code></pre>
+
+<h2>5 Versão:Beta 1.2</h2>
 <p>Essa versão de documentação suporta a integração na versão da plataforma VTEX smartcheckout. Ela foi escrita para auxiliar um integração e a idéia e que através dela, não  restem nenhuma dúvida de como se integrar com a VTEX. Se recebeu essa documentação e ainda restaram dúvidas, por favor, detalhe as suas dúvidas abaixo no comentário, para chegarmos a um documento rico e funcional.</p>
-<p>autor: Jonas Bolognim</p>
+<p>O que mudou na troca de versões:<br />
+1.1 para 1.2 foi incluido a parte de Registrar Mudança</p>
+<p>autor: Jonas Bolognim
+propriedade: VTEX</p>
 
 </body>
 </html>

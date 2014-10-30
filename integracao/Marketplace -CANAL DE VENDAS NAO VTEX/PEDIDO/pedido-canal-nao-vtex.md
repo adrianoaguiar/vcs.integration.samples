@@ -13,12 +13,12 @@ Quando o pedido é fechado em um canal de vendas não VTEX, um POST deve ser fei
  
 ###1.1 - Exemplos de Request de Envio de Pedido - Endpoint Loja Vtex###
 
-endpoint: **https://lojavtexendpoint/pvt/orders?sc=[idcanal]&affiliateId=[iddoafilaido]**  
+endpoint: **https://lojavtexendpoint/pvt/orders?sc=[idcanal]&affiliateId=[idafiliado]**  
 verb: **POST**  
 Content-Type: **application/json**  
 Accept: **application/json**  
 Parametro: **sc=5** // sc é o canal de vendas cadastrado na VTEX.  
-Parametro: **affiliateId=MGZ** // affiliateId é o id do afialiado cadastrado n loja VTEX
+Parametro: **affiliateId=MGZ** // affiliateId é o id do afiliado cadastrado n loja VTEX
 
 *Exemplo do Request:*  
 
@@ -207,7 +207,7 @@ Parametro: **sc=5** // sc é o canal de vendas cadastrado na VTEX.
 ##3 implementando Marketplace Services Endpoint Actions##
 O MarketplaceServicesEndpoint serve para a loja VTEX informar ao canal de vendas a nota fiscal e tracking de pedido. O envio de notas fiscais pode ser parcial, obrigando assim ao informador informar além dos valores da nota fiscal, os items ele está mandando na nota fiscal parcial.
 
-###3.1 - Exemplos de Request Para Informar Nota Fiscal###  - Endpoint da Canal de Vendas###
+###3.1 - Exemplos de Request Para Informar Nota Fiscal - Endpoint do Canal de Vendas###
 
 endpoint: **https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice**  
 verb: **POST**  
@@ -242,13 +242,12 @@ Accept: **application/json**
   	}
 
 
-###3.1 - Exemplos de Request Para Informar Tracking - Endpoint da Canal de Vendas###
+###3.1 - Exemplos de Request Para Informar Tracking - Endpoint do Canal de Vendas###
 
 endpoint: **https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice**  
 verb: **POST**  
 Content-Type: **application/json**  
 Accept: **application/json**  
-Parametro: **an=shopfacilfastshop** // an é o nome do gateway da loja que ta enviando o pagamento
 
 
 *Exemplo do Request:*  
@@ -282,7 +281,7 @@ Parametro: **an=shopfacilfastshop** // an é o nome do gateway da loja que ta en
 ###3.1 - Enviar Solicitação de Cancelamento###
 Uma solicitação de cancelamento pode ser enviada para o Canal de Vendas não VTEX.
  
-###3.1.1 - Exemplos de Request de Cancelamento - Endpoint da Canal de Vendas###
+###3.1.1 - Exemplos de Request de Cancelamento - Endpoint do Canal de Vendas###
 
 endpoint: **https://marketplaceServicesEndpoint/pvt/orders/[marketplaceorderId]/cancel**  
 verb: **GET**  
@@ -291,7 +290,7 @@ verb: **GET**
 
 ##4 Registrar Mudanças##
 
-Com esse recurso permite se registrar mudanças no pedido. Mudanças podem ser descontos, cancelamento ou troca de itens.
+Com esse recurso permite se registrar mudanças no pedido. Mudanças podem ser descontos, cancelamento ou troca de itens. *As mudanças só poderão ser comunicadas, antes do envio da Nota Fiscal.
 
 endpoint: **https://urldaloja/api/oms/pvt/orders/[orderId]/changes**  
 verb: **POST**  
@@ -337,3 +336,4 @@ O que mudou na troca de versões:
 
 
 autor: Jonas Bolognim
+propriedade: VTEX

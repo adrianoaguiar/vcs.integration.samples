@@ -21,150 +21,146 @@ Parametro: **sc=5** // sc serve para destacar o canal por onde o pedido entrou
 
 *Exemplo do Request:*  
 
-	[
-		  {
-		    "marketplaceOrderId": "959311095",
-		    "marketplaceServicesEndpoint": "https://urlmarketplace/", //leia o tópico Invocando MarketplaceServicesEndpoint Actions
-		    "marketplacePaymentValue": 11080,
-		    "items": [
-		      {
-		        "id": "2002495",
-		        "quantity": 1,
-		        "seller": "1",
-		        "commission": 0,
-		        "freightCommission": 0,
-		        "price": 9990,
-		        "bundleItems": [], //serviços. Ex: embalagem pra presente.
-		        "itemAttachment": { 
-		          "name": null,
-		          "content": {}
-		        },
-		        "attachments": [], //customização do item, Ex:camisa com o numero 10
-		        "priceTags": [],
-		        "measurementUnit": null, unidade de medida
-		        "unitMultiplier": 0, unidade multipladora,Ex: venda por quilo
-		        "isGift": false
-		      }
-		    ],
-		    "clientProfileData": {
-		      "id": "clientProfileData",
-		      "email": "32172239852@gmail.com.br",
-		      "firstName": "Jonas",
-		      "lastName": "Alves de Oliveira",
-		      "documentType": null,
-		      "document": "3244239851",
-		      "phone": "399271258",
-		      "corporateName": null,
-		      "tradeName": null,
-		      "corporateDocument": null,
-		      "stateInscription": null,
-		      "corporatePhone": null,
-		      "isCorporate": false,
-		      "userProfileId": null
-		    },
-		    "shippingData": {
-		      "id": "shippingData",
-		      "address": {
-		        "addressType": "Residencial",
-		        "receiverName": "Jonas Alves de Oliveira",
-		        "addressId": "Casa",
-		        "postalCode": "13476103",
-		        "city": "Americana",
-		        "state": "SP",
-		        "country": "BRA",
-		        "street": "JOÃO DAMÁZIO GOMES",
-		        "number": "311",
-		        "neighborhood": "SÃO JOSÉ",
-		        "complement": null,
-		        "reference": "Bairro Praia Azul / Posto de Saúde 17",
-		        "geoCoordinates": []
-		      },
-		      "logisticsInfo": [
-		        {
-		          "itemIndex": 0,
-		          "selectedSla": "Normal",
-		          "lockTTL": "8d",
-		          "shippingEstimate": "7d",
-		          "price": 1090,
-		          "deliveryWindow": null
-		        }
-		      ]
-		    },
-		    "openTextField": null,
-		    "marketingData": null,
-		    "paymentData":null
-		  }
-		]
+	  {
+	    "marketplaceOrderId": "959311095",
+	    "marketplaceServicesEndpoint": "https://urlmarketplace/", //leia o tópico Invocando MarketplaceServicesEndpoint Actions
+	    "marketplacePaymentValue": 11080,
+	    "items": [
+	      {
+	        "id": "2002495",
+	        "quantity": 1,
+	        "seller": "1",
+	        "commission": 0,
+	        "freightCommission": 0,
+	        "price": 9990,
+	        "bundleItems": [], //serviços. Ex: embalagem pra presente.
+	        "itemAttachment": { 
+	          "name": null,
+	          "content": {}
+	        },
+	        "attachments": [], //customização do item, Ex:camisa com o numero 10
+	        "priceTags": [],
+	        "measurementUnit": null, unidade de medida
+	        "unitMultiplier": 0, unidade multipladora,Ex: venda por quilo
+	        "isGift": false
+	      }
+	    ],
+	    "clientProfileData": {
+	      "id": "clientProfileData",
+	      "email": "32172239852@gmail.com.br",
+	      "firstName": "Jonas",
+	      "lastName": "Alves de Oliveira",
+	      "documentType": null,
+	      "document": "3244239851",
+	      "phone": "399271258",
+	      "corporateName": null,
+	      "tradeName": null,
+	      "corporateDocument": null,
+	      "stateInscription": null,
+	      "corporatePhone": null,
+	      "isCorporate": false,
+	      "userProfileId": null
+	    },
+	    "shippingData": {
+	      "id": "shippingData",
+	      "address": {
+	        "addressType": "Residencial",
+	        "receiverName": "Jonas Alves de Oliveira",
+	        "addressId": "Casa",
+	        "postalCode": "13476103",
+	        "city": "Americana",
+	        "state": "SP",
+	        "country": "BRA",
+	        "street": "JOÃO DAMÁZIO GOMES",
+	        "number": "311",
+	        "neighborhood": "SÃO JOSÉ",
+	        "complement": null,
+	        "reference": "Bairro Praia Azul / Posto de Saúde 17",
+	        "geoCoordinates": []
+	      },
+	      "logisticsInfo": [
+	        {
+	          "itemIndex": 0,
+	          "selectedSla": "Normal",
+	          "lockTTL": "8d",
+	          "shippingEstimate": "7d",
+	          "price": 1090,
+	          "deliveryWindow": null
+	        }
+	      ]
+	    },
+	    "openTextField": null,
+	    "marketingData": null,
+	    "paymentData":null
+	  }
 
 *Exemplo do Response:*
 
-	    [
-		  {
-		    "marketplaceOrderId": "959311095",
-		    "orderId": "123543123",
-		    "followUpEmail": "75c70c09dbb3498c9b3bbdee59bf0687@ct.vtex.com.br",
-		    "items": [
-		      {
-		        "id": "2002495",
-		        "quantity": 1,
-		        "seller": "1",
-		        "commission": 0,
-		        "freightCommission": 0,
-		        "price": 9990,
-		        "bundleItems": [],
-		        "priceTags": [],
-		        "measurementUnit": "un",
-		        "unitMultiplier": 1,
-		        "isGift": false
-		      }
-		    ],
-		    "clientProfileData": {
-		      "id": "clientProfileData",
-		      "email": "5c77abaea35f4cb6824b9326942c00e5@ct.vtex.com.br",
-		      "firstName": "JONAS",
-		      "lastName": "ALVES DE OLIVEIRA",
-		      "documentType": "cpf",
-		      "document": "32133239851",
-		      "phone": "1592712979",
-		      "corporateName": null,
-		      "tradeName": null,
-		      "corporateDocument": null,
-		      "stateInscription": null,
-		      "corporatePhone": null,
-		      "isCorporate": false,
-		      "userProfileId": null
-		    },
-		    "shippingData": {
-		      "id": "shippingData",
-		      "address": {
-		        "addressType": "Residencial",
-		        "receiverName": "JONAS ALVES DE OLIVEIRA",
-		        "addressId": "Casa",
-		        "postalCode": "13476103",
-		        "city": "Americana",
-		        "state": "SP",
-		        "country": "BRA",
-		        "street": "JOÃO DAMÁZIO GOMES",
-		        "number": "121",
-		        "neighborhood": "SÃO JOSÉ",
-		        "complement": null,
-		        "reference": "Bairro Praia Azul / Posto de Saúde 17",
-		        "geoCoordinates": []
-		      },
-		      "logisticsInfo": [
-		        {
-		          "itemIndex": 0,
-		          "selectedSla": "Normal",
-		          "lockTTL": "8d",
-		          "shippingEstimate": "5d",
-		          "price": 1090,
-		          "deliveryWindow": null
-		        }
-		      ]
-		    },
-		   "paymentData":null
-		  }
-		]
+	  {
+	    "marketplaceOrderId": "959311095",
+	    "orderId": "123543123",
+	    "followUpEmail": "75c70c09dbb3498c9b3bbdee59bf0687@ct.vtex.com.br",
+	    "items": [
+	      {
+	        "id": "2002495",
+	        "quantity": 1,
+	        "seller": "1",
+	        "commission": 0,
+	        "freightCommission": 0,
+	        "price": 9990,
+	        "bundleItems": [],
+	        "priceTags": [],
+	        "measurementUnit": "un",
+	        "unitMultiplier": 1,
+	        "isGift": false
+	      }
+	    ],
+	    "clientProfileData": {
+	      "id": "clientProfileData",
+	      "email": "5c77abaea35f4cb6824b9326942c00e5@ct.vtex.com.br",
+	      "firstName": "JONAS",
+	      "lastName": "ALVES DE OLIVEIRA",
+	      "documentType": "cpf",
+	      "document": "32133239851",
+	      "phone": "1592712979",
+	      "corporateName": null,
+	      "tradeName": null,
+	      "corporateDocument": null,
+	      "stateInscription": null,
+	      "corporatePhone": null,
+	      "isCorporate": false,
+	      "userProfileId": null
+	    },
+	    "shippingData": {
+	      "id": "shippingData",
+	      "address": {
+	        "addressType": "Residencial",
+	        "receiverName": "JONAS ALVES DE OLIVEIRA",
+	        "addressId": "Casa",
+	        "postalCode": "13476103",
+	        "city": "Americana",
+	        "state": "SP",
+	        "country": "BRA",
+	        "street": "JOÃO DAMÁZIO GOMES",
+	        "number": "121",
+	        "neighborhood": "SÃO JOSÉ",
+	        "complement": null,
+	        "reference": "Bairro Praia Azul / Posto de Saúde 17",
+	        "geoCoordinates": []
+	      },
+	      "logisticsInfo": [
+	        {
+	          "itemIndex": 0,
+	          "selectedSla": "Normal",
+	          "lockTTL": "8d",
+	          "shippingEstimate": "5d",
+	          "price": 1090,
+	          "deliveryWindow": null
+	        }
+	      ]
+	    },
+	   "paymentData":null
+	  }
 
 *Exemplo do Retorno de Erro:*
 
@@ -209,11 +205,10 @@ O MarketplaceServicesEndpoint serve para receber informações do seller referen
 
 ###Exemplos de Request Para Informar Nota Fiscal - Endpoint VTEX###
 
-endpoint: **https://marketplaceServicesEndpoint/pub/orders/{orderId}/invoice**  
+endpoint: **https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice**  
 verb: **POST**  
 Content-Type: **application/json**  
 Accept: **application/json**  
-Parametro: **an=shopfacilfastshop** // an é o nome do gateway da loja que ta enviando o pagamento
 
 
 *Exemplo do Request:*  

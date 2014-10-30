@@ -1,12 +1,12 @@
-# ERP - Integração Completa de Catálogo e Condições Comerciais com a VTEX - Dicas Importantes 
+# ERP - Integração Completa de Catálogo e Condições Comerciais com a VTEX
 
 
-Este documento tem por objetivo auxiliar o integrador na integração de catálogo, condição comercial(preço e estoque) do ERP para a uma loja hospedada na versão smartcheckout da VTEX, de uma maneira rápida. Nesse tipo de integração a adminstração da loja está no admin da VTEX, sendo o ERP apenas uma fonte de onde nascem os produstos e SKUs.
+Este documento tem por objetivo auxiliar o integrador na integração de catálogo, condição comercial(preço e estoque) do ERP para a uma loja hospedada na versão smartcheckout da VTEX. Nesse tipo de integração a mairia da adminstração da loja está ERP.
 
-##1 - Catalogo Fluxo Básico (Express)##
-Nesse cenário de fluxo básico, apenas os dados básicos de produtos e SKUs são manipulados pelo ERP, e todo o enriquecimento (marca, fornecedor, imagens, categoria, ativação, etc...) será feito pelo admin da loja na plataforma VTEX.
+##1 - Catalogo Fluxo Completo##
+Nesse cenário de fluxo completo, a maioria dos dados de produtos e SKUs são manipulados pelo ERP (marca, imagens, categoria, ativação, etc...). A manipulação de campos de especificação nesse modelo é possivel ser feita por API REST, mais a melhor prática seria pelo admin da VTEX
 
-Para o ERP integrar se ao catálogo da loja na VTEX, deverá usar o webservice da própria loja, que por definição atenderá em [https:webservice-nomedaloja-vtexcommerce.com.br/service.svc?wsdl](https:webservice-nomedaloja-vtexcommerce.com.br/service.svc?wsdl "web service da loja"). As credenciais de acesso ao webservice deverão ser solicitadas junto ao administrador da loja.
+Para o ERP integrar o catálogo com um da loja na VTEX, deverá usar o webservice da própria loja, que por definição atenderá em [https:webservice-nomedaloja-vtexcommerce.com.br/service.svc?wsdl](https:webservice-nomedaloja-vtexcommerce.com.br/service.svc?wsdl "web service da loja"). As credenciais de acesso ao webservice deverão ser solicitadas junto ao administrador da loja.
 
 Futuramente além do serviço SOAP (webservice) estaremos também oferecendo integração de catálogo por APIs REST (JSON) bem definidas e de alta performance.
 
@@ -21,6 +21,9 @@ Geralmente, os produtos são organizados dentro da loja em estruturas mercadoló
 *Exemplo:*  
 *Departamento/Categoria/SubCategoria/Produto*  
 *Ferramentas/Eletricas/Furradeiras/Super Drill*
+
+
+![alt text](erp-catalogo-completo.PNG "Fluxo de catalogo completo") 
 
 
 ###Departamento###
@@ -271,6 +274,133 @@ http://sandboxintegracao.vtexcommercebeta.com.br/api/catalog_system/pvt/specific
 
 ###SKUs###
 
+request:  
+
+	<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
+	   <soapenv:Header/>
+	   <soapenv:Body>
+	      <tem:StockKeepingUnitInsertUpdate>
+	         <tem:stockKeepingUnitVO>
+	            <vtex:CubicWeight>100</vtex:CubicWeight>
+	            <vtex:Height>15</vtex:Height>
+	            <vtex:IsActive>true</vtex:IsActive>
+	            <vtex:IsAvaiable>true</vtex:IsAvaiable>
+	            <vtex:IsKit>false</vtex:IsKit>
+	            <vtex:Length>15</vtex:Length>
+	            <vtex:ModalId>1</vtex:ModalId>
+	            <vtex:ModalType>fragil</vtex:ModalType>
+	            <vtex:Name>Vaso Artesanal de Barro Vermelho Escuro </vtex:Name>
+	            <vtex:ProductId>31018369</vtex:ProductId>
+	            <vtex:RealHeight>17</vtex:RealHeight>
+	            <vtex:RealLength>17</vtex:RealLength>
+	            <vtex:RealWeightKg>10</vtex:RealWeightKg>
+	            <vtex:RealWidth>17</vtex:RealWidth>
+	            <vtex:RefId>00123456</vtex:RefId>
+	            <vtex:RewardValue>0</vtex:RewardValue>
+	            <vtex:StockKeepingUnitEans>
+	               <vtex:StockKeepingUnitEanDTO>
+	                  <vtex:Ean>0123456789123</vtex:Ean>
+	               </vtex:StockKeepingUnitEanDTO>
+	            </vtex:StockKeepingUnitEans>
+	            <vtex:UnitMultiplier>1</vtex:UnitMultiplier>
+	            <vtex:WeightKg>9</vtex:WeightKg>
+	            <vtex:Width>15</vtex:Width>
+	         </tem:stockKeepingUnitVO>
+	      </tem:StockKeepingUnitInsertUpdate>
+	   </soapenv:Body>
+	</soapenv:Envelope>
+
+response:
+	
+	<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+	   <s:Body>
+	      <StockKeepingUnitInsertUpdateResponse xmlns="http://tempuri.org/">
+	         <StockKeepingUnitInsertUpdateResult xmlns:a="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	            <a:CommercialConditionId i:nil="true"/>
+	            <a:CostPrice>1</a:CostPrice>
+	            <a:CubicWeight>100</a:CubicWeight>
+	            <a:DateUpdated>2014-10-29T19:03:17.718427</a:DateUpdated>
+	            <a:EstimatedDateArrival i:nil="true"/>
+	            <a:Height>15</a:Height>
+	            <a:Id>31018371</a:Id>
+	            <a:InternalNote i:nil="true"/>
+	            <a:IsActive>false</a:IsActive>
+	            <a:IsAvaiable>false</a:IsAvaiable>
+	            <a:IsKit>false</a:IsKit>
+	            <a:Length>15</a:Length>
+	            <a:ListPrice>99999</a:ListPrice>
+	            <a:ManufacturerCode i:nil="true"/>
+	            <a:MeasurementUnit>un</a:MeasurementUnit>
+	            <a:ModalId>1</a:ModalId>
+	            <a:ModalType>fragil</a:ModalType>
+	            <a:Name>Vaso Artesanal de Barro Vermelho Escuro</a:Name>
+	            <a:Price>99999</a:Price>
+	            <a:ProductId>31018369</a:ProductId>
+	            <a:ProductName>Vaso Artesanal de Barro Vermelho</a:ProductName>
+	            <a:RealHeight>17</a:RealHeight>
+	            <a:RealLength>17</a:RealLength>
+	            <a:RealWeightKg>10</a:RealWeightKg>
+	            <a:RealWidth>17</a:RealWidth>
+	            <a:RefId>00123456</a:RefId>
+	            <a:RewardValue>0</a:RewardValue>
+	            <a:StockKeepingUnitEans>
+	               <a:StockKeepingUnitEanDTO>
+	                  <a:Ean>0123456789123</a:Ean>
+	               </a:StockKeepingUnitEanDTO>
+	            </a:StockKeepingUnitEans>
+	            <a:UnitMultiplier>1</a:UnitMultiplier>
+	            <a:WeightKg>9</a:WeightKg>
+	            <a:Width>15</a:Width>
+	         </StockKeepingUnitInsertUpdateResult>
+	      </StockKeepingUnitInsertUpdateResponse>
+	   </s:Body>
+	</s:Envelope>
+
+###Imagens###
+
+request:  
+
+	<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+	   <soapenv:Header/>
+	   <soapenv:Body>
+	      <tem:ImageServiceInsertUpdate>
+	         <tem:urlImage>https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ6Lu0obmddsQX3JELe04hUs_hSelsmU8_W1yn5ztgdAk5SJC7D</tem:urlImage>
+	         <tem:imageName>Barro Vermelho Escuro</tem:imageName>
+	         <tem:stockKeepingUnitId>31018371</tem:stockKeepingUnitId>
+	      </tem:ImageServiceInsertUpdate>
+	   </soapenv:Body>
+	</soapenv:Envelope>
+
+response:
+
+	<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+	   <s:Body>
+	      <ImageServiceInsertUpdateResponse xmlns="http://tempuri.org/"/>
+	   </s:Body>
+	</s:Envelope>
+
+request 2:  
+
+	<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+	   <soapenv:Header/>
+	   <soapenv:Body>
+	      <tem:ImageServiceInsertUpdate>
+	         <tem:urlImage>http://1.bp.blogspot.com/_ZANjG3oA2BI/TCJfvX-7daI/AAAAAAAADZ0/yO5MwjMtjdI/s400/vaso_5cm.jpg</tem:urlImage>
+	         <tem:imageName>Barro Vermelho Claro</tem:imageName>
+	         <tem:stockKeepingUnitId>31018372</tem:stockKeepingUnitId>
+	          <tem:fileId>31018372</tem:fileId>
+	      </tem:ImageServiceInsertUpdate>
+	   </soapenv:Body>
+	</soapenv:Envelope>
+
+response 2:  
+
+	<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+	   <s:Body>
+	      <ImageServiceInsertUpdateResponse xmlns="http://tempuri.org/"/>
+	   </s:Body>
+	</s:Envelope>
+
 O cadastro da estrutura mercadologica deve ser feito diretamente no admin da própria loja (_http://sualoja.com.br/admin/Site/Categories.aspx_), e para atender a integração vinda do ERP, é criado um departamento padrão para produtos que vem do ERP, ou seja, todos os produtos caem no admin da loja nesse departamento padrão, e depois no momento do enriquecimento é colocado na categoria desejada.
 
 ###1.2 - Produtos e SKUs###
@@ -457,7 +587,7 @@ Se no momento sa inserção da SKU não foi enviado um preço válido para a SKU
 
 O primeiro passo a ser tomado para acessar as APIs da VTEX é solicitar os token de acesso (X-VTEX-API-AppToken e X-VTEX-API-AppKey) ao administrador da loja. Após isso fazer um POST como segue o exemplo:
 
-endpoint: **nomedaloja/api/pricing/pvt/price-sheet**  
+endpoint: **http://sandboxintegracao.vtexcommercebeta.com.br/api/pricing/pvt/price-sheet**  
 verb: **POST**  
 Content-Type: **application/json**  
 Accept: **application/json**
@@ -466,25 +596,27 @@ Accept: **application/json**
 *Exemplo do POST:* 
 
 	[
-	  	{
-	    	"Id": null, //caso saiba o id que vai alterar, preencher
-	    	"itemId": 11, //id do sku que deseja manipular
-	    	"salesChannel": 1, //canal de vendas onde vai vender
-	    	"price": 241.0, // preço por
-	    	"listPrice": 239.0, //preço de
-	    	"validFrom": "2013-12-05T17:00:03.103", //data validade de
-	    	"validTo": "2113-12-05T17:00:03.103" //data de validade até
-	  	},
-	  	{
-	    	"Id": null,
-	    	"itemId": 2000014472,
-	    	"salesChannel": 1,
-	    	"price": 2.5,
-	    	"listPrice": 15.0,
-	    	"validFrom": "2011-03-04T00:00:00",
-	    	"validTo": "2015-03-28T00:00:00"
-	  	}
+	  {
+	    "Id": null,
+	    "itemId": 31018371, 
+	    "salesChannel": 1, 
+	    "price": 110.0, 
+	    "listPrice": 150.0, 
+	    "validFrom": "2012-12-05T17:00:03.103", 
+	    "validTo": "2016-12-05T17:00:03.103"
+	  },
+	  {
+	    "Id": null,
+	    "itemId": 31018372,
+	    "salesChannel": 1,
+	    "price": 125.5,
+	    "listPrice": 160.0,
+	    "validFrom": "2011-03-04T00:00:00",
+	    "validTo": "2015-03-28T00:00:00"
+	  }
 	]
+
+response: 204
 
 A documentação completa sobre a API de **Pricing** se encontra em:
 http://lab.vtex.com/docs/logistics/api/latest/carrier/index.html
@@ -511,25 +643,68 @@ Accept: **application/json**
 *Exemplo do POST:* 
 
 	[
-  		{
-    		"wareHouseId": "1", //id do estoque
-    		"itemId": "12", //id do sku que vai manipular
-    		"quantity": 100 //quantidade do estoque que deseja atualizar
-  		},
-	  	{
-	    	"wareHouseId": "1",
-	    	"itemId": "45",
-	    	"quantity": 8
-	  	},
-	  	{
-	    	"wareHouseId": "2",
-	    	"itemId": "45"
-	  	}
+	  {
+	    "wareHouseId": "1_1",
+	    "itemId": "31018371",
+	    "quantity": 50
+	  },
+	  {
+	    "wareHouseId": "1_1",
+	    "itemId": "31018372",
+	    "quantity": 80
+	  }
 	]
+
+response: 200
+true
 
 
 A documentação completa sobre a API de **Logistics** se encontra em:
 _http://lab.vtex.com/docs/logistics/api/latest/carrier/index.html_
+
+
+###Ativa SKUs###
+
+request:  
+
+	<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+	   <soapenv:Header/>
+	   <soapenv:Body>
+	      <tem:StockKeepingUnitActive>
+	         <tem:idStockKeepingUnit>31018371</tem:idStockKeepingUnit>
+	      </tem:StockKeepingUnitActive>
+	   </soapenv:Body>
+	</soapenv:Envelope>
+
+
+response:  
+
+	<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+	   <s:Body>
+	      <StockKeepingUnitActiveResponse xmlns="http://tempuri.org/"/>
+	   </s:Body>
+	</s:Envelope>
+
+request 2:  
+
+	<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+	   <soapenv:Header/>
+	   <soapenv:Body>
+	      <tem:StockKeepingUnitActive>
+	         <tem:idStockKeepingUnit>31018372</tem:idStockKeepingUnit>
+	      </tem:StockKeepingUnitActive>
+	   </soapenv:Body>
+	</soapenv:Envelope>
+
+
+response 2:  
+
+	<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+	   <s:Body>
+	      <StockKeepingUnitActiveResponse xmlns="http://tempuri.org/"/>
+	   </s:Body>
+	</s:Envelope>
+
 
 ##3 - Considerações ##
 

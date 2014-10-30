@@ -1,4 +1,4 @@
-# Simulação de Carrinho
+# Simulação de Carrinho #
 
 Este documento tem por objetivo auxiliar o na simulação de carrinho entre um canal de vendas não VTEX com uma loja  VTEX. Simular um pedido no carrinho e na página de pagamento.
 
@@ -7,7 +7,7 @@ Quando um produto é inserido no carrinho no canal de vendas não VTEX, ou faz s
 
 *Exemplo do fuxo de chamadas no carrinho e pagamento:*  
 
-![alt text](fechamento-canal-nao-vtex.PNG "Title")  
+![alt text](fechamento-canal-nao-vtex.PNG "Fechamento do pedido no marketplace")  
 
 ###1.1 - Exemplos de Request de Simulação de Carrinho - Endpoint loja VTEX###
 
@@ -16,7 +16,7 @@ verb: **POST**
 Content-Type: **application/json**  
 Accept: **application/json**  
 Parametro: **sc=5** // sc é o canal de vendas  
-Parametro: **affiliateId=MGZ** // affiliateId é o id do afialiado cadastrado n loja VTEX
+Parametro: **affiliateId=MGZ** // affiliateId é o id do afialiado cadastrado na loja VTEX
 
 *Exemplo do Request:*  
 
