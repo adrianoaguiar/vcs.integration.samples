@@ -1,4 +1,4 @@
-# ERP - Integração Rápida de Catálogo e Condições Comerciais com a VTEX - Dicas Importantes 
+# ERP - Integração Rápida de Catálogo e Condições Comerciais com a VTEX #
 
 
 Este documento tem por objetivo auxiliar o integrador na integração de catálogo, condição comercial(preço e estoque) do ERP para a uma loja hospedada na versão smartcheckout da VTEX, de uma maneira rápida. Nesse tipo de integração a adminstração da loja está no admin da VTEX, sendo o ERP apenas uma fonte de onde nascem os produstos e SKUs.

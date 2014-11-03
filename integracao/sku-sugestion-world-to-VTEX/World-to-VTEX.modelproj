@@ -29,6 +29,13 @@
       <SubType>Content</SubType>
       <DependentUpon>ERP-catalogo-completo.sequencediagram</DependentUpon>
     </Content>
+    <Content Include="fechamento-fluxo-canal-nao-vtex-com-pgto.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="fechamento-fluxo-canal-nao-vtex-com-pgto.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>fechamento-fluxo-canal-nao-vtex-com-pgto.sequencediagram</DependentUpon>
+    </Content>
     <Content Include="fechamento-fluxo-canal-nao-vtex.sequencediagram">
       <SubType>Content</SubType>
     </Content>

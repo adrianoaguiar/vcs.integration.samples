@@ -13,7 +13,7 @@ Quando o pedido é fechado em um canal de vendas não VTEX, um POST deve ser fei
  
 ###1.1 - Exemplos de Request de Envio de Pedido - Endpoint Loja Vtex###
 
-endpoint: **https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders?sc=[idcanal]&affiliateId=[idafiliado]**  
+endpoint: **https://lojavtexendpoint/pvt/orders?sc=[idcanal]&affiliateId=[idafiliado]**  
 verb: **POST**  
 Content-Type: **application/json**  
 Accept: **application/json**  
@@ -182,7 +182,7 @@ Quando o pagamento do pedido é concluído no canal de vendas não VTEX, um POST
  
 ###2.1 - Exemplos de Request de Autorização - Endpoint da VTEX###
 
-endpoint: **https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders/[orderid]/fulfill?sc=[idcanal]**  
+endpoint: **https://lojavtexendpoint/pvt/orders/[orderid]/fulfill?sc=[idcanal]**  
 verb: **POST**  
 Content-Type: **application/json**  
 Accept: **application/json**  
@@ -292,7 +292,7 @@ verb: **GET**
 
 Com esse recurso permite se registrar mudanças no pedido. Mudanças podem ser descontos, cancelamento ou troca de itens. *As mudanças só poderão ser comunicadas, antes do envio da Nota Fiscal.
 
-endpoint: **https://[loja].vtexcommercestable.com.br/api/oms/pvt/orders/[orderId]/changes**  
+endpoint: **https://urldaloja/api/oms/pvt/orders/[orderId]/changes**  
 verb: **POST**  
 Content-Type: **application/json**  
 Accept: **application/json**  
@@ -335,5 +335,5 @@ O que mudou na troca de versões:
 1.1 para 1.2 foi incluido a parte de Registrar Mudança
 
 
-autor: _Jonas Bolognim_
-propriedade: _VTEX_
+autor: Jonas Bolognim
+propriedade: VTEX

@@ -1,9 +1,9 @@
 # Simulação de Carrinho #
 
-Este documento tem por objetivo auxiliar o na simulação de carrinho entre um canal de vendas não VTEX com uma loja  VTEX. Simular um pedido no carrinho e na página de pagamento.
+Este documento tem por objetivo auxiliar o na simulação de carrinho, e consulta de parcelamento entre um canal de vendas não VTEX com uma loja VTEX.
 
 ##1 - No Carrinho e no Pagamento##
-Quando um produto é inserido no carrinho no canal de vendas não VTEX, ou faz se alguma edição no carrinho, uma consulta de simulaçao de carrinho é feita na loja VTEX para checar a validade das condiçoes comerciais(preço, estoque, frete e SLAs de entrega). Quando o cliente vai para o pagamento também pode validar o carrinho.
+Quando um produto é inserido no carrinho no canal de vendas não VTEX, ou faz se alguma edição no carrinho, uma consulta de simulaçao de carrinho é feita na loja VTEX para checar a validade das condiçoes comerciais (preço, estoque, frete e SLAs de entrega). Quando o cliente vai para o pagamento, uma consulta aos parcelmentos e outra simulçao de carrinho deve ser realizada.
 
 *Exemplo do fuxo de chamadas no carrinho e pagamento:*  
 
@@ -11,7 +11,7 @@ Quando um produto é inserido no carrinho no canal de vendas não VTEX, ou faz s
 
 ###1.1 - Exemplos de Request de Simulação de Carrinho - Endpoint loja VTEX###
 
-endpoint: **https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&affiliateId=[iddoafilaido]**  
+endpoint: **https://lojavtexendpoint/pvt/orderForms/simulation?sc=[idcanal]&affiliateId=[iddoafilaido]**  
 verb: **POST**  
 Content-Type: **application/json**  
 Accept: **application/json**  
@@ -27,12 +27,12 @@ Parametro: **affiliateId=MGZ** // affiliateId é o id do afialiado cadastrado na
             {
                 "id":"287611",               //obrigatório, string
                 "quantity":1,                //obrigatório-quantidade do item a ser simulada, int
-                "seller":"1"           //enviar "1" // obrigatório, string
+                "seller":"seller1"           //sigla do do seller criado no admin // obrigatório, string
             },
             {
                 "id":"5837",
                 "quantity":5,
-                "seller":"1"
+                "seller":"seller1"
             }
         ]
     }
