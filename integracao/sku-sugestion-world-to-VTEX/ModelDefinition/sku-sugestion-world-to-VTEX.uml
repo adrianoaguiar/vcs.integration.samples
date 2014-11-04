@@ -6039,7 +6039,7 @@
           </message>
           <message
             Id="8f064859-492c-4dfb-92c3-e5b390a30ee8"
-            name="Response Status 200 | 202"
+            name="Response Status 200 | 204"
             messageKind="Complete"
             messageSort="Reply"
             createSelfMessage="false">
@@ -7883,6 +7883,1074 @@
     <packageHasNamedElement>
       <executionEvent
         Id="c393e2d5-83af-408f-81be-8d4c4e9edc9b"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <interaction
+        Id="74f45791-679f-40b5-a522-e95e55e2380f"
+        name="pedido-canal-nao-vtex-cpgto"
+        collapseFragmentsFlag="false"
+        isActiveClass="false"
+        isAbstract="false"
+        isLeaf="false"
+        isReentrant="false">
+        <ownedCommentsInternal>
+          <comment
+            Id="f7ab2f24-bff4-4fe6-b466-090f261ee531">
+            <body>cliente clica no botão finalizar pedido.</body>
+          </comment>
+          <comment
+            Id="0cf67b89-b9b6-4f20-bbbb-fbdf69843c72">
+            <body>
+
+
+canal inicia transação, 
+
+
+
+
+envia pagamente e 
+
+
+envia autorização de pagamento</body>
+          </comment>
+          <comment
+            Id="f76926b7-1a5e-4f83-8a65-e874e41010de">
+            <body>pagamento foi negado no canal de vendas</body>
+          </comment>
+          <comment
+            Id="b12ff2dc-9db4-4a84-a9f7-131442c72c91">
+            <body>canal envia autorização pra despachar com TID de pagamento</body>
+          </comment>
+        </ownedCommentsInternal>
+        <fragments>
+          <behaviorExecutionSpecification
+            Id="8d751611-3a6d-459e-b761-f1f003754080"
+            name="BehaviorExecutionSpecification1">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="9db256f6-775c-496c-93a9-777370239cde"
+                LastKnownName="ExecutionOccurrenceSpecification2"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="e37022a1-9b12-459a-b329-bd8ebbc2d3fa"
+                LastKnownName="ExecutionOccurrenceSpecification1"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="5de90bba-c122-439b-89b5-320623c6531a"
+                LastKnownName="MessageOccurrenceSpecification2"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="912f90ec-d868-4377-9725-0e08298952bb"
+                LastKnownName="MessageOccurrenceSpecification3"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="e37022a1-9b12-459a-b329-bd8ebbc2d3fa"
+            name="ExecutionOccurrenceSpecification1">
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="0e91f035-b3f9-4771-909c-47d220cd3d5a"
+            name="MessageOccurrenceSpecification1">
+            <covered>
+              <lifelineMoniker
+                Id="5d679ccd-7e76-4f63-b656-b0b39be01af9"
+                LastKnownName="WORLD"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="5de90bba-c122-439b-89b5-320623c6531a"
+            name="MessageOccurrenceSpecification2">
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="912f90ec-d868-4377-9725-0e08298952bb"
+            name="MessageOccurrenceSpecification3">
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="d0a301a4-6f54-4ac2-a43b-63a0f2a03510"
+            name="MessageOccurrenceSpecification4">
+            <covered>
+              <lifelineMoniker
+                Id="5d679ccd-7e76-4f63-b656-b0b39be01af9"
+                LastKnownName="WORLD"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="9db256f6-775c-496c-93a9-777370239cde"
+            name="ExecutionOccurrenceSpecification2">
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="6c0a3193-6b86-4e6f-860f-830280841cd0"
+            name="BehaviorExecutionSpecification8">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="524f4038-b388-444a-8c32-34496d4c726a"
+                LastKnownName="ExecutionOccurrenceSpecification16"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="ef947587-00b5-446c-9ad4-6428863ac0cc"
+                LastKnownName="ExecutionOccurrenceSpecification15"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="80c0c04d-c149-441c-a904-8e9730a6a804"
+                LastKnownName="MessageOccurrenceSpecification30"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="e6a6970a-fc12-4775-a2ab-bd281ae2f0a1"
+                LastKnownName="MessageOccurrenceSpecification31"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="ef947587-00b5-446c-9ad4-6428863ac0cc"
+            name="ExecutionOccurrenceSpecification15">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="60a6e750-2ef5-4586-8e23-8253bb62ad27"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="80c0c04d-c149-441c-a904-8e9730a6a804"
+            name="MessageOccurrenceSpecification30">
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="9b762b29-fa84-4028-b79b-8dcc2d080973"
+            name="MessageOccurrenceSpecification29">
+            <covered>
+              <lifelineMoniker
+                Id="5d679ccd-7e76-4f63-b656-b0b39be01af9"
+                LastKnownName="WORLD"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="e6a6970a-fc12-4775-a2ab-bd281ae2f0a1"
+            name="MessageOccurrenceSpecification31">
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="b152b46c-cba5-40cd-9538-13f9625773dc"
+            name="MessageOccurrenceSpecification32">
+            <covered>
+              <lifelineMoniker
+                Id="5d679ccd-7e76-4f63-b656-b0b39be01af9"
+                LastKnownName="WORLD"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="524f4038-b388-444a-8c32-34496d4c726a"
+            name="ExecutionOccurrenceSpecification16">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="8347e7d8-4d04-4da5-8e83-2aaddf7e1436"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="f74c5f1b-288b-40ed-bd70-f6345fa889db"
+            name="BehaviorExecutionSpecification7">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="3bacca78-c6bf-4e40-b422-0920154fe88c"
+                LastKnownName="ExecutionOccurrenceSpecification14"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="df75e84a-6951-4886-a228-e4e159f4e9a3"
+                LastKnownName="ExecutionOccurrenceSpecification13"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="1845a48e-b6c5-4fd2-953b-3086e7c79874"
+                LastKnownName="MessageOccurrenceSpecification26"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="47f00628-8e33-46e4-86df-8d0c1c17564f"
+                LastKnownName="MessageOccurrenceSpecification27"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="df75e84a-6951-4886-a228-e4e159f4e9a3"
+            name="ExecutionOccurrenceSpecification13">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="6558d37c-ef63-4068-9da8-cd85ab208ae0"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="6711ec6c-9e12-40cb-9f73-6e601e3185f7"
+            name="MessageOccurrenceSpecification25">
+            <covered>
+              <lifelineMoniker
+                Id="5d679ccd-7e76-4f63-b656-b0b39be01af9"
+                LastKnownName="WORLD"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="1845a48e-b6c5-4fd2-953b-3086e7c79874"
+            name="MessageOccurrenceSpecification26">
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="47f00628-8e33-46e4-86df-8d0c1c17564f"
+            name="MessageOccurrenceSpecification27">
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="c5577224-f4ed-4c47-9db7-55ebc38ce5e8"
+            name="MessageOccurrenceSpecification28">
+            <covered>
+              <lifelineMoniker
+                Id="5d679ccd-7e76-4f63-b656-b0b39be01af9"
+                LastKnownName="WORLD"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="3bacca78-c6bf-4e40-b422-0920154fe88c"
+            name="ExecutionOccurrenceSpecification14">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="9e1e3853-87bb-498d-adc3-dcfcf4fbae38"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="a63da4f7-526b-449b-af2b-b6698a99449b"
+            name="BehaviorExecutionSpecification9">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="df507d99-0cea-4f0f-9805-5ee7f1483d0b"
+                LastKnownName="ExecutionOccurrenceSpecification18"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="705443cf-c0a4-41a6-8f68-3d9b43c90613"
+                LastKnownName="ExecutionOccurrenceSpecification17"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="3c582be3-63b5-446b-8223-4474e06e9ac6"
+                LastKnownName="MessageOccurrenceSpecification34"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="ff72b9c3-4800-41c0-a6c1-dc84e3c72363"
+                LastKnownName="MessageOccurrenceSpecification35"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="705443cf-c0a4-41a6-8f68-3d9b43c90613"
+            name="ExecutionOccurrenceSpecification17">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="2389a7fc-a300-4838-9daa-83b6d02203c1"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="3c582be3-63b5-446b-8223-4474e06e9ac6"
+            name="MessageOccurrenceSpecification34">
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="b443400a-672e-431f-b382-f7a2b83d4061"
+            name="MessageOccurrenceSpecification33">
+            <covered>
+              <lifelineMoniker
+                Id="5d679ccd-7e76-4f63-b656-b0b39be01af9"
+                LastKnownName="WORLD"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="d582b13d-a76d-4d2f-80b5-fae9e5bae112"
+            name="MessageOccurrenceSpecification36">
+            <covered>
+              <lifelineMoniker
+                Id="5d679ccd-7e76-4f63-b656-b0b39be01af9"
+                LastKnownName="WORLD"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="ff72b9c3-4800-41c0-a6c1-dc84e3c72363"
+            name="MessageOccurrenceSpecification35">
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="df507d99-0cea-4f0f-9805-5ee7f1483d0b"
+            name="ExecutionOccurrenceSpecification18">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="ddc36a86-64b2-41a0-85fc-267d3084d3ef"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="f3c6887d-e7fe-46ca-a997-ded087726432"
+            name="BehaviorExecutionSpecification5">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="6a03a9c6-d5fb-45eb-9dc4-c1b49f41a63e"
+                LastKnownName="ExecutionOccurrenceSpecification10"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="25a28d7e-246f-4aad-adda-a794d6b2d418"
+                LastKnownName="ExecutionOccurrenceSpecification9"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="bdaf5c99-cbf7-4cf4-8ec2-250d46edde20"
+                LastKnownName="MessageOccurrenceSpecification18"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="05409690-4b47-4495-b574-b90d92359430"
+                LastKnownName="MessageOccurrenceSpecification19"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="25a28d7e-246f-4aad-adda-a794d6b2d418"
+            name="ExecutionOccurrenceSpecification9">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="8a64b06f-780f-4d67-b1ce-32a981f7b849"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="080656fc-6adb-468c-ad76-a3d58fd0e38f"
+            name="MessageOccurrenceSpecification17">
+            <covered>
+              <lifelineMoniker
+                Id="5d679ccd-7e76-4f63-b656-b0b39be01af9"
+                LastKnownName="WORLD"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="bdaf5c99-cbf7-4cf4-8ec2-250d46edde20"
+            name="MessageOccurrenceSpecification18">
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="7ab7fc9a-6703-4f27-9102-c99183f99ac4"
+            name="MessageOccurrenceSpecification20">
+            <covered>
+              <lifelineMoniker
+                Id="5d679ccd-7e76-4f63-b656-b0b39be01af9"
+                LastKnownName="WORLD"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="05409690-4b47-4495-b574-b90d92359430"
+            name="MessageOccurrenceSpecification19">
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="6a03a9c6-d5fb-45eb-9dc4-c1b49f41a63e"
+            name="ExecutionOccurrenceSpecification10">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="615e23e2-81d1-47c2-80e2-f79af220a524"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="b39889ce-9873-4333-84ff-d779d52ff3b6"
+            name="BehaviorExecutionSpecification6">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="216952db-da2c-4c9b-8ace-0587d7abc46b"
+                LastKnownName="ExecutionOccurrenceSpecification12"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="99d4d991-ce76-4618-949d-db0efb533058"
+                LastKnownName="ExecutionOccurrenceSpecification11"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="559d791f-c88b-4bc5-90ac-5a3a004e0322"
+                LastKnownName="MessageOccurrenceSpecification22"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="b6cc355b-7ad8-4835-878e-05ea7405c632"
+                LastKnownName="MessageOccurrenceSpecification23"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="99d4d991-ce76-4618-949d-db0efb533058"
+            name="ExecutionOccurrenceSpecification11">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="1fb40d12-03c9-46a3-b882-a6d093e1f1a3"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="559d791f-c88b-4bc5-90ac-5a3a004e0322"
+            name="MessageOccurrenceSpecification22">
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="d2b8b339-0164-410e-9a43-bf388b91095a"
+            name="MessageOccurrenceSpecification21">
+            <covered>
+              <lifelineMoniker
+                Id="5d679ccd-7e76-4f63-b656-b0b39be01af9"
+                LastKnownName="WORLD"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="3c6abed7-6abf-4afb-95c9-ea103cc0af97"
+            name="MessageOccurrenceSpecification24">
+            <covered>
+              <lifelineMoniker
+                Id="5d679ccd-7e76-4f63-b656-b0b39be01af9"
+                LastKnownName="WORLD"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="b6cc355b-7ad8-4835-878e-05ea7405c632"
+            name="MessageOccurrenceSpecification23">
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="216952db-da2c-4c9b-8ace-0587d7abc46b"
+            name="ExecutionOccurrenceSpecification12">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="dcc7b850-11c9-490a-a46c-d9022c1f2ebc"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline
+            Id="5d679ccd-7e76-4f63-b656-b0b39be01af9"
+            name="WORLD"
+            isActor="false"
+            lifelineDisplayName="WORLD">
+            <topLevelOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="0e91f035-b3f9-4771-909c-47d220cd3d5a"
+                LastKnownName="MessageOccurrenceSpecification1"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="d0a301a4-6f54-4ac2-a43b-63a0f2a03510"
+                LastKnownName="MessageOccurrenceSpecification4"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="9b762b29-fa84-4028-b79b-8dcc2d080973"
+                LastKnownName="MessageOccurrenceSpecification29"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="b152b46c-cba5-40cd-9538-13f9625773dc"
+                LastKnownName="MessageOccurrenceSpecification32"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="6711ec6c-9e12-40cb-9f73-6e601e3185f7"
+                LastKnownName="MessageOccurrenceSpecification25"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="c5577224-f4ed-4c47-9db7-55ebc38ce5e8"
+                LastKnownName="MessageOccurrenceSpecification28"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="b443400a-672e-431f-b382-f7a2b83d4061"
+                LastKnownName="MessageOccurrenceSpecification33"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="d582b13d-a76d-4d2f-80b5-fae9e5bae112"
+                LastKnownName="MessageOccurrenceSpecification36"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="080656fc-6adb-468c-ad76-a3d58fd0e38f"
+                LastKnownName="MessageOccurrenceSpecification17"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="7ab7fc9a-6703-4f27-9102-c99183f99ac4"
+                LastKnownName="MessageOccurrenceSpecification20"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="d2b8b339-0164-410e-9a43-bf388b91095a"
+                LastKnownName="MessageOccurrenceSpecification21"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="3c6abed7-6abf-4afb-95c9-ea103cc0af97"
+                LastKnownName="MessageOccurrenceSpecification24"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+            name="VTEX"
+            isActor="false"
+            lifelineDisplayName="VTEX">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="e37022a1-9b12-459a-b329-bd8ebbc2d3fa"
+                LastKnownName="ExecutionOccurrenceSpecification1"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="9db256f6-775c-496c-93a9-777370239cde"
+                LastKnownName="ExecutionOccurrenceSpecification2"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="ef947587-00b5-446c-9ad4-6428863ac0cc"
+                LastKnownName="ExecutionOccurrenceSpecification15"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="524f4038-b388-444a-8c32-34496d4c726a"
+                LastKnownName="ExecutionOccurrenceSpecification16"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="df75e84a-6951-4886-a228-e4e159f4e9a3"
+                LastKnownName="ExecutionOccurrenceSpecification13"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="3bacca78-c6bf-4e40-b422-0920154fe88c"
+                LastKnownName="ExecutionOccurrenceSpecification14"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="705443cf-c0a4-41a6-8f68-3d9b43c90613"
+                LastKnownName="ExecutionOccurrenceSpecification17"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="df507d99-0cea-4f0f-9805-5ee7f1483d0b"
+                LastKnownName="ExecutionOccurrenceSpecification18"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="25a28d7e-246f-4aad-adda-a794d6b2d418"
+                LastKnownName="ExecutionOccurrenceSpecification9"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="6a03a9c6-d5fb-45eb-9dc4-c1b49f41a63e"
+                LastKnownName="ExecutionOccurrenceSpecification10"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="99d4d991-ce76-4618-949d-db0efb533058"
+                LastKnownName="ExecutionOccurrenceSpecification11"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="216952db-da2c-4c9b-8ace-0587d7abc46b"
+                LastKnownName="ExecutionOccurrenceSpecification12"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message
+            Id="60e1e3cc-7858-474a-bf35-c7cd7c1c4c9c"
+            name="POST:Order{JSON}:https://lojavtexendpoint/pvt/orders?sc=[idcanal]&amp;affiliateId=idafiliado"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="0e91f035-b3f9-4771-909c-47d220cd3d5a"
+                LastKnownName="MessageOccurrenceSpecification1"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="5de90bba-c122-439b-89b5-320623c6531a"
+                LastKnownName="MessageOccurrenceSpecification2"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="255594cf-935e-42ee-8e74-3b50c470c7c5"
+            name="Response Status 200:OrderResponse{JSON}"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="912f90ec-d868-4377-9725-0e08298952bb"
+                LastKnownName="MessageOccurrenceSpecification3"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="d0a301a4-6f54-4ac2-a43b-63a0f2a03510"
+                LastKnownName="MessageOccurrenceSpecification4"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="73fab62e-5ba7-4632-b610-fd5d7f3be775"
+            name="POST:https://lojavtexendpoint/payments/starttransaction"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="9b762b29-fa84-4028-b79b-8dcc2d080973"
+                LastKnownName="MessageOccurrenceSpecification29"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="80c0c04d-c149-441c-a904-8e9730a6a804"
+                LastKnownName="MessageOccurrenceSpecification30"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="ace9b312-90ce-400a-990e-e9ce9b909d0c"
+            name="&lt;&lt;return&gt;&gt;"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="e6a6970a-fc12-4775-a2ab-bd281ae2f0a1"
+                LastKnownName="MessageOccurrenceSpecification31"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="b152b46c-cba5-40cd-9538-13f9625773dc"
+                LastKnownName="MessageOccurrenceSpecification32"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="e7737ca6-d5c9-49be-ad0f-31d7a5c81e3e"
+            name="POST:Payment{JSON}:https://lojavtexendpoint/payments/"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="6711ec6c-9e12-40cb-9f73-6e601e3185f7"
+                LastKnownName="MessageOccurrenceSpecification25"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="1845a48e-b6c5-4fd2-953b-3086e7c79874"
+                LastKnownName="MessageOccurrenceSpecification26"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="17335143-d93c-492b-99c7-9661b90835cc"
+            name="Response Status 200:PaymentResponse{JSON}"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="47f00628-8e33-46e4-86df-8d0c1c17564f"
+                LastKnownName="MessageOccurrenceSpecification27"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="c5577224-f4ed-4c47-9db7-55ebc38ce5e8"
+                LastKnownName="MessageOccurrenceSpecification28"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="e41a7d14-5bac-408a-914c-c19b2f0c4ac6"
+            name="PUT:Authorization{JSON}:https://lojavtexendpoint/payments/"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="b443400a-672e-431f-b382-f7a2b83d4061"
+                LastKnownName="MessageOccurrenceSpecification33"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="3c582be3-63b5-446b-8223-4474e06e9ac6"
+                LastKnownName="MessageOccurrenceSpecification34"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="79fe9460-3be5-4fdb-9e49-de13a1dd5f03"
+            name="&lt;&lt;return&gt;&gt;"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="ff72b9c3-4800-41c0-a6c1-dc84e3c72363"
+                LastKnownName="MessageOccurrenceSpecification35"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="d582b13d-a76d-4d2f-80b5-fae9e5bae112"
+                LastKnownName="MessageOccurrenceSpecification36"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="ecdaf5ff-87a5-484b-a26a-072b48f7fa60"
+            name="POST:Order{JSON}:https://lojavtexendpoint/pvt/orders/[orderid]/fulfill?sc=[idcanal]&amp;affiliateId=idafiliado"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="080656fc-6adb-468c-ad76-a3d58fd0e38f"
+                LastKnownName="MessageOccurrenceSpecification17"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="bdaf5c99-cbf7-4cf4-8ec2-250d46edde20"
+                LastKnownName="MessageOccurrenceSpecification18"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="655e5ab6-3b6e-4eae-b12d-fad17d128659"
+            name="Response Status 200:ResponseProceedFulfillment{JSON}"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="05409690-4b47-4495-b574-b90d92359430"
+                LastKnownName="MessageOccurrenceSpecification19"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="7ab7fc9a-6703-4f27-9102-c99183f99ac4"
+                LastKnownName="MessageOccurrenceSpecification20"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="9151e5d1-e063-47da-8d7e-1cc59eb3d7b2"
+            name="POST:Order{JSON}:https://lojavtexendpoint/pvt/orders/[orderid]/cancel"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="d2b8b339-0164-410e-9a43-bf388b91095a"
+                LastKnownName="MessageOccurrenceSpecification21"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="559d791f-c88b-4bc5-90ac-5a3a004e0322"
+                LastKnownName="MessageOccurrenceSpecification22"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="d8a3ad31-cd63-411d-a0d2-124acc493a84"
+            name="Response Status 200"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="b6cc355b-7ad8-4835-878e-05ea7405c632"
+                LastKnownName="MessageOccurrenceSpecification23"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="3c6abed7-6abf-4afb-95c9-ea103cc0af97"
+                LastKnownName="MessageOccurrenceSpecification24"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </receiveEvent>
+          </message>
+        </messages>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="8a64b06f-780f-4d67-b1ce-32a981f7b849"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="615e23e2-81d1-47c2-80e2-f79af220a524"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="1fb40d12-03c9-46a3-b882-a6d093e1f1a3"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="dcc7b850-11c9-490a-a46c-d9022c1f2ebc"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="6558d37c-ef63-4068-9da8-cd85ab208ae0"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="9e1e3853-87bb-498d-adc3-dcfcf4fbae38"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="60a6e750-2ef5-4586-8e23-8253bb62ad27"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="8347e7d8-4d04-4da5-8e83-2aaddf7e1436"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="2389a7fc-a300-4838-9daa-83b6d02203c1"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="ddc36a86-64b2-41a0-85fc-267d3084d3ef"
         name="ExecutionEvent" />
     </packageHasNamedElement>
   </packagedElements>

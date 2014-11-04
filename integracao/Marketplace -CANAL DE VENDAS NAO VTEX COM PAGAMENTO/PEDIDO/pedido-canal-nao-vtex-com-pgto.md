@@ -1,28 +1,28 @@
-# Enviar Pedido e Autorizar Despacho
+# Enviar Pedido, Enviar Pagamento e Autorizar Despacho
 
-Este documento tem por objetivo auxiliar um canal de vendas não VTEX a enviar um pedido, e enviar autorização para despacho (proceder com o fulfillment do pedido).
+Este documento tem por objetivo auxiliar um canal de vendas não VTEX a enviar um pedido, enviar um pagamento, e enviar autorização para despacho (proceder com o fulfillment do pedido).
 
 Caso se queira uma condição comercial diferenciada para o canal de vendas não VTEX, na loja VTEX deverá ser criado um novo canal de vendas, podendo assim criar promoções diferenciadas (desconto, frete, etc) somente para o canal desejado. Caso não tenha condição comercial diferenciada, deve se usar o canal de vendas da loja principal (sc=1).
 
-*Exemplo do fuxo de chamadas de descida de pedido, e autorização para despachar:*  
+*Exemplo do fuxo de chamadas de descida de pedido, pagamento e autorização para despachar:*  
 
 ![alt text](pedido-canal-nao-vtex.png "Title") 
 
 ##1 - Enviar Pedido##
 Quando o pedido é fechado em um canal de vendas não VTEX, um POST deve ser feito na loja VTEX, para que essa possa receber a ordem de pedido.  
  
-###1.1 - Exemplos de Request de Envio de Pedido - Endpoint Loja Vtex###
+_Exemplos de de Envio de Pedido - Endpoint Loja Vtex_
 
-endpoint: **https://lojavtexendpoint/pvt/orders?sc=[idcanal]&affiliateId=[idafiliado]**  
+endpoint: **https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders?sc=[idcanal]&affiliateId=[idafiliado]**  
 verb: **POST**  
 Content-Type: **application/json**  
 Accept: **application/json**  
-Parametro: **sc=5** // sc é o canal de vendas cadastrado na VTEX.  
-Parametro: **affiliateId=MGZ** // affiliateId é o id do afiliado cadastrado n loja VTEX
+Parametro: **sc** // sc é o canal de vendas cadastrado na VTEX.  
+Parametro: **affiliateId** // affiliateId é o id do afiliado cadastrado n loja VTEX
 
-*Exemplo do Request:*  
+_Exemplo do Request:_  
 
-	[
+	
 		  {
 		    "marketplaceOrderId": "959311095",
 		    "marketplaceServicesEndpoint": "https://urlmarketplace/", //leia o tópico implementando MarketplaceServicesEndpoint Actions
@@ -91,15 +91,18 @@ Parametro: **affiliateId=MGZ** // affiliateId é o id do afiliado cadastrado n l
 		        }
 		      ]
 		    },
+		   "paymentData":{
+				"merchantName":"epoca" //devolver o parametro recebido no request
+			},
 		    "openTextField": null,
 		    "marketingData": null,
 		    "paymentData":null
 		  }
-		]
+		
 
 *Exemplo do Response:*
 
-	    [
+	    
 		  {
 		    "marketplaceOrderId": "959311095",
 		    "orderId": "123543123", //id do pedido que foi gerado na loja VTEX
@@ -163,9 +166,12 @@ Parametro: **affiliateId=MGZ** // affiliateId é o id do afiliado cadastrado n l
 		        }
 		      ]
 		    },
-		   "paymentData":null
+		   "paymentData":{
+				"merchantName":"epoca",
+				"merchantPaymentReferenceId":"123543123" //inteiro id do pagamento, número que será enviado junto com o pagamento para conciliação.
+			}
 		  }
-		]
+		
 
 *Exemplo do Retorno de Erro:*
 
@@ -177,37 +183,39 @@ Parametro: **affiliateId=MGZ** // affiliateId é o id do afiliado cadastrado n l
 		}
 	}
 
-##2 - Enviar Autoriação Para Despachar##
+##3 - Enviar Autoriação Para Despachar##
 Quando o pagamento do pedido é concluído no canal de vendas não VTEX, um POST deverá ser feito na loja VTEX, para que o pedido possa prosseguir com a separação e entrega.  
  
-###2.1 - Exemplos de Request de Autorização - Endpoint da VTEX###
+###3.1 - Exemplos de Request de Autorização - Endpoint da VTEX###
 
-endpoint: **https://lojavtexendpoint/pvt/orders/[orderid]/fulfill?sc=[idcanal]**  
+endpoint: **https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders/[orderid]/fulfill?sc=[idcanal]&affiliateId=[idafiliado]**  
 verb: **POST**  
 Content-Type: **application/json**  
 Accept: **application/json**  
-Parametro: **sc=5** // sc é o canal de vendas cadastrado na VTEX.
+Parametro: **sc** // sc é o canal de vendas cadastrado na VTEX.
+Parametro: **affiliateId** // affiliateId é o id do afiliado cadastrado n loja VTEX
 
 *Exemplo do Request:*  
 
 	{
-		"marketplaceOrderId": "959311095" //id do pedido originado no canal de vendas
+		"marketplaceOrderId": "959311095", //id do pedido originado no canal de vendas
+		"paymentTransactionId": "", //id da transação de pagamento criado.
 	}
 
 *Exemplo do Response:*
 
 	{
 		"date": "2014-10-06 18:52:00",
-		"marketplaceOrderId": "111",
+		"marketplaceOrderId": "959311095",
 		"orderId": "123543123",
 		"receipt": "e39d05f9-0c54-4469-a626-8bb5cff169f8",
 	}
 
 
-##3 implementando Marketplace Services Endpoint Actions##
+##4 Implementando Marketplace Services Endpoint Actions##
 O MarketplaceServicesEndpoint serve para a loja VTEX informar ao canal de vendas a nota fiscal e tracking de pedido. O envio de notas fiscais pode ser parcial, obrigando assim ao informador informar além dos valores da nota fiscal, os items ele está mandando na nota fiscal parcial.
 
-###3.1 - Exemplos de Request Para Informar Nota Fiscal - Endpoint do Canal de Vendas###
+###4.1 - Exemplos de Request Para Informar Nota Fiscal - Endpoint do Canal de Vendas###
 
 endpoint: **https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice**  
 verb: **POST**  
@@ -242,7 +250,7 @@ Accept: **application/json**
   	}
 
 
-###3.1 - Exemplos de Request Para Informar Tracking - Endpoint do Canal de Vendas###
+###4.1 - Exemplos de Request Para Informar Tracking - Endpoint do Canal de Vendas###
 
 endpoint: **https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice**  
 verb: **POST**  

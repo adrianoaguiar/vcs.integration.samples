@@ -50,6 +50,13 @@
       <SubType>Content</SubType>
       <DependentUpon>order-vtex-erp.sequencediagram</DependentUpon>
     </Content>
+    <Content Include="pedido-canal-nao-vtex-cpgto.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="pedido-canal-nao-vtex-cpgto.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>pedido-canal-nao-vtex-cpgto.sequencediagram</DependentUpon>
+    </Content>
     <Content Include="pedido-canal-nao-vtex.sequencediagram">
       <SubType>Content</SubType>
     </Content>

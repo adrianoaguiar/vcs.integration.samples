@@ -1,8 +1,8 @@
-# ERP - Integração de Pedidos e Tracking com a VTEX - Dicas Importantes 
+# ERP - Integração de Pedidos e Tracking com a VTEX #
 
-Este documento tem por objetivo auxiliar o integrador na integração pedidos entre ERP euma loja hospedada na versão smartcheckout da VTEX. Ler os pedidos na VTEX, inserir os pedidos no ERP, e receber as informações de nota fiscal e tracking e ou Cancelamento de pedido.
+Este documento tem por objetivo auxiliar o integrador na integração pedidos entre ERP euma loja hospedada na versão smartcheckout da VTEX. Ler os pedidos na VTEX, inserir os pedidos no ERP, e receber as informações de nota fiscal e tracking e ou cancelamento de pedido.
 
-*Exemplo do Fluxo:*
+_Exemplo do Fluxo:_
 
 ![alt text](pedido-tracking-vtex-erp.PNG "Title") 
 
@@ -481,6 +481,8 @@ verb: **POST**
 Content-Type: **application/json**  
 Accept: **application/json**
 
+response: 204
+
 
 ##2 - Nota Fiscal ##
 Uma vez o pedido no ERP e o status do pedido na loja VTEX como preparando entrega, vem a parte da Nota Fiscal. 
@@ -494,7 +496,7 @@ Accept: **application/json**
 *Exemplo do Request:*  
 
 	{
-	    "type": "Output", //hard code
+	    "type": "Output", // Output|Input (Venda|Devolução)
 	    "invoiceNumber": "NFe-00001", //numero da nota fiscal
 	    "courier": "", //quando é nota fiscal, dados de tracking vem vazio
 	    "trackingNumber": "", //quando é nota fiscal, dados de tracking vem vazio

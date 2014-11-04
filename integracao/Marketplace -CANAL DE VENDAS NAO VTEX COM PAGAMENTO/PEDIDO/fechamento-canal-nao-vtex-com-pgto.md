@@ -11,7 +11,7 @@ Quando um produto é inserido no carrinho no canal de vendas não VTEX, ou faz s
 
 ###1.1 - Exemplos de Request de Simulação de Carrinho - Endpoint loja VTEX###
 
-endpoint: **https://lojavtexendpoint/pvt/orderForms/simulation?sc=[idcanal]&affiliateId=[iddoafilaido]**  
+endpoint: **https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&affiliateId=[idafiliado]**  
 verb: **POST**  
 Content-Type: **application/json**  
 Accept: **application/json**  
@@ -44,11 +44,12 @@ Parametro: **affiliateId=MGZ** // affiliateId é o id do afialiado cadastrado na
         "items": [                                                     //pode vir um array vazio
             {
                 "id": "287611",                                        //obrigatório, string
-                "requestIndex": 0,                                     //obrigatório, int - representa a posição desse item no array original (request)
+                "requestIndex": 0,                                     //obrigatório, int - representa a posição desse item no array original,
                 "price": 7390,                                         // Os dois dígitos menos significativos são os centavos //obrigatório, int
                 "listPrice": 7490,                                     // Os dois dígitos menos significativos são os centavos //obrigatório, int
                 "quantity": 1,                                         //obrigatório, int
                 "seller": "1",                                         // Id do seller cadastrado na loja // obrigatório, string,
+				"merchantName": "epoca",							   // name do gateway de pagamento, será usado ao enviar o pedido
                 "priceValidUntil": "2014-03-01T22:58:28.143"           //data, pode ser nulo
                 "offerings":[                                           //Array opcional, porém não pode ser nulo: enviar array vazio ou não enviar a propriedade
                     {
@@ -71,7 +72,8 @@ Parametro: **affiliateId=MGZ** // affiliateId é o id do afialiado cadastrado na
                 "price": 890,                                          // Os dois dígitos menos significativos são os centavos
                 "listPrice": 990,                                      // Os dois dígitos menos significativos são os centavos
                 "quantity": 5,
-                "seller": "1",	
+                "seller": "1",
+				"merchantName": "epoca",							   
                 "priceValidUntil": null
             }
         ],

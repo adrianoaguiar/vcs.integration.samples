@@ -1,6 +1,6 @@
 # ERP - Integração de KIT
 
-Este documento tem por objetivo auxiliar o integrador na integração de KIT,do ERP para a uma loja hospedada na versão smartcheckout da VTEX.
+Este documento tem por objetivo auxiliar o integrador na integração de KIT, do ERP para uma loja hospedada na versão smartcheckout da VTEX.
 
 
 ## 1 KIT##
@@ -180,7 +180,7 @@ _response:_
 	   </s:Body>
 	</s:Envelope>
 
-###1.4 Cadastras os PRODUTOS (pai da SKUS) do KIT###
+###1.4 Cadastrar os PRODUTOS (pai da SKUS) do KIT###
 
 _request:_
 
@@ -525,10 +525,10 @@ _request:_
 	   <soapenv:Body>
 	      <tem:StockKeepingUnitKitInsertUpdate>
 	         <tem:stockKeepingUnitKit>
-	            <vtex:Amount>1</vtex:Amount>
+	            <vtex:Amount>1</vtex:Amount> //quantidade de itens no KIT
 	            <vtex:StockKeepingUnitId>31018374</vtex:StockKeepingUnitId>
-	            <vtex:StockKeepingUnitParent>31018373</vtex:StockKeepingUnitParent>
-	            <vtex:UnitPrice>20.00</vtex:UnitPrice>
+	            <vtex:StockKeepingUnitParent>31018373</vtex:StockKeepingUnitParent> //id da SKU KIT
+	            <vtex:UnitPrice>20.00</vtex:UnitPrice> //preço da unidade dentro do KIT
 	         </tem:stockKeepingUnitKit>
 	      </tem:StockKeepingUnitKitInsertUpdate>
 	   </soapenv:Body>
