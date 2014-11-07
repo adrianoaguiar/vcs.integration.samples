@@ -1,6 +1,6 @@
 # ERP - Integração de Pedidos e Tracking com a VTEX #
 
-Este documento tem por objetivo auxiliar o integrador na integração pedidos entre ERP euma loja hospedada na versão smartcheckout da VTEX. Ler os pedidos na VTEX, inserir os pedidos no ERP, e receber as informações de nota fiscal e tracking e ou cancelamento de pedido.
+Este documento tem por objetivo auxiliar o integrador na integração pedidos entre ERP e uma loja hospedada na versão smartcheckout da VTEX. Ler os pedidos na VTEX, inserir os pedidos no ERP, enviar as informações de nota fiscal e tracking e ou cancelamento de pedido.
 
 _Exemplo do Fluxo:_
 
@@ -90,7 +90,7 @@ Parâmetro: **per\_page** //define o numero de pedidos que virá na lista
 		...
 		}
 
-Esse exemplo retorna uma lista com o resumo de cada pedido (2 pedidos), onde para cada pedido, deve fazer uma chamada na API do OMS para pegar o pedido completo, passando o "orderId" de pedido. Segue exemplo de chamada a API REST para pegar um pedido.
+Esse exemplo retorna uma lista com o resumo de cada pedido (2 pedidos), onde para cada pedido, deve fazer uma chamada na API REST do OMS para pegar o pedido completo, passando o "orderId" do pedido. Segue exemplo de chamada a API REST para pegar um pedido.
 
 ###1.2 - Obter um Pedido na API do OMS###
 
@@ -293,7 +293,7 @@ Accept: **application/json**
 	                "deliveryCompany": "Teste de Performance",
 	                "shippingEstimate": "12bd",
 	                "shippingEstimateDate": "2014-10-02T19:46:23.686688Z",
-	                "slas": [
+	                "slas": [ //tipos de entrega
 	                    {
 	                        "id": "performance",
 	                        "name": "performance",
@@ -332,7 +332,7 @@ Accept: **application/json**
 	            }
 	        ]
 	    },
-	    "paymentData": {
+	    "paymentData": { //pode ser nulo se o pagamento foi feito em market place
 	        "transactions": [
 	            {
 	                "isActive": true,

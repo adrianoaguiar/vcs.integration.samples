@@ -7,29 +7,19 @@ Este documento tem por objetivo auxiliar na integração e atualização de cond
 ![alt text](sku-sugestion-seller-nao-vtex.png "Fluxo de descida de pedido")
 
 ##1 - Inserção de Sugestão de SKU - Fluxo##
-Toda vez que houver uma inserção ou alteração na condição comercial de um SKU (preço, estoque, frete e SLAs de entrega) no Seller, se o Seller comercializa essa SKU no marketplace VTEX, o Seller deve enviar uma notificação de mudança de SKU para a VTEX, caso a VTEX retorne em seu serviço o response status 404, significa que a SKU **não existe na VTEX**, então o Seller deve enviar a sugestão de inserção de SKU para a loja da VTEX.
+Toda vez que houver uma inserção ou alteração na condição comercial de um SKU (preço, estoque, frete e SLAs de entrega) no Seller, se o Seller vende essa SKU no marketplace VTEX, o Seller deve enviar uma notificação de mudança de SKU para a VTEX, caso a VTEX retorne em seu serviço o response status 404, significa que a SKU **não existe na VTEX**, então o Seller deve enviar a sugestão de inserção de SKU para a loja da VTEX.
 
 ###1.1 - Exemplos de Request de Notificação de Mudança - Endpoint da VTEX###
 
-endpoint: **http://productnotification.vtexcommerce.com.br/api/notification/[nomeloja]/[idseller]**  
-verb: **POST**  
+endpoint: **http://portal.vtexcommercestable.com.br/api/catalog_system/pvt/skuseller/changenotification/[idseller]/[idskuSeller]?an=[nomeloja]**  
+verb: **GET**  
 Content-Type: **application/json**  
 Accept: **application/json**
 
 
-*Exemplo do Request:*  
-
-	{ 
-		"IdSku" : "1634", //id da sku no seller
-		"An" : "seller1", //id do seller
-		"IdAffiliate":"" // id do afilado, pode ser nulo
-	}
-
-
-
 ###1.2 - Exemplos de Request de Inserção de Sugestão de SKU - Endpoint da VTEX###
 
-endpoint: **https://[url-da-loja]/api/catalog_system/pvt/sku/SuggestionInsertUpdatev2**  
+endpoint: **http://sandboxintegracao.vtexcommercebeta.com.br/api/catalog_system/pvt/sku/SuggestionInsertUpdatev2**  
 verb: **POST**  
 Content-Type: **application/json**  
 Accept: **application/json**
@@ -38,65 +28,173 @@ Accept: **application/json**
 *Exemplo do Request:*  
 
 	{
-        "Id": null, 
-        "CategoryId": 4424, 	//obrigatório, int - id da categoria direta do produto
-        "ProductId": null,		
-        "ProductName": "Teste de envio de sugestão",	//obrigatório, string
-        "ProductDescription": "Uma descrição", 		//string, descrição do produto
-        "BrandId": 1,				//obrigatório, int - id da marca/fabricante
-        "BrandName": null,		//string, nome da marca
-        "SkuId": null,		//obrigatório quando for associação de SKU
-        "SkuName": "TESTE NOVO 2013-08-09",	//obrigatório string 
-        "SellerId": "nvp", 	//obrigatório, int - sigla do seller
-        "ListPrice": 0.0,	//obrigatório, decimal - preço de lista
-        "Price": 0.0,	//obrigatório, decimal - preço final
-        "Height": 4.0,	//obrigatório, decimal - altura, na ausência informar 1.0
-        "Width": 11.0,	//obrigatório, decimal - largura, na ausência informar 1.0
-        "Length": 6.0,	//obrigatório, decimal - comprimento, na ausência informar 1.0
-        "WeightKg": 60.0,		//obrigatório, decimal - peso, na ausência informar 1.0
-        "ModalId": 1,	//num sei
-        "RefId": "0x123",	// obrigatório na ausencia do EAN, string - código de referencia
-        "EAN": ["ean"],	// obrigatório na ausencia do RefId, string
-        "SellerStockKeepingUnitId": "123456790", 	//obrigatório, string - id da SKU do seller
-        "IsKit": false, 	//obrigatório, boleana- quando true indica que é ama SKU kit
-        "Images": [	//array de imagens
-            {
-                "ImageUrl": "http://nome-da-loja/arquivos/ids/157676/7898481301708_1000_1000.jpg",
-                "ImageName": "7898481301708_1000_1000",
-                "FileId": null
-            }
-        ],
-        "SkuSpecifications": [ 	// array de especificações de SKU
-           {
-              "FieldId":1234,
-              "FieldName":"Tamanho",
-              "FieldValueIds":[[1],[2]],
-              "FieldValues":[["P"],["M"]]
-           }
-        ],
-        "ProductSpecifications": [[ 	// array de especificações de produto
-           {
-              "FieldId":345,
-              "FieldName":"NameField",
-              "FieldValueIds":[[1],[2]],
-              "FieldValues":[["V"],["T"]]
-           }
-        ],
-        "SkuSupplementaryFields": [		// array de campos suplementares de SKU
-           {
-              "FieldId":896,
-              "FieldName":"NameField",
-              "FieldValueIds":[[1],[2]],
-              "FieldValues":[["S1"],["S2"]]
-           }
-        ],
-      "CategoryFullPath":"/12/123/345/"	//string, caminho completo da árvore de categorias.
-}
+	  "BrandId": null,
+	  "BrandName": "Editora Penguin-Companhia", //nome da marca
+	  "CategoryFullPath": "Livros/Literatura Estrangeira/Romance", //path completo de categorias
+	  "CategoryId": null,
+	  "EAN": [
+	    "9788563560476"
+	  ],
+	  "Height": 1, //altura
+	  "Id": null,
+	  "Images": [ //array de imagens
+	    {
+	      "ImageUrl": "http://imagens.extra.com.br/Control/ArquivoExibir.aspx?IdArquivo=6191949",
+	      "ImageName": "Principal",
+	      "FileId": null
+	    }
+	  ],
+	  "IsAssociation": false,
+	  "IsKit": false,
+	  "IsProductSuggestion": false,
+	  "Length": 1, //comprimento
+	  "ListPrice": 22.76, //preço DE
+	  "ModalId": null,
+	  "Price": 22.76, //preço POR
+	  "ProductDescription": "<p style=\"text-align: center\"> <strong>Considerado o grande romance do ingl&ecirc;s Charles Dickens, Grandes esperan&ccedil;as conta uma hist&oacute;ria de desilus&atilde;o e reden&ccedil;&atilde;o pessoal, saudada por gera&ccedil;&otilde;es de escritores e estudiosos por sua perfei&ccedil;&atilde;o narrativa</strong></p>",
+	  "ProductId": null,
+	  "ProductName": "Livro - Grandes Esperanças - Charles Dickens",
+	  "ProductSpecifications": [ //Especificaçãoes
+	    {
+	      "FieldId": 0,
+	      "FieldName": "Título",
+	      "FieldValueIds": null,
+	      "FieldValues": [
+	        "Grandes Esperanças"
+	      ]
+	    },
+	    {
+	      "FieldId": 0,
+	      "FieldName": "Autor",
+	      "FieldValueIds": null,
+	      "FieldValues": [
+	        "Charles Dickens"
+	      ]
+	    },
+	    {
+	      "FieldId": 0,
+	      "FieldName": "Tradução",
+	      "FieldValueIds": null,
+	      "FieldValues": [
+	        "Paulo Henriques Britto"
+	      ]
+	    },
+	    {
+	      "FieldId": 0,
+	      "FieldName": "Assunto",
+	      "FieldValueIds": null,
+	      "FieldValues": [
+	        "Romance"
+	      ]
+	    },
+	    {
+	      "FieldId": 0,
+	      "FieldName": "Editora",
+	      "FieldValueIds": null,
+	      "FieldValues": [
+	        "Penguin-Companhia"
+	      ]
+	    },
+	    {
+	      "FieldId": 0,
+	      "FieldName": "Edição",
+	      "FieldValueIds": null,
+	      "FieldValues": [
+	        "1ª"
+	      ]
+	    },
+	    {
+	      "FieldId": 0,
+	      "FieldName": "Número de Páginas",
+	      "FieldValueIds": null,
+	      "FieldValues": [
+	        "704"
+	      ]
+	    },
+	    {
+	      "FieldId": 0,
+	      "FieldName": "ISBN",
+	      "FieldValueIds": null,
+	      "FieldValues": [
+	        "8563560476"
+	      ]
+	    },
+	    {
+	      "FieldId": 0,
+	      "FieldName": "ISBN-13",
+	      "FieldValueIds": null,
+	      "FieldValues": [
+	        "9788563560476"
+	      ]
+	    },
+	    {
+	      "FieldId": 0,
+	      "FieldName": "Origem",
+	      "FieldValueIds": null,
+	      "FieldValues": [
+	        "Nacional"
+	      ]
+	    },
+	    {
+	      "FieldId": 0,
+	      "FieldName": "Idioma",
+	      "FieldValueIds": null,
+	      "FieldValues": [
+	        "Português"
+	      ]
+	    },
+	    {
+	      "FieldId": 0,
+	      "FieldName": "Data de Lançamento",
+	      "FieldValueIds": null,
+	      "FieldValues": [
+	        "2012"
+	      ]
+	    },
+	    {
+	      "FieldId": 0,
+	      "FieldName": "Acabamento",
+	      "FieldValueIds": null,
+	      "FieldValues": [
+	        "Brochura"
+	      ]
+	    },
+	    {
+	      "FieldId": 0,
+	      "FieldName": "Formato",
+	      "FieldValueIds": null,
+	      "FieldValues": [
+	        "Médio"
+	      ]
+	    },
+	    {
+	      "FieldId": 0,
+	      "FieldName": "Medidas (cm)",
+	      "FieldValueIds": null,
+	      "FieldValues": [
+	        "13 x 20 cm"
+	      ]
+	    }
+	  ],
+	  "ProductSupplementaryFields": null,
+	  "RefId": null,
+	  "SellerId": "fastshop",
+	  "SellerModifiedDate": null,
+	  "SellerStockKeepingUnitId": "1692444",
+	  "SkuId": null,
+	  "SkuName": "Livro - Grandes Esperanças - Charles Dickens",
+	  "SkuSpecifications": null,
+	  "SkuSupplementaryFields": null,
+	  "SynonymousPropertyNames": null,
+	  "WeightKg": 1,
+	  "Width": 1
+	}
 
+reposnse: 200
 
 
 ##2 - Atualização de Condição Comercial de SKU - Fluxo##
-Toda vez que houver uma alteração na condição comercial de um SKU (preço, estoque, frete e SLAs de entrega, o Seller não VTEX deve enviar uma notificação de mudança de SKU para a VTEX, caso a VTEX retorne em seu serviço o response status 200 ou 204, significa que a SKU **existe** na VTEX, então a VTEX vai no Seller consultar as novas condições comerciais oferecidas pelo Seller.
+Toda vez que houver uma alteração na condição comercial de um SKU (preço, estoque, frete e SLAs de entrega, o Seller VTEX deve enviar uma notificação de mudança de SKU para a VTEX, caso a VTEX retorne em seu serviço o response status 200 ou 204, significa que a SKU **existe** na VTEX, então a VTEX vai no Seller consultar as novas condições comerciais oferecidas pelo Seller.
 
 ###2.1 - Exemplos de Request de Busca de Condições Comerciais - Endpoint do Seller###
 
@@ -104,8 +202,8 @@ endpoint: **https://sellerendpoint/pvt/orderForms/simulation?sc=[idcanal]&an=[no
 verb: **POST**  
 Content-Type: **application/json**  
 Accept: **application/json**  
-Parametro: **an** // parametro a ser retornado items.merchantName  
-Parametro: **sc=5** // sc é o canal de vendas cadastrado no marketplace, serve para destacar o canal que esta pedindo a simulação
+Parametro: **an** // parametro a ser retornado no items.merchantName caso o pagamento for processado pelo Seller
+Parametro: **sc** // sc é o canal de vendas cadastrado no marketplace, serve para destacar o canal que esta pedindo a simulação
 
 *Exemplo do Request:*  
 
@@ -215,7 +313,7 @@ Parametro: **sc=5** // sc é o canal de vendas cadastrado no marketplace, serve 
         "postalCode":"22251-030"                                   //string, nulo se não enviado    
     }
 
-**somente mandar esse campo quando o pagamento for processado no Seller.
+**O Seller só deve mandar esse campo no retorno quando o pagamento for enviado e processado no Seller.
 
 
 ##3 - Considerações##

@@ -1,6 +1,5 @@
 # ERP - Integração Rápida de Catálogo e Condições Comerciais com a VTEX #
 
-
 Este documento tem por objetivo auxiliar o integrador na integração de catálogo, condição comercial(preço e estoque) do ERP para a uma loja hospedada na versão smartcheckout da VTEX, de uma maneira rápida. Nesse tipo de integração a adminstração da loja está no admin da VTEX, sendo o ERP apenas uma fonte de onde nascem os produstos e SKUs.
 
 ##1 - Catalogo Fluxo Básico (Express)##
@@ -50,159 +49,165 @@ Após definida as variações e a estrutura mecadológica da loja, o próximo pa
 
 ![alt text](ERP-catalogo-expresso.PNG "Fluxo Básico")
 
-Cadastrar produto na loja: webservice.ProductInsertUpdate(ProductDTO).
 
-#### ProductDTO: ####
+###Produto###
 
-| Propriedade | Tipo | Tamanho | Descrição|
-|-----------|------------|------------|------------|
-|Id|    int nulável    |-    |Id do produto, caso o ID no ERP seja maior que um inteiro, enviar nulo nesse campo, e colocar o ID do produto no ERP no campo RefId|
-|Name    |string	|150	|Nome do produto|
-|DepartmentId	|int nulável	|-	|Id do departamento| 
-|CategoryId|	int nulável	|-	|Id da categoria. Caso possua SKU e não seja preenchido, desativar-se-á os skus referentes a este produto e o próprio produto.|
-|BrandId	|int nulável	|-	|Id da marca|
-|LinkId	|string	|255	|Url do produto (sem espaços e sem caracteres especiais)|
-|RefId	|string	|200	|Código de referência, geralmente nesse campo se coloca o ID do produto no ERP|
-|IsVisible	|bool nulável	|-	|Visível no site
-|Description	|string	|max	|Descrição|
-|DescriptionShort	|string	|max	|Descrição resumida (vitrine)|
-|ReleaseDate	|DateTime nulável	|-	|Data de lançamento
-|KeyWords	|string	|max	|Palavras-chaves|
-|Title	|string	|150	|Texto que será inserido na tag TITLE do html|
-|IsActive	|bool nulável	|-	|**Define se o produto está ativo ou inativo - Mesmo true o produto só será ativado se estiver com todos os pre-requisitos preenchidos.|
-|TaxCode	|string	|50	|Código fiscal|
-|MetaTagDescription	|string	|max	|Descrição da meta tag description do header da página de produtos|
-|SupplierId	|int nulável	|-	|Id do fornecedor|
-|ShowWithoutStock	|bool	|-	|Exibe sem estoque|
-|ListStoreId	|lista de int	|-	|Lista com os ids das lojas em que o produto pode ser exibido (multiloja)-- No caso de monodomino enviar 1 (Loja Principal)|
-|AdWordsRemarketingCode	|string	|200	|Código do AdWords, , mandar vazio na ausencia|
-|LomadeeCampaignCode	|string	|200	|Código da campanha do Lomadee, mandar vazio na ausencia |
+Exemplo de request para inserir Produto pelo webservice.
 
-**nesse modelo esse flag sempre será ligada pelo admin da VTEX.
+_request:_
 
-*Exemplo do POST:*    
-
-    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex                                ="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
-   	<soapenv:Header/>
-   	<soapenv:Body>
-      <tem:ProductInsertUpdate>
-         <tem:productVO>
-            <vtex:AdWordsRemarketingCode></vtex:AdWordsRemarketingCode>
-            <vtex:BrandId>1</vtex:BrandId>
-            <vtex:CategoryId>3</vtex:CategoryId>
-            <vtex:DepartmentId>1</vtex:DepartmentId>
-            <vtex:Description>Descricao longa do seu produto</vtex:Description>
-            <vtex:DescriptionShort>Descricao curta do seu produto</vtex:DescriptionShort>
-            <vtex:Id>1</vtex:Id>
-            <vtex:IsActive>true</vtex:IsActive>
-            <vtex:IsVisible>true</vtex:IsVisible>
-            <vtex:KeyWords>Palavras chaves</vtex:KeyWords>
-            <vtex:LinkId>meu_produto</vtex:LinkId>
-            <vtex:ListStoreId>
-               <arr:int>1</arr:int>
-			   <arr:int>2</arr:int>
-            </vtex:ListStoreId>
-            <vtex:LomadeeCampaignCode></vtex:LomadeeCampaignCode>
-            <vtex:MetaTagDescription>Descricao para SEO</vtex:MetaTagDescription>
-            <vtex:Name>Meu produto</vtex:Name>
-            <vtex:RefId>1234567890</vtex:RefId>
-            <vtex:ReleaseDate>2014-01-01</vtex:ReleaseDate>
-            <vtex:ShowWithoutStock>false</vtex:ShowWithoutStock>
-            <vtex:SupplierId>1</vtex:SupplierId>
-            <vtex:TaxCode>codigo fiscal</vtex:TaxCode>
-            <vtex:Title>meu produto</vtex:Title>
-         	</tem:productVO>
-      	</tem:ProductInsertUpdate>
-   	</soapenv:Body>
+	<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+	   <soapenv:Header/>
+	   <soapenv:Body>
+	      <tem:ProductInsertUpdate>
+	         <tem:productVO>
+	            <vtex:BrandId>2000011</vtex:BrandId> //id da marca
+	            <vtex:CategoryId>1000020</vtex:CategoryId> //id da categoria
+	            <vtex:DepartmentId>1000018</vtex:DepartmentId> //id do departamento
+	            <vtex:Description>Vaso de barro vermelho, feito a mão com barro do mar vermelho</vtex:Description> //descrição
+	            <vtex:DescriptionShort>Vaso de barro vermelho artesanal</vtex:DescriptionShort> descrição curta
+	            <vtex:IsActive>true</vtex:IsActive> // true
+	            <vtex:IsVisible>true</vtex:IsVisible> // vai ser visível no site
+	            <vtex:KeyWords> Barro, vaso, vermelho</vtex:KeyWords> //palavras chaves
+	            <vtex:LinkId>vaso_barro_vermelho</vtex:LinkId> //link do produto na loja
+	            <vtex:ListStoreId> //pra qual canal de vendas = loja principal = 1
+	               	<arr:int>1</arr:int> 
+		       		<arr:int>2</arr:int>
+	            </vtex:ListStoreId>
+	            <vtex:MetaTagDescription>Vaso de barro vermelho, feito a mão com barro do mar vermelho</vtex:MetaTagDescription>
+	            <vtex:Name>Vaso Artesanal de Barro Vermelho</vtex:Name> //nome
+	             <vtex:RefId>1234567890</vtex:RefId> //id do produto no ERP
+	            <vtex:Title>Vaso Artesanal de Barro Vermelho</vtex:Title>
+	         </tem:productVO>
+	      </tem:ProductInsertUpdate>
+	   </soapenv:Body>
 	</soapenv:Envelope>
 
-Uma vez inseridos todos os produtos, que teoricamente são os pais das SKUs, chegou o momento de enviar as SKUs.
+_response:_
 
-Cadastrar SKU na loja: webservice.StockKeepingUnitInsertUpdate(StockKeepingUnitDTO).
+	<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+	   <s:Body>
+	      <ProductInsertUpdateResponse xmlns="http://tempuri.org/">
+	         <ProductInsertUpdateResult xmlns:a="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	            <a:AdWordsRemarketingCode i:nil="true"/>
+	            <a:BrandId>2000011</a:BrandId>
+	            <a:CategoryId>1000020</a:CategoryId>
+	            <a:DepartmentId>1000018</a:DepartmentId>
+	            <a:Description>Vaso de barro vermelho, feito a mão com barro do mar vermelho</a:Description>
+	            <a:DescriptionShort>Vaso de barro vermelho artesanal</a:DescriptionShort>
+	            <a:Id>31018369</a:Id>
+	            <a:IsActive>false</a:IsActive>
+	            <a:IsVisible>true</a:IsVisible>
+	            <a:KeyWords>Barro, vaso, vermelho</a:KeyWords>
+	            <a:LinkId>vaso_barro_vermelho</a:LinkId>
+	            <a:ListStoreId xmlns:b="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+	               <b:int>1</b:int>
+	               <b:int>2</b:int>
+	            </a:ListStoreId>
+	            <a:LomadeeCampaignCode i:nil="true"/>
+	            <a:MetaTagDescription>Vaso de barro vermelho, feito a mão com barro do mar vermelho</a:MetaTagDescription>
+	            <a:Name>Vaso Artesanal de Barro Vermelho</a:Name>
+	            <a:RefId>1234567890</a:RefId>
+	            <a:ReleaseDate i:nil="true"/>
+	            <a:ShowWithoutStock>true</a:ShowWithoutStock>
+	            <a:SupplierId i:nil="true"/>
+	            <a:TaxCode i:nil="true"/>
+	            <a:Title>Vaso Artesanal de Barro Vermelho</a:Title>
+	         </ProductInsertUpdateResult>
+	      </ProductInsertUpdateResponse>
+	   </s:Body>
+	</s:Envelope>
 
-#### StockKeepingUnitDTO: ####
-|Propriedade    |Tipo    |Tamanho	|Descrição|
-|-----------|------------|------------|------------|
-|Id	|int nulável	|-	|Id do sku, caso o ID no ERP seja maior que um inteiro, enviar nulo nesse campo, e colocar o ID do SKU no ERP no campo RefId|
-|ProductId	|int nulável	|-	|Id do produto pai da SKU|
-|IsActive	|bool nulável	|-	|**O SKU só se ativa se todos os pré-requisitos (imagem, preço, estoque, etc...) estiverem OK - o que significa que mesmo mandando true, se os pre-requisitos não forem preenchidos, não será ativado.|
-|Name	|string	|200	|Nome do sku|
-|RefId	|string	|50	|Código de referência|
-|CostPrice	|decimal nulável	|(18,2)	|Preço de custo|
-|ListPrice	|decimal nulável	|(18,2)	|Preço De|
-|Price	|decimal nulável	|(18,2)	|Preço Por (preço normal) |
-|Height	|decimal nulável	|(18,4)	|Altura|
-|Length	|decimal nulável	|(18,4)	|Comprimento|
-|Width	|decimal nulável	|(18,4)	|Largura|
-|WeightKg	|decimal nulável	|(18,4)	|Peso em grama(g)|
-|RealHeight	|decimal nulável	|(18,4)	|Altura real|
-|RealLength	|decimal nulável	|(18,4)	|Comprimento real|
-|RealWidth	|decimal nulável	|(18,4)	|Largura real|
-|RealWeightKg	|decimal nulável	|(18,4)	|Peso em grama(g) real|
-|ModalId	|int nulável	|-	|define o prefixo do estoque da SKU, 1,2,3,4|
-|ModalType|string| 100|Refere-se à modalidade de frete (leve,pesado,refrigerado,químico)|
-|CubicWeight	|decimal nulável	|(18,4)	|Peso cúbico|
-|InternalNote	|string	|max	| depreciado - Enviar vazio|
-|IsKit	|bool nulável	|-	|Sku é do tipo kit (uma vez kit, o sku não poderá deixar de ser kit)|
-|ProductName	|string	|150	|Nome do produto pai da SKU|
-|IsAvaiable	|bool nulável	|-	|depreciado|
-|StockKeepingUnitEans	|lista de StockKeepingUnitEanDTO|-	|Código de barras (EAN13)-geralmete uma SKU só tem 1 EAN e é exclusivo.|
-|DateUpdated	|DateTime nulável	|-	|Data de atualização|
-|RewardValue	|decimal nulável	|(18,2)	|valor de fidelidade|
-|EstimatedDateArrival	|DateTime nulável	|-	|Data de pré-venda|
-|ManufacturerCode	|string	|100	|Código-Nome do fabricante|
-|ComercialConditionId	|int nulável	|-	|Id da condição comercial|
-|MeasurementUnit	|string	|-	|Unidade de medida, enviar "un" (unidade)|
-|UnitMultiplier	|decimal nulável	|-	|Multiplicador da unidade, geralmente 1, é diferente de 1 quando se vende em metros ou em kilos|
 
-**nesse modelo esse flag sempre será ligada pelo admin da VTEX.
+###SKU###
 
-*Exemplo do POST:* 
+Uma vez inseridos todos os produtos, que teoricamente são os pais das SKUs, chegou o momento de enviar as SKUs. Exemplo dos request para inserir uma SKU na VTEX no webservice.
 
+_request:_  
 
 	<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
-   	<soapenv:Header/>
-   	<soapenv:Body>
-      <tem:StockKeepingUnitInsertUpdate>
-         <tem:stockKeepingUnitVO>
-            <vtex:CommercialConditionId>1</vtex:CommercialConditionId>
-            <vtex:CubicWeight>100</vtex:CubicWeight>
-            <vtex:DateUpdated>2014-01-01</vtex:DateUpdated>
-            <vtex:EstimatedDateArrival>2014-01-01</vtex:EstimatedDateArrival>
-            <vtex:Height>120</vtex:Height>
-            <vtex:Id>100</vtex:Id>
-            <vtex:InternalNote></vtex:InternalNote>
-            <vtex:IsActive>true</vtex:IsActive>
-            <vtex:IsKit>false</vtex:IsKit>
-            <vtex:Length>100</vtex:Length>
-            <vtex:ManufacturerCode>1</vtex:ManufacturerCode>
-            <vtex:MeasurementUnit>un</vtex:MeasurementUnit>
-            <vtex:ModalId>1</vtex:ModalId>
-            <vtex:ModalType>leve</vtex:ModalType>
-            <vtex:Name>Amarela Grande</vtex:Name>
- 			<vtex:CostPrice>80.00</vtex:CostPrice>
- 			<vtex:ListPrice>120.00</vtex:ListPrice>
-            <vtex:Price>102.00</vtex:Price>
-            <vtex:ProductId>1</vtex:ProductId>
-            <vtex:ProductName>Camisa Polo</vtex:ProductName>
-            <vtex:RealHeight>10</vtex:RealHeight>
-            <vtex:RealLength>120</vtex:RealLength>
-            <vtex:RealWeightKg>90</vtex:RealWeightKg>
-            <vtex:RealWidth>100</vtex:RealWidth>
-            <vtex:RefId>987654321</vtex:RefId>
-            <vtex:RewardValue>0</vtex:RewardValue>
-            <vtex:StockKeepingUnitEans>
-               <vtex:StockKeepingUnitEanDTO>
-                  <vtex:Ean>1234567890123</vtex:Ean>
-               </vtex:StockKeepingUnitEanDTO>
-            </vtex:StockKeepingUnitEans>
-            <vtex:UnitMultiplier>1</vtex:UnitMultiplier>
-            <vtex:WeightKg>100</vtex:WeightKg>
-            <vtex:Width>100</vtex:Width>
-         </tem:stockKeepingUnitVO>
-      	</tem:StockKeepingUnitInsertUpdate>
-   	</soapenv:Body>
+	   <soapenv:Header/>
+	   <soapenv:Body>
+	      <tem:StockKeepingUnitInsertUpdate>
+	         <tem:stockKeepingUnitVO>
+	            <vtex:CubicWeight>100</vtex:CubicWeight>
+	            <vtex:Height>15</vtex:Height>
+	            <vtex:IsActive>true</vtex:IsActive>
+	            <vtex:IsAvaiable>true</vtex:IsAvaiable>
+	            <vtex:IsKit>false</vtex:IsKit>
+	            <vtex:Length>15</vtex:Length>
+				<vtex:ListPrice>150.0</vtex:ListPrice> **/ler obs
+	            <vtex:ModalId>1</vtex:ModalId>
+	            <vtex:ModalType>Vidro</vtex:ModalType>
+	            <vtex:Name>Vaso Artesanal de Barro Vermelho Escuro </vtex:Name>
+   				<vtex:Price>110.0</vtex:Price> **/ler obs
+	            <vtex:ProductId>31018369</vtex:ProductId>
+	            <vtex:RealHeight>17</vtex:RealHeight>
+	            <vtex:RealLength>17</vtex:RealLength>
+	            <vtex:RealWeightKg>10</vtex:RealWeightKg>
+	            <vtex:RealWidth>17</vtex:RealWidth>
+	            <vtex:RefId>00123456</vtex:RefId>
+	            <vtex:RewardValue>0</vtex:RewardValue>
+	            <vtex:StockKeepingUnitEans>
+	               <vtex:StockKeepingUnitEanDTO>
+	                  <vtex:Ean>0123456789123</vtex:Ean>
+	               </vtex:StockKeepingUnitEanDTO>
+	            </vtex:StockKeepingUnitEans>
+	            <vtex:UnitMultiplier>1</vtex:UnitMultiplier>
+	            <vtex:WeightKg>9</vtex:WeightKg>
+	            <vtex:Width>15</vtex:Width>
+	         </tem:stockKeepingUnitVO>
+	      </tem:StockKeepingUnitInsertUpdate>
+	   </soapenv:Body>
 	</soapenv:Envelope>
+
+_response:_
+	
+	<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+	   <s:Body>
+	      <StockKeepingUnitInsertUpdateResponse xmlns="http://tempuri.org/">
+	         <StockKeepingUnitInsertUpdateResult xmlns:a="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	            <a:CommercialConditionId i:nil="true"/>
+	            <a:CostPrice>1</a:CostPrice>
+	            <a:CubicWeight>100</a:CubicWeight>
+	            <a:DateUpdated>2014-10-29T19:03:17.718427</a:DateUpdated>
+	            <a:EstimatedDateArrival i:nil="true"/>
+	            <a:Height>15</a:Height>
+	            <a:Id>31018371</a:Id>
+	            <a:InternalNote i:nil="true"/>
+	            <a:IsActive>false</a:IsActive>
+	            <a:IsAvaiable>false</a:IsAvaiable>
+	            <a:IsKit>false</a:IsKit>
+	            <a:Length>15</a:Length>
+	            <a:ListPrice>150.0</a:ListPrice>
+	            <a:ManufacturerCode i:nil="true"/>
+	            <a:MeasurementUnit>un</a:MeasurementUnit>
+	            <a:ModalId>1</a:ModalId>
+	            <a:ModalType>Vidro</a:ModalType>
+	            <a:Name>Vaso Artesanal de Barro Vermelho Escuro</a:Name>
+	            <a:Price>110.0</a:Price>
+	            <a:ProductId>31018369</a:ProductId>
+	            <a:ProductName>Vaso Artesanal de Barro Vermelho</a:ProductName>
+	            <a:RealHeight>17</a:RealHeight>
+	            <a:RealLength>17</a:RealLength>
+	            <a:RealWeightKg>10</a:RealWeightKg>
+	            <a:RealWidth>17</a:RealWidth>
+	            <a:RefId>00123456</a:RefId>
+	            <a:RewardValue>0</a:RewardValue>
+	            <a:StockKeepingUnitEans>
+	               <a:StockKeepingUnitEanDTO>
+	                  <a:Ean>0123456789123</a:Ean>
+	               </a:StockKeepingUnitEanDTO>
+	            </a:StockKeepingUnitEans>
+	            <a:UnitMultiplier>1</a:UnitMultiplier>
+	            <a:WeightKg>9</a:WeightKg>
+	            <a:Width>15</a:Width>
+	         </StockKeepingUnitInsertUpdateResult>
+	      </StockKeepingUnitInsertUpdateResponse>
+	   </s:Body>
+	</s:Envelope>
+
+**obs= O preço da SKU pode não ser enviado no momento da inserção da SKU. Quando um preço não é enviado no momento da criação de uma SKU, na tabela d SKU por obrigatoriedade é criado um preço fictício de 99999.00, e no sistema de "Pricing" da VTEX não é inserido o preço.
 
 ##2 - Preço e Estoque##
 Uma vez cadastradas os produtos e as SKUs na loja da VTEX, é necessário alimentar o estoque e acertar o preço na tabela de preço (se no momento de inserir a SKU não enviou o preço).
@@ -213,7 +218,7 @@ Se no momento sa inserção da SKU não foi enviado um preço válido para a SKU
 
 O primeiro passo a ser tomado para acessar as APIs da VTEX é solicitar os token de acesso (X-VTEX-API-AppToken e X-VTEX-API-AppKey) ao administrador da loja. Após isso fazer um POST como segue o exemplo:
 
-endpoint: **https://urldaloja/api/pricing/pvt/price-sheet**  
+endpoint: **http://sandboxintegracao.vtexcommercebeta.com.br/api/pricing/pvt/price-sheet**  
 verb: **POST**  
 Content-Type: **application/json**  
 Accept: **application/json**
@@ -258,7 +263,7 @@ Manipulando estoque através da API REST do sistema de **Logistics**:
 Criar o estoque, criar a transpotadora e criar a doca no admin da VTEX, 
 e depois usar a API REST do **Logistics** para manipular o estoque, como segue exemplo:
 
-endpoint: **nomedaloja/api/logistics/pvt/inventory/warehouseitems/setbalance**    
+endpoint: **http://sandboxintegracao.vtexcommercebeta.com.br/api/logistics/pvt/inventory/warehouseitems/setbalance**    
 verb: **POST**    
 Content-Type: **application/json**    
 Accept: **application/json**    
@@ -268,17 +273,17 @@ Accept: **application/json**
 
 	[
   		{
-    		"wareHouseId": "1", //id do estoque
+    		"wareHouseId": "1_1", //id do estoque
     		"itemId": "12", //id do sku que vai manipular
     		"quantity": 100 //quantidade do estoque que deseja atualizar
   		},
 	  	{
-	    	"wareHouseId": "1",
+	    	"wareHouseId": "1_1",
 	    	"itemId": "45",
 	    	"quantity": 8
 	  	},
 	  	{
-	    	"wareHouseId": "2",
+	    	"wareHouseId": "1_2",
 	    	"itemId": "45",
 			"quantity": 5
 	  	}

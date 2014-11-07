@@ -3371,22 +3371,22 @@
             </operands>
           </combinedFragment>
           <operandOccurrenceSpecification
-            Id="0d00413e-e9ed-476f-a419-151a676bc18f"
-            name="OperandOccurrenceSpecification7">
-            <covered>
-              <lifelineMoniker
-                Id="e190b803-e843-432d-84b1-f9299034b0f6"
-                LastKnownName="WORLD"
-                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
             Id="21078ddd-2f3b-463b-956e-3b7223aeb055"
             name="OperandOccurrenceSpecification5">
             <covered>
               <lifelineMoniker
                 Id="65ff6d01-95df-410a-9018-2e2df23b1400"
                 LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="0d00413e-e9ed-476f-a419-151a676bc18f"
+            name="OperandOccurrenceSpecification7">
+            <covered>
+              <lifelineMoniker
+                Id="e190b803-e843-432d-84b1-f9299034b0f6"
+                LastKnownName="WORLD"
                 LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -3905,12 +3905,30 @@
         isAbstract="false"
         isLeaf="false"
         isReentrant="false">
+        <ownedCommentsInternal>
+          <comment
+            Id="e5c65ea1-39c5-4b6c-968f-c906548c4ec2">
+            <body>Seller envia notificação para loja VTEX</body>
+          </comment>
+          <comment
+            Id="df5ad169-9da2-4609-8441-3a7bbdcf79fc">
+            <body>Loja VTEX consulta condições comerciais no Seller</body>
+          </comment>
+          <comment
+            Id="981ea6a2-4162-4134-a36a-46f1439a8ded">
+            <body>Seller envia sugestão para loja VTEX.</body>
+          </comment>
+          <comment
+            Id="9e7f658a-5d42-49e9-85b9-bce6e3e3e1c4">
+            <body>Seller envia notificação para loja VTEX</body>
+          </comment>
+        </ownedCommentsInternal>
         <fragments>
           <combinedFragment
             Id="2d90ea39-754a-4b5d-b18a-74ece7e4e080"
             name="CombinedFragment1"
             interactionOperator="Alt"
-            customInteractionOperator="Sequencia onde o SKU não existe na VTEX - Inserção de Sugestão de SKU">
+            customInteractionOperator="Sequencia onde o SKU NÃO existe na VTEX - Inserção de Sugestão de SKU">
             <coveredLifelines>
               <lifelineMoniker
                 Id="174b9cdf-42a5-4bf9-9bd3-b12845c7e7d8"
@@ -4828,7 +4846,7 @@
         <messages>
           <message
             Id="5516f65a-bf5c-4ad9-b245-e24fe1edf98b"
-            name="POST:Notification{JSON}:http://productnotification.vtexcommerce.com.br/api/notification/[nomeloja]/[idseller]"
+            name="GET:http://portal.vtexcommercestable.com.br/api/catalog_system/pvt/skuseller/changenotification/[idseller]/[idskuSeller]?an=[nomeloja]"
             messageKind="Complete"
             messageSort="SynchCall"
             createSelfMessage="false">
@@ -4866,7 +4884,7 @@
           </message>
           <message
             Id="2efff7b1-3b75-485a-a52e-869ceeddfc1b"
-            name="https://[url-da-loja]/api/catalog_system/pvt/sku/SuggestionInsertUpdatev2"
+            name="POST:SkuSugestion{JSON}:https://[url-da-loja]/api/catalog_system/pvt/sku/SuggestionInsertUpdatev2"
             messageKind="Complete"
             messageSort="SynchCall"
             createSelfMessage="false">
@@ -7907,9 +7925,9 @@
 canal inicia transação, 
 
 
+envia pagamente,
 
-
-envia pagamente e 
+envia infos para antifraude
 
 
 envia autorização de pagamento</body>
@@ -8087,22 +8105,22 @@ envia autorização de pagamento</body>
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="e6a6970a-fc12-4775-a2ab-bd281ae2f0a1"
-            name="MessageOccurrenceSpecification31">
-            <covered>
-              <lifelineMoniker
-                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
-                LastKnownName="VTEX"
-                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="b152b46c-cba5-40cd-9538-13f9625773dc"
             name="MessageOccurrenceSpecification32">
             <covered>
               <lifelineMoniker
                 Id="5d679ccd-7e76-4f63-b656-b0b39be01af9"
                 LastKnownName="WORLD"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="e6a6970a-fc12-4775-a2ab-bd281ae2f0a1"
+            name="MessageOccurrenceSpecification31">
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
                 LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -8233,6 +8251,114 @@ envia autorização de pagamento</body>
             </covered>
           </executionOccurrenceSpecification>
           <behaviorExecutionSpecification
+            Id="4470fb3c-8b2e-4a2e-a744-bf11b3f164d1"
+            name="BehaviorExecutionSpecification10">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="909d3071-a5d5-473f-bbc9-e162f0cfc83c"
+                LastKnownName="ExecutionOccurrenceSpecification20"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="2536b5b2-9a8c-45d3-98b5-34b7b645ad4b"
+                LastKnownName="ExecutionOccurrenceSpecification19"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="0bf67f05-4bcd-45a6-b121-9418b24bd80a"
+                LastKnownName="MessageOccurrenceSpecification38"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="fff2850f-c432-4378-9530-a6310a241db7"
+                LastKnownName="MessageOccurrenceSpecification39"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="2536b5b2-9a8c-45d3-98b5-34b7b645ad4b"
+            name="ExecutionOccurrenceSpecification19">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="8bb043c8-2222-4adb-879e-9bb5f4ffbd7a"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="0bf67f05-4bcd-45a6-b121-9418b24bd80a"
+            name="MessageOccurrenceSpecification38">
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="56a22e29-9bd9-415c-a130-41c8c95bb897"
+            name="MessageOccurrenceSpecification37">
+            <covered>
+              <lifelineMoniker
+                Id="5d679ccd-7e76-4f63-b656-b0b39be01af9"
+                LastKnownName="WORLD"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="6b91cc5c-dee1-4c56-981e-4d176329827d"
+            name="MessageOccurrenceSpecification40">
+            <covered>
+              <lifelineMoniker
+                Id="5d679ccd-7e76-4f63-b656-b0b39be01af9"
+                LastKnownName="WORLD"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="fff2850f-c432-4378-9530-a6310a241db7"
+            name="MessageOccurrenceSpecification39">
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="909d3071-a5d5-473f-bbc9-e162f0cfc83c"
+            name="ExecutionOccurrenceSpecification20">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="f67f9b67-504d-413e-98b6-a16ee0e87252"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
             Id="a63da4f7-526b-449b-af2b-b6698a99449b"
             name="BehaviorExecutionSpecification9">
             <coveredLifelines>
@@ -8283,22 +8409,22 @@ envia autorização de pagamento</body>
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="3c582be3-63b5-446b-8223-4474e06e9ac6"
-            name="MessageOccurrenceSpecification34">
-            <covered>
-              <lifelineMoniker
-                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
-                LastKnownName="VTEX"
-                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="b443400a-672e-431f-b382-f7a2b83d4061"
             name="MessageOccurrenceSpecification33">
             <covered>
               <lifelineMoniker
                 Id="5d679ccd-7e76-4f63-b656-b0b39be01af9"
                 LastKnownName="WORLD"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="3c582be3-63b5-446b-8223-4474e06e9ac6"
+            name="MessageOccurrenceSpecification34">
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
                 LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -8391,22 +8517,22 @@ envia autorização de pagamento</body>
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="080656fc-6adb-468c-ad76-a3d58fd0e38f"
-            name="MessageOccurrenceSpecification17">
-            <covered>
-              <lifelineMoniker
-                Id="5d679ccd-7e76-4f63-b656-b0b39be01af9"
-                LastKnownName="WORLD"
-                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="bdaf5c99-cbf7-4cf4-8ec2-250d46edde20"
             name="MessageOccurrenceSpecification18">
             <covered>
               <lifelineMoniker
                 Id="5a77863c-4e3c-491b-af32-f855724ebca7"
                 LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="080656fc-6adb-468c-ad76-a3d58fd0e38f"
+            name="MessageOccurrenceSpecification17">
+            <covered>
+              <lifelineMoniker
+                Id="5d679ccd-7e76-4f63-b656-b0b39be01af9"
+                LastKnownName="WORLD"
                 LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -8499,22 +8625,22 @@ envia autorização de pagamento</body>
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="559d791f-c88b-4bc5-90ac-5a3a004e0322"
-            name="MessageOccurrenceSpecification22">
-            <covered>
-              <lifelineMoniker
-                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
-                LastKnownName="VTEX"
-                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="d2b8b339-0164-410e-9a43-bf388b91095a"
             name="MessageOccurrenceSpecification21">
             <covered>
               <lifelineMoniker
                 Id="5d679ccd-7e76-4f63-b656-b0b39be01af9"
                 LastKnownName="WORLD"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="559d791f-c88b-4bc5-90ac-5a3a004e0322"
+            name="MessageOccurrenceSpecification22">
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
                 LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -8589,6 +8715,14 @@ envia autorização de pagamento</body>
                 LastKnownName="MessageOccurrenceSpecification28"
                 LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
               <messageOccurrenceSpecificationMoniker
+                Id="56a22e29-9bd9-415c-a130-41c8c95bb897"
+                LastKnownName="MessageOccurrenceSpecification37"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="6b91cc5c-dee1-4c56-981e-4d176329827d"
+                LastKnownName="MessageOccurrenceSpecification40"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <messageOccurrenceSpecificationMoniker
                 Id="b443400a-672e-431f-b382-f7a2b83d4061"
                 LastKnownName="MessageOccurrenceSpecification33"
                 LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
@@ -8643,6 +8777,14 @@ envia autorização de pagamento</body>
               <executionOccurrenceSpecificationMoniker
                 Id="3bacca78-c6bf-4e40-b422-0920154fe88c"
                 LastKnownName="ExecutionOccurrenceSpecification14"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="2536b5b2-9a8c-45d3-98b5-34b7b645ad4b"
+                LastKnownName="ExecutionOccurrenceSpecification19"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="909d3071-a5d5-473f-bbc9-e162f0cfc83c"
+                LastKnownName="ExecutionOccurrenceSpecification20"
                 LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
               <executionOccurrenceSpecificationMoniker
                 Id="705443cf-c0a4-41a6-8f68-3d9b43c90613"
@@ -8783,6 +8925,44 @@ envia autorização de pagamento</body>
               <messageOccurrenceSpecificationMoniker
                 Id="c5577224-f4ed-4c47-9db7-55ebc38ce5e8"
                 LastKnownName="MessageOccurrenceSpecification28"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="d1de3cd0-2499-4950-961e-9aab829f1622"
+            name="POST:CustomerInfo{JSON}:https://lojavtexendpoint/payments/orderinfo"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="56a22e29-9bd9-415c-a130-41c8c95bb897"
+                LastKnownName="MessageOccurrenceSpecification37"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="0bf67f05-4bcd-45a6-b121-9418b24bd80a"
+                LastKnownName="MessageOccurrenceSpecification38"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="d6bd4f00-91bf-4b1e-bdb7-57dcb1dd1590"
+            name="&lt;&lt;return&gt;&gt;"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="fff2850f-c432-4378-9530-a6310a241db7"
+                LastKnownName="MessageOccurrenceSpecification39"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="6b91cc5c-dee1-4c56-981e-4d176329827d"
+                LastKnownName="MessageOccurrenceSpecification40"
                 LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
             </receiveEvent>
           </message>
@@ -8951,6 +9131,16 @@ envia autorização de pagamento</body>
     <packageHasNamedElement>
       <executionEvent
         Id="ddc36a86-64b2-41a0-85fc-267d3084d3ef"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="8bb043c8-2222-4adb-879e-9bb5f4ffbd7a"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="f67f9b67-504d-413e-98b6-a16ee0e87252"
         name="ExecutionEvent" />
     </packageHasNamedElement>
   </packagedElements>

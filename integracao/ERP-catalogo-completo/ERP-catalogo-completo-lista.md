@@ -1,4 +1,4 @@
-# ERP - Integração de KIT
+# ERP - Integração de Lista
 
 Este documento tem por objetivo auxiliar o integrador na integração de KIT, do ERP para uma loja hospedada na versão smartcheckout da VTEX.
 

@@ -77,9 +77,7 @@
   <wsdl:message name="IService_StockKeepingUnitEspecificationInsert_OutputMessage">
     <wsdl:part name="parameters" element="tns:StockKeepingUnitEspecificationInsertResponse"/>
   </wsdl:message>
-  <wsdl:message name="IService_ProductSupplierGetCNPJ_InputMessage">
-    <wsdl:part name="parameters" element="tns:ProductSupplierGetCNPJ"/>
-  </wsdl:message>
+
   <wsdl:message name="IService_ProductSupplierGetCNPJ_OutputMessage">
     <wsdl:part name="parameters" element="tns:ProductSupplierGetCNPJResponse"/>
   </wsdl:message>
@@ -8058,7 +8056,7 @@
          <tem:nameBrand>?</tem:nameBrand>
       </tem:BrandGetByName>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IService/BrandGetByName"/></con:call></con:operation><con:operation isOneWay="false" action="http://tempuri.org/IService/BrandInsertUpdate" name="BrandInsertUpdate" bindingOperationName="BrandInsertUpdate" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Marca"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservice-sandboxintegracao.vtexcommerce.com.br/Service.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IService/BrandGetByName"/></con:call></con:operation><con:operation isOneWay="false" action="http://tempuri.org/IService/BrandInsertUpdate" name="BrandInsertUpdate" bindingOperationName="BrandInsertUpdate" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="MARCA"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservice-sandboxintegracao.vtexcommerce.com.br/Service.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
    <soapenv:Header/>
    <soapenv:Body>
       <tem:BrandInsertUpdate>
@@ -11933,6 +11931,27 @@
          <tem:idStockKeepingUnit>31018372</tem:idStockKeepingUnit>
       </tem:StockKeepingUnitActive>
    </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>publico</con:username><con:password>publico</con:password></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IService/StockKeepingUnitActive"/><con:wsrmConfig version="1.2"/></con:call><con:call name="ATIVA SKU 1 DO KIT"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservice-sandboxintegracao.vtexcommerce.com.br/Service.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:StockKeepingUnitActive>
+         <tem:idStockKeepingUnit>31018374</tem:idStockKeepingUnit>
+      </tem:StockKeepingUnitActive>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>publico</con:username><con:password>publico</con:password></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IService/StockKeepingUnitActive"/><con:wsrmConfig version="1.2"/></con:call><con:call name="ATIVA SKU 2 DO KIT"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservice-sandboxintegracao.vtexcommerce.com.br/Service.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:StockKeepingUnitActive>
+         <tem:idStockKeepingUnit>31018375</tem:idStockKeepingUnit>
+      </tem:StockKeepingUnitActive>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>publico</con:username><con:password>publico</con:password></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IService/StockKeepingUnitActive"/><con:wsrmConfig version="1.2"/></con:call><con:call name="ATIVA SKU KIT"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservice-sandboxintegracao.vtexcommerce.com.br/Service.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:StockKeepingUnitActive>
+         <tem:idStockKeepingUnit>31018373</tem:idStockKeepingUnit>
+      </tem:StockKeepingUnitActive>
+   </soapenv:Body>
 </soapenv:Envelope>]]></con:request><con:credentials><con:username>publico</con:username><con:password>publico</con:password></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IService/StockKeepingUnitActive"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="http://tempuri.org/IService/StockKeepingUnitComplementInsertUpdate" name="StockKeepingUnitComplementInsertUpdate" bindingOperationName="StockKeepingUnitComplementInsertUpdate" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservice-sandboxintegracao.vtexcommerce.com.br/Service.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
    <soapenv:Header/>
    <soapenv:Body>
@@ -12215,11 +12234,11 @@
             <vtex:IsAvaiable>true</vtex:IsAvaiable>
             <vtex:IsKit>false</vtex:IsKit>
             <vtex:Length>15</vtex:Length>
-	    <vtex:ListPrice>150.0</vtex:ListPrice>
+
             <vtex:ModalId>1</vtex:ModalId>
             <vtex:ModalType>Vidro</vtex:ModalType>
-            <vtex:Name>Vaso Artesanal de Barro Vermelho Escuro </vtex:Name>
-	    <vtex:Price>110.0</vtex:Price>
+            <vtex:Name>Vaso Artesanal de Barro Vermelho Escuro o </vtex:Name>
+	  
             <vtex:ProductId>31018369</vtex:ProductId>
             <vtex:RealHeight>17</vtex:RealHeight>
             <vtex:RealLength>17</vtex:RealLength>
@@ -12238,84 +12257,7 @@
          </tem:stockKeepingUnitVO>
       </tem:StockKeepingUnitInsertUpdate>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:username>publico</con:username><con:password>publico</con:password></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IService/StockKeepingUnitInsertUpdate"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Request 5"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservice-sandboxintegracao.vtexcommerce.com.br/Service.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <tem:StockKeepingUnitInsertUpdate>
-         <!--Optional:-->
-         <tem:stockKeepingUnitVO>
-            <!--Optional:-->
-            <vtex:CommercialConditionId>?</vtex:CommercialConditionId>
-            <!--Optional:-->
-            <vtex:CostPrice>?</vtex:CostPrice>
-            <!--Optional:-->
-            <vtex:CubicWeight>?</vtex:CubicWeight>
-            <!--Optional:-->
-            <vtex:DateUpdated>?</vtex:DateUpdated>
-            <!--Optional:-->
-            <vtex:EstimatedDateArrival>?</vtex:EstimatedDateArrival>
-            <!--Optional:-->
-            <vtex:Height>?</vtex:Height>
-            <!--Optional:-->
-            <vtex:Id>?</vtex:Id>
-            <!--Optional:-->
-            <vtex:InternalNote>?</vtex:InternalNote>
-            <!--Optional:-->
-            <vtex:IsActive>?</vtex:IsActive>
-            <!--Optional:-->
-            <vtex:IsAvaiable>?</vtex:IsAvaiable>
-            <!--Optional:-->
-            <vtex:IsKit>?</vtex:IsKit>
-            <!--Optional:-->
-            <vtex:Length>?</vtex:Length>
-            <!--Optional:-->
-            <vtex:ListPrice>?</vtex:ListPrice>
-            <!--Optional:-->
-            <vtex:ManufacturerCode>?</vtex:ManufacturerCode>
-            <!--Optional:-->
-            <vtex:MeasurementUnit>?</vtex:MeasurementUnit>
-            <!--Optional:-->
-            <vtex:ModalId>?</vtex:ModalId>
-            <!--Optional:-->
-            <vtex:ModalType>?</vtex:ModalType>
-            <!--Optional:-->
-            <vtex:Name>?</vtex:Name>
-            <!--Optional:-->
-            <vtex:Price>?</vtex:Price>
-            <!--Optional:-->
-            <vtex:ProductId>?</vtex:ProductId>
-            <!--Optional:-->
-            <vtex:ProductName>?</vtex:ProductName>
-            <!--Optional:-->
-            <vtex:RealHeight>?</vtex:RealHeight>
-            <!--Optional:-->
-            <vtex:RealLength>?</vtex:RealLength>
-            <!--Optional:-->
-            <vtex:RealWeightKg>?</vtex:RealWeightKg>
-            <!--Optional:-->
-            <vtex:RealWidth>?</vtex:RealWidth>
-            <!--Optional:-->
-            <vtex:RefId>?</vtex:RefId>
-            <!--Optional:-->
-            <vtex:RewardValue>?</vtex:RewardValue>
-            <!--Optional:-->
-            <vtex:StockKeepingUnitEans>
-               <!--Zero or more repetitions:-->
-               <vtex:StockKeepingUnitEanDTO>
-                  <!--Optional:-->
-                  <vtex:Ean>?</vtex:Ean>
-               </vtex:StockKeepingUnitEanDTO>
-            </vtex:StockKeepingUnitEans>
-            <!--Optional:-->
-            <vtex:UnitMultiplier>?</vtex:UnitMultiplier>
-            <!--Optional:-->
-            <vtex:WeightKg>?</vtex:WeightKg>
-            <!--Optional:-->
-            <vtex:Width>?</vtex:Width>
-         </tem:stockKeepingUnitVO>
-      </tem:StockKeepingUnitInsertUpdate>
-   </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IService/StockKeepingUnitInsertUpdate"/><con:wsrmConfig version="1.2"/></con:call><con:call name="SKU 1 DO KIT"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservice-sandboxintegracao.vtexcommerce.com.br/Service.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>publico</con:username><con:password>publico</con:password></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IService/StockKeepingUnitInsertUpdate"/><con:wsrmConfig version="1.2"/></con:call><con:call name="SKU 1 DO KIT"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservice-sandboxintegracao.vtexcommerce.com.br/Service.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
    <soapenv:Header/>
    <soapenv:Body>
       <tem:StockKeepingUnitInsertUpdate>

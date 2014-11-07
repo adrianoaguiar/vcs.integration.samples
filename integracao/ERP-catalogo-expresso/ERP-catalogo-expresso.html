@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ERP-catalogo-expresso</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+
+</head>
+<body>
+<h1>ERP - Integração Rápida de Catálogo e Condições Comerciais com a VTEX</h1>
+<p>Este documento tem por objetivo auxiliar o integrador na integração de catálogo, condição comercial(preço e estoque) do ERP para a uma loja hospedada na versão smartcheckout da VTEX, de uma maneira rápida. Nesse tipo de integração a adminstração da loja está no admin da VTEX, sendo o ERP apenas uma fonte de onde nascem os produstos e SKUs.</p>
+<h2>1 - Catalogo Fluxo Básico (Express)</h2>
+<p>Nesse cenário de fluxo básico, apenas os dados básicos de produtos e SKUs são manipulados pelo ERP, e todo o enriquecimento (marca, fornecedor, imagens, categoria, ativação, etc...) será feito pelo admin da loja na plataforma VTEX.</p>
+<p>Para o ERP integrar se ao catálogo da loja na VTEX, deverá usar o webservice da própria loja, que por definição atenderá em <a href="https:webservice-nomedaloja-vtexcommerce.com.br/service.svc?wsdl" title="web service da loja">https:webservice-nomedaloja-vtexcommerce.com.br/service.svc?wsdl</a>. As credenciais de acesso ao webservice deverão ser solicitadas junto ao administrador da loja.</p>
+<p>Futuramente além do serviço SOAP (webservice) estaremos também oferecendo integração de catálogo por APIs REST (JSON) bem definidas e de alta performance.</p>
+<h3>1.1 - Organização dos Produtos Dentro da Loja</h3>
+<p>Geralmente, os produtos são organizados dentro da loja em estruturas mercadológicas formadas por:</p>
+<ol>
+<li><strong>Departamento</strong> - categoria cujo id de categoria pai é <strong>nulo</strong>, </li>
+<li><strong>Categoria</strong> - categoria cujo id de categoria pai é um <strong>departamento</strong>,</li>
+<li><strong>SubCategoria</strong>. categoria cujo id de categoria pai é um <strong>categoria</strong></li>
+</ol>
+<p><em>Exemplo:</em><br />
+<em>Departamento/Categoria/SubCategoria/Produto</em><br />
+<em>Ferramentas/Eletricas/Furradeiras/Super Drill</em>  </p>
+<p>O cadastro da estrutura mercadologica deve ser feito diretamente no admin da própria loja (<em>http://sualoja.com.br/admin/Site/Categories.aspx</em>), e para atender a integração vinda do ERP, é criado um departamento padrão para produtos que vem do ERP, ou seja, todos os produtos caem no admin da loja nesse departamento padrão, e depois no momento do enriquecimento é colocado na categoria desejada.</p>
+<h3>1.2 - Produtos e SKUs</h3>
+<p>Qual é a diferença entre produto e SKU?</p>
+<p><strong>Produto</strong> é uma definição mais genérica de algo que é ofertado ao cliente. </p>
+<p><em>Exemplo: Geladeria, Camiseta, Bola</em></p>
+<p><strong>SKU</strong> é uma sigla em ingles de &quot;Stock Keeping Unit&quot;, em português Unidade de Manutenção de Estoque,
+ou seja, uma SKU define uma variação de um produto.</p>
+<p><em>Exemplo: Geladeira Branca 110V, Camiseta Amarela Grande</em></p>
+<p>No modelo de cadastro de Produtos e SKUs da VTEX, um SKU sempre será filha de um Produto (não existe SKU sem produto), mesmo que esse produto não tenha variçãoes, e nesse caso será 1 SKU para 1 produto.</p>
+<p><em>Exemplo: Produto Bola Jabulani com a SKU Bola Jabulani</em></p>
+<h3>1.3 - Integração de Produtos e SKUs</h3>
+<p>Após definida as variações e a estrutura mecadológica da loja, o próximo passo é enviar os produtos e as SKUs do ERP para a loja VTEX.</p>
+<p><img src="ERP-catalogo-expresso.PNG" alt="alt text" title="Fluxo Básico" /></p>
+<h3>Produto</h3>
+<p>Exemplo de request para inserir Produto pelo webservice.</p>
+<p><em>request:</em></p>
+<pre><code>&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:tem=&quot;http://tempuri.org/&quot; xmlns:vtex=&quot;http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts&quot; xmlns:arr=&quot;http://schemas.microsoft.com/2003/10/Serialization/Arrays&quot;&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;tem:ProductInsertUpdate&gt;
+         &lt;tem:productVO&gt;
+            &lt;vtex:BrandId&gt;2000011&lt;/vtex:BrandId&gt; //id da marca
+            &lt;vtex:CategoryId&gt;1000020&lt;/vtex:CategoryId&gt; //id da categoria
+            &lt;vtex:DepartmentId&gt;1000018&lt;/vtex:DepartmentId&gt; //id do departamento
+            &lt;vtex:Description&gt;Vaso de barro vermelho, feito a mão com barro do mar vermelho&lt;/vtex:Description&gt; //descrição
+            &lt;vtex:DescriptionShort&gt;Vaso de barro vermelho artesanal&lt;/vtex:DescriptionShort&gt; descrição curta
+            &lt;vtex:IsActive&gt;true&lt;/vtex:IsActive&gt; // true
+            &lt;vtex:IsVisible&gt;true&lt;/vtex:IsVisible&gt; // vai ser visível no site
+            &lt;vtex:KeyWords&gt; Barro, vaso, vermelho&lt;/vtex:KeyWords&gt; //palavras chaves
+            &lt;vtex:LinkId&gt;vaso_barro_vermelho&lt;/vtex:LinkId&gt; //link do produto na loja
+            &lt;vtex:ListStoreId&gt; //pra qual canal de vendas = loja principal = 1
+                &lt;arr:int&gt;1&lt;/arr:int&gt; 
+                &lt;arr:int&gt;2&lt;/arr:int&gt;
+            &lt;/vtex:ListStoreId&gt;
+            &lt;vtex:MetaTagDescription&gt;Vaso de barro vermelho, feito a mão com barro do mar vermelho&lt;/vtex:MetaTagDescription&gt;
+            &lt;vtex:Name&gt;Vaso Artesanal de Barro Vermelho&lt;/vtex:Name&gt; //nome
+             &lt;vtex:RefId&gt;1234567890&lt;/vtex:RefId&gt; //id do produto no ERP
+            &lt;vtex:Title&gt;Vaso Artesanal de Barro Vermelho&lt;/vtex:Title&gt;
+         &lt;/tem:productVO&gt;
+      &lt;/tem:ProductInsertUpdate&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;
+</code></pre>
+
+<p><em>response:</em></p>
+<pre><code>&lt;s:Envelope xmlns:s=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+   &lt;s:Body&gt;
+      &lt;ProductInsertUpdateResponse xmlns=&quot;http://tempuri.org/&quot;&gt;
+         &lt;ProductInsertUpdateResult xmlns:a=&quot;http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts&quot; xmlns:i=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
+            &lt;a:AdWordsRemarketingCode i:nil=&quot;true&quot;/&gt;
+            &lt;a:BrandId&gt;2000011&lt;/a:BrandId&gt;
+            &lt;a:CategoryId&gt;1000020&lt;/a:CategoryId&gt;
+            &lt;a:DepartmentId&gt;1000018&lt;/a:DepartmentId&gt;
+            &lt;a:Description&gt;Vaso de barro vermelho, feito a mão com barro do mar vermelho&lt;/a:Description&gt;
+            &lt;a:DescriptionShort&gt;Vaso de barro vermelho artesanal&lt;/a:DescriptionShort&gt;
+            &lt;a:Id&gt;31018369&lt;/a:Id&gt;
+            &lt;a:IsActive&gt;false&lt;/a:IsActive&gt;
+            &lt;a:IsVisible&gt;true&lt;/a:IsVisible&gt;
+            &lt;a:KeyWords&gt;Barro, vaso, vermelho&lt;/a:KeyWords&gt;
+            &lt;a:LinkId&gt;vaso_barro_vermelho&lt;/a:LinkId&gt;
+            &lt;a:ListStoreId xmlns:b=&quot;http://schemas.microsoft.com/2003/10/Serialization/Arrays&quot;&gt;
+               &lt;b:int&gt;1&lt;/b:int&gt;
+               &lt;b:int&gt;2&lt;/b:int&gt;
+            &lt;/a:ListStoreId&gt;
+            &lt;a:LomadeeCampaignCode i:nil=&quot;true&quot;/&gt;
+            &lt;a:MetaTagDescription&gt;Vaso de barro vermelho, feito a mão com barro do mar vermelho&lt;/a:MetaTagDescription&gt;
+            &lt;a:Name&gt;Vaso Artesanal de Barro Vermelho&lt;/a:Name&gt;
+            &lt;a:RefId&gt;1234567890&lt;/a:RefId&gt;
+            &lt;a:ReleaseDate i:nil=&quot;true&quot;/&gt;
+            &lt;a:ShowWithoutStock&gt;true&lt;/a:ShowWithoutStock&gt;
+            &lt;a:SupplierId i:nil=&quot;true&quot;/&gt;
+            &lt;a:TaxCode i:nil=&quot;true&quot;/&gt;
+            &lt;a:Title&gt;Vaso Artesanal de Barro Vermelho&lt;/a:Title&gt;
+         &lt;/ProductInsertUpdateResult&gt;
+      &lt;/ProductInsertUpdateResponse&gt;
+   &lt;/s:Body&gt;
+&lt;/s:Envelope&gt;
+</code></pre>
+
+<h3>SKU</h3>
+<p>Uma vez inseridos todos os produtos, que teoricamente são os pais das SKUs, chegou o momento de enviar as SKUs. Exemplo dos request para inserir uma SKU na VTEX no webservice.</p>
+<p><em>request:</em>  </p>
+<pre><code>&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:tem=&quot;http://tempuri.org/&quot; xmlns:vtex=&quot;http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts&quot;&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;tem:StockKeepingUnitInsertUpdate&gt;
+         &lt;tem:stockKeepingUnitVO&gt;
+            &lt;vtex:CubicWeight&gt;100&lt;/vtex:CubicWeight&gt;
+            &lt;vtex:Height&gt;15&lt;/vtex:Height&gt;
+            &lt;vtex:IsActive&gt;true&lt;/vtex:IsActive&gt;
+            &lt;vtex:IsAvaiable&gt;true&lt;/vtex:IsAvaiable&gt;
+            &lt;vtex:IsKit&gt;false&lt;/vtex:IsKit&gt;
+            &lt;vtex:Length&gt;15&lt;/vtex:Length&gt;
+            &lt;vtex:ListPrice&gt;150.0&lt;/vtex:ListPrice&gt; **/ler obs
+            &lt;vtex:ModalId&gt;1&lt;/vtex:ModalId&gt;
+            &lt;vtex:ModalType&gt;Vidro&lt;/vtex:ModalType&gt;
+            &lt;vtex:Name&gt;Vaso Artesanal de Barro Vermelho Escuro &lt;/vtex:Name&gt;
+            &lt;vtex:Price&gt;110.0&lt;/vtex:Price&gt; **/ler obs
+            &lt;vtex:ProductId&gt;31018369&lt;/vtex:ProductId&gt;
+            &lt;vtex:RealHeight&gt;17&lt;/vtex:RealHeight&gt;
+            &lt;vtex:RealLength&gt;17&lt;/vtex:RealLength&gt;
+            &lt;vtex:RealWeightKg&gt;10&lt;/vtex:RealWeightKg&gt;
+            &lt;vtex:RealWidth&gt;17&lt;/vtex:RealWidth&gt;
+            &lt;vtex:RefId&gt;00123456&lt;/vtex:RefId&gt;
+            &lt;vtex:RewardValue&gt;0&lt;/vtex:RewardValue&gt;
+            &lt;vtex:StockKeepingUnitEans&gt;
+               &lt;vtex:StockKeepingUnitEanDTO&gt;
+                  &lt;vtex:Ean&gt;0123456789123&lt;/vtex:Ean&gt;
+               &lt;/vtex:StockKeepingUnitEanDTO&gt;
+            &lt;/vtex:StockKeepingUnitEans&gt;
+            &lt;vtex:UnitMultiplier&gt;1&lt;/vtex:UnitMultiplier&gt;
+            &lt;vtex:WeightKg&gt;9&lt;/vtex:WeightKg&gt;
+            &lt;vtex:Width&gt;15&lt;/vtex:Width&gt;
+         &lt;/tem:stockKeepingUnitVO&gt;
+      &lt;/tem:StockKeepingUnitInsertUpdate&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;
+</code></pre>
+
+<p><em>response:</em></p>
+<pre><code>&lt;s:Envelope xmlns:s=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+   &lt;s:Body&gt;
+      &lt;StockKeepingUnitInsertUpdateResponse xmlns=&quot;http://tempuri.org/&quot;&gt;
+         &lt;StockKeepingUnitInsertUpdateResult xmlns:a=&quot;http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts&quot; xmlns:i=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
+            &lt;a:CommercialConditionId i:nil=&quot;true&quot;/&gt;
+            &lt;a:CostPrice&gt;1&lt;/a:CostPrice&gt;
+            &lt;a:CubicWeight&gt;100&lt;/a:CubicWeight&gt;
+            &lt;a:DateUpdated&gt;2014-10-29T19:03:17.718427&lt;/a:DateUpdated&gt;
+            &lt;a:EstimatedDateArrival i:nil=&quot;true&quot;/&gt;
+            &lt;a:Height&gt;15&lt;/a:Height&gt;
+            &lt;a:Id&gt;31018371&lt;/a:Id&gt;
+            &lt;a:InternalNote i:nil=&quot;true&quot;/&gt;
+            &lt;a:IsActive&gt;false&lt;/a:IsActive&gt;
+            &lt;a:IsAvaiable&gt;false&lt;/a:IsAvaiable&gt;
+            &lt;a:IsKit&gt;false&lt;/a:IsKit&gt;
+            &lt;a:Length&gt;15&lt;/a:Length&gt;
+            &lt;a:ListPrice&gt;150.0&lt;/a:ListPrice&gt;
+            &lt;a:ManufacturerCode i:nil=&quot;true&quot;/&gt;
+            &lt;a:MeasurementUnit&gt;un&lt;/a:MeasurementUnit&gt;
+            &lt;a:ModalId&gt;1&lt;/a:ModalId&gt;
+            &lt;a:ModalType&gt;Vidro&lt;/a:ModalType&gt;
+            &lt;a:Name&gt;Vaso Artesanal de Barro Vermelho Escuro&lt;/a:Name&gt;
+            &lt;a:Price&gt;110.0&lt;/a:Price&gt;
+            &lt;a:ProductId&gt;31018369&lt;/a:ProductId&gt;
+            &lt;a:ProductName&gt;Vaso Artesanal de Barro Vermelho&lt;/a:ProductName&gt;
+            &lt;a:RealHeight&gt;17&lt;/a:RealHeight&gt;
+            &lt;a:RealLength&gt;17&lt;/a:RealLength&gt;
+            &lt;a:RealWeightKg&gt;10&lt;/a:RealWeightKg&gt;
+            &lt;a:RealWidth&gt;17&lt;/a:RealWidth&gt;
+            &lt;a:RefId&gt;00123456&lt;/a:RefId&gt;
+            &lt;a:RewardValue&gt;0&lt;/a:RewardValue&gt;
+            &lt;a:StockKeepingUnitEans&gt;
+               &lt;a:StockKeepingUnitEanDTO&gt;
+                  &lt;a:Ean&gt;0123456789123&lt;/a:Ean&gt;
+               &lt;/a:StockKeepingUnitEanDTO&gt;
+            &lt;/a:StockKeepingUnitEans&gt;
+            &lt;a:UnitMultiplier&gt;1&lt;/a:UnitMultiplier&gt;
+            &lt;a:WeightKg&gt;9&lt;/a:WeightKg&gt;
+            &lt;a:Width&gt;15&lt;/a:Width&gt;
+         &lt;/StockKeepingUnitInsertUpdateResult&gt;
+      &lt;/StockKeepingUnitInsertUpdateResponse&gt;
+   &lt;/s:Body&gt;
+&lt;/s:Envelope&gt;
+</code></pre>
+
+<p>**obs= O preço da SKU pode não ser enviado no momento da inserção da SKU. Quando um preço não é enviado no momento da criação de uma SKU, na tabela d SKU por obrigatoriedade é criado um preço fictício de 99999.00, e no sistema de &quot;Pricing&quot; da VTEX não é inserido o preço.</p>
+<h2>2 - Preço e Estoque</h2>
+<p>Uma vez cadastradas os produtos e as SKUs na loja da VTEX, é necessário alimentar o estoque e acertar o preço na tabela de preço (se no momento de inserir a SKU não enviou o preço).</p>
+<h4>2.1 - Preço</h4>
+<p>Se no momento sa inserção da SKU não foi enviado um preço válido para a SKU é necessário inserir o preço da mesma. Isso pode ser feito direto no admin da loja na VTEX (<em>urldaloja/admin/Site/SkuTabelaValor.aspx</em>), ou usando a API REST do sistema de <strong>Pricing</strong>.</p>
+<p>O primeiro passo a ser tomado para acessar as APIs da VTEX é solicitar os token de acesso (X-VTEX-API-AppToken e X-VTEX-API-AppKey) ao administrador da loja. Após isso fazer um POST como segue o exemplo:</p>
+<p>endpoint: <strong>http://sandboxintegracao.vtexcommercebeta.com.br/api/pricing/pvt/price-sheet</strong><br />
+verb: <strong>POST</strong><br />
+Content-Type: <strong>application/json</strong><br />
+Accept: <strong>application/json</strong></p>
+<p><em>Exemplo do POST:</em> </p>
+<pre><code>[
+    {
+        &quot;Id&quot;: null, //caso saiba o id que vai alterar, preencher
+        &quot;itemId&quot;: 11, //id do sku que deseja manipular
+        &quot;salesChannel&quot;: 1, //canal de vendas onde vai vender
+        &quot;price&quot;: 241.0, // preço por
+        &quot;listPrice&quot;: 239.0, //preço de
+        &quot;validFrom&quot;: &quot;2013-12-05T17:00:03.103&quot;, //data validade de
+        &quot;validTo&quot;: &quot;2113-12-05T17:00:03.103&quot; //data de validade até
+    },
+    {
+        &quot;Id&quot;: null,
+        &quot;itemId&quot;: 2000014472,
+        &quot;salesChannel&quot;: 1,
+        &quot;price&quot;: 2.5,
+        &quot;listPrice&quot;: 15.0,
+        &quot;validFrom&quot;: &quot;2011-03-04T00:00:00&quot;,
+        &quot;validTo&quot;: &quot;2015-03-28T00:00:00&quot;
+    }
+]
+</code></pre>
+
+<p>A documentação completa sobre a API de <strong>Pricing</strong> se encontra em:
+http://lab.vtex.com/docs/logistics/api/latest/carrier/index.html</p>
+<h4>2.2 - Estoque</h4>
+<p>Isso pode ser feito direto no admin da loja na VTEX (<em>urldaloja/admin/logistics/#/dashboard</em>), maneira rápida:</p>
+<ol>
+<li>Criar o estoque,  </li>
+<li>Criar a transpotadora,  </li>
+<li>Criar a doca,</li>
+<li>Colocar estoque nos itens  </li>
+</ol>
+<p>Manipulando estoque através da API REST do sistema de <strong>Logistics</strong>:</p>
+<p>Criar o estoque, criar a transpotadora e criar a doca no admin da VTEX, 
+e depois usar a API REST do <strong>Logistics</strong> para manipular o estoque, como segue exemplo:</p>
+<p>endpoint: <strong>http://sandboxintegracao.vtexcommercebeta.com.br/api/logistics/pvt/inventory/warehouseitems/setbalance</strong>  <br />
+verb: <strong>POST</strong>  <br />
+Content-Type: <strong>application/json</strong>  <br />
+Accept: <strong>application/json</strong>    </p>
+<p><em>Exemplo do POST:</em> </p>
+<pre><code>[
+    {
+        &quot;wareHouseId&quot;: &quot;1_1&quot;, //id do estoque
+        &quot;itemId&quot;: &quot;12&quot;, //id do sku que vai manipular
+        &quot;quantity&quot;: 100 //quantidade do estoque que deseja atualizar
+    },
+    {
+        &quot;wareHouseId&quot;: &quot;1_1&quot;,
+        &quot;itemId&quot;: &quot;45&quot;,
+        &quot;quantity&quot;: 8
+    },
+    {
+        &quot;wareHouseId&quot;: &quot;1_2&quot;,
+        &quot;itemId&quot;: &quot;45&quot;,
+        &quot;quantity&quot;: 5
+    }
+]
+</code></pre>
+
+<p>A documentação completa sobre a API de <strong>Logistics</strong> se encontra em:
+<em>http://lab.vtex.com/docs/logistics/api/latest/carrier/index.html</em></p>
+<h2>3 - Considerações</h2>
+<h4>3.1 - Uso do webservice</h4>
+<p>O webservice VTEX deve ser usado o mínimo possível para os processo de integração, hoje com excessão do <strong>Catalogo</strong>, que está com sua API REST em desenvolvimento, todos os outros módulos da VTEX possúem APIs REST bem definidas e de alta performance. É altamente recomendado que se use as APIs REST nos módulos que não seja o <strong>Catalog</strong></p>
+<h4>3.2 APIs REST (formato JSON)</h4>
+<p>As APIs REST deve ser usada sempre que possível, pois ela é muito melhor do que o webservice, pois é mais performática e é muito mais completa em dados. Documentação de todas as <strong>APIs VTEX</strong> está em:
+<em>http://lab.vtex.com/docs/</em></p>
+<h4>3.3 Pooling (loop de atualização executado de tempos em tempos)</h4>
+<p>O envio ou consumo de dados num processo de integração deve ser executado somente quando necessário, ou seja, o dado só deve ser enviado do ERP para a plataforma VTEX quando ele realmente for alterado. <strong>NÂO</strong> se deve fazer uma integração que varre entidades inteiras do ERP e atualiza todos os dados na plataforma VTEX de tempos  em tempos. Além de consumir e processar dados desnecessáriamente, isso não funcionaria para lojas com mais de 5 mil Skus no catálogo.</p>
+<h4>3.4 Integração Completa</h4>
+<p>A integração completa se aplica quando o cliente já pussui o ERP com a estrutura mercadologica definida, assim como as marcas, produtos e SKUs e usa esse ERP antes de possuir o comércio eletrônico.<br />
+A integração completa demanda mais tempo, pois envolve mais interfaces, e deve seguir as mesmas boas práticas da integração expressa, ou seja, usar o web service somente para os recursos do <strong>Catalog</strong>(documentação completa do webservice: <em>https://github.com/vtex/vcs.integration.sampleshttps://github.com/vtex/vcs.integration.samples</em>), os outros recursos devem ser atualizados usando <strong>API REST</strong> dos módulos.</p>
+<h4>3.5 Pedidos e Tracking</h4>
+<p>Toda a integração de pedidos, assim como atualizações de Notas Fiscais e Tracking devem ser feitas pela API REST do OMS (Order Managment System) da VTEX.  Um outro documento parecido com esse está sendo desenvolvido para citar a integração de pedidos e tracking.</p>
+<p>Segue o link da API completa do OMS: <em>http://docs.vtex.com.br/pt-br/oms/api/orders/</em> </p>
+<h4>3.6 Ferramentas de apoio ao integrador</h4>
+<p>Recomendamos algumas ferramentas que são de extrema importância para qualquer integrador:</p>
+<p><strong>soapUI 3.6.1</strong> (<em>http://www.soapui.org/Downloads/older-versions.html</em>)
+Está ferramente é muito importante no processo de integração, pois ela permite simular os metodos do webservice, gerando automaticamente o request XML. Nesta ferramenta pode fazer as chamdas para as APIs REST também.</p>
+<p><strong>Postman - REST Client</strong> (<em>chrome://extensions/</em>)
+Nesta ferramente pode se testar, armazenar histórico, salvar coleções de requests do acesso de todas as APIs dos modulos VTEX  (OMS, Logistics, Pricing, GCS, etc).  </p>
+<p><img src="postman.png" alt="alt text" title="POSTMAN" /></p>
+<p>É de suma importancia que o integrador tenha o conhecimento de ferramentas desse tipo, ou outras parecidas, antes de inciar um processo de integração usando webservice SOAP ou APIs REST VTEX.</p>
+<h4>3.7 Header nas Chamadas a API REST</h4>
+<p>Toda chamada as API REST devem conter no Headear as seguintes Keys:<br />
+X-VTEX-API-AppToken:<strong>[Value]</strong><br />
+X-VTEX-API-AppKey:<strong>[Value]</strong><br />
+Content-Type: <strong>application/json</strong>    <br />
+Accept: <strong>application/json</strong>   </p>
+<h4>3.8 Versão:Beta 1.2</h4>
+<p>Essa versão de documntação suporta a integração na versão da plataforma VTEX smartcheckout. Ela foi escrita para auxiliar um integração e a idéia e que através dela, não  restem nenhuma dúvida de como se integrar com a VTEX. Se recebeu essa documentação e ainda restaram dúvidas, por favor, detalhe as suas dúvidas abaixo no comentário, para chegarmos a um documento rico e funcional.</p>
+<p>autor: Jonas Bolognim</p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

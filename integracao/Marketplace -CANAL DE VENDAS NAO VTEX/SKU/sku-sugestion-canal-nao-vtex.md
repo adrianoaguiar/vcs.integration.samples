@@ -42,28 +42,28 @@ Accept: **application/json**
 
 ###1.2 - Exemplos de Request de Busca de Condições Comerciais - Endpoint da Loja VTEX###
 
-endpoint: **https://endpointlojavtex/pvt/orderForms/simulation?sc=[idcanal]&affiliateId=[iddoafilaido]**  
+endpoint: **https://endpointlojavtex/pvt/orderForms/simulation?sc=[idcanal]&affiliateId=[idafiliado]**  
 verb: **POST**  
 Content-Type: **application/json**  
 Accept: **application/json**  
-Parametro: **sc=5** // sc é o canal de vendas cadastrado no marketplace
-Parametro: **affiliateId=MGZ** // o id do afiliado cadastrado na loja VTEX 
+Parametro: **sc** // sc é o canal de vendas cadastrado no marketplace  
+Parametro: **affiliateId** // o id do afiliado cadastrado na loja VTEX 
 
 *Exemplo do Request:*  
 
 	{
-        "postalCode":"22251-030",            //obrigatório se country estiver preenchido, string
-        "country":"BRA",                     //obrigatório se postalCode estiver preenchido, string      
+        "postalCode":"22251-030",            //obrigatório se country estiver preenchido
+        "country":"BRA",                     //obrigatório se postalCode estiver preenchido    
         "items": [                           //obrigatório: deve conter pelo menos um objeto item
             {
                 "id":"287611",               //obrigatório, string
                 "quantity":1,                //obrigatório-quantidade do item a ser simulada, int
-                "seller":"seller1"           //sigla do do seller criado no admin // obrigatório, string
+                "seller":"1"                 //loja pricipal usar sempre 1
             },
             {
                 "id":"5837",
                 "quantity":5,
-                "seller":"seller1"
+                "seller":"1"
             }
         ]
     }
@@ -79,7 +79,7 @@ Parametro: **affiliateId=MGZ** // o id do afiliado cadastrado na loja VTEX
                 "price": 7390,                                         //Os dois dígitos menos significativos são os centavos //obrigatório, int
                 "listPrice": 7490,                                     //Os dois dígitos menos significativos são os centavos //obrigatório, int
                 "quantity": 1,                                         //obrigatório, int
-                "seller": "1",                                         //Id do seller cadastrado na loja // obrigatório, string,
+                "seller": "1",                                         //id do seller cadastrado na loja // obrigatório, string,
                 "priceValidUntil": "2014-03-01T22:58:28.143"           //data, pode ser nulo
                 "offerings":[                                           //Array opcional, porém não pode ser nulo: enviar array vazio ou não enviar a propriedade
                     {
@@ -167,8 +167,8 @@ Parametro: **an=nomedalojavtex**
 *Exemplo do Response:*
 
 	    {
-		    "Id": 1634,
-		    "ProductId": 1634,
+		    "Id": 1634, //id da sku
+		    "ProductId": 1634, //id do produto pai da sku
 		    "NameComplete": "Primer Lisse Minute Clarins - Base Facial Alisadora 15ml",
 		    "ProductName": "Primer Lisse Minute Clarins - Base Facial Alisadora",
 		    "ProductDescription": "<strong>Primer Lisse Minute</strong> deixa a pele imediatante alisada e suave ao toque. O primer da <strong>Clarins</strong> atenua as imperfeições e reduz a aparência dos poros. A pele fica linda a pronta para receber a make!</br>Com o rosto limpo aplique o primer com os dedos ou com um pincel. Espalhe bem começando pela zona T (testa, nariz e queixo) em direção aos cantos externos do rosto.",
@@ -313,7 +313,6 @@ Nesta ferramente pode se testar, armazenar histórico, salvar coleções de requ
 Canal de Vendas - Marketplace onde nasce o pedido.  
 SKU - Define uma variação de um produto.  
 Loja VTEX - loja hospedada na versão smartcheckout da VTEX
-
 
 
 ####2.4 Versão:Beta 1.1####

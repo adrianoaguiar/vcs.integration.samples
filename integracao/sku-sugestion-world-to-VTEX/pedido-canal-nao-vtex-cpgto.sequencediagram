@@ -30,9 +30,9 @@
 canal inicia transação, 
 
 
+envia pagamente,
 
-
-envia pagamente e 
+envia infos para antifraude
 
 
 envia autorização de pagamento</body>
@@ -139,16 +139,16 @@ envia autorização de pagamento</body>
               <lifelineMoniker Id="8ef2d70f-fdc2-4585-adb6-6695889bc33f" LastKnownName="WORLD" />
             </covered>
           </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="cb313435-c08a-4d17-a76f-03494535f7e3" name="MessageOccurrenceSpecification31">
-            <elementDefinition Id="e6a6970a-fc12-4775-a2ab-bd281ae2f0a1" />
-            <covered>
-              <lifelineMoniker Id="9857a820-4b2f-4f3a-9ab4-b8775763e074" LastKnownName="VTEX" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="75f58867-d978-4ab0-8800-a9adbe531ebe" name="MessageOccurrenceSpecification32">
             <elementDefinition Id="b152b46c-cba5-40cd-9538-13f9625773dc" />
             <covered>
               <lifelineMoniker Id="8ef2d70f-fdc2-4585-adb6-6695889bc33f" LastKnownName="WORLD" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="cb313435-c08a-4d17-a76f-03494535f7e3" name="MessageOccurrenceSpecification31">
+            <elementDefinition Id="e6a6970a-fc12-4775-a2ab-bd281ae2f0a1" />
+            <covered>
+              <lifelineMoniker Id="9857a820-4b2f-4f3a-9ab4-b8775763e074" LastKnownName="VTEX" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="6a44b83d-0884-4578-972e-ec0c99befb9c" name="ExecutionOccurrenceSpecification16">
@@ -224,6 +224,68 @@ envia autorização de pagamento</body>
               <lifelineMoniker Id="9857a820-4b2f-4f3a-9ab4-b8775763e074" LastKnownName="VTEX" />
             </covered>
           </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="959f909e-3d66-4cc0-ad8a-a43b03d61f94" name="BehaviorExecutionSpecification10">
+            <elementDefinition Id="4470fb3c-8b2e-4a2e-a744-bf11b3f164d1" />
+            <coveredLifelines>
+              <lifelineMoniker Id="9857a820-4b2f-4f3a-9ab4-b8775763e074" LastKnownName="VTEX" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="e3e41626-ab5a-4b7f-8bee-ffe470515243" LastKnownName="ExecutionOccurrenceSpecification20" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="d803ec42-d992-46e7-9a2d-2d1a9160422c" LastKnownName="ExecutionOccurrenceSpecification19" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="d9ad343e-4630-4088-93ae-50407bc7c4de" LastKnownName="MessageOccurrenceSpecification38" />
+              <messageOccurrenceSpecificationMoniker Id="0256dc1d-f350-49c1-8b96-8a0020e5971e" LastKnownName="MessageOccurrenceSpecification39" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="d803ec42-d992-46e7-9a2d-2d1a9160422c" name="ExecutionOccurrenceSpecification19">
+            <elementDefinition Id="2536b5b2-9a8c-45d3-98b5-34b7b645ad4b" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="c2f0413a-c77c-4c12-a87a-15360b3a6357" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="9857a820-4b2f-4f3a-9ab4-b8775763e074" LastKnownName="VTEX" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="d9ad343e-4630-4088-93ae-50407bc7c4de" name="MessageOccurrenceSpecification38">
+            <elementDefinition Id="0bf67f05-4bcd-45a6-b121-9418b24bd80a" />
+            <covered>
+              <lifelineMoniker Id="9857a820-4b2f-4f3a-9ab4-b8775763e074" LastKnownName="VTEX" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="93a30677-3122-409c-a6fa-ca5e387442fb" name="MessageOccurrenceSpecification37">
+            <elementDefinition Id="56a22e29-9bd9-415c-a130-41c8c95bb897" />
+            <covered>
+              <lifelineMoniker Id="8ef2d70f-fdc2-4585-adb6-6695889bc33f" LastKnownName="WORLD" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="c1ece176-1634-4ae0-8e20-6346997df5e3" name="MessageOccurrenceSpecification40">
+            <elementDefinition Id="6b91cc5c-dee1-4c56-981e-4d176329827d" />
+            <covered>
+              <lifelineMoniker Id="8ef2d70f-fdc2-4585-adb6-6695889bc33f" LastKnownName="WORLD" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="0256dc1d-f350-49c1-8b96-8a0020e5971e" name="MessageOccurrenceSpecification39">
+            <elementDefinition Id="fff2850f-c432-4378-9530-a6310a241db7" />
+            <covered>
+              <lifelineMoniker Id="9857a820-4b2f-4f3a-9ab4-b8775763e074" LastKnownName="VTEX" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="e3e41626-ab5a-4b7f-8bee-ffe470515243" name="ExecutionOccurrenceSpecification20">
+            <elementDefinition Id="909d3071-a5d5-473f-bbc9-e162f0cfc83c" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="a26310b5-ee1f-4894-a1fb-0dddfe0d68b1" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="9857a820-4b2f-4f3a-9ab4-b8775763e074" LastKnownName="VTEX" />
+            </covered>
+          </executionOccurrenceSpecification>
           <behaviorExecutionSpecification Id="ae3d130a-3223-4cba-a679-3a57e2e33a77" name="BehaviorExecutionSpecification9">
             <elementDefinition Id="a63da4f7-526b-449b-af2b-b6698a99449b" />
             <coveredLifelines>
@@ -251,16 +313,16 @@ envia autorização de pagamento</body>
               <lifelineMoniker Id="9857a820-4b2f-4f3a-9ab4-b8775763e074" LastKnownName="VTEX" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="efc3bb36-5f01-4fa7-96c5-ac3a540f30ad" name="MessageOccurrenceSpecification34">
-            <elementDefinition Id="3c582be3-63b5-446b-8223-4474e06e9ac6" />
-            <covered>
-              <lifelineMoniker Id="9857a820-4b2f-4f3a-9ab4-b8775763e074" LastKnownName="VTEX" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="b112b83f-656e-4bb5-998a-a4d075878ddb" name="MessageOccurrenceSpecification33">
             <elementDefinition Id="b443400a-672e-431f-b382-f7a2b83d4061" />
             <covered>
               <lifelineMoniker Id="8ef2d70f-fdc2-4585-adb6-6695889bc33f" LastKnownName="WORLD" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="efc3bb36-5f01-4fa7-96c5-ac3a540f30ad" name="MessageOccurrenceSpecification34">
+            <elementDefinition Id="3c582be3-63b5-446b-8223-4474e06e9ac6" />
+            <covered>
+              <lifelineMoniker Id="9857a820-4b2f-4f3a-9ab4-b8775763e074" LastKnownName="VTEX" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="e1531fb2-af52-40dc-891d-bc05a35769fb" name="MessageOccurrenceSpecification36">
@@ -313,16 +375,16 @@ envia autorização de pagamento</body>
               <lifelineMoniker Id="9857a820-4b2f-4f3a-9ab4-b8775763e074" LastKnownName="VTEX" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="e248ebf6-38e5-40aa-adc8-cc9838853b6c" name="MessageOccurrenceSpecification17">
-            <elementDefinition Id="080656fc-6adb-468c-ad76-a3d58fd0e38f" />
-            <covered>
-              <lifelineMoniker Id="8ef2d70f-fdc2-4585-adb6-6695889bc33f" LastKnownName="WORLD" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="80dc747a-41c0-4854-b861-961c34b21b4d" name="MessageOccurrenceSpecification18">
             <elementDefinition Id="bdaf5c99-cbf7-4cf4-8ec2-250d46edde20" />
             <covered>
               <lifelineMoniker Id="9857a820-4b2f-4f3a-9ab4-b8775763e074" LastKnownName="VTEX" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="e248ebf6-38e5-40aa-adc8-cc9838853b6c" name="MessageOccurrenceSpecification17">
+            <elementDefinition Id="080656fc-6adb-468c-ad76-a3d58fd0e38f" />
+            <covered>
+              <lifelineMoniker Id="8ef2d70f-fdc2-4585-adb6-6695889bc33f" LastKnownName="WORLD" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="6066dde5-1bbe-43a9-bf1b-b7adf60c1f95" name="MessageOccurrenceSpecification20">
@@ -375,16 +437,16 @@ envia autorização de pagamento</body>
               <lifelineMoniker Id="9857a820-4b2f-4f3a-9ab4-b8775763e074" LastKnownName="VTEX" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="ac7bded3-6126-4dad-a5f2-a06ba247fe61" name="MessageOccurrenceSpecification22">
-            <elementDefinition Id="559d791f-c88b-4bc5-90ac-5a3a004e0322" />
-            <covered>
-              <lifelineMoniker Id="9857a820-4b2f-4f3a-9ab4-b8775763e074" LastKnownName="VTEX" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="5fd72032-b391-4823-8b50-0db59ae464a3" name="MessageOccurrenceSpecification21">
             <elementDefinition Id="d2b8b339-0164-410e-9a43-bf388b91095a" />
             <covered>
               <lifelineMoniker Id="8ef2d70f-fdc2-4585-adb6-6695889bc33f" LastKnownName="WORLD" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="ac7bded3-6126-4dad-a5f2-a06ba247fe61" name="MessageOccurrenceSpecification22">
+            <elementDefinition Id="559d791f-c88b-4bc5-90ac-5a3a004e0322" />
+            <covered>
+              <lifelineMoniker Id="9857a820-4b2f-4f3a-9ab4-b8775763e074" LastKnownName="VTEX" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="4c1331ad-7c2a-4e9b-995b-ecb7511475d3" name="MessageOccurrenceSpecification24">
@@ -421,6 +483,8 @@ envia autorização de pagamento</body>
               <messageOccurrenceSpecificationMoniker Id="75f58867-d978-4ab0-8800-a9adbe531ebe" LastKnownName="MessageOccurrenceSpecification32" />
               <messageOccurrenceSpecificationMoniker Id="30f0c4cb-4f9b-408a-9f22-78f5ef9f8063" LastKnownName="MessageOccurrenceSpecification25" />
               <messageOccurrenceSpecificationMoniker Id="cf0eb43d-2926-4cb4-95d4-009e4490b052" LastKnownName="MessageOccurrenceSpecification28" />
+              <messageOccurrenceSpecificationMoniker Id="93a30677-3122-409c-a6fa-ca5e387442fb" LastKnownName="MessageOccurrenceSpecification37" />
+              <messageOccurrenceSpecificationMoniker Id="c1ece176-1634-4ae0-8e20-6346997df5e3" LastKnownName="MessageOccurrenceSpecification40" />
               <messageOccurrenceSpecificationMoniker Id="b112b83f-656e-4bb5-998a-a4d075878ddb" LastKnownName="MessageOccurrenceSpecification33" />
               <messageOccurrenceSpecificationMoniker Id="e1531fb2-af52-40dc-891d-bc05a35769fb" LastKnownName="MessageOccurrenceSpecification36" />
               <messageOccurrenceSpecificationMoniker Id="e248ebf6-38e5-40aa-adc8-cc9838853b6c" LastKnownName="MessageOccurrenceSpecification17" />
@@ -438,6 +502,8 @@ envia autorização de pagamento</body>
               <executionOccurrenceSpecificationMoniker Id="6a44b83d-0884-4578-972e-ec0c99befb9c" LastKnownName="ExecutionOccurrenceSpecification16" />
               <executionOccurrenceSpecificationMoniker Id="a1d7301d-320a-469f-abe8-0b76c983d337" LastKnownName="ExecutionOccurrenceSpecification13" />
               <executionOccurrenceSpecificationMoniker Id="eb6a25f5-b18d-46e7-be44-f9ea5029e333" LastKnownName="ExecutionOccurrenceSpecification14" />
+              <executionOccurrenceSpecificationMoniker Id="d803ec42-d992-46e7-9a2d-2d1a9160422c" LastKnownName="ExecutionOccurrenceSpecification19" />
+              <executionOccurrenceSpecificationMoniker Id="e3e41626-ab5a-4b7f-8bee-ffe470515243" LastKnownName="ExecutionOccurrenceSpecification20" />
               <executionOccurrenceSpecificationMoniker Id="88fab63c-0fe5-4e0d-890c-746b7d137692" LastKnownName="ExecutionOccurrenceSpecification17" />
               <executionOccurrenceSpecificationMoniker Id="1512f246-4938-463b-a0d1-195c926caa34" LastKnownName="ExecutionOccurrenceSpecification18" />
               <executionOccurrenceSpecificationMoniker Id="730ac69d-72aa-4aec-a6ff-d27c6c18168d" LastKnownName="ExecutionOccurrenceSpecification9" />
@@ -500,6 +566,24 @@ envia autorização de pagamento</body>
             </sendEvent>
             <receiveEvent>
               <messageOccurrenceSpecificationMoniker Id="cf0eb43d-2926-4cb4-95d4-009e4490b052" LastKnownName="MessageOccurrenceSpecification28" />
+            </receiveEvent>
+          </message>
+          <message Id="bbe1afe0-27c2-4920-a263-c3492793390f" name="POST:CustomerInfo{JSON}:https://lojavtexendpoint/payments/orderinfo" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+            <elementDefinition Id="d1de3cd0-2499-4950-961e-9aab829f1622" />
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="93a30677-3122-409c-a6fa-ca5e387442fb" LastKnownName="MessageOccurrenceSpecification37" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="d9ad343e-4630-4088-93ae-50407bc7c4de" LastKnownName="MessageOccurrenceSpecification38" />
+            </receiveEvent>
+          </message>
+          <message Id="8cdf287b-0b86-4d32-a045-949ae37e6ed7" name="&lt;&lt;return&gt;&gt;" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <elementDefinition Id="d6bd4f00-91bf-4b1e-bdb7-57dcb1dd1590" />
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="0256dc1d-f350-49c1-8b96-8a0020e5971e" LastKnownName="MessageOccurrenceSpecification39" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="c1ece176-1634-4ae0-8e20-6346997df5e3" LastKnownName="MessageOccurrenceSpecification40" />
             </receiveEvent>
           </message>
           <message Id="dbcfce2c-2629-4cd5-b95d-edd33222956d" name="PUT:Authorization{JSON}:https://lojavtexendpoint/payments/" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
@@ -607,6 +691,16 @@ envia autorização de pagamento</body>
     <packageHasNamedElement>
       <executionEvent Id="2394edf2-7ba0-4863-b417-713a286d38fb" name="ExecutionEvent">
         <elementDefinition Id="ddc36a86-64b2-41a0-85fc-267d3084d3ef" />
+      </executionEvent>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="c2f0413a-c77c-4c12-a87a-15360b3a6357" name="ExecutionEvent">
+        <elementDefinition Id="8bb043c8-2222-4adb-879e-9bb5f4ffbd7a" />
+      </executionEvent>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="a26310b5-ee1f-4894-a1fb-0dddfe0d68b1" name="ExecutionEvent">
+        <elementDefinition Id="f67f9b67-504d-413e-98b6-a16ee0e87252" />
       </executionEvent>
     </packageHasNamedElement>
   </packagedElements>
