@@ -8064,8 +8064,8 @@
             <vtex:Description>Marca DuBom</vtex:Description>
             <vtex:IsActive>true</vtex:IsActive>
             <vtex:Keywords>DuBom Keywords</vtex:Keywords>
-            <vtex:Name>DuBom</vtex:Name>
-            <vtex:Title>DuBom</vtex:Title>
+            <vtex:Name>DuBom 1</vtex:Name>
+            <vtex:Title>DuBom 2</vtex:Title>
          </tem:brand>
       </tem:BrandInsertUpdate>
    </soapenv:Body>
@@ -8682,7 +8682,7 @@
          <tem:freightTypeId>?</tem:freightTypeId>
       </tem:FreightCalculate>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IService/FreightCalculate"/></con:call></con:operation><con:operation isOneWay="false" action="http://tempuri.org/IService/FreightCalculateV3" name="FreightCalculateV3" bindingOperationName="FreightCalculateV3" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservice-sandboxintegracao.vtexcommerce.com.br/Service.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IService/FreightCalculate"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="http://tempuri.org/IService/FreightCalculateV3" name="FreightCalculateV3" bindingOperationName="FreightCalculateV3" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservice-sandboxintegracao.vtexcommerce.com.br/Service.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
    <soapenv:Header/>
    <soapenv:Body>
       <tem:FreightCalculateV3>
