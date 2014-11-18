@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>sku-sugestion-canal-nao-vtex</title>
+<title>fechamento-canal-nao-vtex-com-pgto</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style type="text/css">
 /* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
@@ -292,75 +292,33 @@ img {
 
 </head>
 <body>
-<h1>Atualização de Condição Comercial e Inserção de SKU</h1>
-<p>Este documento tem por objetivo auxiliar na integração e atualização de condição comercial (preço, estoque, frete, SLAs de entrega) de um *SKU entre uma loja hospedada na versão smartcheckout da VTEX e um *Canal de Vendas não VTEX.</p>
-<p><em>Exemplo de Fluxo</em>  </p>
-<p><img src="sku-sugestion-canal-nao-vtex.png" alt="alt text" title="Title" /></p>
-<h2>1-Inserção e Atualização de SKU - Fluxo</h2>
-<ul>
-<li>
-<p>Caso se queira uma condição comercial diferenciada para o canal de vendas, na *loja VTEX deverá ser criado um novo canal de vendas, podendo assim criar sortimento e promoções diferenciadas da loja principal.  
-</p>
-</li>
-<li>
-<p>Dentro da loja hospedada na VTEX, será criado um *afiliado, que é o interessado em receber o catálogo e as atualizações de condições comerciais.  
-</p>
-</li>
-<li>
-<p>O afiliado, deverá implementar um endpoint onde receberá informações sobre alterações de condição comercial de SKUs.  
-</p>
-</li>
-<li>
-<p>Na loja VTEX, cada vez que uma SKU comercializado pelo afiliado sofrer uma alteração na condição comercial, ou for reindexado, o endpoint de notificação do afiliado será chamado.  
-</p>
-</li>
-<li>
-<p>Quando o afiliado recebe uma notificação que um SKU mudou a condição comercial, o afiliado deve checar se já comercializa aquela SKU daquela loja que comunicou.  
-</p>
-<ul>
-<li>
-<p><strong>Caso SIM</strong>: O afiliado consulta a condição comercial na VTEX e se atualiza.</p>
-</li>
-<li>
-<p><strong>Caso NÂO</strong>: O afiliado busca a SKu na loja, insere no seu catalogo, e depois repete o cenário do &quot;Caso SIM&quot;.</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3>1.1 - Exemplos de Request de Notificação de Mudança - Endpoint do Afiliado</h3>
-<p>endpoint: <strong>https://endpointdoafiliado/api/notification/</strong><br />
-verb: <strong>POST</strong><br />
-Content-Type: <strong>application/json</strong><br />
-Accept: <strong>application/json</strong></p>
-<p><em>Exemplo do Request:</em>  </p>
-<pre><code>{ 
-    &quot;IdSku&quot; : &quot;1634&quot;, //id da sku da VTEX
-    &quot;An&quot; : &quot;loja1&quot;, //loja vtex
-    &quot;IdAffiliate&quot;:&quot;afiliado1&quot; // id do afilado cadastrado na loja vtex
-}
-</code></pre>
-
-<h3>1.2 - Exemplos de Request de Busca de Condições Comerciais - Endpoint da Loja VTEX</h3>
-<p>endpoint: <strong>https://endpointlojavtex/pvt/orderForms/simulation?sc=[idcanal]&amp;affiliateId=[idafiliado]</strong><br />
+<h1>Simulação de Carrinho e Página de Pagamento</h1>
+<p>Este documento tem por objetivo auxiliar o na simulação de carrinho, e consulta de formas de pagamento e  parcelamentos entre um canal de vendas não VTEX com uma loja VTEX.</p>
+<h2>1 - No Carrinho e no Pagamento</h2>
+<p>Quando um produto é inserido no carrinho no canal de vendas não VTEX, ou faz se alguma edição no carrinho, uma consulta de simulaçao de carrinho deverá ser feita na loja VTEX para checar a validade das condiçoes comerciais (preço, estoque, frete e SLAs de entrega). Quando o cliente vai para o pagamento, uma consulta as formas de pagamento, aos parcelmentos e uma outra simulçao de carrinho deverá ser realizada.</p>
+<p><em>Exemplo do fuxo de chamadas no carrinho e pagamento:</em>  </p>
+<p><img src="fechamento-canal-nao-vtex-com-pgto.PNG" alt="alt text" title="Fechamento do pedido no marketplace" />  </p>
+<h3>1.1 - Exemplos de Request de Simulação de Carrinho - Endpoint loja VTEX</h3>
+<p>endpoint: <strong>https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&amp;affiliateId=[idafiliado]</strong><br />
 verb: <strong>POST</strong><br />
 Content-Type: <strong>application/json</strong><br />
 Accept: <strong>application/json</strong><br />
-Parametro: <strong>sc</strong> // sc é o canal de vendas cadastrado no marketplace<br />
-Parametro: <strong>affiliateId</strong> // o id do afiliado cadastrado na loja VTEX </p>
+Parametro: <strong>sc</strong> // sc é o canal de vendas<br />
+Parametro: <strong>affiliateId</strong> // affiliateId é o id do afiliado cadastrado na loja VTEX</p>
 <p><em>Exemplo do Request:</em>  </p>
 <pre><code>{
-    &quot;postalCode&quot;:&quot;22251-030&quot;,            //obrigatório se country estiver preenchido
-    &quot;country&quot;:&quot;BRA&quot;,                     //obrigatório se postalCode estiver preenchido    
+    &quot;postalCode&quot;:&quot;22251-030&quot;,            //obrigatório se country estiver preenchido, string
+    &quot;country&quot;:&quot;BRA&quot;,                     //obrigatório se postalCode estiver preenchido, string      
     &quot;items&quot;: [                           //obrigatório: deve conter pelo menos um objeto item
         {
             &quot;id&quot;:&quot;287611&quot;,               //obrigatório, string
             &quot;quantity&quot;:1,                //obrigatório-quantidade do item a ser simulada, int
-            &quot;seller&quot;:&quot;1&quot;                 //loja pricipal usar sempre 1
+            &quot;seller&quot;:&quot;seller1&quot;           //sigla do do seller criado no admin // obrigatório, string
         },
         {
             &quot;id&quot;:&quot;5837&quot;,
             &quot;quantity&quot;:5,
-            &quot;seller&quot;:&quot;1&quot;
+            &quot;seller&quot;:&quot;seller1&quot;
         }
     ]
 }
@@ -371,11 +329,12 @@ Parametro: <strong>affiliateId</strong> // o id do afiliado cadastrado na loja V
     &quot;items&quot;: [                                                     //pode vir um array vazio
         {
             &quot;id&quot;: &quot;287611&quot;,                                        //obrigatório, string
-            &quot;requestIndex&quot;: 0,                                     //obrigatório, int - representa a posição desse item no array original (request)
-            &quot;price&quot;: 7390,                                         //Os dois dígitos menos significativos são os centavos //obrigatório, int
-            &quot;listPrice&quot;: 7490,                                     //Os dois dígitos menos significativos são os centavos //obrigatório, int
+            &quot;requestIndex&quot;: 0,                                     //obrigatório, int - representa a posição desse item no array original,
+            &quot;price&quot;: 7390,                                         // Os dois dígitos menos significativos são os centavos //obrigatório, int
+            &quot;listPrice&quot;: 7490,                                     // Os dois dígitos menos significativos são os centavos //obrigatório, int
             &quot;quantity&quot;: 1,                                         //obrigatório, int
-            &quot;seller&quot;: &quot;1&quot;,                                         //id do seller cadastrado na loja // obrigatório, string,
+            &quot;seller&quot;: &quot;1&quot;,                                         // Id do seller cadastrado na loja // obrigatório, string,
+            &quot;merchantName&quot;: &quot;epoca&quot;,                               // name do gateway de pagamento, será usado ao enviar o pedido
             &quot;priceValidUntil&quot;: &quot;2014-03-01T22:58:28.143&quot;           //data, pode ser nulo
             &quot;offerings&quot;:[                                           //Array opcional, porém não pode ser nulo: enviar array vazio ou não enviar a propriedade
                 {
@@ -398,7 +357,8 @@ Parametro: <strong>affiliateId</strong> // o id do afiliado cadastrado na loja V
             &quot;price&quot;: 890,                                          // Os dois dígitos menos significativos são os centavos
             &quot;listPrice&quot;: 990,                                      // Os dois dígitos menos significativos são os centavos
             &quot;quantity&quot;: 5,
-            &quot;seller&quot;: &quot;1&quot;,  
+            &quot;seller&quot;: &quot;1&quot;,
+            &quot;merchantName&quot;: &quot;epoca&quot;,                               
             &quot;priceValidUntil&quot;: null
         }
     ],
@@ -452,158 +412,12 @@ Parametro: <strong>affiliateId</strong> // o id do afiliado cadastrado na loja V
 }
 </code></pre>
 
-<h3>1.3 - Exemplos de Request de Busca Dados de SKU - Endpoint da Loja VTEX</h3>
-<p>endpoint: <strong>http://portal.vtexcommerce.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/[idsku]?an=[nomedalojavtex]</strong><br />
-verb: <strong>GET</strong> <br />
-Accept: <strong>application/json</strong><br />
-Parametro: <strong>an=nomedalojavtex</strong> </p>
-<p><em>Exemplo do Response:</em></p>
-<pre><code>    {
-        &quot;Id&quot;: 1634, //id da sku
-        &quot;ProductId&quot;: 1634, //id do produto pai da sku
-        &quot;NameComplete&quot;: &quot;Primer Lisse Minute Clarins - Base Facial Alisadora 15ml&quot;,
-        &quot;ProductName&quot;: &quot;Primer Lisse Minute Clarins - Base Facial Alisadora&quot;,
-        &quot;ProductDescription&quot;: &quot;&lt;strong&gt;Primer Lisse Minute&lt;/strong&gt; deixa a pele imediatante alisada e suave ao toque. O primer da &lt;strong&gt;Clarins&lt;/strong&gt; atenua as imperfeições e reduz a aparência dos poros. A pele fica linda a pronta para receber a make!&lt;/br&gt;Com o rosto limpo aplique o primer com os dedos ou com um pincel. Espalhe bem começando pela zona T (testa, nariz e queixo) em direção aos cantos externos do rosto.&quot;,
-        &quot;SkuName&quot;: &quot;15ml&quot;,
-        &quot;IsActive&quot;: true,
-        &quot;IsTransported&quot;: true,
-        &quot;IsInventoried&quot;: true,
-        &quot;IsGiftCardRecharge&quot;: false,
-        &quot;ImageUrl&quot;: &quot;http://epocacosmeticos.vteximg.com.br/arquivos/ids/162097-55-55/primer-lisse-minute-15ml-clarins.jpg&quot;,
-        &quot;DetailUrl&quot;: &quot;/primer-lisse-minute-clarins-base-facial-alisadora/p&quot;,
-        &quot;CSCIdentification&quot;: null,
-        &quot;BrandId&quot;: &quot;2000050&quot;,
-        &quot;Dimension&quot;: {
-            &quot;cubicweight&quot;: 0.2083,
-            &quot;height&quot;: 10,
-            &quot;length&quot;: 10,
-            &quot;weight&quot;: 100,
-            &quot;width&quot;: 10
-        },
-        &quot;IsKit&quot;: false,
-        &quot;KitItems&quot;: [],
-        &quot;Services&quot;: [
-            {
-                &quot;Id&quot;: 1098,
-                &quot;Name&quot;: &quot;Embalagem presente&quot;,
-                &quot;IsFile&quot;: false,
-                &quot;IsGiftCard&quot;: false,
-                &quot;IsRequired&quot;: false,
-                &quot;Options&quot;: [
-                    {
-                        &quot;Id&quot;: 1098,
-                        &quot;Name&quot;: &quot;Embalagem presente&quot;,
-                        &quot;Description&quot;: &quot;Embalagem presente&quot;,
-                        &quot;PriceName&quot;: &quot;Embalagem presente&quot;,
-                        &quot;ListPrice&quot;: 1,
-                        &quot;Price&quot;: 1
-                    }
-                ],
-                &quot;Attachments&quot;: []
-            }
-        ],
-        &quot;Categories&quot;: [],
-        &quot;Attachments&quot;: [],
-        &quot;Collections&quot;: [],
-        &quot;SkuSellers&quot;: [
-            {
-                &quot;SkuCommercialOffer&quot;: {
-                    &quot;DeliverySlaSamples&quot;: [
-                        {
-                            &quot;Region&quot;: {
-                                &quot;Id&quot;: &quot;1&quot;,
-                                &quot;Name&quot;: &quot;RJ&quot;,
-                                &quot;CountryCode&quot;: &quot;BRA&quot;,
-                                &quot;ZipCode&quot;: &quot;22080010&quot;
-                            },
-                            &quot;DeliverySlaPerTypes&quot;: [
-                                {
-                                    &quot;TypeName&quot;: &quot;Normal&quot;,
-                                    &quot;Price&quot;: 9.9,
-                                    &quot;Time&quot;: &quot;00:00:00&quot;
-                                }
-                            ]
-                        }
-                    ],
-                    &quot;Price&quot;: 174,
-                    &quot;ListPrice&quot;: 174,
-                    &quot;AvailableQuantity&quot;: 22
-                },
-                &quot;SellerId&quot;: &quot;1&quot;,
-                &quot;StockKeepingUnitId&quot;: 1634,
-                &quot;SellerStockKeepingUnitId&quot;: &quot;1634&quot;,
-                &quot;IsActive&quot;: true,
-                &quot;FreightCommissionPercentage&quot;: 0,
-                &quot;ProductCommissionPercentage&quot;: 0
-            }
-        ],
-        &quot;SkuPriceSheet&quot;: [],
-        &quot;Images&quot;: [
-            {
-                &quot;ImageUrl&quot;: &quot;http://epocacosmeticos.vteximg.com.br/arquivos/ids/162097/primer-lisse-minute-15ml-clarins.jpg&quot;,
-                &quot;ImageName&quot;: null,
-                &quot;FileId&quot;: 162097
-            }
-        ],
-        &quot;SkuSpecifications&quot;: [
-            {
-                &quot;FieldId&quot;: 283,
-                &quot;FieldName&quot;: &quot;Variação&quot;,
-                &quot;FieldValueIds&quot;: [
-                    2688
-                ],
-                &quot;FieldValues&quot;: [
-                    &quot;15ml&quot;
-                ]
-            }
-        ],
-        &quot;ProductSpecifications&quot;: [],
-        &quot;ProductClustersIds&quot;: &quot;135,149,150,151,152,153,154,155,156,157,158,159,160,161,219,310,358,366,406,407,408,451,473,480,486,525,535,546,549,552,561,569&quot;,
-        &quot;ProductCategoryIds&quot;: &quot;/1000004/1000012/1000040/&quot;,
-        &quot;ProductCategories&quot;: {
-            &quot;1000004&quot;: &quot;Maquiagem&quot;,
-            &quot;1000012&quot;: &quot;Primer e Finalizador&quot;,
-            &quot;1000040&quot;: &quot;Fixador da Maquiagem&quot;
-        },
-        &quot;CommercialConditionId&quot;: 1,
-        &quot;RewardValue&quot;: 0,
-        &quot;AlternateIds&quot;: {
-            &quot;Ean&quot;: &quot;3380814700219&quot;,
-            &quot;RefId&quot;: &quot;005899&quot;
-        },
-        &quot;AlternateIdValues&quot;: [
-            &quot;3380814700219&quot;,
-            &quot;005899&quot;
-        ],
-        &quot;EstimatedDateArrival&quot;: null,
-        &quot;MeasurementUnit&quot;: &quot;un&quot;,
-        &quot;UnitMultiplier&quot;: 1,
-        &quot;InformationSource&quot;: &quot;Indexer&quot;,
-        &quot;ModalType&quot;: null
-    }
-</code></pre>
-
-<h2>2 - Considerações</h2>
-<h4>2.1 Header nas Chamadas a API REST</h4>
-<p>Todas chamadas as API REST devem conter no Headear as seguintes Keys:<br />
-X-VTEX-API-AppToken:<strong>[Value]</strong><br />
-X-VTEX-API-AppKey:<strong>[Value]</strong><br />
-Content-Type: <strong>application/json</strong>    <br />
-Accept: <strong>application/json</strong>   </p>
-<h4>2.2 Ferramentas de apoio ao integrador</h4>
-<p>Ferramentas são de extrema importância para qualquer integrador:</p>
-<p><strong>Postman - REST Client</strong> (<em>chrome://extensions/</em>)
-Nesta ferramente pode se testar, armazenar histórico, salvar coleções de requests do acesso de todas as APIs dos modulos VTEX  (OMS, Logistics, Pricing, GCS, etc).  </p>
-<p><img src="postman.png" alt="alt text" title="Title" /></p>
-<p>É de suma importancia que o integrador tenha o conhecimento de ferramentas desse tipo, ou outras parecidas, antes de inciar um processo de integração usando APIs REST VTEX.</p>
-<h4>2.3 - Glossário</h4>
-<p>Canal de Vendas - Marketplace onde nasce o pedido.<br />
-SKU - Define uma variação de um produto.<br />
-Loja VTEX - loja hospedada na versão smartcheckout da VTEX</p>
-<h4>2.4 Versão:Beta 1.1</h4>
+<h3>1.2 - Exemplos de Request das Consultas de Forma de Pagamento e Parcelamento - Endpoint loja VTEX</h3>
+<p>...em desenvolvimento...</p>
+<h2>2 Versão:Beta 1.1</h2>
 <p>Essa versão de documentação suporta a integração na versão da plataforma VTEX smartcheckout. Ela foi escrita para auxiliar um integração e a idéia e que através dela, não  restem nenhuma dúvida de como se integrar com a VTEX. Se recebeu essa documentação e ainda restaram dúvidas, por favor, detalhe as suas dúvidas abaixo no comentário, para chegarmos a um documento rico e funcional.</p>
-<p>Autor: <em>Jonas Bolognim</em><br />
-Propriedade:<em>VTEX</em></p>
+<p>autor: <em>Jonas Bolognim</em><br />
+propriedade: <em>VTEX</em></p>
 
 </body>
 </html>

@@ -163,16 +163,16 @@
               <lifelineMoniker Id="067f8611-4444-4b26-bf2a-bb1973735b98" LastKnownName="VTEX" />
             </covered>
           </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="7cd0954a-7a45-4613-92de-5a3bcd8d5f1c" name="MessageOccurrenceSpecification15">
-            <elementDefinition Id="fcc05c69-442a-422e-a312-62fc476372b7" />
-            <covered>
-              <lifelineMoniker Id="eef79327-ac84-49d1-aa97-e0a90880fb72" LastKnownName="World" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="522d8ca3-1a58-48eb-b498-7723771703a2" name="MessageOccurrenceSpecification16">
             <elementDefinition Id="ca2e65d0-b242-4236-8087-cef21c346123" />
             <covered>
               <lifelineMoniker Id="067f8611-4444-4b26-bf2a-bb1973735b98" LastKnownName="VTEX" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="7cd0954a-7a45-4613-92de-5a3bcd8d5f1c" name="MessageOccurrenceSpecification15">
+            <elementDefinition Id="fcc05c69-442a-422e-a312-62fc476372b7" />
+            <covered>
+              <lifelineMoniker Id="eef79327-ac84-49d1-aa97-e0a90880fb72" LastKnownName="World" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="ae500371-40cb-417e-8472-f6dc5ad65fef" name="ExecutionOccurrenceSpecification8">

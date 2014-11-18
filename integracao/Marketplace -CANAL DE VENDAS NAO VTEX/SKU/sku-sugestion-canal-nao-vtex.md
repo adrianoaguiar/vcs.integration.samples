@@ -8,7 +8,7 @@ Este documento tem por objetivo auxiliar na integração e atualização de cond
 
 ##1-Inserção e Atualização de SKU - Fluxo##
 
-* Caso se queira uma condição comercial diferenciada para o canal de vendas, na *loja VTEX deverá ser criado um novo canal de vendas, podendo assim criar promoções diferenciadas somente para o canal desejado.  
+* Caso se queira uma condição comercial diferenciada para o canal de vendas, na *loja VTEX deverá ser criado um novo canal de vendas, podendo assim criar sortimento e promoções diferenciadas da loja principal.  
 
 * Dentro da loja hospedada na VTEX, será criado um *afiliado, que é o interessado em receber o catálogo e as atualizações de condições comerciais.  
 
@@ -35,7 +35,7 @@ Accept: **application/json**
 
 	{ 
 		"IdSku" : "1634", //id da sku da VTEX
-		"An" : "seller1", //id do seller
+		"An" : "loja1", //loja vtex
 		"IdAffiliate":"afiliado1" // id do afilado cadastrado na loja vtex
 	}
 

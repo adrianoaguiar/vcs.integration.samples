@@ -1,13 +1,13 @@
-# Simulação de Carrinho #
+# Simulação de Carrinho e Página de Pagamento #
 
-Este documento tem por objetivo auxiliar o na simulação de carrinho, e consulta de parcelamento entre um canal de vendas não VTEX com uma loja VTEX.
+Este documento tem por objetivo auxiliar o na simulação de carrinho, e consulta de formas de pagamento e  parcelamentos entre um canal de vendas não VTEX com uma loja VTEX.
 
 ##1 - No Carrinho e no Pagamento##
-Quando um produto é inserido no carrinho no canal de vendas não VTEX, ou faz se alguma edição no carrinho, uma consulta de simulaçao de carrinho é feita na loja VTEX para checar a validade das condiçoes comerciais (preço, estoque, frete e SLAs de entrega). Quando o cliente vai para o pagamento, uma consulta aos parcelmentos e outra simulçao de carrinho deve ser realizada.
+Quando um produto é inserido no carrinho no canal de vendas não VTEX, ou faz se alguma edição no carrinho, uma consulta de simulaçao de carrinho deverá ser feita na loja VTEX para checar a validade das condiçoes comerciais (preço, estoque, frete e SLAs de entrega). Quando o cliente vai para o pagamento, uma consulta as formas de pagamento, aos parcelmentos e uma outra simulçao de carrinho deverá ser realizada.
 
 *Exemplo do fuxo de chamadas no carrinho e pagamento:*  
 
-![alt text](fechamento-canal-nao-vtex.PNG "Fechamento do pedido no marketplace")  
+![alt text](fechamento-canal-nao-vtex-com-pgto.PNG "Fechamento do pedido no marketplace")  
 
 ###1.1 - Exemplos de Request de Simulação de Carrinho - Endpoint loja VTEX###
 
@@ -15,8 +15,8 @@ endpoint: **https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderFo
 verb: **POST**  
 Content-Type: **application/json**  
 Accept: **application/json**  
-Parametro: **sc=5** // sc é o canal de vendas  
-Parametro: **affiliateId=MGZ** // affiliateId é o id do afialiado cadastrado na loja VTEX
+Parametro: **sc** // sc é o canal de vendas  
+Parametro: **affiliateId** // affiliateId é o id do afiliado cadastrado na loja VTEX
 
 *Exemplo do Request:*  
 
@@ -126,6 +126,9 @@ Parametro: **affiliateId=MGZ** // affiliateId é o id do afialiado cadastrado na
         "postalCode":"22251-030"                                   //string, nulo se não enviado    
     }
 
+
+###1.2 - Exemplos de Request das Consultas de Forma de Pagamento e Parcelamento - Endpoint loja VTEX###
+...em desenvolvimento...
 
 ##2 Versão:Beta 1.1##
 Essa versão de documentação suporta a integração na versão da plataforma VTEX smartcheckout. Ela foi escrita para auxiliar um integração e a idéia e que através dela, não  restem nenhuma dúvida de como se integrar com a VTEX. Se recebeu essa documentação e ainda restaram dúvidas, por favor, detalhe as suas dúvidas abaixo no comentário, para chegarmos a um documento rico e funcional.

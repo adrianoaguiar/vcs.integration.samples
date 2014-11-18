@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="9c431c20-098b-4270-b4e8-3a439ffec5b5" name="fechamento-fluxo-canal-nao-vtex-com-pgto" linkedPackageId="d191ecec-11de-4a74-8195-604f7caf5b57" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="4cbc653f-5fc6-479f-aa30-7c24116a811d">
-      <profileInstance Id="6c4f6919-308f-4a38-9ea0-a504bb1022d0" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="d4a6cbeb-c545-4438-9c49-4925e8d810b5">
-      <profileInstance Id="b435e7a3-186e-4c0c-878a-99da326d7457" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <packageHasNamedElement>
       <interaction Id="32b79e67-0435-4064-91c8-7504dacb83b1" name="fechamento-fluxo-canal-nao-vtex-com-pgto" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
@@ -333,7 +319,7 @@
               <messageOccurrenceSpecificationMoniker Id="6dfecf12-46b8-4007-9d2f-d67bc100e75b" LastKnownName="MessageOccurrenceSpecification16" />
             </receiveEvent>
           </message>
-          <message Id="5b834ba6-6458-4b34-8244-e7dee4f69e9d" name="Consulta Formas de Pagamento" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+          <message Id="5b834ba6-6458-4b34-8244-e7dee4f69e9d" name="POST:Simulation{JSON}:https://sellerendpoint/pvt/payments/options?an=[nomedaloja]" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
             <elementDefinition Id="03155e7e-5c02-4a3c-85df-29a08ae26c92" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="c2df0bca-3ada-4791-8101-90407b9f0b16" LastKnownName="MessageOccurrenceSpecification17" />
@@ -351,7 +337,7 @@
               <messageOccurrenceSpecificationMoniker Id="5c35b0f3-4ea3-477d-8d55-f7c9f0b83f7c" LastKnownName="MessageOccurrenceSpecification20" />
             </receiveEvent>
           </message>
-          <message Id="0bf0dd6e-f164-45f1-865e-856eb8866efa" name="Consulta de Parcelamento Por forma Pagamento" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+          <message Id="0bf0dd6e-f164-45f1-865e-856eb8866efa" name="POST:Simulation{JSON}:https://sellerendpoint/pvt/installments/options?an=[nomedaloja]" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
             <elementDefinition Id="cf9982bf-f889-4b3b-b247-7b8f74b6f08d" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="b6c85bf1-7993-458f-951e-ce347d1406b6" LastKnownName="MessageOccurrenceSpecification21" />
@@ -405,5 +391,19 @@
   </packagedElements>
   <package Id="d191ecec-11de-4a74-8195-604f7caf5b57" name="sku-sugestion-world-to-VTEX">
     <elementDefinition Id="01221255-5130-480f-a1e4-c19f43b5a389" />
+    <profileInstances>
+      <packageHasProfileInstances Id="4cbc653f-5fc6-479f-aa30-7c24116a811d">
+        <profileInstance Id="6c4f6919-308f-4a38-9ea0-a504bb1022d0" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="d4a6cbeb-c545-4438-9c49-4925e8d810b5">
+        <profileInstance Id="b435e7a3-186e-4c0c-878a-99da326d7457" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </SequenceDesignerModel>

@@ -6,7 +6,7 @@ Caso se queira uma condição comercial diferenciada para o canal de vendas não
 
 *Exemplo do fuxo de chamadas de descida de pedido, pagamento e autorização para despachar:*  
 
-![alt text](pedido-canal-nao-vtex.png "Title") 
+![alt text](pedido-canal-nao-vtex-com-pgto.PNG "Title") 
 
 ##1 - Enviar Pedido##
 Quando o pedido é fechado em um canal de vendas não VTEX, um POST deve ser feito na loja VTEX, para que essa possa receber a ordem de pedido.  
@@ -183,8 +183,18 @@ _Exemplo do Request:_
 		}
 	}
 
+
+##2 - Enviar Pagamento##
+Após enviar o pedido e receber o response com o paymentData.merchantPaymentReferenceId, o pagamento do pedido deverá ser enviado.
+
+
+###2.1 - Exemplos dos Requests de Envio de Transação de Pagamento Autorização - Endpoint da VTEX###
+
+...em desenvolvimento...
+
 ##3 - Enviar Autoriação Para Despachar##
-Quando o pagamento do pedido é concluído no canal de vendas não VTEX, um POST deverá ser feito na loja VTEX, para que o pedido possa prosseguir com a separação e entrega.  
+Quando o pagamento do pedido é concluído no canal de vendas não VTEX, um POST deverá ser feito na loja VTEX com o paymentTransactionId, 
+para que o pedido possa prosseguir com a separação e entrega.  
  
 ###3.1 - Exemplos de Request de Autorização - Endpoint da VTEX###
 
@@ -193,7 +203,7 @@ verb: **POST**
 Content-Type: **application/json**  
 Accept: **application/json**  
 Parametro: **sc** // sc é o canal de vendas cadastrado na VTEX.
-Parametro: **affiliateId** // affiliateId é o id do afiliado cadastrado n loja VTEX
+Parametro: **affiliateId** // affiliateId é o id do afiliado cadastrado na loja VTEX
 
 *Exemplo do Request:*  
 
@@ -225,7 +235,7 @@ Accept: **application/json**
 *Exemplo do Request:*  
 
 	{
-	    "type": "Output", //hard code
+	    "type": "Output", //Output(venda)|Input(devolução)
 	    "invoiceNumber": "NFe-00001", //numero da nota fiscal
 	    "courier": "", //quando é nota fiscal, dados de tracking vem vazio
 	    "trackingNumber": "", //quando é nota fiscal, dados de tracking vem vazio
@@ -296,51 +306,9 @@ verb: **GET**
 
 **A Nota Fiscal e o Tracking podem ser enviados na mesma chamada, basta prenncher todos os dados do POST.
 
-##4 Registrar Mudanças##
-
-Com esse recurso permite se registrar mudanças no pedido. Mudanças podem ser descontos, cancelamento ou troca de itens. *As mudanças só poderão ser comunicadas, antes do envio da Nota Fiscal.
-
-endpoint: **https://urldaloja/api/oms/pvt/orders/[orderId]/changes**  
-verb: **POST**  
-Content-Type: **application/json**  
-Accept: **application/json**  
-
-
-*Exemplo do Request:*  
-
-	{
-	    "reason": "Promocao dado por telefone",
-	    "discountValue": 1000, //caso queira dar um desconto
-	    "itemsRemoved": [ //items a remover
-	      {
-	        "id": "234794",
-	        "quantity": 2,
-	        "price": 600
-	      }
-	    ],
-	    "itemsAdded": [ /items a adicionar
-	      {
-	        "id": "234788",
-	        "quantity": 1,
-	        "price": 200
-	      }
-	    ]
-	}
-
-*Exemplo do Response:*
-
-	{
-	    "date": "2014-02-07T17:28:56.3071208Z",
-	    "orderId": "409050869826-01",
-	    "receipt": "e141c288-831c-4e23-90d9-4fadf7b2cf15"
-	}
-
 
 ##5 Versão:Beta 1.2##
 Essa versão de documentação suporta a integração na versão da plataforma VTEX smartcheckout. Ela foi escrita para auxiliar um integração e a idéia e que através dela, não  restem nenhuma dúvida de como se integrar com a VTEX. Se recebeu essa documentação e ainda restaram dúvidas, por favor, detalhe as suas dúvidas abaixo no comentário, para chegarmos a um documento rico e funcional.
-
-O que mudou na troca de versões:  
-1.1 para 1.2 foi incluido a parte de Registrar Mudança
 
 
 autor: Jonas Bolognim

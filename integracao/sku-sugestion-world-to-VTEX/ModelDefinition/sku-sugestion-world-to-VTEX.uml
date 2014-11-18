@@ -327,22 +327,22 @@
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="ca2e65d0-b242-4236-8087-cef21c346123"
-            name="MessageOccurrenceSpecification16">
-            <covered>
-              <lifelineMoniker
-                Id="9e39e338-9f20-4064-8b7a-0aaebe32a168"
-                LastKnownName="VTEX"
-                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="fcc05c69-442a-422e-a312-62fc476372b7"
             name="MessageOccurrenceSpecification15">
             <covered>
               <lifelineMoniker
                 Id="c460785e-1aa5-470b-957c-839c507fc5ed"
                 LastKnownName="World"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="ca2e65d0-b242-4236-8087-cef21c346123"
+            name="MessageOccurrenceSpecification16">
+            <covered>
+              <lifelineMoniker
+                Id="9e39e338-9f20-4064-8b7a-0aaebe32a168"
+                LastKnownName="VTEX"
                 LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -4143,22 +4143,22 @@
             </covered>
           </executionOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="91c49192-a383-4f8d-ba4c-219a50c5441c"
-            name="OperandOccurrenceSpecification22">
-            <covered>
-              <lifelineMoniker
-                Id="218c345b-2ceb-41d2-bb31-a8d71d585726"
-                LastKnownName="VTEX"
-                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
             Id="287a87b2-dec6-4624-8068-d2a31fbc03da"
             name="OperandOccurrenceSpecification24">
             <covered>
               <lifelineMoniker
                 Id="174b9cdf-42a5-4bf9-9bd3-b12845c7e7d8"
                 LastKnownName="WORLD"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="91c49192-a383-4f8d-ba4c-219a50c5441c"
+            name="OperandOccurrenceSpecification22">
+            <covered>
+              <lifelineMoniker
+                Id="218c345b-2ceb-41d2-bb31-a8d71d585726"
+                LastKnownName="VTEX"
                 LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -4291,22 +4291,22 @@
             </covered>
           </executionOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="11d1b834-6583-4f6d-b3e4-a29805454134"
-            name="OperandOccurrenceSpecification28">
-            <covered>
-              <lifelineMoniker
-                Id="174b9cdf-42a5-4bf9-9bd3-b12845c7e7d8"
-                LastKnownName="WORLD"
-                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
             Id="6074319a-c8c0-4a0d-946a-aa72c5d9f659"
             name="OperandOccurrenceSpecification26">
             <covered>
               <lifelineMoniker
                 Id="218c345b-2ceb-41d2-bb31-a8d71d585726"
                 LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="11d1b834-6583-4f6d-b3e4-a29805454134"
+            name="OperandOccurrenceSpecification28">
+            <covered>
+              <lifelineMoniker
+                Id="174b9cdf-42a5-4bf9-9bd3-b12845c7e7d8"
+                LastKnownName="WORLD"
                 LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -4529,22 +4529,22 @@
             </covered>
           </executionOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="70a17441-e6d9-4e60-b937-9f09bd45106e"
-            name="OperandOccurrenceSpecification30">
-            <covered>
-              <lifelineMoniker
-                Id="218c345b-2ceb-41d2-bb31-a8d71d585726"
-                LastKnownName="VTEX"
-                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
             Id="6ea510e5-593b-4c69-89f8-ee35d2627fd0"
             name="OperandOccurrenceSpecification32">
             <covered>
               <lifelineMoniker
                 Id="174b9cdf-42a5-4bf9-9bd3-b12845c7e7d8"
                 LastKnownName="WORLD"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="70a17441-e6d9-4e60-b937-9f09bd45106e"
+            name="OperandOccurrenceSpecification30">
+            <covered>
+              <lifelineMoniker
+                Id="218c345b-2ceb-41d2-bb31-a8d71d585726"
+                LastKnownName="VTEX"
                 LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -5663,22 +5663,22 @@
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="3e15e084-3d5f-4d79-b7fd-d9d9ef407e03"
-            name="MessageOccurrenceSpecification17">
-            <covered>
-              <lifelineMoniker
-                Id="adff2ced-ddc6-436d-93ad-0b2a224b3818"
-                LastKnownName="ERP"
-                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="2ed60b8a-c0ce-42c8-973c-3d7cc93dab48"
             name="MessageOccurrenceSpecification18">
             <covered>
               <lifelineMoniker
                 Id="9139e434-df47-4e27-bd34-d46f836202c9"
                 LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="3e15e084-3d5f-4d79-b7fd-d9d9ef407e03"
+            name="MessageOccurrenceSpecification17">
+            <covered>
+              <lifelineMoniker
+                Id="adff2ced-ddc6-436d-93ad-0b2a224b3818"
+                LastKnownName="ERP"
                 LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -7796,7 +7796,7 @@
           </message>
           <message
             Id="03155e7e-5c02-4a3c-85df-29a08ae26c92"
-            name="Consulta Formas de Pagamento"
+            name="POST:Simulation{JSON}:https://sellerendpoint/pvt/payments/options?an=[nomedaloja]"
             messageKind="Complete"
             messageSort="SynchCall"
             createSelfMessage="false">
@@ -7834,7 +7834,7 @@
           </message>
           <message
             Id="cf9982bf-f889-4b3b-b247-7b8f74b6f08d"
-            name="Consulta de Parcelamento Por forma Pagamento"
+            name="POST:Simulation{JSON}:https://sellerendpoint/pvt/installments/options?an=[nomedaloja]"
             messageKind="Complete"
             messageSort="SynchCall"
             createSelfMessage="false">
@@ -8105,22 +8105,22 @@ envia autorização de pagamento</body>
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="b152b46c-cba5-40cd-9538-13f9625773dc"
-            name="MessageOccurrenceSpecification32">
-            <covered>
-              <lifelineMoniker
-                Id="5d679ccd-7e76-4f63-b656-b0b39be01af9"
-                LastKnownName="WORLD"
-                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="e6a6970a-fc12-4775-a2ab-bd281ae2f0a1"
             name="MessageOccurrenceSpecification31">
             <covered>
               <lifelineMoniker
                 Id="5a77863c-4e3c-491b-af32-f855724ebca7"
                 LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="b152b46c-cba5-40cd-9538-13f9625773dc"
+            name="MessageOccurrenceSpecification32">
+            <covered>
+              <lifelineMoniker
+                Id="5d679ccd-7e76-4f63-b656-b0b39be01af9"
+                LastKnownName="WORLD"
                 LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -8301,22 +8301,22 @@ envia autorização de pagamento</body>
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="0bf67f05-4bcd-45a6-b121-9418b24bd80a"
-            name="MessageOccurrenceSpecification38">
-            <covered>
-              <lifelineMoniker
-                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
-                LastKnownName="VTEX"
-                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="56a22e29-9bd9-415c-a130-41c8c95bb897"
             name="MessageOccurrenceSpecification37">
             <covered>
               <lifelineMoniker
                 Id="5d679ccd-7e76-4f63-b656-b0b39be01af9"
                 LastKnownName="WORLD"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="0bf67f05-4bcd-45a6-b121-9418b24bd80a"
+            name="MessageOccurrenceSpecification38">
+            <covered>
+              <lifelineMoniker
+                Id="5a77863c-4e3c-491b-af32-f855724ebca7"
+                LastKnownName="VTEX"
                 LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -8645,22 +8645,22 @@ envia autorização de pagamento</body>
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="3c6abed7-6abf-4afb-95c9-ea103cc0af97"
-            name="MessageOccurrenceSpecification24">
-            <covered>
-              <lifelineMoniker
-                Id="5d679ccd-7e76-4f63-b656-b0b39be01af9"
-                LastKnownName="WORLD"
-                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="b6cc355b-7ad8-4835-878e-05ea7405c632"
             name="MessageOccurrenceSpecification23">
             <covered>
               <lifelineMoniker
                 Id="5a77863c-4e3c-491b-af32-f855724ebca7"
                 LastKnownName="VTEX"
+                LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="3c6abed7-6abf-4afb-95c9-ea103cc0af97"
+            name="MessageOccurrenceSpecification24">
+            <covered>
+              <lifelineMoniker
+                Id="5d679ccd-7e76-4f63-b656-b0b39be01af9"
+                LastKnownName="WORLD"
                 LastKnownLocation="sku-sugestion-world-to-VTEX.uml" />
             </covered>
           </messageOccurrenceSpecification>
