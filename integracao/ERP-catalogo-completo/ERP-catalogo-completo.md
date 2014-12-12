@@ -1,3 +1,10 @@
+---
+layout: docs
+title: Integração Completa de Catálogo e Condições Comerciais
+application: erp
+docType: guide
+---
+
 # ERP - Integração Completa de Catálogo e Condições Comerciais #
 
 

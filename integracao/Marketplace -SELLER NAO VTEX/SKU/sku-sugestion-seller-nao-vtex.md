@@ -1,23 +1,36 @@
+---
+layout: docs
+title: Inserção de Sugestão de SKU e Atualização de Condição Comercial de SKU
+application: marketplace
+docType: guide
+---
+
 # Inserção de Sugestão de SKU e Atualização de Condição Comercial de SKU 
 
 Este documento tem por objetivo auxiliar na integração e atualização de condição comercial (preço, estoque, frete, SLAs de entrega) de um SKU entre um Seller não VTEX  para uma loja hospedada na versão smartcheckout da VTEX.
 
-*Fluxo de Sugestão de SKU:*
+_Fluxo de Sugestão de SKU:_
 
 ![alt text](sku-sugestion-seller-nao-vtex.png "Fluxo de descida de pedido")
 
-##1 - Inserção de Sugestão de SKU - Fluxo##
+###Enviar de Notificação de Mudança de Condições Comerciais de SKU
+{: #1 .slug-text}
+
 Toda vez que houver uma inserção ou alteração na condição comercial de um SKU (preço, estoque, frete e SLAs de entrega) no Seller, se o Seller vende essa SKU no marketplace VTEX, o Seller deve enviar uma notificação de mudança de SKU para a VTEX, caso a VTEX retorne em seu serviço o response status 404, significa que a SKU **não existe na VTEX**, então o Seller deve enviar a sugestão de inserção de SKU para a loja da VTEX.
 
-###1.1 - Exemplos de Request de Notificação de Mudança - Endpoint da VTEX###
 
-endpoint: **http://portal.vtexcommercestable.com.br/api/catalog_system/pvt/skuseller/changenotification/[idseller]/[idskuSeller]?an=[nomeloja]**  
-verb: **GET**  
+#### Exemplos de Request de Notificação de Mudança - Endpoint da VTEX
+
+
+endpoint: **http://portal.vtexcommercestable.com.br/api/catalog_system/pvt/skuseller/changenotification/[idSeller]/[idSkuSeller]?an=[nomeloja]**  
+verb: **POST**  
 Content-Type: **application/json**  
 Accept: **application/json**
 
+###Enviar de Sugestão de SKU
+{: #2 .slug-text}
 
-###1.2 - Exemplos de Request de Inserção de Sugestão de SKU - Endpoint da VTEX###
+####Exemplos de Request de Inserção de Sugestão de SKU - Endpoint da VTEX###
 
 endpoint: **http://sandboxintegracao.vtexcommercebeta.com.br/api/catalog_system/pvt/sku/SuggestionInsertUpdatev2**  
 verb: **POST**  
@@ -28,7 +41,7 @@ Accept: **application/json**
 *Exemplo do Request:*  
 
 	{
-	  "BrandId": null,
+	  "BrandId": null, //identificador da marca
 	  "BrandName": "Editora Penguin-Companhia", //nome da marca
 	  "CategoryFullPath": "Livros/Literatura Estrangeira/Romance", //path completo de categorias
 	  "CategoryId": null,
@@ -49,12 +62,12 @@ Accept: **application/json**
 	  "IsProductSuggestion": false,
 	  "Length": 1, //comprimento
 	  "ListPrice": 22.76, //preço DE
-	  "ModalId": null,
+	  "ModalId": null, //opicional, idntifica o prefixo do estoque da sku, geralmente usa se 1
 	  "Price": 22.76, //preço POR
 	  "ProductDescription": "<p style=\"text-align: center\"> <strong>Considerado o grande romance do ingl&ecirc;s Charles Dickens, Grandes esperan&ccedil;as conta uma hist&oacute;ria de desilus&atilde;o e reden&ccedil;&atilde;o pessoal, saudada por gera&ccedil;&otilde;es de escritores e estudiosos por sua perfei&ccedil;&atilde;o narrativa</strong></p>",
 	  "ProductId": null,
 	  "ProductName": "Livro - Grandes Esperanças - Charles Dickens",
-	  "ProductSpecifications": [ //Especificaçãoes
+	  "ProductSpecifications": [ //Especificaçãoes da SKU do Seller
 	    {
 	      "FieldId": 0,
 	      "FieldName": "Título",
@@ -193,12 +206,14 @@ Accept: **application/json**
 reposnse: 200
 
 
-##2 - Atualização de Condição Comercial de SKU - Fluxo##
-Toda vez que houver uma alteração na condição comercial de um SKU (preço, estoque, frete e SLAs de entrega, o Seller VTEX deve enviar uma notificação de mudança de SKU para a VTEX, caso a VTEX retorne em seu serviço o response status 200 ou 204, significa que a SKU **existe** na VTEX, então a VTEX vai no Seller consultar as novas condições comerciais oferecidas pelo Seller.
+### Atualização de Condição Comercial de SKU - Fluxo
+{: #3 .slug-text}
 
-###2.1 - Exemplos de Request de Busca de Condições Comerciais - Endpoint do Seller###
+Toda vez que houver uma alteração na condição comercial de um SKU (preço, estoque, frete e SLAs de entrega), o Seller NÂO VTEX deve enviar uma notificação de mudança de SKU para a VTEX, caso a VTEX retorne em seu serviço o response status 200 ou 204, significa que a SKU **existe** na VTEX, então a VTEX vai no Seller consultar as novas condições comerciais oferecidas pelo Seller.
 
-endpoint: **https://sellerendpoint/pvt/orderForms/simulation?sc=[idcanal]&an=[nomedaloja]**  
+####Exemplos de Request de Busca de Condições Comerciais - Endpoint do Seller###
+
+endpoint: **https://[sellerendpoint]/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&an=[nomedaloja]**  
 verb: **POST**  
 Content-Type: **application/json**  
 Accept: **application/json**  
@@ -316,9 +331,9 @@ Parametro: **sc** // sc é o canal de vendas cadastrado no marketplace, serve pa
 **O Seller só deve mandar esse campo no retorno quando o pagamento for enviado e processado no Seller.
 
 
-##3 - Considerações##
+### Considerações
 
-####3.1 Header nas Chamadas a API REST da VTEX####
+#### Header nas Chamadas a API REST da VTEX
 Todas chamadas as API REST devem conter no Headear as seguintes Keys:  
 X-VTEX-API-AppToken:**[Value]**  
 X-VTEX-API-AppKey:**[Value]**  
@@ -328,7 +343,7 @@ Accept: **application/json**
 *O integrador deverá solitar junto ao contato VTEX a sua chave e token para uso exclusivo na integração,
 assim como solicitar a criação do Seller dentro da loja VTEX.  
 
-####3.2 Ferramentas de apoio ao integrador ####
+#### Ferramentas de apoio ao integrador ####
 Ferramentas são de extrema importância para qualquer integrador:
 
 **Postman - REST Client** (_chrome://extensions/_)
@@ -338,14 +353,14 @@ Nesta ferramente pode se testar, armazenar histórico, salvar coleções de requ
 
 É de suma importancia que o integrador tenha o conhecimento de ferramentas desse tipo, ou outras parecidas, antes de inciar um processo de integração usando APIs REST VTEX.
 
-####3.3 - Glossário####
+####Glossário
 Seller - Responsável por fazer a entrega do pedido.  
 SKU - Define uma variação de um produto.
 
 
-
-####3.4 Versão:Beta 1.1####
+####Versão:Beta 1.1
 Essa versão de documentação suporta a integração na versão da plataforma VTEX smartcheckout. Ela foi escrita para auxiliar um integração e a idéia e que através dela, não  restem nenhuma dúvida de como se integrar com a VTEX. Se recebeu essa documentação e ainda restaram dúvidas, por favor, detalhe as suas dúvidas abaixo no comentário, para chegarmos a um documento rico e funcional.
 
 
-Autor: *Jonas Bolognim*
+Autor: _Jonas Bolognim_
+Propriedade: _VTEX_

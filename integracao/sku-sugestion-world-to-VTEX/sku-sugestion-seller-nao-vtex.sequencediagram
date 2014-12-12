@@ -503,7 +503,7 @@
           </lifeline>
         </lifelines>
         <messages>
-          <message Id="00f12105-a733-4623-8908-b1396c257de4" name="GET:http://portal.vtexcommercestable.com.br/api/catalog_system/pvt/skuseller/changenotification/[idseller]/[idskuSeller]?an=[nomeloja]" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+          <message Id="00f12105-a733-4623-8908-b1396c257de4" name="POST:http://portal.vtexcommercestable.com.br/api/catalog_system/pvt/skuseller/changenotification/[idseller]/[idskuSeller]?an=[nomeloja]" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
             <elementDefinition Id="5516f65a-bf5c-4ad9-b245-e24fe1edf98b" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="2e16f307-b5e6-4b84-8ea8-30bde1530585" LastKnownName="MessageOccurrenceSpecification1" />
@@ -539,7 +539,7 @@
               <messageOccurrenceSpecificationMoniker Id="c8933bd3-863d-4861-adb8-bcf2b4123afb" LastKnownName="MessageOccurrenceSpecification24" />
             </receiveEvent>
           </message>
-          <message Id="a4ff6adb-f178-4595-9450-4ed70e56347f" name="POST:Notification{JSON}:http://productnotification.vtexcommerce.com.br/api/notification/[nomeloja]/[idseller]" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+          <message Id="a4ff6adb-f178-4595-9450-4ed70e56347f" name="POST:http://portal.vtexcommercestable.com.br/api/catalog_system/pvt/skuseller/changenotification/[idseller]/[idskuSeller]?an=[nomeloja]" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
             <elementDefinition Id="52dfa8db-26b6-40d1-851c-b1d89ab2b1a5" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="cff9e731-7cca-4825-b89b-03f4a0357e57" LastKnownName="MessageOccurrenceSpecification9" />

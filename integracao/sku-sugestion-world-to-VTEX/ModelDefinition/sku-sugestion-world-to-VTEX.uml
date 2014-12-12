@@ -4846,7 +4846,7 @@
         <messages>
           <message
             Id="5516f65a-bf5c-4ad9-b245-e24fe1edf98b"
-            name="GET:http://portal.vtexcommercestable.com.br/api/catalog_system/pvt/skuseller/changenotification/[idseller]/[idskuSeller]?an=[nomeloja]"
+            name="POST:http://portal.vtexcommercestable.com.br/api/catalog_system/pvt/skuseller/changenotification/[idseller]/[idskuSeller]?an=[nomeloja]"
             messageKind="Complete"
             messageSort="SynchCall"
             createSelfMessage="false">
@@ -4922,7 +4922,7 @@
           </message>
           <message
             Id="52dfa8db-26b6-40d1-851c-b1d89ab2b1a5"
-            name="POST:Notification{JSON}:http://productnotification.vtexcommerce.com.br/api/notification/[nomeloja]/[idseller]"
+            name="POST:http://portal.vtexcommercestable.com.br/api/catalog_system/pvt/skuseller/changenotification/[idseller]/[idskuSeller]?an=[nomeloja]"
             messageKind="Complete"
             messageSort="SynchCall"
             createSelfMessage="false">
