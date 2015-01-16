@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="8f7aebf9-b33c-47c2-afe2-e7ed9c538722" name="pedido-canal-nao-vtex-cpgto" linkedPackageId="03ab8f1b-815c-42d8-ba8e-6c7d0019b0f9" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="b686a7b1-a52a-4d7c-b8eb-188ffbce86f3">
-      <profileInstance Id="cba4eb43-e854-4a9c-b91d-72e0dc18b8de" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="2368e049-39df-4aa2-bdac-6075eb4a6f53">
-      <profileInstance Id="4c39389e-aa64-4cd7-9fda-b0c880739f49" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <packageHasNamedElement>
       <interaction Id="9095e57e-f578-4d2a-ac73-d5e26e83f620" name="pedido-canal-nao-vtex-cpgto" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
@@ -30,7 +16,7 @@
 canal inicia transação, 
 
 
-envia pagamente,
+envia pagamento,
 
 envia infos para antifraude
 
@@ -139,16 +125,16 @@ envia autorização de pagamento</body>
               <lifelineMoniker Id="8ef2d70f-fdc2-4585-adb6-6695889bc33f" LastKnownName="WORLD" />
             </covered>
           </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="75f58867-d978-4ab0-8800-a9adbe531ebe" name="MessageOccurrenceSpecification32">
-            <elementDefinition Id="b152b46c-cba5-40cd-9538-13f9625773dc" />
-            <covered>
-              <lifelineMoniker Id="8ef2d70f-fdc2-4585-adb6-6695889bc33f" LastKnownName="WORLD" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="cb313435-c08a-4d17-a76f-03494535f7e3" name="MessageOccurrenceSpecification31">
             <elementDefinition Id="e6a6970a-fc12-4775-a2ab-bd281ae2f0a1" />
             <covered>
               <lifelineMoniker Id="9857a820-4b2f-4f3a-9ab4-b8775763e074" LastKnownName="VTEX" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="75f58867-d978-4ab0-8800-a9adbe531ebe" name="MessageOccurrenceSpecification32">
+            <elementDefinition Id="b152b46c-cba5-40cd-9538-13f9625773dc" />
+            <covered>
+              <lifelineMoniker Id="8ef2d70f-fdc2-4585-adb6-6695889bc33f" LastKnownName="WORLD" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="6a44b83d-0884-4578-972e-ec0c99befb9c" name="ExecutionOccurrenceSpecification16">
@@ -251,16 +237,16 @@ envia autorização de pagamento</body>
               <lifelineMoniker Id="9857a820-4b2f-4f3a-9ab4-b8775763e074" LastKnownName="VTEX" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="d9ad343e-4630-4088-93ae-50407bc7c4de" name="MessageOccurrenceSpecification38">
-            <elementDefinition Id="0bf67f05-4bcd-45a6-b121-9418b24bd80a" />
-            <covered>
-              <lifelineMoniker Id="9857a820-4b2f-4f3a-9ab4-b8775763e074" LastKnownName="VTEX" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="93a30677-3122-409c-a6fa-ca5e387442fb" name="MessageOccurrenceSpecification37">
             <elementDefinition Id="56a22e29-9bd9-415c-a130-41c8c95bb897" />
             <covered>
               <lifelineMoniker Id="8ef2d70f-fdc2-4585-adb6-6695889bc33f" LastKnownName="WORLD" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="d9ad343e-4630-4088-93ae-50407bc7c4de" name="MessageOccurrenceSpecification38">
+            <elementDefinition Id="0bf67f05-4bcd-45a6-b121-9418b24bd80a" />
+            <covered>
+              <lifelineMoniker Id="9857a820-4b2f-4f3a-9ab4-b8775763e074" LastKnownName="VTEX" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="c1ece176-1634-4ae0-8e20-6346997df5e3" name="MessageOccurrenceSpecification40">
@@ -449,16 +435,16 @@ envia autorização de pagamento</body>
               <lifelineMoniker Id="9857a820-4b2f-4f3a-9ab4-b8775763e074" LastKnownName="VTEX" />
             </covered>
           </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="4c1331ad-7c2a-4e9b-995b-ecb7511475d3" name="MessageOccurrenceSpecification24">
-            <elementDefinition Id="3c6abed7-6abf-4afb-95c9-ea103cc0af97" />
-            <covered>
-              <lifelineMoniker Id="8ef2d70f-fdc2-4585-adb6-6695889bc33f" LastKnownName="WORLD" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="34645e58-5343-4c16-a513-2a3b17468815" name="MessageOccurrenceSpecification23">
             <elementDefinition Id="b6cc355b-7ad8-4835-878e-05ea7405c632" />
             <covered>
               <lifelineMoniker Id="9857a820-4b2f-4f3a-9ab4-b8775763e074" LastKnownName="VTEX" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="4c1331ad-7c2a-4e9b-995b-ecb7511475d3" name="MessageOccurrenceSpecification24">
+            <elementDefinition Id="3c6abed7-6abf-4afb-95c9-ea103cc0af97" />
+            <covered>
+              <lifelineMoniker Id="8ef2d70f-fdc2-4585-adb6-6695889bc33f" LastKnownName="WORLD" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="280da642-f70b-4f6c-80fe-8dc872937b68" name="ExecutionOccurrenceSpecification12">
@@ -514,7 +500,7 @@ envia autorização de pagamento</body>
           </lifeline>
         </lifelines>
         <messages>
-          <message Id="4e49bef5-fb47-489b-9f13-5723d60bd343" name="POST:Order{JSON}:https://lojavtexendpoint/pvt/orders?sc=[idcanal]&amp;affiliateId=idafiliado" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+          <message Id="4e49bef5-fb47-489b-9f13-5723d60bd343" name="POST:Order{JSON}:https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders?sc=[idcanal]&amp;affiliateId=[idafiliado]" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
             <elementDefinition Id="60e1e3cc-7858-474a-bf35-c7cd7c1c4c9c" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="99266fc6-2e69-4891-9122-fc1eed405d68" LastKnownName="MessageOccurrenceSpecification1" />
@@ -604,7 +590,7 @@ envia autorização de pagamento</body>
               <messageOccurrenceSpecificationMoniker Id="e1531fb2-af52-40dc-891d-bc05a35769fb" LastKnownName="MessageOccurrenceSpecification36" />
             </receiveEvent>
           </message>
-          <message Id="2e09f6c2-cf99-4f49-9264-606d4e57b875" name="POST:Order{JSON}:https://lojavtexendpoint/pvt/orders/[orderid]/fulfill?sc=[idcanal]&amp;affiliateId=idafiliado" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+          <message Id="2e09f6c2-cf99-4f49-9264-606d4e57b875" name="POST:Order{JSON}:https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders/[orderid]/fulfill?sc=[idcanal]&amp;affiliateId=idafiliado" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
             <elementDefinition Id="ecdaf5ff-87a5-484b-a26a-072b48f7fa60" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="e248ebf6-38e5-40aa-adc8-cc9838853b6c" LastKnownName="MessageOccurrenceSpecification17" />
@@ -622,7 +608,7 @@ envia autorização de pagamento</body>
               <messageOccurrenceSpecificationMoniker Id="6066dde5-1bbe-43a9-bf1b-b7adf60c1f95" LastKnownName="MessageOccurrenceSpecification20" />
             </receiveEvent>
           </message>
-          <message Id="2cd9d5ae-3dbf-4889-9518-74fef617e90a" name="POST:Order{JSON}:https://lojavtexendpoint/pvt/orders/[orderid]/cancel" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+          <message Id="2cd9d5ae-3dbf-4889-9518-74fef617e90a" name="POST:Order{JSON}:https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders/[orderid]/cancel" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
             <elementDefinition Id="9151e5d1-e063-47da-8d7e-1cc59eb3d7b2" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="5fd72032-b391-4823-8b50-0db59ae464a3" LastKnownName="MessageOccurrenceSpecification21" />
@@ -706,5 +692,19 @@ envia autorização de pagamento</body>
   </packagedElements>
   <package Id="03ab8f1b-815c-42d8-ba8e-6c7d0019b0f9" name="sku-sugestion-world-to-VTEX">
     <elementDefinition Id="01221255-5130-480f-a1e4-c19f43b5a389" />
+    <profileInstances>
+      <packageHasProfileInstances Id="b686a7b1-a52a-4d7c-b8eb-188ffbce86f3">
+        <profileInstance Id="cba4eb43-e854-4a9c-b91d-72e0dc18b8de" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="2368e049-39df-4aa2-bdac-6075eb4a6f53">
+        <profileInstance Id="4c39389e-aa64-4cd7-9fda-b0c880739f49" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </SequenceDesignerModel>

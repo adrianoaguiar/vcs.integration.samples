@@ -8174,15 +8174,14 @@
          </tem:objBuyTogetherTakeXPayYDTO>
       </tem:BuyTogethertakeXPayYInsertUpdate>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IService/BuyTogethertakeXPayYInsertUpdate"/></con:call></con:operation><con:operation isOneWay="false" action="http://tempuri.org/IService/CategoryGet" name="CategoryGet" bindingOperationName="CategoryGet" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservice-sandboxintegracao.vtexcommerce.com.br/Service.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IService/BuyTogethertakeXPayYInsertUpdate"/></con:call></con:operation><con:operation isOneWay="false" action="http://tempuri.org/IService/CategoryGet" name="CategoryGet" bindingOperationName="CategoryGet" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservice-sandboxintegracao.vtexcommerce.com.br/Service.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
    <soapenv:Header/>
    <soapenv:Body>
       <tem:CategoryGet>
-         <!--Optional:-->
-         <tem:idCategory>?</tem:idCategory>
+         <tem:idCategory>3</tem:idCategory>  <!--Optional:-->
       </tem:CategoryGet>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IService/CategoryGet"/></con:call></con:operation><con:operation isOneWay="false" action="http://tempuri.org/IService/CategoryGetByName" name="CategoryGetByName" bindingOperationName="CategoryGetByName" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservice-sandboxintegracao.vtexcommerce.com.br/Service.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>publico</con:username><con:password>publico</con:password></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IService/CategoryGet"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="http://tempuri.org/IService/CategoryGetByName" name="CategoryGetByName" bindingOperationName="CategoryGetByName" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://webservice-sandboxintegracao.vtexcommerce.com.br/Service.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
    <soapenv:Header/>
    <soapenv:Body>
       <tem:CategoryGetByName>

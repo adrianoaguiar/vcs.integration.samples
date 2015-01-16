@@ -283,7 +283,7 @@
           </lifeline>
         </lifelines>
         <messages>
-          <message Id="a394ea9d-67e1-4d3f-a8e3-b06385600915" name="POST:Simulation{JSON}:https://lojavtexendpoint/pvt/orderForms/simulation?sc=[idcanal]" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+          <message Id="a394ea9d-67e1-4d3f-a8e3-b06385600915" name="POST:Simulation{JSON}:https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&amp;affiliateId=[idafiliado]" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
             <elementDefinition Id="def11a50-9574-4a4e-8949-128214aabd69" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="4a1f0f7e-7782-4e2c-bb26-277ecf5fe201" LastKnownName="MessageOccurrenceSpecification1" />
@@ -301,7 +301,7 @@
               <messageOccurrenceSpecificationMoniker Id="581c5f8e-b8af-440d-a02f-660551e3d756" LastKnownName="MessageOccurrenceSpecification4" />
             </receiveEvent>
           </message>
-          <message Id="f3622aab-b607-4e07-adb6-3f273f40dc88" name="POST:Simulation{JSON}:https://lojavtexendpoint/pvt/orderForms/simulation?sc=[idcanal]" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+          <message Id="f3622aab-b607-4e07-adb6-3f273f40dc88" name="POST:Simulation{JSON}:https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&amp;affiliateId=[idafiliado]" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
             <elementDefinition Id="7fc15394-563f-4375-b9a8-4ac849e2d2dd" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="1c9e4f37-03ba-4cc6-87da-96293d83c62f" LastKnownName="MessageOccurrenceSpecification13" />
@@ -319,7 +319,7 @@
               <messageOccurrenceSpecificationMoniker Id="6dfecf12-46b8-4007-9d2f-d67bc100e75b" LastKnownName="MessageOccurrenceSpecification16" />
             </receiveEvent>
           </message>
-          <message Id="5b834ba6-6458-4b34-8244-e7dee4f69e9d" name="POST:Simulation{JSON}:https://sellerendpoint/pvt/payments/options?an=[nomedaloja]" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+          <message Id="5b834ba6-6458-4b34-8244-e7dee4f69e9d" name="GET:https://[loja].vtexpayments.com.br/api/pvt/merchants/payment-systems" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
             <elementDefinition Id="03155e7e-5c02-4a3c-85df-29a08ae26c92" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="c2df0bca-3ada-4791-8101-90407b9f0b16" LastKnownName="MessageOccurrenceSpecification17" />
@@ -328,7 +328,7 @@
               <messageOccurrenceSpecificationMoniker Id="2215e83d-f860-4b53-a503-ec118b67cb56" LastKnownName="MessageOccurrenceSpecification18" />
             </receiveEvent>
           </message>
-          <message Id="67f5ac44-8508-4f78-8b1c-4c9a493fe682" name="Formas de Pagamento" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+          <message Id="67f5ac44-8508-4f78-8b1c-4c9a493fe682" name="Response Status 200: FormasDePagamentoResponse{JSON}" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
             <elementDefinition Id="e80dc3dc-bdbc-41c2-b001-7b412f512160" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="d1b5ae65-e04c-425a-b9ac-4a73e820f55d" LastKnownName="MessageOccurrenceSpecification19" />
@@ -337,7 +337,7 @@
               <messageOccurrenceSpecificationMoniker Id="5c35b0f3-4ea3-477d-8d55-f7c9f0b83f7c" LastKnownName="MessageOccurrenceSpecification20" />
             </receiveEvent>
           </message>
-          <message Id="0bf0dd6e-f164-45f1-865e-856eb8866efa" name="POST:Simulation{JSON}:https://sellerendpoint/pvt/installments/options?an=[nomedaloja]" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+          <message Id="0bf0dd6e-f164-45f1-865e-856eb8866efa" name="POST:POST{JSON}:https://[loja].vtexpayments.com.br/api/pvt/installments/options" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
             <elementDefinition Id="cf9982bf-f889-4b3b-b247-7b8f74b6f08d" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="b6c85bf1-7993-458f-951e-ce347d1406b6" LastKnownName="MessageOccurrenceSpecification21" />
@@ -346,7 +346,7 @@
               <messageOccurrenceSpecificationMoniker Id="dabc6d68-47f9-43f4-ab60-3410c460d438" LastKnownName="MessageOccurrenceSpecification22" />
             </receiveEvent>
           </message>
-          <message Id="08c5f53b-1a43-496f-b440-da780d2a1d61" name="Parcelamento response" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+          <message Id="08c5f53b-1a43-496f-b440-da780d2a1d61" name="Response Status 200: ParcelamentoResponse{JSON}" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
             <elementDefinition Id="e2c7838d-1a5b-4b10-aa72-7f8d0e0bfdeb" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="95ba16a3-4660-4d03-975c-52d4321d1bb3" LastKnownName="MessageOccurrenceSpecification23" />

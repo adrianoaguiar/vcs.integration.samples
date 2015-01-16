@@ -7720,7 +7720,7 @@
         <messages>
           <message
             Id="def11a50-9574-4a4e-8949-128214aabd69"
-            name="POST:Simulation{JSON}:https://lojavtexendpoint/pvt/orderForms/simulation?sc=[idcanal]"
+            name="POST:Simulation{JSON}:https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&amp;affiliateId=[idafiliado]"
             messageKind="Complete"
             messageSort="SynchCall"
             createSelfMessage="false">
@@ -7758,7 +7758,7 @@
           </message>
           <message
             Id="7fc15394-563f-4375-b9a8-4ac849e2d2dd"
-            name="POST:Simulation{JSON}:https://lojavtexendpoint/pvt/orderForms/simulation?sc=[idcanal]"
+            name="POST:Simulation{JSON}:https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&amp;affiliateId=[idafiliado]"
             messageKind="Complete"
             messageSort="SynchCall"
             createSelfMessage="false">
@@ -7796,7 +7796,7 @@
           </message>
           <message
             Id="03155e7e-5c02-4a3c-85df-29a08ae26c92"
-            name="POST:Simulation{JSON}:https://sellerendpoint/pvt/payments/options?an=[nomedaloja]"
+            name="GET:https://[loja].vtexpayments.com.br/api/pvt/merchants/payment-systems"
             messageKind="Complete"
             messageSort="SynchCall"
             createSelfMessage="false">
@@ -7815,7 +7815,7 @@
           </message>
           <message
             Id="e80dc3dc-bdbc-41c2-b001-7b412f512160"
-            name="Formas de Pagamento"
+            name="Response Status 200: FormasDePagamentoResponse{JSON}"
             messageKind="Complete"
             messageSort="Reply"
             createSelfMessage="false">
@@ -7834,7 +7834,7 @@
           </message>
           <message
             Id="cf9982bf-f889-4b3b-b247-7b8f74b6f08d"
-            name="POST:Simulation{JSON}:https://sellerendpoint/pvt/installments/options?an=[nomedaloja]"
+            name="POST:POST{JSON}:https://[loja].vtexpayments.com.br/api/pvt/installments/options"
             messageKind="Complete"
             messageSort="SynchCall"
             createSelfMessage="false">
@@ -7853,7 +7853,7 @@
           </message>
           <message
             Id="e2c7838d-1a5b-4b10-aa72-7f8d0e0bfdeb"
-            name="Parcelamento response"
+            name="Response Status 200: ParcelamentoResponse{JSON}"
             messageKind="Complete"
             messageSort="Reply"
             createSelfMessage="false">
@@ -7925,7 +7925,7 @@
 canal inicia transação, 
 
 
-envia pagamente,
+envia pagamento,
 
 envia infos para antifraude
 
@@ -8816,7 +8816,7 @@ envia autorização de pagamento</body>
         <messages>
           <message
             Id="60e1e3cc-7858-474a-bf35-c7cd7c1c4c9c"
-            name="POST:Order{JSON}:https://lojavtexendpoint/pvt/orders?sc=[idcanal]&amp;affiliateId=idafiliado"
+            name="POST:Order{JSON}:https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders?sc=[idcanal]&amp;affiliateId=[idafiliado]"
             messageKind="Complete"
             messageSort="SynchCall"
             createSelfMessage="false">
@@ -9006,7 +9006,7 @@ envia autorização de pagamento</body>
           </message>
           <message
             Id="ecdaf5ff-87a5-484b-a26a-072b48f7fa60"
-            name="POST:Order{JSON}:https://lojavtexendpoint/pvt/orders/[orderid]/fulfill?sc=[idcanal]&amp;affiliateId=idafiliado"
+            name="POST:Order{JSON}:https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders/[orderid]/fulfill?sc=[idcanal]&amp;affiliateId=idafiliado"
             messageKind="Complete"
             messageSort="SynchCall"
             createSelfMessage="false">
@@ -9044,7 +9044,7 @@ envia autorização de pagamento</body>
           </message>
           <message
             Id="9151e5d1-e063-47da-8d7e-1cc59eb3d7b2"
-            name="POST:Order{JSON}:https://lojavtexendpoint/pvt/orders/[orderid]/cancel"
+            name="POST:Order{JSON}:https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders/[orderid]/cancel"
             messageKind="Complete"
             messageSort="SynchCall"
             createSelfMessage="false">
